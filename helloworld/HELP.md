@@ -12,7 +12,7 @@
     
 ### java代码目录规划
  
- Spring Boot 建议的目录结果如下：
+ Spring Boot 建议的目录规划如下：
     
     com
       +- easy
