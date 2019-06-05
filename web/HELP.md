@@ -3,6 +3,7 @@
 ## 介绍
 
 Spring Boot Web 开发非常简单，该示例包括包括目前web开发基本都需要用到的内容
+
     - 序列化(json)输出
     - 过滤器(filters)
     - 监视器(listener)
@@ -12,6 +13,7 @@ Spring Boot Web 开发非常简单，该示例包括包括目前web开发基本�
     - 数据库(mysql)crud
     - ORM
     - 单元测试
+    
  等等内容
     
 ## 示例代码目录介绍
@@ -147,4 +149,4 @@ bootstrap|前端框架|
 
 ## 资料
 
-[示例代码-github](https://github.com/smltq/spring-boot-demo/tree/master/web)
+[示例代码-github](https://github.com/smltq/spring-boot-demo/blob/master/web/HELP.md)
