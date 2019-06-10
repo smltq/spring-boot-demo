@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-// BigValiant只要关心自己的核心业务功能
+// 房东只要关心自己的核心业务功能
 public class Landlord {
     @Value("${landlord:某某}")
     private String landlord;
