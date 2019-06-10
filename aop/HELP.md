@@ -1,6 +1,6 @@
 # Spring Boot AOP
 
-面向方面编程（AOP）通过提供另一种思考程序结构的方式来补充面向对象编程（OOP）。
+面向切面编程（AOP）通过提供另一种思考程序结构的方式来补充面向对象编程（OOP）。
 OOP中模块化的关键单元是类，而在AOP中，模块化单元是方面。
 
 ## AOP(Aspect Oriented Program) 面向切面编程
