@@ -2,10 +2,14 @@ package demo.data.redis.web;
 
 import demo.data.redis.model.User;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -28,4 +32,18 @@ public class UserController {
         session.setAttribute("uid", uid);
         return session.getId();
     }
+
+//    @PostMapping("/register")
+//    public ResponseEntity register(@RequestBody User user, HttpServletRequest request) {
+//        request.getSession().setAttribute("user", user);
+//        return new ResponseEntity(userRespository.save(user), HttpStatus.OK);
+//    }
+//
+//    @GetMapping("/session")
+//    public ResponseEntity getSessionMessage(HttpServletRequest request) {
+//        Map<String, Object> map = new HashMap<>();
+//        map.put("sessionId", request.getSession().getId());
+//        map.put("message", request.getSession().getAttribute("user"));
+//        return new ResponseEntity(map, HttpStatus.OK);
+//    }
 }

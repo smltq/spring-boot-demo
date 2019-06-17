@@ -26,4 +26,25 @@ public class DemoRedisApplication implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(DemoRedisApplication.class, args).close();
     }
+
+    @SpringBootApplication
+    public static class DemoRedisApplication1 implements CommandLineRunner {
+
+        @Autowired
+        private StringRedisTemplate template;
+
+        @Override
+        public void run(String... args) {
+            ValueOperations<String, String> ops = this.template.opsForValue();
+            String key = "DemoRedisApplication";
+            if (!this.template.hasKey(key)) {
+                ops.set(key, "easy-web");
+            }
+            System.out.println("找到key=" + key + ", 值=" + ops.get(key));
+        }
+
+        public static void main(String[] args) {
+            SpringApplication.run(DemoRedisApplication1.class, args).close();
+        }
+    }
 }
