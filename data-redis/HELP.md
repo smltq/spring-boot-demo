@@ -1,6 +1,6 @@
 # redis使用示例
 
-## 本示例主要内容
+## 主要内容
 
 - 使用lettuce操作redis
 - redis字符串存储(RedisStringController.java)
