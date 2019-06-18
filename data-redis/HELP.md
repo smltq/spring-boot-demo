@@ -191,3 +191,5 @@ maxInactiveIntervalInSeconds: 设置 Session 失效时间，使用 Redis Session
 ## 资料
 
 [示例代码-github](https://github.com/smltq/spring-boot-demo/blob/master/data-redis/HELP.md)
+[redis下载地址](https://github.com/microsoftarchive/redis/releases)
+[redis管理工具](https://github.com/necan/RedisDesktopManager-Windows/releases)
