@@ -16,4 +16,4 @@ Spring Boot的核心思想就是约定大于配置，一切自动完成。采用
 helloworld|spring boot 入门示例|[详细介绍](https://github.com/smltq/spring-boot-demo/blob/master/helloworld/HELP.md)|
 web|ssh项目示例|[web项目介绍](https://github.com/smltq/spring-boot-demo/blob/master/web/HELP.md)|
 aop|spring boot aop示例|[aop详细介绍](https://github.com/smltq/spring-boot-demo/blob/master/aop/HELP.md)|
-data-redis|spring boot redis示例||
+data-redis|spring boot redis示例|[redis介绍](https://github.com/smltq/spring-boot-demo/blob/master/data-redis/HELP.md)|
