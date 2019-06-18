@@ -1,64 +1,33 @@
 package demo.data.redis.config;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.CachingConfigurerSupport;
-import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.RedisPassword;
-import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
-import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-import java.io.Serializable;
-import java.lang.reflect.Method;
-
 @Configuration
-@EnableCaching
-public class RedisConfig extends CachingConfigurerSupport {
-
-    @Value("${spring.redis.host}")
-    private String host;
-    @Value("${spring.redis.port}")
-    private int port;
-    @Value("${spring.redis.password}")
-    private String password;
+public class RedisConfig {
 
     @Bean
-    public RedisTemplate<String, Serializable> redisTemplate() {
-        RedisTemplate<String, Serializable> redisTemplate = new RedisTemplate<>();
-        redisTemplate.setKeySerializer(new StringRedisSerializer());
+    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+
+        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+
+        //使用Jackson2JsonRedisSerializer来序列化和反序列化redis的value值
         redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
-        redisTemplate.setConnectionFactory(jedisConnectionFactory());
+        redisTemplate.setHashValueSerializer(new GenericJackson2JsonRedisSerializer());
+
+        //使用StringRedisSerializer来序列化和反序列化redis的ke
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        redisTemplate.setHashKeySerializer(new StringRedisSerializer());
+
+        //开启事务
+        redisTemplate.setEnableTransactionSupport(true);
+
+        redisTemplate.setConnectionFactory(redisConnectionFactory);
+
         return redisTemplate;
-    }
-
-    @Bean
-    public JedisConnectionFactory jedisConnectionFactory() {
-        RedisStandaloneConfiguration config = new RedisStandaloneConfiguration();
-        config.setHostName(host);
-        config.setPort(port);
-        config.setPassword(RedisPassword.of(password));
-        JedisConnectionFactory connectionFactory = new JedisConnectionFactory(config);
-        return connectionFactory;
-    }
-
-    @Bean
-    public KeyGenerator keyGenerator() {
-        return new KeyGenerator() {
-            @Override
-            public Object generate(Object target, Method method, Object... params) {
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append(target.getClass().getName());
-                stringBuilder.append(method.getName());
-                for (Object object : params) {
-                    stringBuilder.append(object.toString());
-                }
-                return stringBuilder.toString();
-            }
-        };
     }
 }

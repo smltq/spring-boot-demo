@@ -5,34 +5,20 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.5.RELEASE</version>
+        <version>2.1.0.RELEASE</version>
         <relativePath/>
     </parent>
     <artifactId>data-redis</artifactId>
     <name>Spring Boot Data Redis Demo</name>
     <description>Spring Boot Data Redis Demo</description>
     <properties>
-        <main.basedir>${basedir}/../..</main.basedir>
+        <prpool2oject.build.sourceEncoding>UTF-8</prpool2oject.build.sourceEncoding>
+        <java.version>1.8</java.version>
     </properties>
     <dependencies>
-        <!-- Compile -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.lettuce</groupId>
-                    <artifactId>lettuce-core</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.session</groupId>
@@ -40,14 +26,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.199</version>
-            <scope>test</scope>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -55,30 +34,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.8</version>
         </dependency>
     </dependencies>
-    <profiles>
-        <profile>
-            <id>production</id>
-            <dependencies>
-                <!-- This sample is a test for the autoconfig when commons-pool is *absent*.
-                    In production it would be useful to enable pooling by using this dependency. -->
-                <dependency>
-                    <groupId>commons-pool</groupId>
-                    <artifactId>commons-pool</artifactId>
-                    <type>pom.lastUpdated</type>
-                </dependency>
-            </dependencies>
-        </profile>
-    </profiles>
     <build>
         <plugins>
             <plugin>
