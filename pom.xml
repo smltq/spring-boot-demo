@@ -11,5 +11,7 @@
     <modules>
         <module>helloworld</module>
         <module>web</module>
+        <module>data-redis</module>
+        <module>quartz</module>
     </modules>
 </project>
