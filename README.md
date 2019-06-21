@@ -2,7 +2,7 @@
 
 Spring Boot 学习示例,将持续更新...
 
-本项目基于spring boot 最新版本（2.1.5）实现示例
+本项目基于spring boot 最新版本（2.1.5）实现
 
 ## 什么是spring-boot
 
