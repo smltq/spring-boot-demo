@@ -1,3 +1,6 @@
 /*.iml
 /.idea
 /aop/target
+/helloworld/.mvn
+/quartz/target
+/quartz/.idea
