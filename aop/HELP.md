@@ -163,7 +163,3 @@ execution：代表执行方法的时候会触发
 - [spring aop介绍](https://docs.spring.io/spring/docs/2.5.x/reference/aop.html)
 - [spring aop介绍（中文）](http://shouce.jb51.net/spring/aop.html)
 - [示例代码-github](https://github.com/smltq/spring-boot-demo/blob/master/aop/HELP.md)
-
-
-
-
