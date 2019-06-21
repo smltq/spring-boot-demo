@@ -134,7 +134,7 @@ org.quartz.jobStore.driverDelegateClass = org.quartz.impl.jdbcjobstore.StdJDBCDe
 #============================================================================
 # 调度标识名 集群中每一个实例都必须使用相同的名称
 org.quartz.scheduler.instanceName = ClusterQuartz
-# #ID设置为自动获取 每一个必须不同
+# ID设置为自动获取 每一个必须不同
 org.quartz.scheduler.instanceId= AUTO
 
 #============================================================================
