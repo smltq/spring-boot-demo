@@ -133,7 +133,7 @@ execution(* demo.aop.service.Landlord.service())
 
 execution：代表执行方法的时候会触发
 
-- * ：代表任意返回类型的方法
+- \* ：代表任意返回类型的方法
 - demo.aop.service.Landlord.service()：被拦截的方法名称
 
 通过上面的表达式，Spring 就会知道应该拦截 demo.aop.service.Landlord 类下的 service() 方法。重复定义正则表达式很麻烦，例子中使用 @Pointcut 注解来定义一个切点来避免重复写正则表达式：
