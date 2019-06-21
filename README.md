@@ -17,3 +17,4 @@ helloworld|spring boot 入门示例|[详细介绍](https://github.com/smltq/spri
 web|ssh项目示例|[web项目介绍](https://github.com/smltq/spring-boot-demo/blob/master/web/HELP.md)|
 aop|spring boot aop示例|[aop详细介绍](https://github.com/smltq/spring-boot-demo/blob/master/aop/HELP.md)|
 data-redis|spring boot redis示例|[redis介绍](https://github.com/smltq/spring-boot-demo/blob/master/data-redis/HELP.md)|
+quartz|定时任务集群示例|[quartz介绍](https://github.com/smltq/spring-boot-demo/blob/master/quartz/HELP.md)|
