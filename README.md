@@ -16,8 +16,8 @@ Spring Boot的核心思想就是约定大于配置，一切自动完成。采用
 
 模块名称|说明|主要内容|详细介绍
 ---|---|---|---|
-helloworld|spring boot 入门示例|spring mvc,Spring Boot项目创建,单元测试使用|[详细介绍](https://github.com/smltq/spring-boot-demo/blob/master/helloworld/HELP.md)|
-web|ssh项目示例|spring mvc,过滤器,拦截器,监视器,thymeleaf,lombok,jquery,bootstrap,mysql|[web项目介绍](https://github.com/smltq/spring-boot-demo/blob/master/web/HELP.md)|
-aop|spring boot aop示例|aop,正则,前置通知（Before advice）,后置通知（After returning advice）,环绕通知（Around Advice）|[aop详细介绍](https://github.com/smltq/spring-boot-demo/blob/master/aop/HELP.md)|
-data-redis|spring boot redis示例|lettuce,redis,session redis,YAML配置,连接池,对象存储|[redis介绍](https://github.com/smltq/spring-boot-demo/blob/master/data-redis/HELP.md)|
-quartz|定时任务集群示例|Spring Scheduler,Quartz,分布式调度,集群,高可用,高可扩展性实现,mysql持久化|[quartz介绍](https://github.com/smltq/spring-boot-demo/blob/master/quartz/HELP.md)|
+helloworld|spring boot 入门|spring mvc,Spring Boot项目创建,单元测试使用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/helloworld/HELP.md)|
+web|ssh项目|spring mvc,过滤器,拦截器,监视器,thymeleaf,lombok,jquery,bootstrap,mysql|[详细](https://github.com/smltq/spring-boot-demo/blob/master/web/HELP.md)|
+aop|spring boot aop|aop,正则,前置通知（Before advice）,后置通知（After returning advice）,环绕通知（Around Advice）|[详细](https://github.com/smltq/spring-boot-demo/blob/master/aop/HELP.md)|
+data-redis|spring boot redis示例|lettuce,redis,session redis,YAML配置,连接池,对象存储|[详细](https://github.com/smltq/spring-boot-demo/blob/master/data-redis/HELP.md)|
+quartz|定时任务集群|Spring Scheduler,Quartz,分布式调度,集群,高可用,高可扩展性实现,mysql持久化|[详细](https://github.com/smltq/spring-boot-demo/blob/master/quartz/HELP.md)|
