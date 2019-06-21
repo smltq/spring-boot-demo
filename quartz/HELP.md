@@ -4,7 +4,7 @@
 
 - Spring Scheduler 框架
 - Quartz 框架，功能强大，配置灵活
-- Quartz 集群使用
+- Quartz 集群
 - mysql 持久化定时任务脚本(tables_mysql.sql)
 
 ## 介绍
