@@ -14,7 +14,7 @@ Spring Boot的核心思想就是约定大于配置，一切自动完成。采用
 
 ## 目录介绍
 
-模块名称|说明|主要内容|详细介绍
+模块名称|说明|主要内容|详细
 ---|---|---|---|
 helloworld|spring boot 入门|spring mvc,Spring Boot项目创建,单元测试|[详细](https://github.com/smltq/spring-boot-demo/blob/master/helloworld/HELP.md)|
 web|ssh项目|spring mvc,过滤器,拦截器,监视器,thymeleaf,lombok,jquery,bootstrap,mysql|[详细](https://github.com/smltq/spring-boot-demo/blob/master/web/HELP.md)|
