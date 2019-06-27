@@ -6,12 +6,15 @@
 
     <groupId>com.easy</groupId>
     <artifactId>spring-boot-demo</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <modules>
         <module>helloworld</module>
         <module>web</module>
         <module>data-redis</module>
+        <module>aop</module>
         <module>quartz</module>
+        <module>shiro</module>
     </modules>
 </project>
