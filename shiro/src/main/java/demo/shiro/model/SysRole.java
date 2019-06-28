@@ -1,10 +1,11 @@
 package demo.shiro.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class SysRole {
+public class SysRole implements Serializable {
     @Id@GeneratedValue
     private Integer id; // 编号
     private String role; // 角色标识程序中判断使用,如"admin",这个是唯一的:
