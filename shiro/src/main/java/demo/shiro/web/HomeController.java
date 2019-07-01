@@ -1,5 +1,6 @@
 package demo.shiro.web;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @Controller
+@Slf4j
 public class HomeController {
     @RequestMapping({"/", "/index"})
     public String index() {
@@ -44,17 +46,9 @@ public class HomeController {
         return "/login";
     }
 
-    //退出
-    @RequestMapping("loginAction_logout")
-    public String logout() {
-        SecurityUtils.getSubject().logout();
-        return "logout";
-    }
-
     @RequestMapping("/403")
     public String unauthorizedRole() {
-        System.out.println("------没有权限-------");
+        log.info("------没有权限-------");
         return "403";
     }
-
 }
