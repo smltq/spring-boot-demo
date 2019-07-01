@@ -36,15 +36,14 @@ public class ShiroConfig {
         //拦截器
         Map<String, String> filterMap = new LinkedHashMap<>();
 
-        // 配置不会被拦截的链接 顺序判断
+        //anon:所有url都都可以匿名访问
         Set<String> urlSet = new HashSet<>(ignoreAuthUrlProperties.getIgnoreAuthUrl());
         urlSet.stream().forEach(temp -> filterMap.put(temp, "anon"));
 
         //配置退出 过滤器
         filterMap.put("/logout", "logout");
 
-        //过滤链定义，从上向下顺序执行，一定要将/**放在最为下边
-        //authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问
+        //authc:所有url都必须认证通过才可以访问
         filterMap.put("/**", "authc");
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap);
@@ -94,18 +93,22 @@ public class ShiroConfig {
         return authorizationAttributeSourceAdvisor;
     }
 
+    /**
+     * 异常处理
+     *
+     * @return
+     */
     @Bean(name = "simpleMappingExceptionResolver")
     public SimpleMappingExceptionResolver createSimpleMappingExceptionResolver() {
         SimpleMappingExceptionResolver r = new SimpleMappingExceptionResolver();
 
         Properties mappings = new Properties();
-        mappings.setProperty("DatabaseException", "databaseError"); //数据库异常处理
+        mappings.setProperty("DatabaseException", "databaseError");
         mappings.setProperty("UnauthorizedException", "403");
+        r.setExceptionMappings(mappings);
 
-        r.setExceptionMappings(mappings);  // None by default
-        r.setDefaultErrorView("error");    // No default
-        r.setExceptionAttribute("ex");     // Default is "exception"
-        //r.setWarnLogCategory("example.MvcLogger");     // No default
+        r.setDefaultErrorView("error");
+        r.setExceptionAttribute("ex");
         return r;
     }
 }
