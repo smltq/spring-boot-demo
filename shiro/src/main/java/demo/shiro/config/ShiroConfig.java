@@ -72,7 +72,6 @@ public class ShiroConfig {
         return authRealm;
     }
 
-
     /**
      * 安全管理器
      *

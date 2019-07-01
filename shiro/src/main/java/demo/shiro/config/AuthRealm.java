@@ -68,10 +68,10 @@ public class AuthRealm extends AuthorizingRealm {
         }
 
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-                userInfo, //用户
-                userInfo.getPassword(), //密码
-                ByteSource.Util.bytes(userInfo.getCredentialsSalt()),
-                getName()
+                userInfo,                                               //用户
+                userInfo.getPassword(),                                 //密码
+                ByteSource.Util.bytes(userInfo.getCredentialsSalt()),   //加盐后的密码
+                getName()                                               //指定当前 Realm 的类名
         );
         return authenticationInfo;
     }
