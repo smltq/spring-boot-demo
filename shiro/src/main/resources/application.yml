@@ -1,38 +1,44 @@
 spring:
-    datasource:
-      url: jdbc:mysql://localhost:3306/easy_web?useSSL=false&serverTimezone=UTC
-      username: root
-      password: 123456
-      #schema: database/import.sql
-      #sql-script-encoding: utf-8
-      driver-class-name: com.mysql.cj.jdbc.Driver
+  datasource:
+    url: jdbc:mysql://localhost:3306/easy_web?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
-    jpa:
-      database: mysql
-      show-sql: true
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
       hibernate:
-        ddl-auto: update
-      properties:
-         hibernate:
-            dialect: org.hibernate.dialect.MySQL5Dialect
+        dialect: org.hibernate.dialect.MySQL5Dialect
 
-    thymeleaf:          # 模板配置
-       cache: false
-       mode: HTML
+  # 模板配置
+  thymeleaf:
+    cache: false
+    mode: HTML
 
-    redis:
-      host: 127.0.0.1
-      port: 6379
-      password:
-      lettuce:
-        pool:
-          # 连接池最大连接数（使用负值表示没有限制）
-          max-active: 8
-          # 连接池最大阻塞等待时间（使用负值表示没有限制）
-          max-wait: 1000
-          # 连接池中的最大空闲连接
-          max-idle: 8
-          # 连接池中的最小空闲连接
-          min-idle: 0
-          # 关闭超时时间
-          shutdown-timeout: 100
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    lettuce:
+      pool:
+        # 连接池最大连接数（使用负值表示没有限制）
+        max-active: 8
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: 1000
+        # 连接池中的最大空闲连接
+        max-idle: 8
+        # 连接池中的最小空闲连接
+        min-idle: 0
+        # 关闭超时时间
+        shutdown-timeout: 100
+
+  shiro:
+    # 允许匿名访问的url地址
+    ignoreAuthUrl:
+      - /static/**
+      - /test
+      - /testDemo
