@@ -26,26 +26,26 @@ public class ShiroConfig {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
 
-        //拦截器.
+        // 配置登录页
+        shiroFilterFactoryBean.setLoginUrl("/login");
+        // 登录成功后跳转页面
+        shiroFilterFactoryBean.setSuccessUrl("/index");
+        //未授权界面
+        shiroFilterFactoryBean.setUnauthorizedUrl("/403");
+
+        //拦截器
         Map<String, String> filterMap = new LinkedHashMap<>();
 
         // 配置不会被拦截的链接 顺序判断
         Set<String> urlSet = new HashSet<>(ignoreAuthUrlProperties.getIgnoreAuthUrl());
         urlSet.stream().forEach(temp -> filterMap.put(temp, "anon"));
 
-        //配置退出 过滤器,其中的具体的退出代码Shiro已经替我们实现了
+        //配置退出 过滤器
         filterMap.put("/logout", "logout");
 
-        //  过滤链定义，从上向下顺序执行，一般将/**放在最为下边
-        //  authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问
+        //过滤链定义，从上向下顺序执行，一定要将/**放在最为下边
+        //authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问
         filterMap.put("/**", "authc");
-
-        // 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
-        shiroFilterFactoryBean.setLoginUrl("/login");
-        // 登录成功后要跳转的链接
-        shiroFilterFactoryBean.setSuccessUrl("/index");
-        //未授权界面;
-        shiroFilterFactoryBean.setUnauthorizedUrl("/403");
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap);
         return shiroFilterFactoryBean;
@@ -53,16 +53,14 @@ public class ShiroConfig {
 
     /**
      * 凭证匹配器
-     * （由于我们的密码校验交给Shiro的SimpleAuthenticationInfo进行处理了
-     * ）
      *
      * @return
      */
     @Bean
     public HashedCredentialsMatcher hashedCredentialsMatcher() {
         HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
-        hashedCredentialsMatcher.setHashAlgorithmName("md5");//散列算法:这里使用MD5算法;
-        hashedCredentialsMatcher.setHashIterations(2);//散列的次数，比如散列两次，相当于 md5(md5(""));
+        hashedCredentialsMatcher.setHashAlgorithmName("md5");       //散列算法:这里使用MD5算法;
+        hashedCredentialsMatcher.setHashIterations(2);              //散列的次数，比如散列两次，相当于 md5(md5(""));
         return hashedCredentialsMatcher;
     }
 
@@ -74,6 +72,11 @@ public class ShiroConfig {
     }
 
 
+    /**
+     * 安全管理器
+     *
+     * @return
+     */
     @Bean
     public SecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
@@ -82,11 +85,7 @@ public class ShiroConfig {
     }
 
     /**
-     * 开启shiro aop注解支持.
-     * 使用代理方式;所以需要开启代码支持;
-     *
-     * @param securityManager
-     * @return
+     * 启用shiro注解
      */
     @Bean
     public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
