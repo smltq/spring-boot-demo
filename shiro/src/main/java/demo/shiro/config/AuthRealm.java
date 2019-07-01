@@ -4,6 +4,7 @@ import demo.shiro.model.SysPermission;
 import demo.shiro.model.SysRole;
 import demo.shiro.model.UserInfo;
 import demo.shiro.sevice.UserInfoService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -16,36 +17,50 @@ import org.apache.shiro.util.ByteSource;
 
 import javax.annotation.Resource;
 
-public class MyShiroRealm extends AuthorizingRealm {
+@Slf4j
+public class AuthRealm extends AuthorizingRealm {
     @Resource
     private UserInfoService userInfoService;
+
+    /**
+     * 授权
+     *
+     * @param principals
+     * @return
+     */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        System.out.println("权限配置-->MyShiroRealm.doGetAuthorizationInfo()");
+        log.info("权限配置-->AuthRealm.doGetAuthorizationInfo()");
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-        UserInfo userInfo  = (UserInfo)principals.getPrimaryPrincipal();
-        for(SysRole role:userInfo.getRoleList()){
+        UserInfo userInfo = (UserInfo) principals.getPrimaryPrincipal();
+        for (SysRole role : userInfo.getRoleList()) {
             authorizationInfo.addRole(role.getRole());
-            for(SysPermission p:role.getPermissions()){
+            for (SysPermission p : role.getPermissions()) {
                 authorizationInfo.addStringPermission(p.getPermission());
             }
         }
         return authorizationInfo;
     }
 
-    /*主要是用来进行身份认证的，也就是说验证用户输入的账号和密码是否正确。*/
+    /**
+     * 认证(主要是用来进行身份认证的，也就是说验证用户输入的账号和密码是否正确)
+     *
+     * @param token
+     * @return
+     * @throws AuthenticationException
+     */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token)
             throws AuthenticationException {
-        System.out.println("MyShiroRealm.doGetAuthenticationInfo()");
+        System.out.println("AuthRealm.doGetAuthenticationInfo()");
         //获取用户的输入的账号.
-        String username = (String)token.getPrincipal();
+        String username = (String) token.getPrincipal();
         System.out.println(token.getCredentials());
         //通过username从数据库中查找 User对象，如果找到，没找到.
         //实际项目中，这里可以根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法
         UserInfo userInfo = userInfoService.findByUsername(username);
-        System.out.println("----->>userInfo="+userInfo);
-        if(userInfo == null){
+        System.out.println("----->>userInfo=" + userInfo);
+        if (userInfo == null) {
             return null;
         }
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
