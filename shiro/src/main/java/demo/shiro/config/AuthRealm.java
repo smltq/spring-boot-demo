@@ -61,7 +61,7 @@ public class AuthRealm extends AuthorizingRealm {
 
         log.info("credentials:" + token.getCredentials());
 
-        //这里可以根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法
+        //TODO:根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法
         UserInfo userInfo = userInfoService.findByUsername(username);
         if (userInfo == null) {
             throw new AuthenticationException("不存在的账号，登录失败！");
@@ -70,10 +70,9 @@ public class AuthRealm extends AuthorizingRealm {
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
                 userInfo, //用户
                 userInfo.getPassword(), //密码
-                ByteSource.Util.bytes(userInfo.getCredentialsSalt()),//salt=username+salt
-                getName()  //realm name
+                ByteSource.Util.bytes(userInfo.getCredentialsSalt()),
+                getName()
         );
         return authenticationInfo;
     }
-
 }
