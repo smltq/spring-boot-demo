@@ -16,5 +16,6 @@
         <module>aop</module>
         <module>quartz</module>
         <module>shiro</module>
+        <module>pac4j</module>
     </modules>
 </project>

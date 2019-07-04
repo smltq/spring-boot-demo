@@ -10,9 +10,9 @@
         <relativePath/>
     </parent>
 
-    <artifactId>shiro</artifactId>
-    <name>Spring Boot Shiro Demo</name>
-    <description>Spring Boot Shiro Demo</description>
+    <artifactId>pac4j</artifactId>
+    <name>Spring Boot Pac4j Demo</name>
+    <description>Spring Boot Pac4j Demo</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
