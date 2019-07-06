@@ -10,4 +10,4 @@ cas使用pac4j
 ## 介绍
 
 ## 资料
-[原来单点登录这么简单](https://mp.weixin.qq.com/s?__biz=MzI5ODI5NDkxMw==&mid=2247489068&idx=1&sn=8f2c9eaae44664c0850f023f45576ab9&chksm=eca95dc2dbded4d4163eea3c66fa1ac46671ebcb2f23012941b6c2133f4a57bc55f95ed53028&mpshare=1&scene=23&srcid=0705tCGulkdAUeFBwrb0KWAj#rd)
+[原来单点登录这么简单 ](https://mp.weixin.qq.com/s?__biz=MzI5ODI5NDkxMw==&mid=2247489068&idx=1&sn=8f2c9eaae44664c0850f023f45576ab9&chksm=eca95dc2dbded4d4163eea3c66fa1ac46671ebcb2f23012941b6c2133f4a57bc55f95ed53028&mpshare=1&scene=23&srcid=0705tCGulkdAUeFBwrb0KWAj#rd)
