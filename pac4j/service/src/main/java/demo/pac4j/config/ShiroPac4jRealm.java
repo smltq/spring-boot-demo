@@ -1,9 +1,10 @@
 package demo.pac4j.config;
 
-import demo.shiro.model.SysPermission;
-import demo.shiro.model.SysRole;
-import demo.shiro.model.UserInfo;
-import demo.shiro.sevice.UserInfoService;
+import demo.pac4j.model.SysPermission;
+import demo.pac4j.model.SysRole;
+import demo.pac4j.model.UserInfo;
+import demo.pac4j.sevice.UserInfoService;
+import io.buji.pac4j.realm.Pac4jRealm;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -11,14 +12,13 @@ import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
-import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 
 import javax.annotation.Resource;
 
 @Slf4j
-public class AuthRealm extends AuthorizingRealm {
+public class ShiroPac4jRealm extends Pac4jRealm {
 
     @Resource
     private UserInfoService userInfoService;
@@ -31,7 +31,7 @@ public class AuthRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        log.info("调用授权方法");
+        //log.info("调用授权方法");
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         UserInfo userInfo = (UserInfo) principals.getPrimaryPrincipal();
         for (SysRole role : userInfo.getRoleList()) {
@@ -52,16 +52,15 @@ public class AuthRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        log.info("调用认证方法");
+        //log.info("调用认证方法");
         //获取用户的输入的账号.
         String username = (String) token.getPrincipal();
         if (username == null) {
             throw new AuthenticationException("账号名为空，登录失败！");
         }
 
-        log.info("credentials:" + token.getCredentials());
+        //log.info("credentials:" + token.getCredentials());
 
-        //TODO:根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法
         UserInfo userInfo = userInfoService.findByUsername(username);
         if (userInfo == null) {
             throw new AuthenticationException("不存在的账号，登录失败！");

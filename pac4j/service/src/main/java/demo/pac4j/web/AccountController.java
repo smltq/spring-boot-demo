@@ -5,54 +5,71 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
+import org.pac4j.cas.client.rest.CasRestFormClient;
+import org.pac4j.cas.profile.CasProfile;
+import org.pac4j.cas.profile.CasRestProfile;
+import org.pac4j.core.context.J2EContext;
+import org.pac4j.core.credentials.TokenCredentials;
+import org.pac4j.core.profile.ProfileManager;
+import org.pac4j.jwt.profile.JwtGenerator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
 @Slf4j
 public class AccountController {
 
-    /**
-     * 登录
-     *
-     * @param username
-     * @param password
-     * @param map      如果出错，回传给前端的map
-     * @return
-     */
-    @RequestMapping("/login")
-    public String login(String username, String password, Map<String, Object> map) {
-        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
-        Subject subject = SecurityUtils.getSubject();
-        String msg = "";
-        try {
-            subject.login(token);
-        } catch (IncorrectCredentialsException e) {
-            log.info("IncorrectCredentialsException -- > 密码不正确");
-            msg = "IncorrectCredentialsException -- > 密码不正确";
-        } catch (UnknownAccountException e) {
-            log.info("UnknownAccountException -- > 账号不存在");
-            msg = "UnknownAccountException -- > 账号不存在";
-        } catch (Exception e) {
-            log.info("异常： -- >" + e);
-            msg = "异常： " + e;
-        }
+    @Autowired
+    private JwtGenerator generator;
 
-        //判断登录是否出现错误
-        if (msg.length() > 0) {
-            map.put("msg", msg);
-            return "/login";
-        } else {
-            return "redirect:index";
-        }
+    @Autowired
+    private CasRestFormClient casRestFormClient;
+
+    @Value("${cas.serviceUrl}")
+    private String serviceUrl;
+
+    @GetMapping("/")
+    public Object index() {
+        return "index page";
     }
 
-    @RequestMapping("/403")
-    public String unauthorized() {
-        log.info("------没有权限-------");
-        return "403";
+    @GetMapping("/user/{id}")
+    @RequiresRoles("aRoleName")
+    public Object user(@PathVariable(value = "id") String id) {
+        return "users page:" + id;
+    }
+
+    @GetMapping("/user/detail")
+    public Object detail(HttpServletRequest request) {
+        return "users:" + request.getUserPrincipal().getName();
+    }
+
+    @RequestMapping("/user/login")
+    public Object login(HttpServletRequest request, HttpServletResponse response) {
+        Map<String, Object> model = new HashMap<>();
+        J2EContext context = new J2EContext(request, response);
+        final ProfileManager<CasRestProfile> manager = new ProfileManager(context);
+        final Optional<CasRestProfile> profile = manager.get(true);
+        //获取ticket
+        TokenCredentials tokenCredentials = casRestFormClient.requestServiceTicket(serviceUrl, profile.get(), context);
+        //根据ticket获取用户信息
+        final CasProfile casProfile = casRestFormClient.validateServiceTicket(serviceUrl, tokenCredentials, context);
+        //生成jwt token
+        String token = generator.generate(casProfile);
+        model.put("token", token);
+        return new HttpEntity<>(model);
     }
 }

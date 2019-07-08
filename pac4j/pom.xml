@@ -16,9 +16,11 @@
         <relativePath/>
     </parent>
 
+    <groupId>spring-boot-demo</groupId>
     <artifactId>pac4j</artifactId>
     <name>Spring Boot Pac4j Demo</name>
     <description>Spring Boot Pac4j Demo</description>
+    <version>0.0.1-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

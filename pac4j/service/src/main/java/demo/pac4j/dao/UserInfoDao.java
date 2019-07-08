@@ -1,6 +1,6 @@
 package demo.pac4j.dao;
 
-import demo.shiro.model.UserInfo;
+import demo.pac4j.model.UserInfo;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UserInfoDao extends CrudRepository<UserInfo, Long> {

@@ -1,6 +1,6 @@
 package demo.pac4j.sevice;
 
-import demo.shiro.model.UserInfo;
+import demo.pac4j.model.UserInfo;
 
 public interface UserInfoService {
     /**通过username查找用户信息;*/
