@@ -1,27 +1,49 @@
 spring:
-  application:
-    name: permission-management
-  profiles:
-    active: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/easy_web?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+
+  # 模板配置
   thymeleaf:
-    cache: true # Enable template caching.
-    check-template: true # Check that the template exists before rendering it.
-    check-template-location: true # Check that the templates location exists.
-    content-type: text/html # Content-Type value.
-    enabled: true # Enable MVC Thymeleaf view resolution.
-    encoding: UTF-8 # Template encoding.
-    mode: HTML5 # Template mode to be applied to templates. See also StandardTemplateModeHandlers.
-    prefix: classpath:/templates/ # Prefix that gets prepended to view names when building a URL.
-    suffix: .html
-  aop:
-    proxy-target-class: true
+    cache: false
+    mode: HTML
 
----
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    lettuce:
+      pool:
+        # 连接池最大连接数（使用负值表示没有限制）
+        max-active: 8
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: 1000
+        # 连接池中的最大空闲连接
+        max-idle: 8
+        # 连接池中的最小空闲连接
+        min-idle: 0
+        # 关闭超时时间
+        shutdown-timeout: 100
 
-spring:
-  profiles: dev
+  shiro:
+    # 允许匿名访问的url地址
+    ignoreAuthUrl:
+      - /static/**
+      - /test
+      - /testDemo
 cas:
-  prefixUrl: http://passport.sso.com:8443/cas
+  prefixUrl: 127.0.0.1:8443/cas
   loginUrl: ${cas.prefixUrl}/login
   serviceUrl: http://localhost:${server.port}
   callbackUrl: ${cas.serviceUrl}/callback
@@ -30,4 +52,3 @@ jwt:
 debug: true
 server:
   port: 8082
----
