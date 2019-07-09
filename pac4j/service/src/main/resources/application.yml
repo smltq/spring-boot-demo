@@ -43,7 +43,7 @@ spring:
       - /test
       - /testDemo
 cas:
-  prefixUrl: 127.0.0.1:8443/cas
+  prefixUrl: http://localhost:8443/cas
   loginUrl: ${cas.prefixUrl}/login
   serviceUrl: http://localhost:${server.port}
   callbackUrl: ${cas.serviceUrl}/callback
