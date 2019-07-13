@@ -4,3 +4,5 @@
 /helloworld/.mvn
 /quartz/target
 /quartz/.idea
+/mybatis-plus-generator/merchantplatform
+/mybatis-plus-generator/target
