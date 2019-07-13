@@ -17,5 +17,7 @@
         <module>quartz</module>
         <module>shiro</module>
         <module>pac4j</module>
+        <module>security</module>
+        <module>mybatis-plus-generator</module>
     </modules>
 </project>
