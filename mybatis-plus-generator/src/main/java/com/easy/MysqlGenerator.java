@@ -19,7 +19,7 @@ import java.util.Scanner;
  * mysql 代码生成器演示例子
  * </p>
  *
- * @author jobob
+ * @author bbx
  * @since 2018-09-12
  */
 public class MysqlGenerator {
@@ -54,7 +54,7 @@ public class MysqlGenerator {
         GlobalConfig gc = new GlobalConfig();
         final String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + "/mybatis-plus-generator/merchantplatform/src/main/java");
-        gc.setAuthor("jobob");
+        gc.setAuthor("bbx");
         gc.setOpen(false);
         mpg.setGlobalConfig(gc);
 
