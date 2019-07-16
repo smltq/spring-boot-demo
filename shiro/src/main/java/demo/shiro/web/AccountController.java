@@ -34,7 +34,7 @@ public class AccountController {
         } catch (UnknownAccountException e) {
             msg = "账号不存在！";
         } catch (DisabledAccountException e) {
-            msg = "message", "账号未启用！";
+            msg = "账号未启用！";
         } catch (IncorrectCredentialsException e) {
             msg = "密码错误！";
         } catch (Throwable e) {
