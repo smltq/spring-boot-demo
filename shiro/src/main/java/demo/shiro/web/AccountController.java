@@ -2,6 +2,7 @@ package demo.shiro.web;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.DisabledAccountException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -30,14 +31,14 @@ public class AccountController {
         String msg = "";
         try {
             subject.login(token);
-        }catch (UnknownAccountException e) {
-            msg= "账号不存在！";
+        } catch (UnknownAccountException e) {
+            msg = "账号不存在！";
         } catch (DisabledAccountException e) {
-            msg="message", "账号未启用！";
+            msg = "message", "账号未启用！";
         } catch (IncorrectCredentialsException e) {
-            msg="密码错误！";
+            msg = "密码错误！";
         } catch (Throwable e) {
-            msg="未知错误！";
+            msg = "未知错误！";
         }
 
         //判断登录是否出现错误
