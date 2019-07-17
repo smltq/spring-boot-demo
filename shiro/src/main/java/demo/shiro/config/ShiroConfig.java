@@ -1,5 +1,6 @@
 package demo.shiro.config;
 
+import demo.shiro.filter.MyFormAuthenticationFilter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 
+import javax.servlet.Filter;
 import java.util.*;
 
 @Configuration
@@ -39,6 +41,10 @@ public class ShiroConfig {
         //anon:所有url都都可以匿名访问
         Set<String> urlSet = new HashSet<>(ignoreAuthUrlProperties.getIgnoreAuthUrl());
         urlSet.stream().forEach(temp -> filterMap.put(temp, "anon"));
+
+        //用户未登录不进行跳转,返回错误信息
+        Map<String, Filter> filters = shiroFilterFactoryBean.getFilters();
+        filters.put("authc", new MyFormAuthenticationFilter());
 
         //配置退出 过滤器
         filterMap.put("/logout", "logout");
