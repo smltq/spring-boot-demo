@@ -1,5 +1,8 @@
 package demo.shiro.filter;
 
+import com.alibaba.fastjson.JSONObject;
+import demo.shiro.constant.RequestConstants;
+import demo.shiro.model.AjaxResult;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 
@@ -46,8 +49,8 @@ public class MyFormAuthenticationFilter extends FormAuthenticationFilter {
         setHeader((HttpServletRequest) request, (HttpServletResponse) response);
 
         PrintWriter out = response.getWriter();
-        ((HttpServletResponse) response).setStatus(401);
-        String result = "未登录";
+        ((HttpServletResponse) response).setStatus(Integer.parseInt(RequestConstants.NOTLOGIN));
+        String result = JSONObject.toJSONString(AjaxResult.notLogin());
         out.println(result);
         out.flush();
         out.close();

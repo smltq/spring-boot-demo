@@ -1,5 +1,6 @@
 package demo.shiro.config;
 
+import demo.shiro.model.AjaxResult;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -20,9 +21,9 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     @ResponseBody
-    String handleException(Exception e) {
+    AjaxResult handleException(Exception e) {
         log.error("Exception==> catch a exception by handler ", e);
-        return e.getMessage();
+        return AjaxResult.badRequest(e.getMessage());
     }
 
     /**
@@ -33,9 +34,9 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(RuntimeException.class)
     @ResponseBody
-    String handleRuntimeException(RuntimeException e) {
+    AjaxResult handleRuntimeException(RuntimeException e) {
         log.error("RuntimeException==>" + e.getMessage() + "\n" + e.getStackTrace());
-        return e.getMessage();
+        return AjaxResult.badRequest(e.getMessage());
     }
 
     /**
@@ -46,8 +47,8 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(UnauthorizedException.class)
     @ResponseBody
-    String handleUnauthorizedException(UnauthorizedException e) {
+    AjaxResult handleUnauthorizedException(UnauthorizedException e) {
         log.error("UnauthorizedException==>" + e.getMessage() + "\n" + e.getStackTrace());
-        return e.getMessage();
+        return AjaxResult.badRequest("未授权的访问!");
     }
 }
