@@ -1,6 +1,6 @@
 # Spring Boot Shiro
 
-## 本文主要内容
+## 本示例要内容
 
 - 基于RBAC，授权、认证
 - 加密、解密
@@ -242,7 +242,6 @@ public class AuthRealm extends AuthorizingRealm {
 ### 登录
 
 ```java
-
     /**
      * 登录
      *
@@ -275,8 +274,7 @@ public class AuthRealm extends AuthorizingRealm {
         } else {
             return "redirect:index";
         }
-    }
-    
+    }    
 ```
 
 ### 方法增加权限验证
@@ -296,8 +294,6 @@ public class AuthRealm extends AuthorizingRealm {
 这样配置完，执行程序。只有用户拥有userAdd权限才允许访问userAdd接口，否则会提示“未授权”访问
 
 ### 资料
-
-## 资料
 
 - [示例代码-github](https://github.com/smltq/spring-boot-demo/blob/master/shiro/HELP.md)
 - [shiro参考](http://wiki.jikexueyuan.com/project/shiro/)

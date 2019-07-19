@@ -21,4 +21,4 @@ web|ssh项目|spring mvc,过滤器,拦截器,监视器,thymeleaf,lombok,jquery,b
 aop|spring boot aop|aop,正则,前置通知,后置通知,环绕通知|[详细](https://github.com/smltq/spring-boot-demo/blob/master/aop/HELP.md)|
 data-redis|spring boot redis|lettuce,redis,session redis,YAML配置,连接池,对象存储|[详细](https://github.com/smltq/spring-boot-demo/blob/master/data-redis/HELP.md)|
 quartz|spring boot quartz|Spring Scheduler,Quartz,分布式调度,集群,高可用,可扩展性实现,mysql持久化|[详细](https://github.com/smltq/spring-boot-demo/blob/master/quartz/HELP.md)|
-shiro|spring boot shiro|授权、认证、单点登录、加解密、集成oauth2|...|
+shiro|spring boot shiro|授权、认证、单点登录、加解密、集成oauth2|[详细](https://github.com/smltq/spring-boot-demo/blob/master/shiro/HELP.md)|
