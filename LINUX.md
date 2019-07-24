@@ -17,12 +17,12 @@
     
 ## JDK常用命令
 
-    - 查看JDK版本：java -version
-    - 查看java执行路径：which java
-    - 查看JAVA_HOME路径：echo $JAVA_HOME
+    - 查看JDK版本   java -version
+    - 查看java执行路径    which java
+    - 查看JAVA_HOME路径 echo $JAVA_HOME
+    - 查看PATH路径  echo $PATH
     
  ## 保存命令
-    
       
     按ESC键 跳到命令模式，然后：
      
