@@ -1,4 +1,4 @@
-# Linux
+# Linux Centos
 
 ## 安装JDK
 
