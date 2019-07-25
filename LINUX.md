@@ -2,15 +2,11 @@
 
 ## 安装JDK
 
-### 方法一
+### yum安装方法
 
     - 验证Linux系统的位数  uname -a
-    - 打开上传文件对话框   rz
-    
-### 方法二
-
     - 查看yum库中都有哪些jdk版本  yum search java|grep jdk
-    - 选择版本，进行安装 yum install java-1.8.0-openjdk  安装完之后，默认的安装目录是在: /usr/lib/jvm/java-1.8.0-openjdk.x86_64
+    - 选择版本，进行安装 yum install java-1.8.0-openjdk  安装完之后，默认的安装目录是在: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64
     - 设置环境变量    vi /etc/profile
     - 进入编辑模式    i
     
@@ -57,13 +53,19 @@
     - 重启防火墙 service iptables restart
     - 永久关闭防火墙   chkconfig   iptables off
     - 永久关闭后启用   chkconfig   iptables on
+    - 清空防火墙规则   service iptables -F
     - 查看端口占用情况  netstat -pan|grep 8787
     - 查看防火墙 iptables -L
+    - 保存防火墙设置   service iptables save
     - 查看端口是否连通  telnet ip地址 端口号
     - 开8787端口，-p表示协议，示例
+        iptables -I INPUT 3 -p tcp -m tcp --dport 8787 -j ACCEPT
         iptables -A INPUT -p tcp --dport 8787 -j ACCEPT
         iptables -A OUTPUT -p tcp --sport 8787 -j ACCEPT
-    - 保存防火墙设置   service iptables save
     - 查看当前所有tcp端口   netstat -ntlp
     - 查看所有80端口使用情况  netstat -ntulp |grep 80
     - 查看所有3306端口使用情况    netstat -ntulp | grep 3306
+    
+  ## 运行java项目
+  
+    - java -jar helloworld-0.0.1.jar
