@@ -124,3 +124,4 @@ MockMvc使用参考官网，这里不做介绍
 ## 资料
 
 [示例代码-github](https://github.com/smltq/spring-boot-demo/tree/master/helloworld)
+[Spring Boot应用 打包与部署教程](https://ken.io/note/springboot-package-deploy#H3-11)
