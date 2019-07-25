@@ -87,3 +87,9 @@
     
     #重新加载防火墙策略    
     sudo firewall-cmd --reload
+
+## VIM安装
+
+    yum -y install vim*   
+    
+ 
