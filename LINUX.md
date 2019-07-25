@@ -5,7 +5,6 @@
 ### 方法一
 
     - 验证Linux系统的位数  uname -a
-    - 安装上传下载插件  yum install lrzsz
     - 打开上传文件对话框   rz
     
 ### 方法二
@@ -37,5 +36,20 @@
     
   ## 文件操作
     
-    rz  文件上传
-    rz -y   文件覆盖上传
+    - 安装上传下载插件  yum install lrzsz
+    - 文件上传    rz
+    - 文件覆盖上传    rz -y
+    - 下载文件  sz  文件名 
+    
+  ## 开端口相关
+    
+    - 查看端口占用情况    netstat -pan|grep 8787
+    - 查看防火墙 iptables -L
+    - 查看端口是否连通  telnet ip地址 端口号
+    - 开8787端口，-p表示协议，示例
+        iptables -A INPUT -p tcp --dport 8787 -j ACCEPT
+        iptables -A OUTPUT -p tcp --sport 8787 -j ACCEPT
+    - 保存防火墙设置   service iptables save
+    - 查看当前所有tcp端口   netstat -ntlp
+    - 查看所有80端口使用情况  netstat -ntulp |grep 80
+    - 查看所有3306端口使用情况    netstat -ntulp | grep 3306
