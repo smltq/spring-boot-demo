@@ -71,6 +71,10 @@
     - 查看所有80端口使用情况  netstat -ntulp |grep 80
     - 查看所有3306端口使用情况    netstat -ntulp | grep 3306
     
+  ## 安装及启动mysql指令
+    - yum install mysql mysql-server
+    - /etc/init.d/mysqld start
+    
   ## 运行java项目
   
     - java -jar helloworld-0.0.1.jar
