@@ -79,3 +79,11 @@
 ## 运行java项目
   
     - java -jar helloworld-0.0.1.jar
+
+## 开放端口
+
+    #添加可访问端口
+    sudo firewall-cmd --add-port=8787/tcp --permanent
+    
+    #重新加载防火墙策略    
+    sudo firewall-cmd --reload
