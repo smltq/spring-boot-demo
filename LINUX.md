@@ -43,7 +43,13 @@
     
   ## 开端口相关
     
-    - 查看端口占用情况    netstat -pan|grep 8787
+    - 查询防火墙状态   service iptables status
+    - 停止防火墙 service iptables stop
+    - 启动防火墙 service iptables start
+    - 重启防火墙 service iptables restart
+    - 永久关闭防火墙   chkconfig   iptables off
+    - 永久关闭后启用   chkconfig   iptables on
+    - 查看端口占用情况  netstat -pan|grep 8787
     - 查看防火墙 iptables -L
     - 查看端口是否连通  telnet ip地址 端口号
     - 开8787端口，-p表示协议，示例
