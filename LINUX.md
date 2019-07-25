@@ -41,6 +41,14 @@
     - 文件覆盖上传    rz -y
     - 下载文件  sz  文件名 
     
+  ## 系统操作
+    
+    - shutdown -h now  --立即关机  
+    - shutdown -h 10:53  --到10:53关机，如果该时间小于当前时间，则到隔天  
+    - shutdown -r +30 'The System Will Reboot in 30 Mins'   --30分钟后重启并并发送通知给其它在线用户
+    - shutdown -h +10  --10分钟后自动关机  
+    - shutdown -r now  --立即重启  
+    
   ## 开端口相关
     
     - 查询防火墙状态   service iptables status
