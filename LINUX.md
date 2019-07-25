@@ -1,4 +1,4 @@
-# Linux Centos
+# Linux
 
 ## 安装JDK
 
@@ -22,7 +22,7 @@
     - 查看JAVA_HOME路径 echo $JAVA_HOME
     - 查看PATH路径  echo $PATH
     
- ## 保存命令
+### 保存命令
       
     按ESC键 跳到命令模式，然后：
      
@@ -35,14 +35,14 @@
     :q! 不保存文件，强制退出vi
     :e! 放弃所有修改，从上次保存文件开始再编辑
     
-  ## 文件操作
+## 文件操作
     
     - 安装上传下载插件  yum install lrzsz
     - 文件上传    rz
     - 文件覆盖上传    rz -y
     - 下载文件  sz  文件名 
     
-  ## 系统操作
+## 系统操作
     
     - shutdown -h now  --立即关机  
     - shutdown -h 10:53  --到10:53关机，如果该时间小于当前时间，则到隔天  
@@ -50,7 +50,7 @@
     - shutdown -h +10  --10分钟后自动关机  
     - shutdown -r now  --立即重启  
     
-  ## 开端口相关
+## 开端口相关
     
     - 查询防火墙状态   service iptables status
     - 停止防火墙 service iptables stop
@@ -71,10 +71,11 @@
     - 查看所有80端口使用情况  netstat -ntulp |grep 80
     - 查看所有3306端口使用情况    netstat -ntulp | grep 3306
     
-  ## 安装及启动mysql指令
+## 安装及启动mysql指令
+
     - yum install mysql mysql-server
     - /etc/init.d/mysqld start
     
-  ## 运行java项目
+## 运行java项目
   
     - java -jar helloworld-0.0.1.jar
