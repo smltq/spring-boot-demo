@@ -57,7 +57,7 @@
     - 启动防火墙 service iptables start
     - 重启防火墙 service iptables restart
     - 永久关闭防火墙   chkconfig   iptables off
-    - 永久关闭后启用   chkconfig   iptables on
+    - 永久关闭后启用   chkconfig   iptables on 
     - 清空防火墙规则   service iptables -F
     - 查看端口占用情况  netstat -pan|grep 8787
     - 查看防火墙 iptables -L

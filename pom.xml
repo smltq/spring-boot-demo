@@ -18,5 +18,6 @@
         <module>shiro</module>
         <module>security</module>
         <module>mybatis-plus-generator</module>
+        <module>sign</module>
     </modules>
 </project>

@@ -1,0 +1,11 @@
+spring:
+  security:
+    # 签名验证超时时间
+    signTimeout: 3
+    # 允许未签名访问的url地址
+    ignoreSignUri:
+      - /swagger-ui.html
+      - /swagger-resources
+      - /v2/api-docs
+      - /webjars/springfox-swagger-ui
+      - /csrf
