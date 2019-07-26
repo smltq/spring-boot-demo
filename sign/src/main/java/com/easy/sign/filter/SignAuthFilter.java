@@ -72,7 +72,7 @@ public class SignAuthFilter implements Filter {
         Long difference = DateUtil.between(DateUtil.date(), DateUtil.date(timestamp * 1000), DateUnit.MINUTE);
         if (difference > securityProperties.getSignTimeout()) {
             returnFail("已过期的签名", response);
-            log.info("前端时间戳：{},服务端时间戳：{}", DateUtil.date(), timestamp);
+            log.info("前端时间戳：{},服务端时间戳：{}", DateUtil.date(timestamp * 1000), DateUtil.date());
             return;
         }
 

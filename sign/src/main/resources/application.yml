@@ -1,7 +1,7 @@
 spring:
   security:
     # 签名验证超时时间
-    signTimeout: 3
+    signTimeout: 300
     # 允许未签名访问的url地址
     ignoreSignUri:
       - /swagger-ui.html
