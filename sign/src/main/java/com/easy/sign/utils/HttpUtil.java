@@ -31,6 +31,11 @@ public class HttpUtil {
         while ((str = reader.readLine()) != null) {
             wholeStr.append(str);
         }
+
+        if (StrUtil.isEmpty(wholeStr)) {
+            wholeStr.append("{}");
+        }
+
         //转化成json对象
         return JSONObject.parseObject(wholeStr.toString(), SortedMap.class);
     }
