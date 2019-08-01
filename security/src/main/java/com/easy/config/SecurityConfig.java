@@ -1,6 +1,7 @@
 package com.easy.config;
 
 import com.easy.service.MyUserDetailsService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -12,6 +13,7 @@ import org.springframework.util.DigestUtils;
 
 @Configuration
 @EnableWebSecurity
+@Slf4j
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -25,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             //对密码进行加密
             @Override
             public String encode(CharSequence charSequence) {
-                System.out.println(charSequence.toString());
+                log.info(charSequence.toString());
                 return DigestUtils.md5DigestAsHex(charSequence.toString().getBytes());
             }
 
@@ -37,7 +39,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 return res;
             }
         });
-
     }
 
     @Override
@@ -51,6 +52,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().accessDeniedPage("/401");
         http.logout().logoutSuccessUrl("/");
     }
-
-
 }

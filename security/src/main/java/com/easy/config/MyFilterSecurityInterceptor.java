@@ -57,6 +57,4 @@ public class MyFilterSecurityInterceptor extends AbstractSecurityInterceptor imp
 
         return this.securityMetadataSource;
     }
-
-
 }
