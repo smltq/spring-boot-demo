@@ -44,6 +44,4 @@ public class MainController {
     public String admin() {
         return "user/admin";
     }
-
-
 }
