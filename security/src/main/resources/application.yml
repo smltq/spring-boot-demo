@@ -1,0 +1,11 @@
+spring:
+  thymeleaf:
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/easy_web?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
