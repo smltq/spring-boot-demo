@@ -60,11 +60,11 @@ public class MysqlGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/easy_web?useSSL=false&serverTimezone=UTC");
+        dsc.setUrl("jdbc:mysql://bbx-testdb-out.mysql.rds.aliyuncs.com:3306/bbx_test?useSSL=false&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("123456");
+        dsc.setUsername("bbx_root");
+        dsc.setPassword("LHBbx#2017@15");
         mpg.setDataSource(dsc);
 
         // 包配置
