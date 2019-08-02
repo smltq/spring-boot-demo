@@ -23,4 +23,4 @@ data-redis|spring boot redis|lettuce,redis,session redis,YAML配置,连接池,�
 quartz|spring boot quartz|Spring Scheduler,Quartz,分布式调度,集群,高可用,可扩展性实现,mysql持久化|[详细](https://github.com/smltq/spring-boot-demo/blob/master/quartz/HELP.md)|
 shiro|spring boot shiro|授权、认证、加解密、统一异常处理|[详细](https://github.com/smltq/spring-boot-demo/blob/master/shiro/HELP.md)|
 sign|spring boot sign|防篡改、防重放、文档自动生成|[详细](https://github.com/smltq/spring-boot-demo/blob/master/sign/HELP.md)|
-security|spring boot security|授权、认证、加解密|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security/HELP.md)|
+security|spring boot security|授权、认证、加解密、mybatis plus使用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security/HELP.md)|
