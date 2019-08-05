@@ -34,13 +34,17 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         // password 方案三：支持多种编码，通过密码的前缀区分编码方式
         String finalSecret = "{bcrypt}" + new BCryptPasswordEncoder().encode("123456");
         //配置两个客户端,一个用于password认证一个用于client认证
-        clients.inMemory().withClient("client_1")
+        clients.inMemory()
+                .withClient("client_1")
                 .resourceIds(RESOURCE_IDS)
                 .authorizedGrantTypes("client_credentials", "refresh_token")
                 .scopes("select")
                 .authorities("oauth2")
                 .secret(finalSecret)
-                .and().withClient("client_2")
+
+                .and()
+
+                .withClient("client_2")
                 .resourceIds(RESOURCE_IDS)
                 .authorizedGrantTypes("password", "refresh_token")
                 .scopes("select")
