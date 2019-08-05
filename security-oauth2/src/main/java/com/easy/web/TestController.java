@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class TestEndpoints {
+public class TestController {
 
     @GetMapping("/product/{id}")
     public String getProduct(@PathVariable String id) {
@@ -20,6 +20,4 @@ public class TestEndpoints {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return "order id : " + id;
     }
-
-
 }
