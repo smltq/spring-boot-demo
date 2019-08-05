@@ -310,7 +310,7 @@ public class Swagger2Config {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.easy.sign"))
+                .apis(RequestHandlerSelectors.basePackage(ccom.easy.easyeasy))
                 .paths(PathSelectors.any())
                 .build();
     }

@@ -11,8 +11,12 @@
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>security-oauth2</artifactId>
+    <packaging>pom</packaging>
     <name>security-oauth2</name>
     <url>http://www.example.com</url>
+    <modules>
+        <module>password-mode</module>
+    </modules>
 
     <properties>
         <java.version>1.8</java.version>

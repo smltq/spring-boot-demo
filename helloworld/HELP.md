@@ -70,9 +70,9 @@
 打开的src/test/下的测试入口，编写简单的 http 请求来测试；使用 mockmvc 进行，代码如下。
  
 ```java
-    package com.easy.helloworld;
+    package com.easy.easy.helloworld;
     
-    import com.easy.helloworld.controller.HelloWorldController;
+    import com.easy.easy.helloworld.controller.HelloWorldController;
     import org.junit.Before;
     import org.junit.Test;
     import org.junit.runner.RunWith;

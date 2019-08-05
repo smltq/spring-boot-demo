@@ -8,7 +8,7 @@
         <version>2.1.5.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.easy</groupId>
+    <groupId>com.easy.easy</groupId>
     <artifactId>helloworld</artifactId>
     <version>0.0.1</version>
     <name>helloworld</name>
