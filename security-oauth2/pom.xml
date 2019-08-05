@@ -15,7 +15,7 @@
     <name>security-oauth2</name>
     <url>http://www.example.com</url>
     <modules>
-        <module>password-mode</module>
+        <module>credentials</module>
     </modules>
 
     <properties>
