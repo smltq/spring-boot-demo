@@ -21,6 +21,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Autowired
     AuthenticationManager authenticationManager;
+
     @Autowired
     RedisConnectionFactory redisConnectionFactory;
 
@@ -35,6 +36,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         String finalSecret = "{bcrypt}" + new BCryptPasswordEncoder().encode("123456");
         //配置两个客户端,一个用于password认证一个用于client认证
         clients.inMemory()
+
+                //client模式
                 .withClient("client_1")
                 .resourceIds(RESOURCE_IDS)
                 .authorizedGrantTypes("client_credentials", "refresh_token")
@@ -44,6 +47,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
                 .and()
 
+                //密码模式
                 .withClient("client_2")
                 .resourceIds(RESOURCE_IDS)
                 .authorizedGrantTypes("password", "refresh_token")
