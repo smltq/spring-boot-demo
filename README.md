@@ -24,3 +24,4 @@ quartz|spring boot quartz|Spring Scheduler,Quartz,分布式调度,集群,高可�
 shiro|spring boot shiro|授权、认证、加解密、统一异常处理|[详细](https://github.com/smltq/spring-boot-demo/blob/master/shiro/HELP.md)|
 sign|spring boot sign|防篡改、防重放、文档自动生成|[详细](https://github.com/smltq/spring-boot-demo/blob/master/sign/HELP.md)|
 security|spring boot security|授权、认证、加解密、mybatis plus使用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security/HELP.md)|
+security-oauth2|spring boot security oauth2|四种认证模式、oauth2协议|...|
