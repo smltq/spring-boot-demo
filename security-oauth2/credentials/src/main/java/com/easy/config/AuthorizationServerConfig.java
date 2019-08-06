@@ -28,11 +28,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
-//        password 方案一：明文存储，用于测试，不能用于生产
-//        String finalSecret = "123456";
-//        password 方案二：用 BCrypt 对密码编码
-//        String finalSecret = new BCryptPasswordEncoder().encode("123456");
-        // password 方案三：支持多种编码，通过密码的前缀区分编码方式
         String finalSecret = "{bcrypt}" + new BCryptPasswordEncoder().encode("123456");
         //配置两个客户端,一个用于password认证一个用于client认证
         clients.inMemory()
@@ -66,7 +61,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer oauthServer) {
-        //允许表单认证
         oauthServer.allowFormAuthenticationForClients();
     }
 }
