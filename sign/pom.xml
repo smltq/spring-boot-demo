@@ -8,7 +8,7 @@
         <version>2.1.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.easy.easy</groupId>
+    <groupId>com.easy</groupId>
     <artifactId>sign</artifactId>
     <version>0.0.1</version>
     <name>sign</name>
