@@ -32,7 +32,7 @@ public class RedisConfig extends CachingConfigurerSupport {
         redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
         redisTemplate.setHashValueSerializer(new GenericJackson2JsonRedisSerializer());
 
-        //使用StringRedisSerializer来序列化和反序列化redis的ke
+        //使用StringRedisSerializer来序列化和反序列化redis的key
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());
 
