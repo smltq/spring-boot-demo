@@ -16,6 +16,8 @@
     <url>http://www.example.com</url>
     <modules>
         <module>credentials</module>
+        <module>qq</module>
+        <module>aiqiyi</module>
     </modules>
 
     <properties>
