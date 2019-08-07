@@ -3,7 +3,6 @@ package demo.shiro;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.crypto.hash.SimpleHash;
-import org.apache.shiro.util.ByteSource;
 
 public class MD5 {
     /*
@@ -29,13 +28,11 @@ public class MD5 {
     }
 
     public static void main(String[] args) {
-        String password = "123456";
-        String username = "admin";
-        String salt = username + "md5!@#";
 
-        SimpleHash simpleHash = new SimpleHash("md5", password, ByteSource.Util.bytes(salt), 2);
+        SimpleHash simpleHash = new SimpleHash("md5", "13200000004@Bbx_888888");
 
         String passwordMd5 = simpleHash.toString();
-        System.out.println("Md5加密:" + passwordMd5 + "   " + passwordMd5.length());
+
+        System.out.println("Md5加密:" + passwordMd5.equals("34e0e688ab2aabc98ff876efd50bb11f"));
     }
 }
