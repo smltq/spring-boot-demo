@@ -1,4 +1,4 @@
-package com.easy.sign.utils;
+package com.easy.encoder.utils;
 
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSONObject;

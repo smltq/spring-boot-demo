@@ -1,4 +1,4 @@
-package com.easy.sign.model;
+package com.easy.encoder.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

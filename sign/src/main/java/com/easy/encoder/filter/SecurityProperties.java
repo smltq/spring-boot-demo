@@ -1,4 +1,4 @@
-package com.easy.sign.filter;
+package com.easy.encoder.filter;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

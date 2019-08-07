@@ -1,6 +1,6 @@
-package com.easy.sign.model;
+package com.easy.encoder.model;
 
-import com.easy.sign.constant.RequestConstants;
+import com.easy.encoder.constant.RequestConstants;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 

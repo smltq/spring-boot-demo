@@ -1,13 +1,13 @@
-package com.easy.sign.filter;
+package com.easy.encoder.filter;
 
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSONObject;
-import com.easy.sign.model.AjaxResult;
-import com.easy.sign.utils.HttpUtil;
-import com.easy.sign.utils.SignUtil;
+import com.easy.encoder.model.AjaxResult;
+import com.easy.encoder.utils.HttpUtil;
+import com.easy.encoder.utils.SignUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

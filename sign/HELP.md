@@ -215,7 +215,7 @@ public class SecurityProperties {
 ````java
 @RestController
 @Slf4j
-@RequestMapping("/sign")
+@RequestMapping(encoder)
 @Api(value = "签名controller", tags = {"签名测试接口"})
 public class SignController {
 

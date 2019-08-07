@@ -1,4 +1,4 @@
-package com.easy.sign.utils;
+package com.easy.encoder.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;

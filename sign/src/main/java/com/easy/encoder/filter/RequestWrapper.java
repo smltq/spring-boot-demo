@@ -1,4 +1,4 @@
-package com.easy.sign.filter;
+package com.easy.encoder.filter;
 
 import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;

@@ -1,4 +1,4 @@
-package com.easy.sign.constant;
+package com.easy.encoder.constant;
 
 /**
  * 网络请求常量

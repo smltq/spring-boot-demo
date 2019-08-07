@@ -1,7 +1,7 @@
-package com.easy.sign.controller;
+package com.easy.encoder.controller;
 
-import com.easy.sign.model.AjaxResult;
-import com.easy.sign.model.TestVo;
+import com.easy.encoder.model.AjaxResult;
+import com.easy.encoder.model.TestVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @Slf4j
-@RequestMapping("/sign")
+@RequestMapping("/encoder")
 @Api(value = "签名controller", tags = {"签名测试接口"})
 public class SignController {
 
