@@ -90,6 +90,8 @@
 
 ## VIM安装
 
-    yum -y install vim*   
+    yum -y install vim*
     
- 
+## Maven安装
+
+    yum -y install apache-maven
