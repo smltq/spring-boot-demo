@@ -8,7 +8,5 @@ public class BCrypt {
         String passwordBCrypt = bpe.encode(password + username);
         System.out.println("BCrypt加密:" + passwordBCrypt);
         System.out.println("对比结果：" + bpe.matches(password + username, passwordBCrypt));
-
-        MD5
     }
 }
