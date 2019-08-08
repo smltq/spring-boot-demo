@@ -280,3 +280,4 @@ Caused by: java.lang.ClassNotFoundException: org.bouncycastle.crypto.generators.
 
 - [示例代码-github](https://github.com/smltq/spring-boot-demo/blob/master/encoder/HELP.md)
 - [该如何设计你的 PasswordEncoder](https://www.cnkirito.moe/spring-security-6/)
+- [慢哈希参考资料](https://medium.com/@mpreziuso/password-hashing-pbkdf2-scrypt-bcrypt-1ef4bb9c19b3)
