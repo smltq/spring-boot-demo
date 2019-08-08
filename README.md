@@ -25,4 +25,4 @@ shiro|spring boot shiro|授权、认证、加解密、统一异常处理|[详细
 sign|spring boot sign|防篡改、防重放、文档自动生成|[详细](https://github.com/smltq/spring-boot-demo/blob/master/sign/HELP.md)|
 security|spring boot security|授权、认证、加解密、mybatis plus使用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security/HELP.md)|
 security-oauth2|spring boot security oauth2|四种认证模式、oauth2协议|...|
-encoder|spring boot encoder|主流加密算法、用户加密算法等介绍|[详细](https://github.com/smltq/spring-boot-demo/blob/master/encoder/HELP.md)||
+encoder|spring boot encoder|主流加密算法、用户加密算法等介绍|[详细](https://github.com/smltq/spring-boot-demo/blob/master/encoder/HELP.md)|
