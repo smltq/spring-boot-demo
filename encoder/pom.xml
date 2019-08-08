@@ -39,12 +39,12 @@
             <scope>compile</scope>
         </dependency>
 
-<!--        &lt;!&ndash; 加解密包 &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.bouncycastle</groupId>-->
-<!--            <artifactId>bcprov-jdk15on</artifactId>-->
-<!--            <version>1.62</version>-->
-<!--        </dependency>-->
+        <!-- 加解密包 -->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.62</version>
+        </dependency>
     </dependencies>
 
     <build>
