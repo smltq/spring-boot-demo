@@ -275,3 +275,8 @@ Caused by: java.lang.ClassNotFoundException: org.bouncycastle.crypto.generators.
 ```
 
 查看报错代码，发现SCrypt类找不到引起的异常，引入加解密包解决问题。
+
+### 资料
+
+- [示例代码-github](https://github.com/smltq/spring-boot-demo/blob/master/encoder/HELP.md)
+- [该如何设计你的 PasswordEncoder](https://www.cnkirito.moe/spring-security-6/)
