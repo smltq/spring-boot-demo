@@ -8,6 +8,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Slf4j
 public class PasswordEncoderFactoriesTest {
     public static void main(String[] args) {
@@ -22,17 +25,16 @@ public class PasswordEncoderFactoriesTest {
 
         String[] encodes = {"bcrypt", "ldap", "MD4", "MD5", "noop", "pbkdf2", "scrypt", "SHA-1", "SHA-256", "sha256"};
 
+        log.info("=========================================批量测试=========================================");
+        List<String> encodeList = new ArrayList();
         for (String encode : encodes) {
             passwordEncoder = newPasswordEncoder(encode);
             String encodeStr = passwordEncoder.encode(password);
+            encodeList.add(encodeStr);
             log.info("{}算法,明文==>{},密文==>{}", encode, password, encodeStr);
+            log.info("密文和明文匹配 :{}", passwordEncoder.matches(password, encodeStr));
         }
-
-//        log.info("密码密文1和密码明文匹配 :{}", defaultEncoder.matches(passwordPlainText, cypher1));
-//        log.info("密码密文2和密码明文匹配 :{}", defaultEncoder.matches(passwordPlainText, cypher2));
-//        log.info("密码密文4和密码明文匹配 :{}", defaultEncoder.matches(passwordPlainText, cypher3));
     }
-
 
     public static PasswordEncoder newPasswordEncoder(final String encoderType) {
 
