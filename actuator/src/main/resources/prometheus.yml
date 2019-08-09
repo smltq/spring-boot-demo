@@ -1,0 +1,12 @@
+scrape_configs:
+  # 任意写，建议英文，不要包含特殊字符
+  - job_name: 'spring'
+    # 多久采集一次数据
+    scrape_interval: 15s
+    # 采集时的超时时间
+    scrape_timeout: 10s
+    # 采集的路径是啥
+    metrics_path: '/actuator/prometheus'
+    # 采集服务的地址，设置成上面Spring Boot应用所在服务器的具体地址。
+    static_configs:
+      - targets: ['192.168.9.110:8080']
