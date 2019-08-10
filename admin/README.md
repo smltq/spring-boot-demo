@@ -118,4 +118,5 @@ management.endpoint.health.show-details=always
 
 - [示例代码-github](https://github.com/smltq/spring-boot-demo/blob/master/admin/README.md)
 - [参考资料](http://www.ityouknow.com/springboot/2018/02/11/spring-boot-admin.html)
+- [admin使用详解](https://blog.csdn.net/lizhen1114/article/details/79296726)
 - [官方文档](https://codecentric.github.io/spring-boot-admin/1.5.0/#_what_is_spring_boot_admin)
