@@ -28,4 +28,4 @@ mybatis-plus-generator|基于mybatisplus代码自动生成|...|
 security-oauth2|四种认证模式实现、oauth2协议|...|
 encoder|主流加密算法介绍、用户加密算法推荐|[详细](https://github.com/smltq/spring-boot-demo/blob/master/encoder/HELP.md)|
 actuator|autuator介绍|...|
-admin|可视化服务监控搭建、使用介绍|[详细](https://github.com/smltq/spring-boot-demo/blob/master/admin/README.md)|
+admin|可视化服务监控、使用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/admin/README.md)|
