@@ -29,3 +29,7 @@ security-oauth2|四种认证模式实现、oauth2协议|...|
 encoder|主流加密算法介绍、用户加密算法推荐|[详细](https://github.com/smltq/spring-boot-demo/blob/master/encoder/HELP.md)|
 actuator|autuator介绍|...|
 admin|可视化服务监控、使用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/admin/README.md)|
+
+## 关于项目
+
+有需要写关于spring boot示例的，可以给我提issue
