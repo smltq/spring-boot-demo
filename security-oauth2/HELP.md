@@ -18,6 +18,7 @@
 
 ## 资料
 
+[官方文档](https://projects.spring.io/spring-security-oauth/docs/oauth2.html)
 [官方文档](https://spring.io/guides/tutorials/spring-boot-oauth2/)
 [OAuth2 Boot](https://docs.spring.io/spring-security-oauth2-boot/docs/current-SNAPSHOT/reference/htmlsingle/)
 [oauth2-demo](https://github.com/lexburner/oauth2-demo)

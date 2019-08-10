@@ -13,21 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @RestController
 @Slf4j
 public class QQCallbackController {
-
-//    withClient("aiqiyi")
-//    .authorizedGrantTypes("authorization_code","refresh_token", "implicit")
-//    .authorities("ROLE_CLIENT")
-//    .scopes("get_user_info","get_fanslist")
-//    .secret("secret")
-//    .redirectUris("http://localhost:8081/aiqiyi/qq/redirect")
-//    .autoApprove(true)
-//    .autoApprove("get_user_info")
 
     @Autowired
     RestTemplate restTemplate;
