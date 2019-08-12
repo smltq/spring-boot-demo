@@ -1,6 +1,6 @@
 # spring-boot-demo
 
-本项目示例基于spring boot 最新版本（2.1.7）实现，Spring Boot 学习示例,将持续更新...
+本项目示例基于spring boot 最新版本（2.1.7）实现，Spring Boot 学习示例，将持续更新……
 
 在基于Spring Boot 微服务开发过程中，根据实际项目环境，需要选择及集成符合项目需求的 starter。而如何使用这些 starter，需要网络上查找各种资源，基于这样的背景下，我开源了本学习示例项目。
 
