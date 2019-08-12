@@ -12,6 +12,13 @@ Spring Boot是由Pivotal团队提供的全新框架，其设计目的是用来�
 
 Spring Boot的核心思想就是约定大于配置，一切自动完成。采用Spring Boot可以大大的简化你的开发模式，所有你想集成的常用框架，它都有对应的组件支持。
 
+## 开发环境
+
+JDK1.8 +
+Maven 3.5 +
+IntelliJ IDEA ULTIMATE 2019.1
+mysql 5.7 +
+
 ## 模块介绍
 
 模块名称|主要内容|详细
@@ -25,10 +32,12 @@ shiro|授权、认证、加解密、统一异常处理|[详细](https://github.c
 sign|防篡改、防重放、文档自动生成|[详细](https://github.com/smltq/spring-boot-demo/blob/master/sign/HELP.md)|
 security|授权、认证、加解密、mybatis plus使用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security/HELP.md)|
 mybatis-plus-generator|基于mybatisplus代码自动生成|...|
-security-oauth2|四种认证模式实现、oauth2协议|...|
 encoder|主流加密算法介绍、用户加密算法推荐|[详细](https://github.com/smltq/spring-boot-demo/blob/master/encoder/HELP.md)|
 actuator|autuator介绍|...|
 admin|可视化服务监控、使用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/admin/README.md)|
+security-oauth2-credentials|oath2密码模式、客户端认证模式实现|...|
+security-oauth2-auth-code|基于spring boot实现oath2授权模式|...|
+cloud-oauth2-auth-code|基于spring cloud实现oath2授权模式|...|
 
 ## 关于项目
 

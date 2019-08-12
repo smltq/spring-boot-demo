@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
@@ -15,15 +16,15 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     @Override
-    protected UserDetailsService userDetailsService(){
+    protected UserDetailsService userDetailsService() {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        // 创建两个 qq 用户
-        manager.createUser(User.withUsername("271657370").password("123456").authorities("USER").build());
-        manager.createUser(User.withUsername("1246662770").password("123456").authorities("USER").build());
+        // 创建两个内存用户
+        manager.createUser(User.withUsername("admin").password("123456").authorities("ADMIN").build());
+        manager.createUser(User.withUsername("lin").password("123456").authorities("USER").build());
         return manager;
     }
 
@@ -33,38 +34,39 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
+    /**
+     * 密码生成器(默认为bcrypt模式)
+     *
+     * @return
+     */
     @Bean
-    PasswordEncoder passwordEncoder(){
-        return NoOpPasswordEncoder.getInstance();
+    PasswordEncoder passwordEncoder() {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // @formatter:off
+
         http.
-            requestMatchers()
-                // /oauth/authorize link org.springframework.security.oauth2.provider.endpoint.AuthorizationEndpoint
+                requestMatchers()
+                // /oauth/authorize link org.springframework.security.oauth2.provider.controller.AuthorizationEndpoint
                 // 必须登录过的用户才可以进行 oauth2 的授权码申请
-                .antMatchers("/", "/home","/login","/oauth/authorize")
+                .antMatchers("/", "/home", "/login", "/oauth/authorize")
                 .and()
-            .authorizeRequests()
+                .authorizeRequests()
                 .anyRequest().permitAll()
                 .and()
-            .formLogin()
+                .formLogin()
                 .loginPage("/login")
                 .and()
-            .httpBasic()
+                .httpBasic()
                 .disable()
-            .exceptionHandling()
+                .exceptionHandling()
                 .accessDeniedPage("/login?authorization_error=true")
                 .and()
-            // TODO: put CSRF protection back into this endpoint
-            .csrf()
+                // TODO: put CSRF protection back into this controller
+                .csrf()
                 .requireCsrfProtectionMatcher(new AntPathRequestMatcher("/oauth/authorize"))
                 .disable();
-//                .loginPage("/login")
-//                .failureUrl("/login?authentication_error=true")
-//        .httpBasic();
-        // @formatter:on
     }
 }

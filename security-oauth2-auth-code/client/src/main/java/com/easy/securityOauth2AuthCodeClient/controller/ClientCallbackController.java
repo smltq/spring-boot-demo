@@ -20,21 +20,21 @@ public class ClientCallbackController {
     @Autowired
     RestTemplate restTemplate;
 
-    @RequestMapping("/aiqiyi/qq/redirect")
-    public String getToken(@RequestParam String code){
-        log.info("receive code {}",code);
+    @RequestMapping("/client/account/redirect")
+    public String getToken(@RequestParam String code) {
+        log.info("receive code {}", code);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        MultiValueMap<String, String> params= new LinkedMultiValueMap<>();
-        params.add("grant_type","authorization_code");
-        params.add("code",code);
-        params.add("client_id","aiqiyi");
-        params.add("client_secret","secret");
-        params.add("redirect_uri","http://localhost:8081/aiqiyi/qq/redirect");
+        MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+        params.add("grant_type", "authorization_code");
+        params.add("code", code);
+        params.add("client_id", "client1");
+        params.add("client_secret", "secret");
+        params.add("redirect_uri", "http://localhost:8081//client/account/redirect");
         HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(params, headers);
         ResponseEntity<String> response = restTemplate.postForEntity("http://localhost:8080/oauth/token", requestEntity, String.class);
         String token = response.getBody();
-        log.info("token => {}",token);
+        log.info("token => {}", token);
         return token;
     }
 

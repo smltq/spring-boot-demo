@@ -16,5 +16,4 @@ public class ClientApplication {
     RestTemplate restTemplate(){
         return new RestTemplate();
     }
-
 }

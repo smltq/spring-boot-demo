@@ -33,29 +33,20 @@ public class OAuth2ServerConfig {
         @Override
         public void configure(ResourceServerSecurityConfigurer resources) {
             resources.resourceId(QQ_RESOURCE_ID).stateless(true);
-            // 如果关闭 stateless，则 accessToken 使用时的 session id 会被记录，后续请求不携带 accessToken 也可以正常响应
-//            resources.resourceId(QQ_RESOURCE_ID).stateless(false);
         }
 
         @Override
-        public void configure(HttpSecurity http) throws Exception {
-            // @formatter:off
-            http
-
-//                .sessionManagement()
-//                    .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-//                    .and()
-                .requestMatchers()
+        public void configure(HttpSecurity httpSecurity) throws Exception {
+            httpSecurity
+                    .requestMatchers()
                     // 保险起见，防止被主过滤器链路拦截
                     .antMatchers("/qq/**").and()
                     .authorizeRequests().anyRequest().authenticated()
                     .and()
-                .authorizeRequests()
+                    .authorizeRequests()
                     .antMatchers("/qq/info/**").access("#oauth2.hasScope('get_user_info')")
                     .antMatchers("/qq/fans/**").access("#oauth2.hasScope('get_fanslist')");
-            // @formatter:on
         }
-
     }
 
     @Configuration
@@ -68,8 +59,6 @@ public class OAuth2ServerConfig {
 
         @Override
         public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-
-            // @formatter:off
             clients.inMemory().withClient("aiqiyi")
                     .resourceIds(QQ_RESOURCE_ID)
                     .authorizedGrantTypes("authorization_code", "refresh_token", "implicit")
@@ -87,7 +76,6 @@ public class OAuth2ServerConfig {
                     .scopes("get_user_info", "get_fanslist")
                     .secret("secret")
                     .redirectUris("http://localhost:8082/youku/qq/redirect");
-            // @formatter:on
         }
 
         @Bean
@@ -103,8 +91,8 @@ public class OAuth2ServerConfig {
         @Bean
         public TokenStore tokenStore() {
             return new InMemoryTokenStore();
-            // 需要使用 redis 的话，放开这里
-//            return new RedisTokenStore(redisConnectionFactory);
+            // redis配置
+            // return new RedisTokenStore(redisConnectionFactory);
         }
 
         @Override
@@ -119,8 +107,5 @@ public class OAuth2ServerConfig {
         public void configure(AuthorizationServerSecurityConfigurer oauthServer) {
             oauthServer.realm(QQ_RESOURCE_ID).allowFormAuthenticationForClients();
         }
-
     }
-
-
 }
