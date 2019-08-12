@@ -40,7 +40,7 @@ encoder|主流加密算法介绍、用户加密算法推荐|[详细](https://git
 actuator|autuator介绍|...|
 admin|可视化服务监控、使用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/admin/README.md)|
 security-oauth2-credentials|oath2密码模式、客户端模式实现|...|
-security-oauth2-auth-code|基于spring boot实现oath2授权模式|...|
+security-oauth2-auth-code|基于spring boot实现oath2授权模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-auth-code/README.md)|
 cloud-oauth2-auth-code|基于spring cloud实现oath2授权模式|...|
 
 ## 关于项目
