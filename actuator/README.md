@@ -15,7 +15,8 @@ Spring Boot Actuator端点通过 JMX 和HTTP 公开暴露给外界访问，大�
 - /mappings：显示所有 @RequestMapping 路径 的列表 。
 - /shutdown：允许我们正常关闭应用程序。
 - /threaddump：提供应用程序的线程转储。
-- 你可以从[此处](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html)获得Spring执行器端点的完整列表。
+
+你可以从[此处](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html)获得Spring执行器端点的完整列表。
 
 ## 如何使用
 
@@ -53,7 +54,7 @@ management:
 
 ### 3.找到SpringBootApplication.java并启动
 
-在浏览器输入==>http://127.0.0.1:8080/actuator/health，会获得如下一串json数据
+在浏览器输入http://127.0.0.1:8080/actuator/health，会获得如下一串json数据
 
 ```json
 {
