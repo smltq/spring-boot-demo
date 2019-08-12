@@ -9,7 +9,7 @@
     <version>1.0.0</version>
     <modules>
         <module>server</module>
-        <module>client</module>
+        <module>client1</module>
     </modules>
 
     <packaging>pom</packaging>

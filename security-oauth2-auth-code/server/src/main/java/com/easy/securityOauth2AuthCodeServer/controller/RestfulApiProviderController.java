@@ -11,8 +11,8 @@ import java.util.List;
 public class RestfulApiProviderController {
 
     @RequestMapping("/info/{account}")
-    public Account info(@PathVariable("account") String qq) {
-        return InMemoryDatabase.database.get(qq);
+    public Account info(@PathVariable("account") String account) {
+        return InMemoryDatabase.database.get(account);
     }
 
     @RequestMapping("child/{account}")

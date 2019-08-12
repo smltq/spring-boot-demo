@@ -1,4 +1,4 @@
-package com.easy.securityOauth2AuthCodeClient.controller;
+package com.easy.securityOauth2AuthCodeClient1.controller;
 
 
 import org.springframework.stereotype.Controller;
