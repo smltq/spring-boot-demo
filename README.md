@@ -2,6 +2,12 @@
 
 本项目示例基于spring boot 最新版本（2.1.7）实现，Spring Boot 学习示例,将持续更新...
 
+在基于Spring Boot 微服务开发过程中，根据实际项目环境，需要选择及集成符合项目需求的 starter。而如何使用这些 starter，需要网络上查找各种资源，基于这样的背景下，我开源了本学习示例项目。
+
+每个项目都带有详细介绍文档，作者在使用过程中踩过的坑及参考资料，方便你快速上手starter，提高开发效率。
+
+有需要写关于spring boot示例的，可以给我提issue
+
 ## 什么是spring-boot
 
 Spring Boot简化了基于Spring的应用开发，通过少量的代码就能创建一个独立的、产品级别的Spring应用。 Spring Boot为Spring平台及第三方库提供开箱即用的设置，这样你就可以有条不紊地开始。多数Spring Boot应用只需要很少的Spring配置。
@@ -39,4 +45,3 @@ cloud-oauth2-auth-code|基于spring cloud实现oath2授权模式|...|
 
 ## 关于项目
 
-有需要写关于spring boot示例的，可以给我提issue
