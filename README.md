@@ -1,8 +1,6 @@
 # spring-boot-demo
 
-Spring Boot 学习示例,将持续更新...
-
-本项目基于spring boot 最新版本（2.1.7）实现
+本项目示例基于spring boot 最新版本（2.1.7）实现，Spring Boot 学习示例,将持续更新...
 
 ## 什么是spring-boot
 
