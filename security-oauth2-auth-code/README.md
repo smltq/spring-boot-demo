@@ -153,8 +153,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 ## 使用介绍
 
-找到AuthResServerApplication.java运行server服务，默认端口：8080
-找到ClientApplication.java运行client客户端，端口：8081
+- 找到AuthResServerApplication.java运行server服务，默认端口：8080
+- 找到ClientApplication.java运行client客户端，端口：8081
 
 ### 1.尝试直接访问用户信息
 
