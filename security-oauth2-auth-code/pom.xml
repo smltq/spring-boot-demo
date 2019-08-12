@@ -20,6 +20,14 @@
         <version>2.1.7.RELEASE</version>
     </parent>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.20</version>
+        </dependency>
+    </dependencies>
+
     <properties>
         <java.version>1.8</java.version>
     </properties>

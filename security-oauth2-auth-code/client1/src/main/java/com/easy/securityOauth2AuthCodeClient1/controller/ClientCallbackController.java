@@ -37,5 +37,4 @@ public class ClientCallbackController {
         log.info("token => {}", token);
         return token;
     }
-
 }
