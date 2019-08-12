@@ -276,6 +276,7 @@ childAccount: null
 ```
 
 ## 资料
+
 - [示例代码-github](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-auth-code)
 - [官方文档](https://projects.spring.io/spring-security-oauth/docs/oauth2.html)
 - [OAuth2 Boot](https://docs.spring.io/spring-security-oauth2-boot/docs/current-SNAPSHOT/reference/htmlsingle/)
