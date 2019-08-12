@@ -18,10 +18,10 @@ Spring Boot的核心思想就是约定大于配置，一切自动完成。采用
 
 ## 开发环境
 
-JDK1.8 +
-Maven 3.5 +
-IntelliJ IDEA ULTIMATE 2019.1
-mysql 5.7 +
+- JDK1.8 +
+- Maven 3.5 +
+- IntelliJ IDEA ULTIMATE 2019.1
+- mysql 5.7 +
 
 ## 模块介绍
 
