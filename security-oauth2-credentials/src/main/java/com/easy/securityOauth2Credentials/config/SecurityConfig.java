@@ -43,12 +43,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        // @formatter:off
         httpSecurity
                 .requestMatchers().anyRequest()
                 .and()
                 .authorizeRequests()
                 .antMatchers("/oauth/**").permitAll();
-        // @formatter:on
     }
 }
