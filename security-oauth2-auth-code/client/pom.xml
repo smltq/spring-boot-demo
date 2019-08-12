@@ -10,7 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>client</artifactId>
+    <artifactId>security-oauth2-auth-code-client</artifactId>
 
     <dependencies>
         <dependency>

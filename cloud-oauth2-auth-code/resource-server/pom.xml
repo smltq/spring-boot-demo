@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>resource-server</name>
+    <name>cloud-oauth2-auth-code-resource-server</name>
     <description>资源服务器</description>
 
     <parent>
