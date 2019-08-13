@@ -45,3 +45,5 @@ cloud-oauth2-auth-code|基于spring cloud实现oath2授权模式|...|
 
 ## 关于项目
 
+- 码云仓库：[https://gitee.com/tqlin/spring-boot-demo.git](https://gitee.com/tqlin/spring-boot-demo.git)
+- GitHub仓库：[https://github.com/smltq/spring-boot-demo.git](https://github.com/smltq/spring-boot-demo.git)
