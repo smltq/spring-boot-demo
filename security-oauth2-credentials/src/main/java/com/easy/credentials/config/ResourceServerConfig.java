@@ -1,4 +1,4 @@
-package com.easy.securityOauth2Credentials.config;
+package com.easy.credentials.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
