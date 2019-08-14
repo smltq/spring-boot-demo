@@ -1,4 +1,4 @@
-package com.easy.credentials.web;
+package com.easy.securityOauth2Credentials.controller;
 
 
 import org.springframework.stereotype.Controller;

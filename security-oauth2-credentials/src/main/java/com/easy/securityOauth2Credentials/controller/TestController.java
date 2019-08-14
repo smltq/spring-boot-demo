@@ -1,4 +1,4 @@
-package com.easy.credentials.web;
+package com.easy.securityOauth2Credentials.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;

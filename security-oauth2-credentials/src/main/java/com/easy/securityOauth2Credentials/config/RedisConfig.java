@@ -1,4 +1,4 @@
-package com.easy.credentials.config;
+package com.easy.securityOauth2Credentials.config;
 
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
