@@ -101,7 +101,7 @@ http://localhost:8080/order/1?access_token=b3d2c131-1225-45b4-9ff5-51ec17511cee
 
 正确返回数据
 
-## spring security oauth2代码过程
+## spring security oauth2代码实现过程
 
 security oauth2 整合的3个核心配置类
 
