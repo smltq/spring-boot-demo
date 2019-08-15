@@ -35,13 +35,14 @@ quartz|Spring Scheduler,Quartz,分布式调度,集群,高可用,可扩展性实�
 shiro|授权、认证、加解密、统一异常处理|[详细](https://github.com/smltq/spring-boot-demo/blob/master/shiro/HELP.md)|
 sign|防篡改、防重放、文档自动生成|[详细](https://github.com/smltq/spring-boot-demo/blob/master/sign/HELP.md)|
 security|授权、认证、加解密、mybatis plus使用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security/HELP.md)|
-mybatis-plus-generator|基于mybatisplus代码自动生成|...|
+mybatis-plus-generator|基于mybatisplus代码自动生成|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-plus-generator)|
+mybatis-plus-crud|基于mybatisplus实现数据库增、册、改、查|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-plus-crud)|
 encoder|主流加密算法介绍、用户加密算法推荐|[详细](https://github.com/smltq/spring-boot-demo/blob/master/encoder/HELP.md)|
 actuator|autuator介绍|[详细](https://github.com/smltq/spring-boot-demo/blob/master/actuator/README.md)|
 admin|可视化服务监控、使用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/admin/README.md)|
-security-oauth2-credentials|oath2实现密码模式、客户端模式|...|
+security-oauth2-credentials|oath2实现密码模式、客户端模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-credentials/README.md)|
 security-oauth2-auth-code|基于spring boot实现oath2授权模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-auth-code/README.md)|
-cloud-oauth2-auth-code|基于spring cloud实现oath2授权模式|...|
+cloud-oauth2-auth-code|基于spring cloud实现oath2授权模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-oauth2-auth-code)|
 
 ## 关于项目
 
