@@ -3,10 +3,10 @@
 ## 示例主要内容
 
 - 1.多认证模式（密码模式、客户端模式）
-- 2.redis缓存功能支持
+- 2.token存到redis支持
 - 3.资源保护
 - 4.密码模式用户及权限存到数据库
-- 4.使用说明
+- 5.使用说明
 
 [示例代码-github](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-credentials)
 
@@ -428,5 +428,5 @@ INSERT INTO role_permission (role_id, permission_id) VALUES (2, 2);
 
 ## 资料
 
-[示例代码-github](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-credentials)
-[阮一峰 理解OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
+- [示例代码-github](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-credentials)
+- [阮一峰 理解OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
