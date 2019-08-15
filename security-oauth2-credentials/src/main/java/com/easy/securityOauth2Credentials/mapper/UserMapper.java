@@ -1,8 +1,11 @@
 package com.easy.securityOauth2Credentials.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.easy.securityOauth2Credentials.entity.Permission;
+import com.easy.securityOauth2Credentials.entity.User;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.security.core.userdetails.User;
+
+import java.util.List;
 
 /**
  * <p>
@@ -14,5 +17,6 @@ import org.springframework.security.core.userdetails.User;
  */
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
-
+    List<Permission> queryUserAuthorities(Integer userId);
+    User queryUserByUsername(String username);
 }

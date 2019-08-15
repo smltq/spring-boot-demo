@@ -4,6 +4,9 @@ import com.easy.securityOauth2Credentials.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.springframework.security.core.GrantedAuthority;
+
+import java.util.List;
 
 /**
  * <p>
@@ -24,5 +27,5 @@ public class User extends BaseEntity {
 
     private String password;
 
-
+    private List<GrantedAuthority> authorities;
 }

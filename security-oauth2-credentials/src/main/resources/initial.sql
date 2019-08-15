@@ -16,12 +16,16 @@ CREATE TABLE `role` (
 PRIMARY KEY (`id`) 
 );
 CREATE TABLE `user_role` (
+`id` bigint(11) NOT NULL AUTO_INCREMENT,
 `user_id` bigint(11) NOT NULL,
-`role_id` bigint(11) NOT NULL
+`role_id` bigint(11) NOT NULL,
+PRIMARY KEY (`id`)
 );
 CREATE TABLE `role_permission` (
+`id` bigint(11) NOT NULL AUTO_INCREMENT,
 `role_id` bigint(11) NOT NULL,
-`permission_id` bigint(11) NOT NULL
+`permission_id` bigint(11) NOT NULL,
+PRIMARY KEY (`id`)
 );
 CREATE TABLE `permission` (
 `id` bigint(11) NOT NULL AUTO_INCREMENT,
@@ -32,8 +36,8 @@ CREATE TABLE `permission` (
 PRIMARY KEY (`id`) 
 );
 
-INSERT INTO user (id, username, password) VALUES (1,'user','e10adc3949ba59abbe56e057f20f883e'); 
-INSERT INTO user (id, username , password) VALUES (2,'admin','e10adc3949ba59abbe56e057f20f883e'); 
+INSERT INTO user (id, username, password) VALUES (1,'user','{bcrypt}$2a$10$Tme77eHtXzcB8ghQUepYguJr7P7ESg0Y7XHMnk60s.kf2A.BWBD9m');
+INSERT INTO user (id, username , password) VALUES (2,'admin','{bcrypt}$2a$10$Tme77eHtXzcB8ghQUepYguJr7P7ESg0Y7XHMnk60s.kf2A.BWBD9m');
 INSERT INTO role (id, name) VALUES (1,'USER');
 INSERT INTO role (id, name) VALUES (2,'ADMIN');
 INSERT INTO permission (id, url, name, pid) VALUES (1,'/user/common','common',0);

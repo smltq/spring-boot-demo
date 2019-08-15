@@ -4,6 +4,7 @@ import com.easy.securityOauth2Credentials.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.springframework.security.core.GrantedAuthority;
 
 /**
  * <p>
@@ -16,7 +17,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-public class Permission extends BaseEntity {
+public class Permission extends BaseEntity implements GrantedAuthority {
 
     private static final long serialVersionUID = 1L;
 
@@ -28,5 +29,8 @@ public class Permission extends BaseEntity {
 
     private Long pid;
 
-
+    @Override
+    public String getAuthority() {
+        return url;
+    }
 }
