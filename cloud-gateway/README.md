@@ -113,4 +113,4 @@ spring:
 
 - [Spring Cloud Gateway 示例源码](https://github.com/smltq/spring-boot-demo/blob/master/cloud-gateway)
 - [更多路由分发功能参考官网](https://cloud.spring.io/spring-cloud-static/Greenwich.SR1/single/spring-cloud.html#_spring_cloud_gateway)
-- [Spring Boot系列示例学习](https://github.com/smltq/spring-boot-demo)
+- [Spring Boot、Spring Cloud示例学习](https://github.com/smltq/spring-boot-demo)
