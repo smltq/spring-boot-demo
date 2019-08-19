@@ -23,4 +23,20 @@ API 网关出现的原因是微服务架构的出现，不同的微服务一般�
 - 易于认证。可以在网关上进行认证，然后再将请求转发到后端的微服务，而无须在每个微服务中进行认证。
 - 减少了客户端与各个微服务之间的交互次数。
 
-### 
+## Spring Cloud Gateway的特征
+
+- Java 8
+- Spring Framework 5
+- Spring Boot 2
+- 动态路由
+- 内置到Spring Handler映射中的路由匹配
+- 基于HTTP请求的路由匹配 (Path, Method, Header, Host, etc…​)
+- 过滤器作用于匹配的路由
+- 过滤器可以修改下游HTTP请求和HTTP响应 (Add/Remove Headers, Add/Remove Parameters, Rewrite Path, Set Path, Hystrix, etc…​)
+- 通过API或配置驱动
+- 支持Spring Cloud DiscoveryClient配置路由，与服务发现与注册配合使用
+
+
+## 资料
+
+[官网文档](https://cloud.spring.io/spring-cloud-static/Greenwich.SR1/single/spring-cloud.html#_spring_cloud_gateway)

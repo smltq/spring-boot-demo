@@ -1,0 +1,10 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: neo_route
+          uri: https://www.cnblogs.com/tqlin/
+          predicates:
+            - Path=/spring-cloud
