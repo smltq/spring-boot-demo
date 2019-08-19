@@ -4,7 +4,7 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: neo_route
-          uri: https://www.cnblogs.com/tqlin/
-          predicates:
-            - Path=/spring-cloud
+        - id: neo_route # 我们自定义的路由 ID，保持唯一
+          uri: https://github.com # 目标服务地址
+          predicates: # 路由条件，Predicate 接受一个输入参数，返回一个布尔值结果。该接口包含多种默认方法来将
+            - Path=/smltq/spring-boot-demo
