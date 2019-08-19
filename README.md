@@ -47,7 +47,7 @@ admin|可视化服务监控、使用|[详细](https://github.com/smltq/spring-bo
 security-oauth2-credentials|oath2实现密码模式、客户端模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-credentials/README.md)|
 security-oauth2-auth-code|基于spring boot实现oath2授权模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-auth-code/README.md)|
 cloud-oauth2-auth-code|基于spring cloud实现oath2授权模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-oauth2-auth-code)|
-cloud-gateway|API主流网关、gateway网关、gateway快速上手|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-gateway)|
+cloud-gateway|API主流网关、gateway快速上手|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-gateway)|
 
 ## 关于项目
 
