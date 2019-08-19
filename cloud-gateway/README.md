@@ -105,7 +105,7 @@ spring:
 
 ### 3.配置完成启动项目
 
-在浏览器访问进行测试，当我们访问地址http://localhost:8080/smltq/spring-boot-demo 时会展示页面展示如下：
+在浏览器访问进行测试，当我们访问 http://localhost:8080/smltq/spring-boot-demo 时会展示如下页面：
 
 ![路由效果](routes.png)
 
