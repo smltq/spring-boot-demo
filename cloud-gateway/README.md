@@ -1,6 +1,6 @@
-# Spring Cloud Gateway 网关学习
+# Spring Cloud Gateway 服务网关
 
-API 主流网关有NGINX、ZUUL、Spring Cloud Gateway、Linkerd等；Spring Cloud Gateway 是 Spring Cloud Finchley 版推出来的新组件，用来代替服务网关Zuul；Spring Cloud Gateway构建于 Spring 5+，基于 Spring Boot 2.x 响应式的、非阻塞式的 API。同时，它支持 websockets，和 Spring 框架紧密集成，开发体验相对来说十分不错。
+API 主流网关有NGINX、ZUUL、Spring Cloud Gateway、Linkerd等；Spring Cloud Gateway构建于 Spring 5+，基于 Spring Boot 2.x 响应式的、非阻塞式的 API。同时，它支持 websockets，和 Spring 框架紧密集成，用来代替服务网关Zuul，开发体验相对来说十分不错。
 
 Spring Cloud Gateway 是 Spring Cloud 微服务平台的一个子项目，属于 Spring 开源社区，依赖名叫：spring-cloud-starter-gateway。
 Zuul 是 Netflix 公司的开源项目，Spring Cloud 在 Netflix 项目中也已经集成了 Zuul，依赖名叫：spring-cloud-starter-netflix-zuul。
@@ -36,7 +36,80 @@ API 网关出现的原因是微服务架构的出现，不同的微服务一般�
 - 通过API或配置驱动
 - 支持Spring Cloud DiscoveryClient配置路由，与服务发现与注册配合使用
 
+## 快速上手
+
+[Spring Cloud Gateway 示例源码](https://github.com/smltq/spring-boot-demo/blob/master/cloud-gateway)
+
+Spring Cloud Gateway 网关路由有两种配置方式：
+
+- 在配置文件 yml 中配置
+- 通过@Bean自定义 RouteLocator，在启动主类 Application 中配置
+
+这两种方式是等价的，建议使用 yml 方式进配置。
+
+### 1.pom.xml Maven依赖
+
+```xml
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.7.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Greenwich.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!--Spring Cloud Gateway 是使用 netty+webflux 实现因此不需要再引入 web 模块-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+```
+
+### 2.application.yml配置
+
+```yaml
+server:
+  port: 8080
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: easy_route # 我们自定义的路由 ID，保持唯一
+          uri: https://github.com # 目标服务地址
+          predicates: # 路由条件，Predicate 接受一个输入参数，返回一个布尔值结果。该接口包含多种默认方法来将
+            - Path=/smltq/spring-boot-demo
+```
+上面这段配置的意思是，配置了一个 id 为 easy_route 的路由规则，当访问地址 http://localhost:8080/smltq/spring-boot-demo时会自动转发到地址：https://github.com/smltq/spring-boot-demo。
+
+### 3.配置完成启动项目
+
+在浏览器访问进行测试，当我们访问地址http://localhost:8080/smltq/spring-boot-demo 时会展示页面展示如下：
+
+![路由效果](routes.png)
 
 ## 资料
 
-[官网文档](https://cloud.spring.io/spring-cloud-static/Greenwich.SR1/single/spring-cloud.html#_spring_cloud_gateway)
+- [Spring Cloud Gateway 示例源码](https://github.com/smltq/spring-boot-demo/blob/master/cloud-gateway)
+- [更多路由分发功能参考官网](https://cloud.spring.io/spring-cloud-static/Greenwich.SR1/single/spring-cloud.html#_spring_cloud_gateway)
