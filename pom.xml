@@ -20,5 +20,6 @@
         <module>mybatis-plus-generator</module>
         <module>sign</module>
         <module>security-oauth2-credentials</module>
+        <module>cloud-config</module>
     </modules>
 </project>
