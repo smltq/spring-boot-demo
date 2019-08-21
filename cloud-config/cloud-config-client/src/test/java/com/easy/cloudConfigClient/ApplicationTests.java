@@ -1,4 +1,4 @@
-package java.com.easy.cloudConfigClient;
+package com.easy.cloudConfigClient;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class ApplicationTests {
 
-    @Value("${neo.hello}")
+    @Value("${easy.hello}")
     private String hello;
 
     @Test

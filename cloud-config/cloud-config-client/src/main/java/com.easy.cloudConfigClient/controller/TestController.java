@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TestController {
-    @Value("${neo.hello}")
+    @Value("${easy.hello}")
     private String hello;
 
     @RequestMapping("/hello")
