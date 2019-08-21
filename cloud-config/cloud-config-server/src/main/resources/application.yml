@@ -7,6 +7,6 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/smltq/spring-boot-demo.git
+          uri: https://gitee.com/tqlin/spring-boot-demo.git
           searchPaths: /cloud-config/config-repo/
           force-pull: true
