@@ -48,6 +48,7 @@ security-oauth2-credentials|oath2实现密码模式、客户端模式|[详细](h
 security-oauth2-auth-code|基于spring boot实现oath2授权模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-auth-code/README.md)|
 cloud-oauth2-auth-code|基于spring cloud实现oath2授权模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-oauth2-auth-code)|
 cloud-gateway|API主流网关、gateway快速上手|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-gateway)|
+cloud-config|配置中心(服务端、客户端)示例|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-config)|
 
 ## 关于项目
 
