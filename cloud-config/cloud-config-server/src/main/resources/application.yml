@@ -7,6 +7,6 @@ spring:
     config:
       server:
         git:
-          uri: https://gitee.com/tqlin/spring-boot-demo.git
+          uri: https://gitee.com/tqlin/spring-boot-demo.git #因为国内github不稳定，我这里改到了码云仓
           searchPaths: /cloud-config/config-repo/
           force-pull: true
