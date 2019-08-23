@@ -2,8 +2,7 @@
 
 Spring Cloud Config 用于为分布式系统中的基础设施和微服务应用提供集中化的外部配置支持，分为server端和client端。
 server端为分布式配置中心，是一个独立的微服务应用；client端为分布式系统中的基础设置或微服务应用，通过指定配置中心来管理相关的配置。
-Spring Cloud Config 构建的配置中心，除了适用于 Spring 构建的应用外，也可以在任何其他语言构建的应用中使用。
-Spring Cloud Config 默认采用 Git 存储配置信息，支持对配置信息的版本管理。
+Spring Cloud Config 构建的配置中心，除了适用于 Spring 构建的应用外，也可以在任何其他语言构建的应用中使用， 默认采用 Git 存储配置信息，支持对配置信息的版本管理。
 
 ## 本示例主要内容
 
