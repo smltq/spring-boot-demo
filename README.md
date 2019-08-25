@@ -59,4 +59,5 @@ cloud-config|配置中心(服务端、客户端)示例|[详细](https://github.c
 
 - 开发交流QQ群（230017570）
 - 微信公众号
-![微信公众号](qrcode.jpg)
+
+    ![微信公众号](qrcode.jpg)
