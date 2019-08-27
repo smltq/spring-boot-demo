@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataSourceAop {
 
-    @Pointcut("!@annotation(com.easy.mybatis.multidatasource.annotation.Master) " +
-            "&& (execution(* com.easy.mybatis.multidatasource.service..*.select*(..)) " +
+    @Pointcut("@annotation(com.easy.mybatis.multidatasource.annotation.Slave) " +
+            "|| (execution(* com.easy.mybatis.multidatasource.service..*.select*(..)) " +
             "|| execution(* com.easy.mybatis.multidatasource.service..*.get*(..)))")
     public void readPointcut() {
 

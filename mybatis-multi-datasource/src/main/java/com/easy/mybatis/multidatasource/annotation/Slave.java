@@ -1,7 +1,7 @@
 package com.easy.mybatis.multidatasource.annotation;
 
 /**
- * 主库，可读写
+ * 从库,只允许读
  */
-public @interface Master {
+public @interface Slave {
 }
