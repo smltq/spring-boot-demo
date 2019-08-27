@@ -1,13 +1,11 @@
-package com.easy.mybatis.multidatasource.mapper;
+package com.easy.mybatis.multidatasource.service;
 
 import com.easy.mybatis.multidatasource.entity.User;
-import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Repository
-public interface UserMapper {
+public interface IUserService {
     /**
      * 插入一条记录
      *

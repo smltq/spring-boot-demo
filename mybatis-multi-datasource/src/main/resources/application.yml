@@ -1,7 +1,18 @@
 # DataSource Config
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/easy_web?useSSL=false&serverTimezone=UTC
-    username: root
-    password: 123456
+    master:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/easy_web?useSSL=false&serverTimezone=UTC
+      username: root
+      password: 123456
+    slave1:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/easy_web?useSSL=false&serverTimezone=UTC
+      username: root
+      password: 123456
+    slave2:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/easy_web?useSSL=false&serverTimezone=UTC
+      username: root
+      password: 123456
