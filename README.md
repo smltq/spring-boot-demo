@@ -2,7 +2,7 @@
 
 本项目示例基于spring boot 最新版本（2.1.7）实现，Spring Boot、Spring Cloud 学习示例，将持续更新……
 
-在基于Spring Boot、Spring Cloud  微服务开发过程中，根据实际项目环境，需要选择及集成符合项目需求的各种组件。而如何使用这些组伯，需要网络上查找各种资源、对比、过滤整理，然后再引入项目极其费精力和时间。基于这样的背景下，我开源了本示例项目，方便大家快速上手Spring Boot、Spring Cloud 。
+在基于Spring Boot、Spring Cloud  微服务开发过程中，根据实际项目环境，需要选择及集成符合项目需求的各种组件。而如何使用这些组件，需要网络上查找各种资源、对比、过滤整理，然后再引入项目极其费精力和时间。基于这样的背景下，我开源了本示例项目，方便大家快速上手Spring Boot、Spring Cloud 。
 
 每个示例都带有详细的介绍文档、作者在使用过程中踩过的坑、解决方案及参考资料，方便你快速上手提供学习捷径，少绕弯路，提高开发效率。
 
@@ -49,7 +49,7 @@ security-oauth2-auth-code|基于spring boot实现oath2授权模式|[详细](http
 cloud-oauth2-auth-code|基于spring cloud实现oath2授权模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-oauth2-auth-code)|
 cloud-gateway|API主流网关、gateway快速上手|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-gateway)|
 cloud-config|配置中心(服务端、客户端)示例|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-config)|
-mybatis-multi-datasource|mybatis、数据库集群、读写分支、读库负载均衡|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-multi-datasource)|
+mybatis-multi-datasource|mybatis、数据库集群、读写分离、读库负载均衡|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-multi-datasource)|
 
 ## 关于项目
 
