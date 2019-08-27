@@ -54,3 +54,10 @@ cloud-config|配置中心(服务端、客户端)示例|[详细](https://github.c
 
 - 码云仓库：[https://gitee.com/tqlin/spring-boot-demo.git](https://gitee.com/tqlin/spring-boot-demo.git)
 - GitHub仓库：[https://github.com/smltq/spring-boot-demo.git](https://github.com/smltq/spring-boot-demo.git)
+
+## 关注和交流
+
+- 开发交流QQ群（230017570）
+- 微信公众号
+
+    ![微信公众号](qrcode.jpg)
