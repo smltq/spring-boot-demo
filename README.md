@@ -8,18 +8,6 @@
 
 有需要写关于spring boot、spring cloud示例的，可以给我提issue
 
-## Spring Boot 概述
-
-Spring Boot简化了基于Spring的应用开发，通过少量的代码就能创建一个独立的、产品级别的Spring应用。 Spring Boot为Spring平台及第三方库提供开箱即用的设置，这样你就可以有条不紊地开始。多数Spring Boot应用只需要很少的Spring配置。
-
-Spring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。用我的话来理解，就是Spring Boot其实不是什么新的框架，它默认配置了很多框架的使用方式，就像maven整合了所有的jar包，Spring Boot整合了所有的框架。
-
-Spring Boot的核心思想就是约定大于配置，一切自动完成。采用Spring Boot可以大大的简化你的开发模式，所有你想集成的常用框架，它都有对应的组件支持。
-
-## Spring Cloud 概述
-
-SpringCloud是基于SpringBoot的一整套实现微服务的框架。他提供了微服务开发所需的配置管理、服务发现、断路器、智能路由、微代理、控制总线、全局锁、决策竞选、分布式会话和集群状态管理等组件。最重要的是跟Spring Boot框架一起使用的话，会让你开发微服务架构的云服务非常好的方便。
-
 ## 开发环境
 
 - JDK1.8 +
@@ -50,6 +38,26 @@ cloud-oauth2-auth-code|基于spring cloud实现oath2授权模式|[详细](https:
 cloud-gateway|API主流网关、gateway快速上手|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-gateway)|
 cloud-config|配置中心(服务端、客户端)示例|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-config)|
 mybatis-multi-datasource|mybatis、数据库集群、读写分离、读库负载均衡|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-multi-datasource)|
+
+## Spring Boot 概述
+
+Spring Boot简化了基于Spring的应用开发，通过少量的代码就能创建一个独立的、产品级别的Spring应用。 Spring Boot为Spring平台及第三方库提供开箱即用的设置，这样你就可以有条不紊地开始。多数Spring Boot应用只需要很少的Spring配置。
+
+Spring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。用我的话来理解，就是Spring Boot其实不是什么新的框架，它默认配置了很多框架的使用方式，就像maven整合了所有的jar包，Spring Boot整合了所有的框架。
+
+Spring Boot的核心思想就是约定大于配置，一切自动完成。采用Spring Boot可以大大的简化你的开发模式，所有你想集成的常用框架，它都有对应的组件支持。
+
+## Spring Cloud 概述
+
+SpringCloud是基于SpringBoot的一整套实现微服务的框架。他提供了微服务开发所需的配置管理、服务发现、断路器、智能路由、微代理、控制总线、全局锁、决策竞选、分布式会话和集群状态管理等组件。最重要的是跟Spring Boot框架一起使用的话，会让你开发微服务架构的云服务非常好的方便。
+
+## Spring Boot与Spring Cloud关系
+
+Spring boot 是 Spring 的一套快速配置脚手架，可以基于Spring Boot 快速开发单个微服务，Spring Cloud是一个基于Spring Boot实现的云应用开发工具；Spring boot专注于快速、方便集成的单个个体，Spring Cloud是关注全局的服务治理框架；Spring Boot使用了默认大于配置的理念，很多集成方案已经帮你选择好了，能不配置就不配置，Spring Cloud很大的一部分是基于Spring Boot来实现。
+
+Spring boot可以离开Spring Cloud独立使用开发项目，但是Spring Cloud离不开Spring Boot，属于依赖的关系。
+
+    spring -> spring boot > spring cloud 这样的关系。
 
 ## 关于项目
 

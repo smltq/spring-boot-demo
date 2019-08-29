@@ -1,4 +1,4 @@
-# Spring Boot MyBatis 数据库集群示例（读写分离）
+# Spring Boot MyBatis 数据库集群访问实现
 
 本示例主要介绍了Spring Boot程序方式实现数据库集群访问，读库轮询方式实现负载均衡。阅读本示例前，建议你有[AOP编程基础](https://github.com/smltq/spring-boot-demo/blob/master/aop/HELP.md)、mybatis基本功能会使用、数据库集群基本概念，这样你可以更快的理解和实现它
 
