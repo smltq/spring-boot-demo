@@ -21,21 +21,19 @@ public class DBContext {
 
     public static void master() {
         set(DBTypeEnum.MASTER);
-        log.info("切换到master");
+        log.info("切换到master库");
     }
 
     public static void slave() {
-        //  轮询
+        //  读库负载均衡(轮询方式)
         int index = counter.getAndIncrement() % 2;
-        if (counter.get() > 9999) {
-            counter.set(-1);
-        }
+        log.info("slave库访问线程数==>{}", counter.get());
         if (index == 0) {
             set(DBTypeEnum.SLAVE1);
-            log.info("切换到slave1");
+            log.info("切换到slave1库");
         } else {
             set(DBTypeEnum.SLAVE2);
-            log.info("切换到slave2");
+            log.info("切换到slave2库");
         }
     }
 }

@@ -8,14 +8,6 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class DataSourceAop {
-
-    @Pointcut("@annotation(com.easy.mybatis.multidatasource.annotation.Slave) " +
-            "|| (execution(* com.easy.mybatis.multidatasource.service..*.select*(..)) " +
-            "|| execution(* com.easy.mybatis.multidatasource.service..*.get*(..)))")
-    public void readPointcut() {
-
-    }
-
     @Pointcut("@annotation(com.easy.mybatis.multidatasource.annotation.Master) " +
             "|| execution(* com.easy.mybatis.multidatasource.service..*.insert*(..)) " +
             "|| execution(* com.easy.mybatis.multidatasource.service..*.add*(..)) " +
@@ -27,13 +19,20 @@ public class DataSourceAop {
 
     }
 
-    @Before("readPointcut()")
-    public void read() {
-        DBContext.slave();
+    @Pointcut("!@annotation(com.easy.mybatis.multidatasource.annotation.Master) " +
+            "&& (execution(* com.easy.mybatis.multidatasource.service..*.select*(..)) " +
+            "|| execution(* com.easy.mybatis.multidatasource.service..*.get*(..)))")
+    public void readPointcut() {
+
     }
 
     @Before("writePointcut()")
     public void write() {
         DBContext.master();
+    }
+
+    @Before("readPointcut()")
+    public void read() {
+        DBContext.slave();
     }
 }

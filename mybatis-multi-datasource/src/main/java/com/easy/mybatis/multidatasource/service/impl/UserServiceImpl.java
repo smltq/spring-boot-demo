@@ -21,7 +21,6 @@ public class UserServiceImpl implements IUserService {
      *
      * @param entity 实体对象
      */
-    @Master
     @Override
     public int insert(User entity) {
         return userMapper.insert(entity);
@@ -32,7 +31,6 @@ public class UserServiceImpl implements IUserService {
      *
      * @param id 主键ID
      */
-    @Master
     @Override
     public int deleteById(Serializable id) {
         return userMapper.deleteById(id);
@@ -43,7 +41,6 @@ public class UserServiceImpl implements IUserService {
      *
      * @param entity 实体对象
      */
-    @Master
     @Override
     public int updateById(User entity) {
         return userMapper.updateById(entity);
@@ -54,6 +51,7 @@ public class UserServiceImpl implements IUserService {
      *
      * @param id 主键ID
      */
+    @Master
     @Override
     public User selectById(Serializable id) {
         return userMapper.selectById(id);
@@ -63,5 +61,4 @@ public class UserServiceImpl implements IUserService {
     public List<User> selectList() {
         return userMapper.selectList();
     }
-
 }

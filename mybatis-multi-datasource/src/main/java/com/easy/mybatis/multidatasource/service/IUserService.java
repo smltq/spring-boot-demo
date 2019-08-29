@@ -1,6 +1,6 @@
 package com.easy.mybatis.multidatasource.service;
 
-import com.easy.mybatis.multidatasource.annotation.Slave;
+import com.easy.mybatis.multidatasource.annotation.Master;
 import com.easy.mybatis.multidatasource.entity.User;
 
 import java.io.Serializable;
@@ -12,7 +12,6 @@ public interface IUserService {
      *
      * @param entity 实体对象
      */
-    @Slave
     int insert(User entity);
 
     /**
