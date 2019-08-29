@@ -591,5 +591,6 @@ public class MultiDataSourceServiceTest {
 
 - [mybatis-multi-datasource 示例源码](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-multi-datasource)
 - [官网数据源配置文档](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-two-datasources)
+- [参考资料](https://www.cnblogs.com/cjsblog/p/9712457.html)
 - [码云仓库 Spring Boot、Spring Cloud示例学习](https://gitee.com/tqlin/spring-boot-demo.git)
 - [GitHub仓库 Spring Boot、Spring Cloud示例学习](https://github.com/smltq/spring-boot-demo.git)
