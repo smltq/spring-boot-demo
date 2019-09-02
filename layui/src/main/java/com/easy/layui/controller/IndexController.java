@@ -17,7 +17,7 @@ public class IndexController {
     @RequestMapping("home")
     public String home(){
         //log.info("定向主页");
-        return "home.html";
+        return "home";
     }
 
     @GetMapping(value = {"", "/"})
