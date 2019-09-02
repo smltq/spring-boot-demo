@@ -22,5 +22,6 @@
         <module>security-oauth2-credentials</module>
         <module>cloud-config</module>
         <module>leetcode</module>
+        <module>actuator</module>
     </modules>
 </project>
