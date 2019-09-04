@@ -7,3 +7,4 @@
 /mybatis-plus-generator/merchantplatform
 /mybatis-plus-generator/target
 *.iml
+target
