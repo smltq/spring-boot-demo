@@ -95,7 +95,7 @@ Observer 跟 Follower的区别：
 
 与启动时过程相同
 
-## 参考资料
+## 资料
 
-[Java问题收集](https://github.com/smltq/spring-boot-demo/tree/master/java-gather)
-[ZooKeeper 技术内幕：Leader 选举](http://ningg.top/zookeeper-lesson-2-leader-election/)
+- [Java问题收集](https://github.com/smltq/spring-boot-demo/tree/master/java-gather)
+- [ZooKeeper 技术内幕：Leader 选举](http://ningg.top/zookeeper-lesson-2-leader-election/)
