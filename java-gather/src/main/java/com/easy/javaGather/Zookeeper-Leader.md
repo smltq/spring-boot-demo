@@ -1,4 +1,4 @@
-# Zookeeper之Leader 选举过程
+# Zookeeper之Leader选举过程
 
 Leader在集群中是一个非常重要的角色，负责了整个事务的处理和调度，保证分布式数据一致性的关键所在。既然Leader在ZooKeeper集群中这么重要所以一定要保证集群在任何时候都有且仅有一个Leader存在。
 
@@ -97,5 +97,5 @@ Observer 跟 Follower的区别：
 
 ## 参考资料
 
-[Java问题收集](https://github.com/smltq/spring-boot-demo/blob/master/web/HELP.md)
+[Java问题收集](https://github.com/smltq/spring-boot-demo/tree/master/java-gather)
 [ZooKeeper 技术内幕：Leader 选举](http://ningg.top/zookeeper-lesson-2-leader-election/)
