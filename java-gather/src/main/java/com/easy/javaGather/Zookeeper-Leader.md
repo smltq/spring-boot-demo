@@ -4,7 +4,7 @@ Leader在集群中是一个非常重要的角色，负责了整个事务的处�
 
 ## 概念
 
-### Zookeeper的服务器三种角色：Leader，Follower，Observer。
+### Zookeeper Server三种角色：Leader，Follower，Observer。
 
 Leader是Zookeeper 集群工作机制的核心，主要工作：
 
