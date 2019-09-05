@@ -38,6 +38,8 @@ cloud-oauth2-auth-code|基于spring cloud实现oath2授权模式|[详细](https:
 cloud-gateway|API主流网关、gateway快速上手|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-gateway)|
 cloud-config|配置中心(服务端、客户端)示例|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-config)|
 mybatis-multi-datasource|mybatis、数据库集群、读写分离、读库负载均衡|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-multi-datasource)|
+mq-redis|redis之mq实现，发布订阅模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mq-redis)|
+java-gather|java问题收集目录|[详细](https://github.com/smltq/spring-boot-demo/blob/master/java-gather)|
 
 ## Spring Boot 概述
 
