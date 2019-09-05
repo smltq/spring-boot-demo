@@ -1,6 +1,6 @@
 package demo.data.mqRedis;
 
-import demo.data.redis.model.User;
+import demo.data.mqRedis.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;

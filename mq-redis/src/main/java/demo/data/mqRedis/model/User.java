@@ -1,4 +1,4 @@
-package demo.data.redis.model;
+package demo.data.mqRedis.model;
 
 import lombok.Data;
 
