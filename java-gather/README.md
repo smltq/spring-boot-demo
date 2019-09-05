@@ -6,3 +6,4 @@
 - [redis实现mq](https://github.com/smltq/spring-boot-demo/blob/master/mq-redis)
 - dubbo内部有几种协议(整理中...)
 - mysql有几个常用模块(整理中...)
+- mysql索引了解
