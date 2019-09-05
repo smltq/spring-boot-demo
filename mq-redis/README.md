@@ -1,4 +1,4 @@
-# redis实现发布订阅模式
+# redis之mq实现发布订阅模式
 
 ![发布订阅概述](PublishSubscribe.jpg)
 
