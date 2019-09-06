@@ -1,5 +1,5 @@
+package com.easy.javaGather.ThreadLocal;
+
 public class ThreadLocalDemo {
-    public static void main(String args[]) {
-        System.out.println("adf");
-    }
+    ThreadLocal
 }
