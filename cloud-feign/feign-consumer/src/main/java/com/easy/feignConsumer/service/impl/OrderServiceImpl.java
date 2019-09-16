@@ -10,12 +10,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-
     @Autowired
     private GoodsServiceClient goodsServiceClient;
 
     @Override
-    public void placeOrder(Order order) throws Exception {
+    public void placeOrder(Order order){
 
         Result result = this.goodsServiceClient.goodsInfo(order.getGoodsId());
 
@@ -24,5 +23,4 @@ public class OrderServiceImpl implements OrderService {
             System.out.println(result.getData());
         }
     }
-
 }
