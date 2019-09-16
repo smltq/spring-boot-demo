@@ -1,0 +1,14 @@
+server:
+    port: 8083
+
+spring:
+  application:
+    name: hello-server
+    
+eureka:
+    instance:
+        instance-id: goods-api-8083
+        prefer-ip-address: true # 访问路径可以显示 IP
+    client:
+        service-url:
+            defaultZone: http://localhost:9000/eureka/  # 注册中心访问地址
