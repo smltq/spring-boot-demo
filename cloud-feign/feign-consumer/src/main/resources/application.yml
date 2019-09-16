@@ -1,11 +1,14 @@
 server:
-  port: 8080
+  port: 8100
+
 spring:
   application:
-    name: feign-consumer
+    name: ORDER
+
 eureka:
   instance:
-    hostname: localhost
+    instance-id: order-api-8100
+    prefer-ip-address: true # 访问路径可以显示 IP
   client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+    service-url:
+      defaultZone: http://localhost:9000/eureka/  # 注册中心访问地址
