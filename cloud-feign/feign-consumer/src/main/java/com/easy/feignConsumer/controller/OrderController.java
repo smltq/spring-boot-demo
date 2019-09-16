@@ -15,9 +15,8 @@ public class OrderController {
     private OrderService orderService;
 
     @RequestMapping("/place")
-    public Result placeOrder(Order order) throws Exception {
-
-        this.orderService.placeOrder(order);
-        return Result.success();
+    public Result placeOrder(Order order) {
+        Result result = this.orderService.placeOrder(order);
+        return result;
     }
 }

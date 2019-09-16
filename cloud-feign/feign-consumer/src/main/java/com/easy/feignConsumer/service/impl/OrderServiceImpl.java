@@ -14,7 +14,7 @@ public class OrderServiceImpl implements OrderService {
     private GoodsServiceClient goodsServiceClient;
 
     @Override
-    public void placeOrder(Order order){
+    public Result placeOrder(Order order) {
 
         Result result = this.goodsServiceClient.goodsInfo(order.getGoodsId());
 
@@ -22,5 +22,6 @@ public class OrderServiceImpl implements OrderService {
             System.out.println("=====下订单====");
             System.out.println(result.getData());
         }
+        return result;
     }
 }

@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: ORDER
+    name: feign-consumer
 
 eureka:
   instance:

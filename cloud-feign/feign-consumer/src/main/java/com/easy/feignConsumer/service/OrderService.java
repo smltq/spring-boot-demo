@@ -1,7 +1,8 @@
 package com.easy.feignConsumer.service;
 
 import com.easy.helloServiceApi.model.Order;
+import com.easy.helloServiceApi.vo.Result;
 
 public interface OrderService {
-    void placeOrder(Order order) throws Exception;
+    Result placeOrder(Order order);
 }
