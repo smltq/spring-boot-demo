@@ -1,6 +1,6 @@
 package com.easy.feignConsumer;
 
-import com.easy.helloServiceApi.model.Order;
+import com.easy.helloServiceApi.model.Goods;
 import com.easy.helloServiceApi.vo.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -25,9 +25,9 @@ public class FeignConsumerApplicationTests {
 
     @Test
     public void testFeignConsumer() {
-        Order order = new Order();
-        order.setGoodsId("1");
-        Result result = this.restTemplate.getForObject("http://HELLO-SERVER/goods/goodsInfo/" + order.getGoodsId(), Result.class);
+        Goods goods = new Goods();
+        goods.setGoodsId("1");
+        Result result = this.restTemplate.getForObject("http://HELLO-SERVER/goods/goodsInfo/" + goods.getGoodsId(), Result.class);
         log.info("成功调用了服务，返回结果==>{}", ToStringBuilder.reflectionToString(result));
     }
 }
