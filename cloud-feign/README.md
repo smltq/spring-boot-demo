@@ -1,10 +1,10 @@
-# Spring Cloud Feign 声明式服务调用
+# Spring Cloud Eureka 分布式开发之服务注册中心、负载均衡、声明式服务调用实现
 
 ![](feign.png)
 
 ## 介绍
 
-本示例主要介绍 Spring Cloud 系列中的 Eureka，实现快速入门
+本示例主要介绍 Spring Cloud 系列中的 Eureka，使你能快速上手负载均衡、声明式服务、服务注册中心等
 
 ### Eureka Server
 
@@ -33,9 +33,7 @@ Feign是集成了Ribbon的，也就是说如果引入了Feign，那么Ribbon的�
 
 ## 代码实现
 
-### 1.创建eureka-server服务
-
-用来做服务注册中心
+### 1.创建eureka-server服务注册中心
 
 #### pom.xml pom配置
 
@@ -122,9 +120,6 @@ public class EurekaServerApplication {
 
 ```
 
-测试：http://localhost:8100/order/place?goodsId=2
-服务注册中心：http://localhost:9000
-
 ### 2.创建hello-service-api接口
 
 #### Result.java 统一返回实体
@@ -208,16 +203,586 @@ public class Order {
 }
 ```
 
-#### 声明服务类
+#### GoodsServiceClient.java 声明商品服务类
+
+```java
+package com.easy.helloServiceApi.client;
+
+import com.easy.helloServiceApi.vo.Result;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@FeignClient(value = "hello-server")
+public interface GoodsServiceClient {
+
+    @RequestMapping("/goods/goodsInfo/{goodsId}")
+    Result goodsInfo(@PathVariable("goodsId") String goodsId);
+}
+```
+
+#### Goods.java商品实体类
+
+```java
+package com.easy.helloServiceApi.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+/**
+ * 商品类
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public class Goods {
+
+    private String goodsId;
+
+    private String name;
+
+    private String descr;
+
+    // 测试端口
+    private int port;
+}
+
+```
+
+### 3.创建hello-service-01服务提供者(这里创建三个一样的服务提供者做负载均衡用)
+
+#### GoodsController.java商品服务入口
+
+```java
+
+package com.easy.helloService.controller;
+
+import com.easy.helloService.service.GoodsService;
+import com.easy.helloServiceApi.model.Goods;
+import com.easy.helloServiceApi.vo.Result;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/goods")
+public class GoodsController {
+
+    @Autowired
+    private GoodsService goodsService;
+
+    @RequestMapping("/goodsInfo/{goodsId}")
+    public Result goodsInfo(@PathVariable String goodsId) {
+
+        Goods goods = this.goodsService.findGoodsById(goodsId);
+        return Result.success(goods);
+    }
+}
+
+```
+
+#### GoodsService.java接口
+
+```java
+package com.easy.helloService.service;
+
+import com.easy.helloServiceApi.model.Goods;
+
+public interface GoodsService {
+
+    Goods findGoodsById(String goodsId);
+}
+
+```
+
+#### GoodsServiceImpl.java实现接口
+
+```java
+package com.easy.helloService.service.impl;
+
+import com.easy.helloService.service.GoodsService;
+import com.easy.helloServiceApi.model.Goods;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Service
+public class GoodsServiceImpl implements GoodsService {
+
+    // 模拟数据库
+    private static Map<String, Goods> data;
+
+    static {
+        data = new HashMap<>();
+        data.put("1", new Goods("1", "华为", "华为手机", 8081));  //表示调用8081端口的数据,实际上数据会放在数据库或缓存中
+        data.put("2", new Goods("2", "苹果", "苹果", 8081));
+    }
+
+    @Override
+    public Goods findGoodsById(String goodsId) {
+        return data.get(goodsId);
+    }
+}
+
+```
+
+#### HelloServiceApplication.java启动类
+
+```java
+package com.easy.helloService;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
+@EnableDiscoveryClient
+@SpringBootApplication
+public class HelloServiceApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(HelloServiceApplication.class, args);
+    }
+}
+```
+
+#### application.yml配置文件,8081端口做01服务
+
+```yaml
+server:
+    port: 8081
+
+spring:
+  application:
+    name: hello-server
+    
+eureka:
+    instance:
+        instance-id: goods-api-8081
+        prefer-ip-address: true # 访问路径可以显示 IP
+    client:
+        service-url:
+            defaultZone: http://localhost:9000/eureka/  # 注册中心访问地址
+```
+
+### 4.创建hello-service-02服务提供者(贴出和01服务不一样的地方)
+
+#### application.yml配置文件,8082做02服务端口
+
+```yaml
+server:
+    port: 8082
+
+spring:
+  application:
+    name: hello-server
+    
+eureka:
+    instance:
+        instance-id: goods-api-8082
+        prefer-ip-address: true # 访问路径可以显示 IP
+    client:
+        service-url:
+            defaultZone: http://localhost:9000/eureka/  # 注册中心访问地址
+```
+
+#### GoodsServiceImpl.java 这里故意设置不同的数据源,用来测试负载均衡有没生效使用
+
+```java
+package com.easy.helloService.service.impl;
+
+import com.easy.helloService.service.GoodsService;
+import com.easy.helloServiceApi.model.Goods;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Service
+public class GoodsServiceImpl implements GoodsService {
+
+    // 模拟数据库
+    private static Map<String, Goods> data;
+
+    static {
+        data = new HashMap<>();
+        data.put("1", new Goods("1", "华为", "华为手机", 8082));  //表示8082端口的数据,实际上数据会放在数据库或缓存中
+        data.put("2", new Goods("2", "苹果", "苹果", 8082));
+    }
+
+    @Override
+    public Goods findGoodsById(String goodsId) {
+        return data.get(goodsId);
+    }
+}
+
+```
+
+### 5.创建hello-service-02服务提供者(贴出和01服务不一样的地方)
+
+#### application.yml配置文件,8082做02服务端口
+
+```yaml
+server:
+    port: 8083
+
+spring:
+  application:
+    name: hello-server
+    
+eureka:
+    instance:
+        instance-id: goods-api-8083
+        prefer-ip-address: true # 访问路径可以显示 IP
+    client:
+        service-url:
+            defaultZone: http://localhost:9000/eureka/  # 注册中心访问地址
+```
+
+#### GoodsServiceImpl.java 这里故意设置不同的数据源,用来测试负载均衡有没生效使用
+
+```java
+package com.easy.helloService.service.impl;
+
+import com.easy.helloService.service.GoodsService;
+import com.easy.helloServiceApi.model.Goods;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Service
+public class GoodsServiceImpl implements GoodsService {
+
+    // 模拟数据库
+    private static Map<String, Goods> data;
+
+    static {
+        data = new HashMap<>();
+        data.put("1", new Goods("1", "华为", "华为手机", 8083));  //表示8083端口的数据,实际上数据会放在数据库或缓存中
+        data.put("2", new Goods("2", "苹果", "苹果", 8083));
+    }
+
+    @Override
+    public Goods findGoodsById(String goodsId) {
+        return data.get(goodsId);
+    }
+}
+
+```
+
+### 6.创建feign-consumer服务消费者,引入Ribbon实现服务调用负载均衡并实现声明式服务调用
+
+#### pom.xml配置
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.easy</groupId>
+    <artifactId>feign-consumer</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>feign-consumer</name>
+    <description>Demo project for Spring Boot</description>
+
+    <parent>
+        <artifactId>cloud-feign</artifactId>
+        <groupId>com.easy</groupId>
+        <version>1.0.0</version>
+    </parent>
+
+    <dependencies>
+
+        <!-- springmvc -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- eureka 客户端 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!-- ribbon -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+        </dependency>
+
+        <!-- feign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.easy</groupId>
+            <artifactId>hello-service-api</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+
+```
+
+引入openfeign、ribbon、eureka-client等依赖，openfeign用来实现声明式服务调用，ribbon用来实现负载均衡，eureka-client用来注册、发现服务
+
+#### RestConfiguration.java 配置
+
+```java
+package com.easy.feignConsumer.config;
+
+import com.netflix.loadbalancer.IRule;
+import com.netflix.loadbalancer.RandomRule;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
+
+@Configuration
+public class RestConfiguration {
+
+    @Bean
+    @LoadBalanced
+    public RestTemplate getRestTemplate() {
+        return new RestTemplate();
+    }
+
+    /**
+     * 随机选取负载均衡策略
+     * @return
+     */
+    @Bean
+    public IRule testRule() {
+        return new RandomRule();
+    }
+}
+```
+
+#### GoodsService 服务类接口
+
+```java
+package com.easy.feignConsumer.service;
+
+import com.easy.helloServiceApi.model.Goods;
+import com.easy.helloServiceApi.vo.Result;
+
+public interface GoodsService {
+    Result placeGoods(Goods goods);
+}
+```
+
+#### GoodsServiceImpl.java 实现类
+
+```java
+package com.easy.feignConsumer.service.impl;
+
+import com.easy.feignConsumer.service.GoodsService;
+import com.easy.helloServiceApi.client.GoodsServiceClient;
+import com.easy.helloServiceApi.model.Goods;
+import com.easy.helloServiceApi.vo.Result;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+@Slf4j
+public class GoodsServiceImpl implements GoodsService {
+
+    @Autowired
+    private GoodsServiceClient goodsServiceClient;
+
+    @Override
+    public Result placeGoods(Goods order) {
+
+        Result result = this.goodsServiceClient.goodsInfo(order.getGoodsId());
+
+        if (result != null && result.getCode() == 200) {
+            log.info("=====获取本地商品====");
+            log.info("接口返回数据为==>{}", ToStringBuilder.reflectionToString(result.getData()));
+        }
+        return result;
+    }
+}
+
+```
+
+#### GoodsController.java 控制器
+
+```java
+package com.easy.feignConsumer.controller;
+
+import com.easy.feignConsumer.service.GoodsService;
+import com.easy.helloServiceApi.model.Goods;
+import com.easy.helloServiceApi.vo.Result;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/goods")
+public class GoodsController {
+
+    @Autowired
+    private GoodsService orderService;
+
+    @RequestMapping("/place")
+    public Result placeGoods(Goods goods) {
+        Result result = this.orderService.placeGoods(goods);
+        return result;
+    }
+}
+```
+
+#### FeignConsumerApplication.java 消息者启动类
+
+```java
+package com.easy.feignConsumer;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+
+@EnableFeignClients(basePackages = {"com.easy"})
+@EnableEurekaClient
+@SpringBootApplication
+public class FeignConsumerApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(FeignConsumerApplication.class, args);
+    }
+}
+```
+
+#### application.yml 配置文件
+
+```yaml
+server:
+  port: 8100
+
+spring:
+  application:
+    name: feign-consumer
+
+eureka:
+  instance:
+    instance-id: order-api-8100
+    prefer-ip-address: true # 访问路径可以显示 IP
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka/  # 注册中心访问地址
+```
 
 ## 使用示例
 
-1.
-http://localhost:8100/goods/place?goodsId=1
-http://localhost:9000/
+### 运行创建的5个服务
 
+1个服务注册中心，3个服务提供者，1个服务消费者
+
+### 进入服务注册中心查看服务
+
+地址栏输入：http://localhost:9000/，我们看到5个服务注册成功并且都是运行状态了（UP状态），效果如下：
+
+![](eurekaserver.png)
+
+- Application列下有两个服务（FEIGN-CONSUMER、HELLO-SERVER）
+- Availability Zones列下表示可用服务分别的数量（这里分别显示1和3)
+- Status 列显示服务状态，UP表示服务在运行状态，后面分别跟着服务的内部地址：goods-api-8100（服务消费者）,goods-api-8081（服务提供者01）, goods-api-8082（服务提供者02）, goods-api-8083（服务提供者03）
+
+### 调用接口测试
+
+地址栏输入：http://localhost:8100/goods/place?goodsId=1，返回数据结果为：
+
+```json
+{
+code: 200,
+msg: "success",
+data: {
+goodsId: "1",
+name: "华为",
+descr: "华为手机",
+port: 8081
+}
+}
+```
+
+- 多刷新几次页面，我们发现port会在8081 8082 8083随机变化，表示我们的随机负载均衡器生效了
+- 随意关掉2个或1个服务提供者，刷新页面接口功能无影响，能正常返回数据，实现了高可用
+
+## 声明式服务和非声明式服务对比
+
+### 非声明式服务调用代码
+
+```java
+    @Test
+    public void testFeignConsumer() {
+        Goods goods = new Goods();
+        goods.setGoodsId("1");
+        Result result = this.restTemplate.getForObject("http://HELLO-SERVER/goods/goodsInfo/" + goods.getGoodsId(), Result.class);
+        log.info("成功调用了服务，返回结果==>{}", ToStringBuilder.reflectionToString(result));
+    }
+```
+
+消费端每个请求方法中都需要拼接请求服务的 URL 地址，存在硬编码问题并且这样并不符合面向对象编程的思想
+
+### 声明式服务调用
+
+```java
+@FeignClient(value = "hello-server")
+public interface GoodsServiceClient {
+
+    @RequestMapping("/goods/goodsInfo/{goodsId}")
+    Result goodsInfo(@PathVariable("goodsId") String goodsId);
+}
+```
+
+```java
+    @Autowired
+    private GoodsServiceClient goodsServiceClient;
+
+    @Override
+    public Result placeGoods(Goods order) {
+        Result result = this.goodsServiceClient.goodsInfo(order.getGoodsId());
+        return result;
+    }
+```
+
+通过编写简单的接口和插入注解，就可以定义好HTTP请求的参数、格式、地址等信息，实现远程接口调用，这样将使我们的代码更易扩展和利用，复合面向对象编程实现。
 
 ## 资料
 
-[参考资料](https://www.extlight.com/2018/07/10/Spring-Cloud-%E5%85%A5%E9%97%A8-%E4%B9%8B-Feign-%E7%AF%87%EF%BC%88%E4%B8%89%EF%BC%89/)
-[官方资料](https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-feign.html)
+- [Spring Cloud Feign 示例源码](https://github.com/smltq/spring-boot-demo/blob/master/cloud-feign)
+- [参考资料](https://www.extlight.com/2018/07/10/Spring-Cloud-%E5%85%A5%E9%97%A8-%E4%B9%8B-Feign-%E7%AF%87%EF%BC%88%E4%B8%89%EF%BC%89/)
+- [官方资料](https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-feign.html)

@@ -7,7 +7,7 @@ spring:
 
 eureka:
   instance:
-    instance-id: order-api-8100
+    instance-id: goods-api-8100
     prefer-ip-address: true # 访问路径可以显示 IP
   client:
     service-url:

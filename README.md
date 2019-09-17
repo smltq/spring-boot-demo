@@ -40,6 +40,7 @@ cloud-config|配置中心(服务端、客户端)示例|[详细](https://github.c
 mybatis-multi-datasource|mybatis、数据库集群、读写分离、读库负载均衡|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-multi-datasource)|
 mq-redis|redis之mq实现，发布订阅模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mq-redis)|
 java-gather|java问题收集目录|[详细](https://github.com/smltq/spring-boot-demo/blob/master/java-gather)|
+cloud-feign|Eureka服务注册中心、负载均衡、声明式服务调用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-feign)|
 
 ## Spring Boot 概述
 
