@@ -11,6 +11,7 @@ public class sub538 {
         outTree(root);
     }
 
+    //中序输出
     static void outTree(TreeNode root){
         if(root!=null) {
             System.out.print(root.val+"\t");
