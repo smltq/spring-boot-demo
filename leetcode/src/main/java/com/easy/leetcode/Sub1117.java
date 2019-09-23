@@ -1,6 +1,6 @@
 package com.easy.leetcode;
 
-public class sub1117 {
+public class Sub1117 {
     public static void main(String[] args) {
         H2O h2o = new H2O();
         System.out.println("sdfdsf");
