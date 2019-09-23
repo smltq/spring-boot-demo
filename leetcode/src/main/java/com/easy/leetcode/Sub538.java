@@ -20,7 +20,7 @@ import java.util.Stack;
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/convert-bst-to-greater-tree
  */
-public class sub538 {
+public class Sub538 {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(5);
         root.left = new TreeNode(2);
@@ -28,7 +28,7 @@ public class sub538 {
         //root.right.right = new TreeNode(14);
         //root.right.left = new TreeNode(11);
 
-        Solution2 solution = new Solution2();
+        Solution538_2 solution = new Solution538_2();
         solution.convertBST(root);
         outTree(root);
     }
@@ -43,18 +43,8 @@ public class sub538 {
     }
 }
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-        val = x;
-    }
-}
-
 //递归实现
-class Solution1 {
+class Solution538_1 {
     public TreeNode convertBST(TreeNode root) {
         addSum(root, 0);
         return root;
@@ -80,7 +70,7 @@ class Solution1 {
 }
 
 //利用堆栈，去递归化
-class Solution2 {
+class Solution538_2 {
     public TreeNode convertBST(TreeNode root) {
         TreeNode oRoot = root;
         Stack<TreeNode> stack = new Stack();

@@ -20,12 +20,12 @@ package com.easy.leetcode;
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree
  */
-public class sub108 {
+public class Sub108 {
     public static void main(String[] args) {
-        int[] vals = new int[]{-10, -3, 0, 5, 9};
+        int[] nums = new int[]{-10, -3, 0, 5, 9};
 
-        Solution solution = new Solution();
-        TreeNode root = solution.sortedArrayToBST(vals);
+        Solution108 solution = new Solution108();
+        TreeNode root = solution.sortedArrayToBST(nums);
         outTree(root);
     }
 
@@ -41,17 +41,20 @@ public class sub108 {
 }
 
 //二分+递归实现
-class Solution {
+class Solution108 {
     public TreeNode sortedArrayToBST(int[] nums) {
         return convertToBST(nums, 0, nums.length - 1);
     }
 
-    TreeNode convertToBST(int[] vals, int begin, int end) {
+    TreeNode convertToBST(int[] nums, int begin, int end) {
         if (begin > end) return null;
+        //取中值
         int mid = begin + (end - begin) / 2;
-        TreeNode root = new TreeNode(vals[mid]);
-        root.left = convertToBST(vals, begin, mid - 1);
-        root.right = convertToBST(vals, mid + 1, end);
+        TreeNode root = new TreeNode(nums[mid]);
+        //左叶子树
+        root.left = convertToBST(nums, begin, mid - 1);
+        //右叶子树
+        root.right = convertToBST(nums, mid + 1, end);
         return root;
     }
 }
