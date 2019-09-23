@@ -40,6 +40,7 @@ public class sub108 {
 
 }
 
+//二分+递归实现
 class Solution {
     public TreeNode sortedArrayToBST(int[] nums) {
         return convertToBST(nums, 0, nums.length - 1);
