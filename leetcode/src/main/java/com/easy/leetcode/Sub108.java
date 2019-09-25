@@ -1,5 +1,7 @@
 package com.easy.leetcode;
 
+import java.util.Stack;
+
 /*
 将一个按照升序排列的有序数组，转换为一棵高度平衡二叉搜索树。
 
@@ -24,7 +26,7 @@ public class Sub108 {
     public static void main(String[] args) {
         int[] nums = new int[]{-10, -3, 0, 5, 9};
 
-        Solution108 solution = new Solution108();
+        Solution108_2 solution = new Solution108_2();
         TreeNode root = solution.sortedArrayToBST(nums);
         outTree(root);
     }
@@ -40,7 +42,7 @@ public class Sub108 {
 }
 
 //二分+递归实现
-class Solution108 {
+class Solution108_1 {
     public TreeNode sortedArrayToBST(int[] nums) {
         return convertToBST(nums, 0, nums.length - 1);
     }
@@ -54,6 +56,44 @@ class Solution108 {
         root.left = convertToBST(nums, begin, mid - 1);
         //右叶子树
         root.right = convertToBST(nums, mid + 1, end);
+        return root;
+    }
+}
+
+//非递归实现
+class Solution108_2 {
+    public TreeNode sortedArrayToBST(int[] nums) {
+        if (nums == null || nums.length == 0) return null;
+        Stack<Integer> stack = new Stack<Integer>();
+        stack.add(nums.length - 1);
+        stack.add(0);
+
+        Stack<TreeNode> tree = new Stack<TreeNode>();
+        TreeNode root = new TreeNode(0);
+        tree.add(root);
+
+        while (!stack.isEmpty()) {
+            int left = stack.pop();
+            int right = stack.pop();
+            int mid = left + (right - left) / 2;
+            TreeNode node = tree.pop();
+            node.val = nums[mid];
+            int r = mid - 1, l = left;
+            if (l <= r) {
+                node.left = new TreeNode(0);
+                tree.add(node.left);
+                stack.push(r);
+                stack.push(l);
+            }
+            l = mid + 1;
+            r = right;
+            if (l <= r) {
+                node.right = new TreeNode(0);
+                tree.add(node.right);
+                stack.push(r);
+                stack.add(l);
+            }
+        }
         return root;
     }
 }
