@@ -65,32 +65,50 @@ class Solution108_2 {
     public TreeNode sortedArrayToBST(int[] nums) {
         if (nums == null || nums.length == 0) return null;
         Stack<Integer> stack = new Stack<Integer>();
+        //数组最大索引值入栈
         stack.add(nums.length - 1);
+        //数组最小索引值入栈
         stack.add(0);
 
         Stack<TreeNode> tree = new Stack<TreeNode>();
         TreeNode root = new TreeNode(0);
+        //随便new树节点入栈
         tree.add(root);
 
         while (!stack.isEmpty()) {
             int left = stack.pop();
             int right = stack.pop();
+            //求出中间节点索引值
             int mid = left + (right - left) / 2;
             TreeNode node = tree.pop();
+            //更新根节点值
             node.val = nums[mid];
+
+            //计算左叶子节点最大最小索引值
             int r = mid - 1, l = left;
+            //如果存在左叶子节点
             if (l <= r) {
                 node.left = new TreeNode(0);
+                //随便new个树节点入栈
                 tree.add(node.left);
+
+                //对应右索引值入栈
                 stack.push(r);
+                //对应左索引值入栈
                 stack.push(l);
             }
+
+            //计算右节点最大最小索引值
             l = mid + 1;
             r = right;
             if (l <= r) {
                 node.right = new TreeNode(0);
+                //随便new个树节点入栈
                 tree.add(node.right);
+
+                //对应右索引值入栈
                 stack.push(r);
+                //对应左索引值入栈
                 stack.add(l);
             }
         }
