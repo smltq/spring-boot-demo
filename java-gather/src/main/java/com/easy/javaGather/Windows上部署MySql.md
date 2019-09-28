@@ -1,4 +1,4 @@
-# Windows上安装MySQL
+# Windows上部署MySql
 
 ## 下载安装包
 
@@ -111,4 +111,4 @@ Navicat连接MySQL Server8.0版本时出现Client does not support authenticatio
 ## 资料
 
 - [Java问题收集](https://github.com/smltq/spring-boot-demo/tree/master/java-gather)
-- [原文地址](https://dev.mysql.com/doc/refman/8.0/en/innodb-transaction-isolation-levels.html)
+- [原文地址](https://github.com/smltq/spring-boot-demo/blob/master/java-gather/src/main/java/com/easy/javaGather/windows%E9%83%A8%E7%BD%B2mysql.md)

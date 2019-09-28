@@ -14,6 +14,7 @@
 ## mysql问题汇总
 
 - [mysql事务详解](https://github.com/smltq/spring-boot-demo/blob/master/java-gather/src/main/java/com/easy/javaGather/MySqlTransaction.md)
+- []
 - mysql有几个常用模块(整理中...)
 - mysql索引了解，常用索引，B树，B+树
 - mysql组合索引详解，注意事项
