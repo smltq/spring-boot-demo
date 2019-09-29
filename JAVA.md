@@ -6,5 +6,5 @@ ps -ef|grep java
 
 ## 找到java进程id，抓取dump
 
-jmap -dump:format=b,file=myheap.hprof 27226
+sudo -u lintq jmap -dump:format=b,file=myheap.hprof 27226
 
