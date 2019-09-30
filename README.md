@@ -35,6 +35,7 @@ admin|可视化服务监控、使用|[详细](https://github.com/smltq/spring-bo
 security-oauth2-credentials|oath2实现密码模式、客户端模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-credentials/README.md)|
 security-oauth2-auth-code|基于spring boot实现oath2授权模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-auth-code/README.md)|
 mybatis-multi-datasource|mybatis、数据库集群、读写分离、读库负载均衡|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-multi-datasource)|
+template-thymeleaf|thymeleaf实现应用国际化示例|[详细](https://github.com/smltq/spring-boot-demo/blob/master/template-thymeleaf)
 mq-redis|redis之mq实现，发布订阅模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mq-redis)|
 java-gather|java问题收集目录|[详细](https://github.com/smltq/spring-boot-demo/blob/master/java-gather)|
 cloud-feign|Eureka服务注册中心、负载均衡、声明式服务调用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-feign)|
