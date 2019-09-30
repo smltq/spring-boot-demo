@@ -289,7 +289,7 @@ text.description=It is a i18n demo
 
 地址栏输入: http://localhost:8080/
 
-### 运行效果分别如下
+### 2.运行效果分别如下
 
 默认为中文语言环境
 
