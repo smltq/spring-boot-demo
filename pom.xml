@@ -12,16 +12,27 @@
     <modules>
         <module>helloworld</module>
         <module>web</module>
-        <module>data-redis</module>
         <module>aop</module>
+        <module>data-redis</module>
         <module>quartz</module>
         <module>shiro</module>
+        <module>sign</module>
         <module>security</module>
         <module>mybatis-plus-generator</module>
-        <module>sign</module>
-        <module>security-oauth2-credentials</module>
-        <module>cloud-config</module>
-        <module>leetcode</module>
+        <module>mybatis-plus-crud</module>
+        <module>encoder</module>
         <module>actuator</module>
+        <module>admin</module>
+        <module>security-oauth2-credentials</module>
+        <module>security-oauth2-auth-code</module>
+        <module>mybatis-multi-datasource</module>
+        <module>template-thymeleaf</module>
+        <module>mq-redis</module>
+        <module>java-gather</module>
+        <module>leetcode</module>
+        <module>cloud-feign</module>
+        <module>cloud-oauth2-auth-code</module>
+        <module>cloud-gateway</module>
+        <module>cloud-config</module>
     </modules>
 </project>
