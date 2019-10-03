@@ -37,20 +37,20 @@ class H2O_1 {
     int h = 0;
     public synchronized void hydrogen(Runnable releaseHydrogen) throws InterruptedException {
         while (h == 2) {
-            wait();
+            this.wait();
         }
         releaseHydrogen.run();
         ++h;
-        notify();
+        this.notify();
     }
 
     public synchronized void oxygen(Runnable releaseOxygen) throws InterruptedException {
         while (h < 2) {
-            System.out.println("\t氢气\t" + h);
-            wait();
+            //System.out.println("\t氢气\t" + h);
+            this.wait();
         }
         releaseOxygen.run();
         h = 0;
-        notify();
+        this.notify();
     }
 }
