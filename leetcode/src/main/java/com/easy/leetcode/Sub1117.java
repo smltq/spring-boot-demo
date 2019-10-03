@@ -10,9 +10,9 @@ public class Sub1117 {
         for (int i = 0; i < test.length(); ++i) {
             //System.out.println("当前索引值：" + i);
             if (test.charAt(i) == 'O') {
-                new H2O_2().oxygen(new OThread());
+                new H2O_1().oxygen(new OThread());
             } else if (test.charAt(i) == 'H') {
-                new H2O_2().hydrogen(new HThread());
+                new H2O_1().hydrogen(new HThread());
             }
         }
     }
@@ -32,78 +32,25 @@ class OThread implements Runnable {
     }
 }
 
-class H2O_2 {
-    private int flagH = 0;
-    private int flagO = 0;
-    private Object lock = new Object();
-
-    public void hydrogen(Runnable releaseHydrogen) throws InterruptedException {
-        synchronized (lock) {
-            if (flagO * 2 >= flagH) {
-                flagH++;
-                releaseHydrogen.run();
-            } else {
-                releaseHydrogen.wait();
-            }
-        }
-    }
-
-    public void oxygen(Runnable releaseOxygen) throws InterruptedException {
-        synchronized (lock) {
-            if (flagO == 0 || flagO * 2 <= flagH) {
-                flagO++;
-                releaseOxygen.run();
-            } else {
-                releaseOxygen.wait();
-            }
-        }
-    }
-}
-
 class H2O_1 {
-    private int flagH = 0;
-    private int flagO = 0;
-    private ReentrantLock lock;
-    private Condition condition;
 
-    public H2O_1() {
-        lock = new ReentrantLock(true);
-        condition = lock.newCondition();
+    int h = 0;
+
+    public synchronized void hydrogen(Runnable releaseHydrogen) throws InterruptedException {
+        while (h == 2) {
+            wait();
+        }
+        releaseHydrogen.run();
+        ++h;
+        notify();
     }
 
-    public void hydrogen(Runnable releaseHydrogen) throws InterruptedException {
-        while (true) {
-            lock.lock();
-            boolean b = flagH < 2;
-            if (b) {
-                releaseHydrogen.run();
-                flagH++;
-                condition.signalAll();
-                lock.unlock();
-                break;
-            } else {
-                condition.signalAll();
-                condition.await();
-            }
-            lock.unlock();
+    public synchronized void oxygen(Runnable releaseOxygen) throws InterruptedException {
+        while (h < 2) {
+            wait();
         }
-    }
-
-    public void oxygen(Runnable releaseOxygen) throws InterruptedException {
-        while (true) {
-            lock.lock();
-            boolean b = flagO == 0 || flagO * 2 <= flagH;
-            if (b) {
-                releaseOxygen.run();
-                flagO++;
-                condition.signalAll();
-                lock.unlock();
-                break;
-            } else {
-                condition.signalAll();
-                condition.await();
-            }
-            lock.unlock();
-        }
+        releaseOxygen.run();
+        h = 0;
+        notify();
     }
 }
