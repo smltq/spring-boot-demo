@@ -1,56 +1,118 @@
 package com.easy.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+import java.util.concurrent.Phaser;
+import java.util.concurrent.Semaphore;
+
 public class Sub1117 {
     public static void main(String[] args) throws InterruptedException {
-        String test = "HOHOHHOOHOHHHHHOHHHOH";
-        //System.out.println("当前数组长度：" + test.length());
-        H2O_1 h2o = new H2O_1();
-        for (int i = 0; i < test.length(); ++i) {
-            //System.out.println("当前索引值：" + i);
-            if (test.charAt(i) == 'O') {
-                h2o.oxygen(new OThread());
-                //new H2O_1().oxygen(new OThread());
-            } else if (test.charAt(i) == 'H') {
-                h2o.hydrogen(new HThread());
-                //new H2O_1().hydrogen(new HThread());
+        Map validResult = new HashMap();
+        validResult.put("HhO", true);
+        validResult.put("HOh", true);
+        validResult.put("OHh", true);
+        validResult.put("OhH", true);
+        validResult.put("hOH", true);
+        validResult.put("hHO", true);
+        int count = 100;
+        H2O h2o = new H2O();
+        StringBuffer sb = new StringBuffer();
+        Runnable releaseHydrogen1 = () -> sb.append("H");
+        Runnable releaseHydrogen2 = () -> sb.append("h");
+        Runnable releaseOxygen = () -> sb.append("O");
+        HydrogenGenerator h1 = new HydrogenGenerator(count, h2o, releaseHydrogen1);
+        HydrogenGenerator h2 = new HydrogenGenerator(count, h2o, releaseHydrogen2);
+        OxygenGenerator o = new OxygenGenerator(count, h2o, releaseOxygen);
+        h1.start();
+        o.start();
+        Thread.sleep(1000);
+        h2.start();
+        h1.join();
+        h2.join();
+        o.join();
+        System.out.println(sb.toString());
+        for (int i = 0; i < (count - 1) * 3; i += 3) {
+            String s = sb.substring(i, i + 3);
+            if (validResult.get(s) == null) {
+                System.out.println("expect (H && h && O) but got " + s);
             }
         }
     }
 }
 
-//生产氢气
-class HThread implements Runnable {
-    public void run() {
-        System.out.print("H");
-    }
-}
+class HydrogenGenerator extends Thread {
+    int n;
+    H2O h2o;
+    Runnable releaseHydrogen;
+    Random rand = new Random(System.currentTimeMillis());
 
-//生产氧气
-class OThread implements Runnable {
-    public void run() {
-        System.out.print("O");
+    public HydrogenGenerator(int n, H2O h2o, Runnable releaseHydrogen) {
+        this.n = n;
+        this.h2o = h2o;
+        this.releaseHydrogen = releaseHydrogen;
     }
-}
 
-class H2O_1 {
-    public H2O_1() {}
-    int h = 0;
-    public synchronized void hydrogen(Runnable releaseHydrogen) throws InterruptedException {
-        while (h == 2) {
-            this.wait();
+    @Override
+    public void run() {
+        for (; n >= 0; n--) {
+            try {
+                Thread.sleep(rand.nextInt(100));
+                h2o.hydrogen(releaseHydrogen);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
+    }
+}
+
+class OxygenGenerator extends Thread {
+    int n;
+    H2O h2o;
+    Runnable releaseOxygen;
+    Random rand = new Random(System.currentTimeMillis());
+
+    public OxygenGenerator(int n, H2O h2o, Runnable releaseOxygen) {
+        this.n = n;
+        this.h2o = h2o;
+        this.releaseOxygen = releaseOxygen;
+    }
+
+    @Override
+    public void run() {
+        for (; n >= 0; n--) {
+            try {
+                Thread.sleep(rand.nextInt(100));
+                h2o.oxygen(releaseOxygen);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+class H2O {
+    private Semaphore semO;
+    private Semaphore semH;
+    private Phaser phaser;
+
+    public H2O() {
+        semO = new Semaphore(1);
+        semH = new Semaphore(2);
+        phaser = new Phaser(3);
+    }
+
+    public void hydrogen(Runnable releaseHydrogen) throws InterruptedException {
+        semH.acquire();
         releaseHydrogen.run();
-        ++h;
-        this.notify();
+        phaser.arriveAndAwaitAdvance();
+        semH.release();
     }
 
-    public synchronized void oxygen(Runnable releaseOxygen) throws InterruptedException {
-        while (h < 2) {
-            //System.out.println("\t氢气\t" + h);
-            this.wait();
-        }
+    public void oxygen(Runnable releaseOxygen) throws InterruptedException {
+        semO.acquire();
         releaseOxygen.run();
-        h = 0;
-        this.notify();
+        phaser.arriveAndAwaitAdvance();
+        semO.release();
     }
 }
