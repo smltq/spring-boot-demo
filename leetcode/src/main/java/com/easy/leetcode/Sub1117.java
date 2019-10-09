@@ -1,118 +1,149 @@
 package com.easy.leetcode;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import java.util.concurrent.Phaser;
-import java.util.concurrent.Semaphore;
+/*
+现在有两种线程，氢 oxygen 和氧 hydrogen，你的目标是组织这两种线程来产生水分子。
 
+存在一个屏障（barrier）使得每个线程必须等候直到一个完整水分子能够被产生出来。
+
+氢和氧线程会被分别给予 releaseHydrogen 和 releaseOxygen 方法来允许它们突破屏障。
+
+这些线程应该三三成组突破屏障并能立即组合产生一个水分子。
+
+你必须保证产生一个水分子所需线程的结合必须发生在下一个水分子产生之前。
+
+换句话说:
+
+如果一个氧线程到达屏障时没有氢线程到达，它必须等候直到两个氢线程到达。
+如果一个氢线程到达屏障时没有其它线程到达，它必须等候直到一个氧线程和另一个氢线程到达。
+书写满足这些限制条件的氢、氧线程同步代码。
+
+ 
+
+示例 1:
+
+输入: "HOH"
+输出: "HHO"
+解释: "HOH" 和 "OHH" 依然都是有效解。
+示例 2:
+
+输入: "OOHHHH"
+输出: "HHOHHO"
+解释: "HOHHHO", "OHHHHO", "HHOHOH", "HOHHOH", "OHHHOH", "HHOOHH", "HOHOHH" 和 "OHHOHH" 依然都是有效解。
+ 
+
+限制条件:
+
+输入字符串的总长将会是 3n, 1 ≤ n ≤ 50；
+输入字符串中的 “H” 总数将会是 2n；
+输入字符串中的 “O” 总数将会是 n。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/building-h2o
+*/
 public class Sub1117 {
     public static void main(String[] args) throws InterruptedException {
-        Map validResult = new HashMap();
-        validResult.put("HhO", true);
-        validResult.put("HOh", true);
-        validResult.put("OHh", true);
-        validResult.put("OhH", true);
-        validResult.put("hOH", true);
-        validResult.put("hHO", true);
-        int count = 100;
+        //测试用例字符串
+        String test = "HOHOHHOOHOHHHHHOHHHOH";
+
+        //生成结果字符串
+        StringBuffer result = new StringBuffer();
+
+        //注意：创建的Runnable任务，无法启动线程，必须依托其他类或线程启动
+        //创建生成氧气任务
+        Runnable releaseHydrogen = () -> result.append("H");
+
+        //创建生成氧气任务
+        Runnable releaseOxygen = () -> result.append("O");
+
+        //保存线程数组
+        Thread threads[] = new Thread[test.length()];
+
         H2O h2o = new H2O();
-        StringBuffer sb = new StringBuffer();
-        Runnable releaseHydrogen1 = () -> sb.append("H");
-        Runnable releaseHydrogen2 = () -> sb.append("h");
-        Runnable releaseOxygen = () -> sb.append("O");
-        HydrogenGenerator h1 = new HydrogenGenerator(count, h2o, releaseHydrogen1);
-        HydrogenGenerator h2 = new HydrogenGenerator(count, h2o, releaseHydrogen2);
-        OxygenGenerator o = new OxygenGenerator(count, h2o, releaseOxygen);
-        h1.start();
-        o.start();
-        Thread.sleep(1000);
-        h2.start();
-        h1.join();
-        h2.join();
-        o.join();
-        System.out.println(sb.toString());
-        for (int i = 0; i < (count - 1) * 3; i += 3) {
-            String s = sb.substring(i, i + 3);
-            if (validResult.get(s) == null) {
-                System.out.println("expect (H && h && O) but got " + s);
+        for (int i = 0; i < test.length(); ++i) {
+            Thread thread = null;
+            //根据获得的字符调用相应的氧气或氢气线程
+            if (test.charAt(i) == 'O') {
+                thread = new OGenerator(h2o, releaseOxygen);
+            } else if (test.charAt(i) == 'H') {
+                thread = new HGenerator(h2o, releaseHydrogen);
             }
+            //开始线程
+            thread.start();
+            //保存到线程数组
+            threads[i] = thread;
         }
+
+        //等侍所有线程执行完
+        for (int i = 0; i < threads.length; i++) {
+            threads[i].join();
+        }
+
+        //输出结果串
+        System.out.println(result.toString());
     }
 }
 
-class HydrogenGenerator extends Thread {
-    int n;
+//氢气生成线程
+class HGenerator extends Thread {
     H2O h2o;
     Runnable releaseHydrogen;
-    Random rand = new Random(System.currentTimeMillis());
 
-    public HydrogenGenerator(int n, H2O h2o, Runnable releaseHydrogen) {
-        this.n = n;
+    public HGenerator(H2O h2o, Runnable releaseHydrogen) {
         this.h2o = h2o;
         this.releaseHydrogen = releaseHydrogen;
     }
 
     @Override
     public void run() {
-        for (; n >= 0; n--) {
-            try {
-                Thread.sleep(rand.nextInt(100));
-                h2o.hydrogen(releaseHydrogen);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        try {
+            h2o.hydrogen(releaseHydrogen);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }
 
-class OxygenGenerator extends Thread {
-    int n;
+//氧气生成线程
+class OGenerator extends Thread {
     H2O h2o;
     Runnable releaseOxygen;
-    Random rand = new Random(System.currentTimeMillis());
 
-    public OxygenGenerator(int n, H2O h2o, Runnable releaseOxygen) {
-        this.n = n;
+    public OGenerator(H2O h2o, Runnable releaseOxygen) {
         this.h2o = h2o;
         this.releaseOxygen = releaseOxygen;
     }
 
     @Override
     public void run() {
-        for (; n >= 0; n--) {
-            try {
-                Thread.sleep(rand.nextInt(100));
-                h2o.oxygen(releaseOxygen);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        try {
+            h2o.oxygen(releaseOxygen);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }
 
 class H2O {
-    private Semaphore semO;
-    private Semaphore semH;
-    private Phaser phaser;
-
     public H2O() {
-        semO = new Semaphore(1);
-        semH = new Semaphore(2);
-        phaser = new Phaser(3);
     }
 
-    public void hydrogen(Runnable releaseHydrogen) throws InterruptedException {
-        semH.acquire();
+    int h = 0;
+
+    public synchronized void hydrogen(Runnable releaseHydrogen) throws InterruptedException {
+        while (h == 2) {
+            this.wait();
+        }
         releaseHydrogen.run();
-        phaser.arriveAndAwaitAdvance();
-        semH.release();
+        ++h;
+        this.notify();
     }
 
-    public void oxygen(Runnable releaseOxygen) throws InterruptedException {
-        semO.acquire();
+    public synchronized void oxygen(Runnable releaseOxygen) throws InterruptedException {
+        while (h < 2) {
+            this.wait();
+        }
         releaseOxygen.run();
-        phaser.arriveAndAwaitAdvance();
-        semO.release();
+        h = 0;
+        this.notify();
     }
 }
