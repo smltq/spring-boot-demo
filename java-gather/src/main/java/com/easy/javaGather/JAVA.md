@@ -15,3 +15,5 @@ grep命令是查找
 
 sudo -u lintq jmap -dump:format=b,file=myheap.hprof 27226
 
+
+
