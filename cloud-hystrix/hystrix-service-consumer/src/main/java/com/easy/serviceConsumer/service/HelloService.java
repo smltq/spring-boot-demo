@@ -17,7 +17,7 @@ public class HelloService {
     @HystrixCommand(fallbackMethod = "helloFallback", ignoreExceptions = {NotFallbackException.class}
             , groupKey = "hello", commandKey = "str", threadPoolKey = "helloStr")
     public String hello(String p1, String p2) {
-        return restTemplate.getForObject(HELLO_SERVICE + "hello", String.class, p1, p2);
+        return restTemplate.getForObject(HELLO_SERVICE + "hello?p1=" + p1 + "&p2=" + p2, String.class);
     }
 
     private String helloFallback(String p1, String p2, Throwable e) {
