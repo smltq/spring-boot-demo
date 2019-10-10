@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: hystrix-service-provider
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  # 实例一
+server:
+  port: 8081
