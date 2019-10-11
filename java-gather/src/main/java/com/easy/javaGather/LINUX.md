@@ -42,6 +42,16 @@
     - 文件覆盖上传    rz -y
     - 下载文件  sz  文件名 
     
+## 用户操作
+
+    - 普通用户切换为root用户：sudo su
+    - root 用户切换为普通用户 ：用 login -f username （加 -f 不用输入密码）例如普通用户的用户名为hadoop，这里就是 login -f hadoop
+    - 查看用户登陆历史记录：last
+    - 查看系统中有哪些用户：cut -d : -f 1 /etc/passwd
+    - 查看用户组：sudo cat /etc/group
+    - 创建新用户：useradd centos
+    - 设置密码：passwd centos
+    
 ## 系统操作
     
     - shutdown -h now  --立即关机  
@@ -49,6 +59,7 @@
     - shutdown -r +30 'The System Will Reboot in 30 Mins'   --30分钟后重启并并发送通知给其它在线用户
     - shutdown -h +10  --10分钟后自动关机  
     - shutdown -r now  --立即重启  
+    - 查看IP：ip addr 或：ifconfig
     
 ## 开端口相关
     
