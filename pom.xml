@@ -39,5 +39,8 @@
         <module>cloud-oauth2-auth-code</module>
         <module>cloud-gateway</module>
         <module>cloud-config</module>
+        <module>cloud-feign</module>
+        <module>cloud-hystrix</module>
+        <module>cloud-zuul</module>
     </modules>
 </project>
