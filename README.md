@@ -42,7 +42,7 @@ cloud-feign|Eureka服务注册中心、负载均衡、声明式服务调用|[详
 cloud-oauth2-auth-code|基于spring cloud实现oath2授权模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-oauth2-auth-code)|
 cloud-gateway|API主流网关、gateway快速上手|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-gateway)|
 cloud-config|配置中心(服务端、客户端)示例|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-config)|
-cloud-hystrix|Hystrix熔断器使用、快速上手|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-hystrix)|
+cloud-hystrix|Hystrix服务容错、异常处理、注册中心示例|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-hystrix)|
 
 ## Spring Boot 概述
 
