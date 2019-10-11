@@ -229,4 +229,190 @@ public class HystrixServiceProviderApplication {
 
 ### 3.创建hystrix-service-consumer服务消费者
 
-#### 
+#### pom.xml配置
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.easy</groupId>
+    <artifactId>hystrix-service-consumer</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>hystrix-service-consumer</name>
+    <description>Demo project for Spring Boot</description>
+
+    <parent>
+        <artifactId>cloud-hystrix</artifactId>
+        <groupId>com.easy</groupId>
+        <version>1.0.0</version>
+    </parent>
+
+    <dependencies>
+        <!-- eureka 客户端 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!-- ribbon -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+
+```
+
+#### application.yml配置文件
+
+```yaml
+spring:
+  application:
+    name: hystrix-eureka-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000 # 默认超时时间
+```
+
+#### 相关代码
+
+异常处理类NotFallbackException.java
+```java
+package com.easy.serviceConsumer.exception;
+
+public class NotFallbackException extends Exception {
+}
+```
+
+服务层HelloService.java
+```java
+package com.easy.serviceConsumer.service;
+
+import com.easy.serviceConsumer.exception.NotFallbackException;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+@Service
+public class HelloService {
+
+    @Autowired
+    RestTemplate restTemplate;
+
+    private static final String HELLO_SERVICE = "http://hystrix-service-provider/";
+
+    @HystrixCommand(fallbackMethod = "helloFallback", ignoreExceptions = {NotFallbackException.class}
+            , groupKey = "hello", commandKey = "str", threadPoolKey = "helloStr")
+    public String hello(String p1, String p2) {
+        return restTemplate.getForObject(HELLO_SERVICE + "hello?p1=" + p1 + "&p2=" + p2, String.class);
+    }
+
+    private String helloFallback(String p1, String p2, Throwable e) {
+        System.out.println("class: " + e.getClass());
+        return "error, " + p1 + ", " + p2;
+    }
+}
+```
+
+控制器ConsumerController.java
+```java
+package com.easy.serviceConsumer.web;
+
+import com.easy.serviceConsumer.service.HelloService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class ConsumerController {
+
+    @Autowired
+    HelloService helloService;
+
+    @GetMapping("hello")
+    public String hello(@RequestParam String p1, @RequestParam String p2) {
+        System.out.println("hello");
+        return helloService.hello(p1, p2);
+    }
+}
+```
+
+#### 4.启动类HystrixServiceConsumerApplication.java
+
+```java
+package com.easy.serviceConsumer;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
+
+@SpringCloudApplication
+public class HystrixServiceConsumerApplication {
+
+    @Bean
+    @LoadBalanced
+    RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(HystrixServiceConsumerApplication.class, args);
+    }
+}
+```
+
+## 使用示例
+
+分别运行3个服务，HystrixEurekaServerApplication.java（服务注册中心）,HystrixServiceProviderApplication.java（服务提供者）,HystrixServiceConsumerApplication.java（服务消费者）
+
+- 1.访问 http://localhost:8080/hello?p1=a&p2=b ，正常情况下响应为 hello, a, b
+- 2.关闭 hystrix-service-provider 或在 sleepTime 超过 1000ms 时，访问 http://localhost:8080/hello?p1=a&p2=b，执行降级逻辑，返回 error, a, b
+
+## 资料
+
+- [Spring Cloud Hystrix 示例源码](https://github.com/smltq/spring-boot-demo/blob/master/cloud-hystrix)
+- [Spring Boot、Spring Cloud示例学习](https://github.com/smltq/spring-boot-demo)
+- [Hystrix源码](https://github.com/Netflix/Hystrix)
