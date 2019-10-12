@@ -1,7 +1,7 @@
 package com.easy.zuulServerGateway.filter;
 
 import com.netflix.zuul.ZuulFilter;
-import com.sun.xml.internal.ws.client.RequestContext;
+import com.netflix.zuul.context.RequestContext;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
