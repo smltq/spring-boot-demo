@@ -17,7 +17,7 @@ public class ProducerFallback implements FallbackProvider {
 
     @Override
     public String getRoute() {
-        return "spring-cloud-producer";
+        return "zuul-server-provider";
     }
 
     @Override

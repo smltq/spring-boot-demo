@@ -1,6 +1,6 @@
 spring:
   application:
-    name: spring-cloud-producer
+    name: zuul-server-provider
 server:
   port: 9000
 eureka:
