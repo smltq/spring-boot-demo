@@ -11,6 +11,11 @@ public class HelloController {
     @RequestMapping("/hello")
     public String index(@RequestParam String name) {
         log.info("request two name is " + name);
+        try{
+            Thread.sleep(1000000);
+        }catch ( Exception e){
+            log.error(" hello two error",e);
+        }
         return "hello " + name + "，this is two messge";
     }
 }

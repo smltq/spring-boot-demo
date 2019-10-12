@@ -13,7 +13,7 @@ import java.io.InputStream;
 
 @Slf4j
 @Component
-public class ProducerFallback implements FallbackProvider {
+public class ProviderFallback implements FallbackProvider {
 
     @Override
     public String getRoute() {
@@ -22,8 +22,8 @@ public class ProducerFallback implements FallbackProvider {
 
     @Override
     public ClientHttpResponse fallbackResponse(String route, Throwable cause) {
-        if (cause != null && cause.getCause() != null) {
-            String reason = cause.getCause().getMessage();
+        if (cause != null) {
+            String reason =cause.getMessage();
             log.info("Excption {}", reason);
         }
         return fallbackResponse();
