@@ -9,7 +9,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-zuul</artifactId>
+    <artifactId>zuul-server-gateway</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
