@@ -9,7 +9,6 @@ import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Component;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 
 @Slf4j
@@ -33,17 +32,17 @@ public class ProducerFallback implements FallbackProvider {
     public ClientHttpResponse fallbackResponse() {
         return new ClientHttpResponse() {
             @Override
-            public HttpStatus getStatusCode() throws IOException {
+            public HttpStatus getStatusCode() {
                 return HttpStatus.OK;
             }
 
             @Override
-            public int getRawStatusCode() throws IOException {
+            public int getRawStatusCode() {
                 return 200;
             }
 
             @Override
-            public String getStatusText() throws IOException {
+            public String getStatusText(){
                 return "OK";
             }
 
@@ -53,7 +52,7 @@ public class ProducerFallback implements FallbackProvider {
             }
 
             @Override
-            public InputStream getBody() throws IOException {
+            public InputStream getBody() {
                 return new ByteArrayInputStream("The service is unavailable.".getBytes());
             }
 

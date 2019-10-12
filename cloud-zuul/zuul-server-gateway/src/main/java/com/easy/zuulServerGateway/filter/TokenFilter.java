@@ -2,15 +2,13 @@ package com.easy.zuulServerGateway.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 
+@Slf4j
 public class TokenFilter extends ZuulFilter {
-
-    private final Logger logger = LoggerFactory.getLogger(TokenFilter.class);
 
     @Override
     public String filterType() {
@@ -32,7 +30,7 @@ public class TokenFilter extends ZuulFilter {
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
 
-        logger.info("--->>> TokenFilter {},{}", request.getMethod(), request.getRequestURL().toString());
+        log.info("--->>> TokenFilter {},{}", request.getMethod(), request.getRequestURL().toString());
 
         String token = request.getParameter("token");// 获取请求的参数
 
