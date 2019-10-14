@@ -366,7 +366,7 @@ public class ZuulServerGatewayApplication {
 }
 ```
 
-至上，示例的四个服务创建完毕，接下来运行示例查看效果
+到此，示例的四个服务创建完毕，接下来运行示例查看效果
 
 ## 使用
 
