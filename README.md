@@ -38,10 +38,10 @@ mybatis-multi-datasource|mybatis、数据库集群、读写分离、读库负载
 template-thymeleaf|thymeleaf实现应用国际化示例|[详细](https://github.com/smltq/spring-boot-demo/blob/master/template-thymeleaf)
 mq-redis|redis之mq实现，发布订阅模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mq-redis)|
 java-gather|java问题收集目录|[详细](https://github.com/smltq/spring-boot-demo/blob/master/java-gather)|
-cloud-feign|Eureka服务注册中心、负载均衡、声明式服务调用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-feign)|
 cloud-oauth2-auth-code|基于spring cloud实现oath2授权模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-oauth2-auth-code)|
 cloud-gateway|API主流网关、gateway快速上手|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-gateway)|
 cloud-config|配置中心(服务端、客户端)示例|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-config)|
+cloud-feign|Eureka服务注册中心、负载均衡、声明式服务调用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-feign)|
 cloud-hystrix|Hystrix服务容错、异常处理、注册中心示例|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-hystrix)|
 cloud-zuul|zuul服务网关、过滤器、路由转发、服务降级、负载均衡|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-zuul)|
 
