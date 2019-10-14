@@ -375,10 +375,29 @@ public class ZuulServerGatewayApplication {
 zuul-eureka-server：服务注册中心，服务名：zuul-eureka-server，端口：8761
 zuul-server-provider：服务提供者1，服务名：zuul-server-provider，端口：9000
 zuul-server-provider2：服务提供者，服务名：zuul-server-provider，端口：9001
-gateway：服务网关，服务名：gateway，端口：6001
+zuul-server-gateway：服务网关，服务名：zuul-server-gateway，端口：8888
 
 ### 运行测试
 
+分别启动zuul-eureka-server、zuul-server-gateway、zuul-server-provider三个服务
+
 - 访问地址：http://localhost:8888/zuul-server-provider/hello?name=yuntian，返回：token is empty ，请求被拦截返回。
 - 访问地址：http://localhost:8888/zuul-server-provider/hello?name=yuntian&token=xx，返回：hello yuntian，this is first messge，说明请求正常响应。
-- 关闭zuul-server-provider2，多次访问http://localhost:8888/zuul-server-provider/hello?name=yuntian&token=xx
+
+
+启动zuul-server-provider2
+
+- 多次访问http://localhost:8888/zuul-server-provider/hello?name=yuntian&token=xx，此时会交替返回
+
+```cfml
+hello yuntian，this is first messge
+The service is unavailable
+...
+
+```
+从返回结果可以看出：zuul-server-provider2项目已经启用了熔断，返回:The service is unavailable.
+
+## 资料
+
+- [Spring Cloud Zuul 示例源码](https://github.com/smltq/spring-boot-demo/blob/master/cloud-zuul)
+- [Spring Boot、Spring Cloud示例学习](https://github.com/smltq/spring-boot-demo)
