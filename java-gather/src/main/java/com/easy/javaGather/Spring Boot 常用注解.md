@@ -1,4 +1,4 @@
-# Spring Boot 常用注解
+# Spring Boot 常用注解汇总
 
 ## 一、启动注解 @SpringBootApplication
 
