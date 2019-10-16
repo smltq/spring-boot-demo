@@ -210,18 +210,19 @@ public @interface Scope {
 }
 ```
 
-属性介绍：
-	value
-		singleton	表示该bean是单例的。(默认)
-		prototype	表示该bean是多例的，即每次使用该bean时都会新建一个对象。
-		request		在一次http请求中，一个bean对应一个实例。
-		session		在一个httpSession中，一个bean对应一个实例。
-		
-	proxyMode
-		DEFAULT			不使用代理。(默认)
-		NO				不使用代理，等价于DEFAULT。
-		INTERFACES		使用基于接口的代理(jdk dynamic proxy)。
-		TARGET_CLASS	使用基于类的代理(cglib)。
+属性介绍
+
+    value
+        singleton   表示该bean是单例的。(默认)
+        prototype   表示该bean是多例的，即每次使用该bean时都会新建一个对象。
+        request     在一次http请求中，一个bean对应一个实例。
+        session     在一个httpSession中，一个bean对应一个实例。
+        
+    proxyMode
+        DEFAULT         不使用代理。(默认)
+        NO              不使用代理，等价于DEFAULT。
+        INTERFACES      使用基于接口的代理(jdk dynamic proxy)。
+        TARGET_CLASS    使用基于类的代理(cglib)。
 
 ### @Entity实体类注解
 
