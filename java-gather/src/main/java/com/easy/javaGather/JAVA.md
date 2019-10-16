@@ -13,8 +13,7 @@
         export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64
         export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
         export PATH=$PATH:$JAVA_HOME/bin
-    - 设置环境变量立即生效  source /etc/profile
-    
+    - 设置环境变量立即生效  source /etc/profile    
     
 ## 运行java项目
   
@@ -47,8 +46,7 @@
 
     kill -9 7010
  
- 来杀死进程，需要注意的是7010是当前tomcat进程的id
- 
+ 来杀死进程，需要注意的是7010是当前tomcat进程的id 
 
 ## 打开控制台,查看日志
 
