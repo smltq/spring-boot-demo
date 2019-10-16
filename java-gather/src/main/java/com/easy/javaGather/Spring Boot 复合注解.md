@@ -1,6 +1,6 @@
 # Spring Boot 常用注解
 
-## @SpringBootApplication 复合注解
+## 启动注解 @SpringBootApplication
 
 ```java
 @Target(ElementType.TYPE)
@@ -30,7 +30,7 @@ public @interface SpringBootApplication {
 
 @ComponentScan的功能其实就是自动扫描并加载符合条件的组件或bean定义，最终将这些bean定义加载到容器中。我们可以通过basePackages等属性指定@ComponentScan自动扫描的范围，如果不指定，则默认Spring框架实现从声明@ComponentScan所在类的package进行扫描，默认情况下是不指定的，所以SpringBoot的启动类最好放在root package下。
 
-## controller相关注解
+## Controller 相关注解
 
 ### @Controller
 
@@ -59,6 +59,10 @@ public @interface RestController {
 ```
 
 从源码我们知道,@RestController注解相当于@ResponseBody+@Controller合在一起的作用,RestController使用的效果是将方法返回的对象直接在浏览器上展示成json格式.
+
+### @RequestBody
+
+通过HttpMessageConverter读取Request Body并反序列化为Object（泛指）对象
 
 ### @RequestMapping
 
@@ -93,7 +97,7 @@ public @interface PostMapping {
 ```
 是@RequestMapping(method = RequestMethod.POST)的缩写
 
-## 取值
+## 取请求参数值
 
 ### @PathVariable:获取url中的数据
 
@@ -126,7 +130,11 @@ public class HelloWorldController {
 
 请求示例：http://localhost:8080/User/getUser?uid=123
 
-## bean注入相关
+### @RequestHeader 把Request请求header部分的值绑定到方法的参数上
+
+### @CookieValue 把Request header中关于cookie的值绑定到方法的参数上
+
+## 注入bean相关
 
 ### @Repository
 
@@ -167,7 +175,6 @@ public @interface Service {
 	 */
 	@AliasFor(annotation = Component.class)
 	String value() default "";
-
 }
 ```
 
@@ -225,4 +232,95 @@ public @interface Scope {
 
 @Bean明确地指示了一种方法，产生一个bean的方法，并且交给Spring容器管理。支持别名@Bean("xx-name")
 
-### @Autowired
+### @Autowired 自动导入
+
+- @Autowired注解作用在构造函数、方法、方法参数、类字段以及注解上
+- @Autowired注解可以实现Bean的自动注入
+
+### @Component
+
+把普通pojo实例化到spring容器中，相当于配置文件中的<bean id="" class=""/>
+
+虽然有了@Autowired,但是我们还是要写一堆bean的配置文件,相当麻烦,而@Component就是告诉spring,我是pojo类,把我注册到容器中吧,spring会自动提取相关信息。那么我们就不用写麻烦的xml配置文件了
+
+## 导入配置文件
+
+### @PropertySource注解
+
+引入单个properties文件：
+
+@PropertySource(value = {"classpath : xxxx/xxx.properties"})
+
+引入多个properties文件：
+
+@PropertySource(value = {"classpath : xxxx/xxx.properties"，"classpath : xxxx.properties"})
+
+### @ImportResource导入xml配置文件
+
+可以额外分为两种模式 相对路径classpath，绝对路径（真实路径）file
+
+注意：单文件可以不写value或locations，value和locations都可用
+
+相对路径（classpath）
+
+- 引入单个xml配置文件：@ImportSource("classpath : xxx/xxxx.xml")
+
+- 引入多个xml配置文件：@ImportSource(locations={"classpath : xxxx.xml" , "classpath : yyyy.xml"})
+
+绝对路径（file）
+
+- 引入单个xml配置文件：@ImportSource(locations= {"file : d:/hellxz/dubbo.xml"})
+
+- 引入多个xml配置文件：@ImportSource(locations= {"file : d:/hellxz/application.xml" , "file : d:/hellxz/dubbo.xml"})
+
+取值：使用@Value注解取配置文件中的值
+
+@Value("${properties中的键}")
+private String xxx;
+
+### @Import 导入额外的配置信息
+
+功能类似XML配置的，用来导入配置类，可以导入带有@Configuration注解的配置类或实现了ImportSelector/ImportBeanDefinitionRegistrar。
+
+使用示例
+```java
+@SpringBootApplication
+@Import({SmsConfig.class})
+public class DemoApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+}
+```
+
+## 事务注解 @Transactional
+
+在Spring中，事务有两种实现方式，分别是编程式事务管理和声明式事务管理两种方式
+
+- 编程式事务管理： 编程式事务管理使用TransactionTemplate或者直接使用底层的PlatformTransactionManager。对于编程式事务管理，spring推荐使用TransactionTemplate。
+- 声明式事务管理： 建立在AOP之上的。其本质是对方法前后进行拦截，然后在目标方法开始之前创建或者加入一个事务，在执行完目标方法之后根据执行情况提交或者回滚事务，通过@Transactional就可以进行事务操作，更快捷而且简单。推荐使用
+
+## 全局异常处理
+
+### @ControllerAdvice 统一处理异常
+
+@ControllerAdvice 注解定义全局异常处理类
+```java
+@ControllerAdvice
+public class GlobalExceptionHandler {
+}
+```
+
+### @ExceptionHandler 注解声明异常处理方法
+
+```java
+@ControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(Exception.class)
+    @ResponseBody
+    String handleException(){
+        return "Exception Deal!";
+    }
+}
+```
