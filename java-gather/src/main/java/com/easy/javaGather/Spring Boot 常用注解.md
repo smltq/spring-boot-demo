@@ -1,6 +1,6 @@
 # Spring Boot 常用注解
 
-## 启动注解 @SpringBootApplication
+## 一、启动注解 @SpringBootApplication
 
 ```java
 @Target(ElementType.TYPE)
@@ -30,7 +30,7 @@ public @interface SpringBootApplication {
 
 @ComponentScan的功能其实就是自动扫描并加载符合条件的组件或bean定义，最终将这些bean定义加载到容器中。我们可以通过basePackages等属性指定@ComponentScan自动扫描的范围，如果不指定，则默认Spring框架实现从声明@ComponentScan所在类的package进行扫描，默认情况下是不指定的，所以SpringBoot的启动类最好放在root package下。
 
-## Controller 相关注解
+## 二、Controller 相关注解
 
 ### @Controller
 
@@ -97,7 +97,7 @@ public @interface PostMapping {
 ```
 是@RequestMapping(method = RequestMethod.POST)的缩写
 
-## 取请求参数值
+## 三、取请求参数值
 
 ### @PathVariable:获取url中的数据
 
@@ -134,7 +134,7 @@ public class HelloWorldController {
 
 ### @CookieValue 把Request header中关于cookie的值绑定到方法的参数上
 
-## 注入bean相关
+## 四、注入bean相关
 
 ### @Repository
 
@@ -243,7 +243,7 @@ public @interface Scope {
 
 虽然有了@Autowired,但是我们还是要写一堆bean的配置文件,相当麻烦,而@Component就是告诉spring,我是pojo类,把我注册到容器中吧,spring会自动提取相关信息。那么我们就不用写麻烦的xml配置文件了
 
-## 导入配置文件
+## 五、导入配置文件
 
 ### @PropertySource注解
 
@@ -293,14 +293,14 @@ public class DemoApplication {
 }
 ```
 
-## 事务注解 @Transactional
+## 六、事务注解 @Transactional
 
 在Spring中，事务有两种实现方式，分别是编程式事务管理和声明式事务管理两种方式
 
 - 编程式事务管理： 编程式事务管理使用TransactionTemplate或者直接使用底层的PlatformTransactionManager。对于编程式事务管理，spring推荐使用TransactionTemplate。
 - 声明式事务管理： 建立在AOP之上的。其本质是对方法前后进行拦截，然后在目标方法开始之前创建或者加入一个事务，在执行完目标方法之后根据执行情况提交或者回滚事务，通过@Transactional就可以进行事务操作，更快捷而且简单。推荐使用
 
-## 全局异常处理
+## 七、全局异常处理
 
 ### @ControllerAdvice 统一处理异常
 
@@ -325,7 +325,7 @@ public class GlobalExceptionHandler {
 }
 ```
 
-## 资料
+## 八、资料
 
 - [Java问题收集](https://github.com/smltq/spring-boot-demo/tree/master/java-gather)
 - [原文地址](https://github.com/smltq/spring-boot-demo/blob/master/java-gather/src/main/java/com/easy/javaGather/Spring%20Boot%20%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3.md)
