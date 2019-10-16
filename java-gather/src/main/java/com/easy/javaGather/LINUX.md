@@ -33,6 +33,13 @@
         -i ：若目标文件 (destination) 已经存在时，就会询问是否覆盖！
         -u ：若目标文件已经存在，且 source 比较新，才会更新(update)
         -t  ： --target-directory=DIRECTORY move all SOURCE arguments into DIRECTORY，即指定mv的目标目录，该选项适用于移动多个源文件到一个目录的情况，此时目标目录在前，源文件在后。
+    - 更改文件权限 chmod [可选项] <mode> <file...>
+        - 数字权限使用格式 r=4，w=2，x=1; 每个文件都可以针对三个粒度，设置不同的rwx(读写执行)权限,拥有者 、群组 、其它组( u、 g 、o)的权限
+        - 设置所有人可以读写及执行   chmod 777 file  (等价于  chmod u=rwx,g=rwx,o=rwx file 或  chmod a=rwx file)
+        - 设置拥有者可读写，其他人不可读写执行 chmod 600 file (等价于  chmod u=rw,g=---,o=--- file 或 chmod u=rw,go-rwx file)
+    - 更改文件拥有者 chown [可选项] user[:group] file...
+        - 设置文件 d.key、e.scrt的拥有者设为 users 群体的tom==>chown tom:users file d.key e.scrt
+        - 设置当前目录下与子目录下的所有文件的拥有者为 users 群体的James==>chown -R James:users  *         
     
 ## 用户操作
 
@@ -67,9 +74,9 @@
     - 保存防火墙设置   service iptables save
     - 查看端口是否连通  telnet ip地址 端口号
     - 开8787端口，-p表示协议，示例
-        iptables -I INPUT 3 -p tcp -m tcp --dport 8787 -j ACCEPT
-        iptables -A INPUT -p tcp --dport 8787 -j ACCEPT
-        iptables -A OUTPUT -p tcp --sport 8787 -j ACCEPT
+        - iptables -I INPUT 3 -p tcp -m tcp --dport 8787 -j ACCEPT
+        - iptables -A INPUT -p tcp --dport 8787 -j ACCEPT
+        - iptables -A OUTPUT -p tcp --sport 8787 -j ACCEPT
     - 查看当前所有tcp端口   netstat -ntlp
     - 查看所有80端口使用情况  netstat -ntulp |grep 80
     - 查看所有3306端口使用情况    netstat -ntulp | grep 3306
@@ -86,11 +93,11 @@
  
 ### 返回上一级目录
 
-cd ..
+    cd ..
 
 ### 切换目录
 
-cd tomcat/logs
+    cd tomcat/logs
 
 ## VIM安装
 
