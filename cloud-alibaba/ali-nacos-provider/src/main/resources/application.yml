@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: ali-nacos-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: *
