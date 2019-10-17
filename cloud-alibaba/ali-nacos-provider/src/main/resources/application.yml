@@ -5,9 +5,5 @@ spring:
     nacos:
       discovery:
         server-addr: http://localhost:8761/eureka
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: *
+server:
+  port: 9000
