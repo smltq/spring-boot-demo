@@ -4,3 +4,4 @@
 /mybatis-plus-generator/target
 *.iml
 target
+/cloud-alibaba/nacos
