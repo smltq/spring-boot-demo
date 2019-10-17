@@ -8,10 +8,10 @@
     <version>1.0.0</version>
 
     <modules>
-        <!--服务注册中心-->
-        <module>ali-eureka-server</module>
         <!--服务提供者-->
         <module>ali-nacos-provider</module>
+        <!--ribbon消费者-->
+        <module>ali-nacos-consumer-ribbon</module>
     </modules>
 
     <packaging>pom</packaging>
