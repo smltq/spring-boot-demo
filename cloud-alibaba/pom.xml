@@ -12,6 +12,8 @@
         <module>ali-nacos-provider</module>
         <!--ribbon消费者-->
         <module>ali-nacos-consumer-ribbon</module>
+        <!--feign消费者-->
+        <module>ali-nacos-consumer-feign</module>
     </modules>
 
     <packaging>pom</packaging>
