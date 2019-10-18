@@ -327,7 +327,7 @@ spring:
   main:
     allow-bean-definition-overriding: true  #允许一样的beanName
 ```
-这里有个坑要注意下，如果allow-bean-definition-overriding为设置为true,运行会报如下错：
+这里有个坑要注意下，如果allow-bean-definition-overriding没有设置为true,运行会报如下错：
 
 ```cfml
 错误： Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
