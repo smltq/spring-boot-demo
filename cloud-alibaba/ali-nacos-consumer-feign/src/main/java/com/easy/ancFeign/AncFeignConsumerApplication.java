@@ -5,11 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients(basePackages = {"com.easy.ancFeign","com.easy"})
+@EnableFeignClients(basePackages = {"com.easy.ancFeign"})
 public class AncFeignConsumerApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(AncFeignConsumerApplication.class, args);
     }
-
 }
