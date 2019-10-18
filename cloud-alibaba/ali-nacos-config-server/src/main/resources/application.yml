@@ -12,5 +12,5 @@ spring:
       server:
         git:
           uri: https://github.com/smltq/spring-boot-demo.git
-          searchPaths: /cloud-config/config-repo/
+          searchPaths: /cloud-alibaba/config-repo/
           force-pull: true

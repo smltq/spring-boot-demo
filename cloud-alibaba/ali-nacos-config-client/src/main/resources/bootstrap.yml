@@ -6,7 +6,12 @@ spring:
       discovery:
         server-addr: localhost:8848
     config:
-      discovery:
-        enabled: true
+      name: ali-nacos-config-server
+      uri: http://localhost:8001/
+      profile: test
+      label: master
+#      discovery:
+#        enabled: true
   profiles:
     active: dev
+

@@ -1,1 +1,2 @@
-config: ali-nacos-config-client
+server:
+  port: 8002
