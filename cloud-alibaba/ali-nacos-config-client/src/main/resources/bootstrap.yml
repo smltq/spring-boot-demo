@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: ali-nacos-config-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    config:
+      discovery:
+        enabled: true
+  profiles:
+    active: dev

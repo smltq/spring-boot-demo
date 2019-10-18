@@ -1,0 +1,16 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: ali-nacos-config-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    config:
+      server:
+        git:
+          uri: https://github.com/smltq/spring-boot-demo.git
+          searchPaths: /cloud-config/config-repo/
+          force-pull: true
