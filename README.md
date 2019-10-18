@@ -44,6 +44,7 @@ cloud-config|配置中心(服务端、客户端)示例|[详细](https://github.c
 cloud-feign|Eureka服务注册中心、负载均衡、声明式服务调用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-feign)|
 cloud-hystrix|Hystrix服务容错、异常处理、注册中心示例|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-hystrix)|
 cloud-zuul|zuul服务网关、过滤器、路由转发、服务降级、负载均衡|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-zuul)|
+cloud-alibaba|nacos服务中心、配置中心、限流等使用(系列示例整理中...)|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba)|
 
 ## Spring Boot 概述
 
