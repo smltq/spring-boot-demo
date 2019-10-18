@@ -1,13 +1,13 @@
 server:
-  port: 9000
+  port: 9000  #指定为9000端口
 
 spring:
   application:
-    name: ali-nacos-provider
+    name: ali-nacos-provider  #服务名
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: 127.0.0.1:8848 #服务注册地址(nacos默认为8848端口)
 
 management:
   endpoints:
