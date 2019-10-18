@@ -414,10 +414,10 @@ ali-nacos-consumer-feign：feign消费者，服务名：ali-nacos-consumer-feign
 首先要启动服务注册中心 nacos
 其次，分别启动ali-nacos-provider、ali-nacos-consumer-ribbon、ali-nacos-consumer-feign三个服务
 
-- 访问地址：http://localhost:9100/，返回：ribbon消费者，我是服务提供者，见到你很高兴==>云天，说明ribbon消费成功了。
-- 访问地址：http://localhost:9101/，返回：feign消费者我是服务提供者，见到你很高兴==>云天，说明feign消费费成功了。
-- 访问地址：http://localhost:9000/hello/yuntian，返回：我是服务提供者，见到你很高兴==>yuntian，说明服务提供者访问成功了(PS:服务提供者一般是不对外公开的，怎么隐蔽接口将在接下去的文章里介绍)
-- 访问地址：http://localhost:8848/nacos/#/login，输入用户：nacos，密码：nacos。进入服务管理界面，在服务管理-服务列表里可以看到我们运行的三个服务了。
+- 访问地址：http://localhost:9100/ ，返回：ribbon消费者，我是服务提供者，见到你很高兴==>云天，说明ribbon消费成功了。
+- 访问地址：http://localhost:9101/ ，返回：feign消费者我是服务提供者，见到你很高兴==>云天，说明feign消费费成功了。
+- 访问地址：http://localhost:9000/hello/yuntian ，返回：我是服务提供者，见到你很高兴==>yuntian，说明服务提供者访问成功了(PS:服务提供者一般是不对外公开的，怎么隐蔽接口将在接下去的文章里介绍)
+- 访问地址：http://localhost:8848/nacos/#/login ，输入用户：nacos，密码：nacos。进入服务管理界面，在服务管理-服务列表里可以看到我们运行的三个服务了。
 
 ## 资料
 
