@@ -73,7 +73,7 @@ set "JAVA=%JAVA8_HOME%\bin\java.exe"
 
 ### 查看界面
 
-启动成功，在浏览器上访问：http://localhost:8848/nacos，会跳转到登陆界面，默认的登陆用户名为nacos，密码也为nacos。
+启动成功，在浏览器上访问：http://localhost:8848/nacos ，会跳转到登陆界面，默认的登陆用户名为nacos，密码也为nacos。
 
 登陆成功后，就可以操作管理界面了
 
