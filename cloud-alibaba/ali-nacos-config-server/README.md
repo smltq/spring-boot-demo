@@ -31,19 +31,19 @@
 }
 ```
 
-## 其它介绍
+## 配置文件介绍
 
-HTTP服务具有以下格式的资源
+### 配置文件映射关系
 
     /{application}/{profile}[/{label}]
     /{application}-{profile}.yml
     /{label}/{application}-{profile}.yml
     /{application}-{profile}.properties
     /{label}/{application}-{profile}.properties
-    
-- {application}映射到客户端的“spring.application.name”;
-- {profile}映射到客户端上的“spring.profiles.active”（逗号分隔列表）;
-- {label}这是一个服务器端功能，标记“版本”的一组配置文件。
+
+- {application}通常使用微服务名称，对应Git仓库中文件名的前缀，spring.application.name
+- {profile}对应{application}-后面的dev、pro、test等，spring.profiles.active
+- {label}对应Git仓库的分支名，默认为master
 
 ## 资料
 

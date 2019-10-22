@@ -1,12 +1,14 @@
 spring:
   application:
-    name: easy-config
+    name: ali-nacos-config-client
   cloud:
     nacos:
       discovery:
         server-addr: localhost:8848
     config:
+      name: ${spring.application.name},myconfig
       uri: http://localhost:8001/ # config server 配置服务地址
+      profile: ${spring.profiles.active}
       label: master
   profiles:
     active: dev                  # 配置文件版本（该示例分为test,dev,pro）
