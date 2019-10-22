@@ -1,2 +1,6 @@
 server:
   port: 8002
+
+spring:
+  main:
+    allow-bean-definition-overriding: true  #允许一样的beanName

@@ -31,16 +31,21 @@
 }
 ```
 
-配置文件命名规则
+## 其它介绍
+
+HTTP服务具有以下格式的资源
 
     /{application}/{profile}[/{label}]
     /{application}-{profile}.yml
     /{label}/{application}-{profile}.yml
     /{application}-{profile}.properties
     /{label}/{application}-{profile}.properties
+    
+- {application}映射到客户端的“spring.application.name”;
+- {profile}映射到客户端上的“spring.profiles.active”（逗号分隔列表）;
+- {label}这是一个服务器端功能，标记“版本”的一组配置文件。
 
 ## 资料
 
-[官方文档](https://cloud.spring.io/spring-cloud-config/reference/html/)
-
-a
+- [官方文档](https://cloud.spring.io/spring-cloud-config/reference/html/)
+- [中文文档](https://www.springcloud.cc/spring-cloud-config.html)

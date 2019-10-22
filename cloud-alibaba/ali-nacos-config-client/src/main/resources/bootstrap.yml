@@ -6,12 +6,17 @@ spring:
       discovery:
         server-addr: localhost:8848
     config:
-      name: ali-nacos-config-server
+      name: easy-config
       uri: http://localhost:8001/
-      profile: test
+      profile: dev
       label: master
-#      discovery:
-#        enabled: true
   profiles:
     active: dev
+
+
+
+#spring.cloud.config.name=easy-config
+#spring.cloud.config.profile=test
+#spring.cloud.config.uri=http://localhost:8001/
+#spring.cloud.config.label=master
 
