@@ -6,7 +6,7 @@ spring:
       discovery:
         server-addr: localhost:8848
     config:
-      name: ${spring.application.name},myconfig
+      name: ${spring.application.name}
       uri: http://localhost:8001/ # config server 配置服务地址
       profile: ${spring.profiles.active}
       label: master
