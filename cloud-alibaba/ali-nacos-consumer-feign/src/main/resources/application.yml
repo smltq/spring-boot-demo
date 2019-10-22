@@ -2,11 +2,6 @@ server:
   port: 9101
 
 spring:
-  application:
-    name: ali-nacos-consumer-feign
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
+
   main:
     allow-bean-definition-overriding: true  #允许一样的beanName

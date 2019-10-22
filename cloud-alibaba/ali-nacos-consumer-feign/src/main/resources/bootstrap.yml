@@ -1,6 +1,6 @@
 spring:
   application:
-    name: ali-nacos-config-client
+    name: ali-nacos-consumer-feign
   cloud:
     nacos:
       discovery:
@@ -11,4 +11,4 @@ spring:
       profile: ${spring.profiles.active}
       label: master
   profiles:
-    active: pro                  # 配置文件版本（该示例分为test,dev,pro）
+    active: dev                  # 配置文件版本（该示例分为test,dev,pro）
