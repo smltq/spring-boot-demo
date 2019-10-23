@@ -255,9 +255,9 @@ public class HomeController {
 
 ### 最后放上配置文件目录规划
 
-[config-repo配置总目录](https://gitee.com/tqlin/spring-boot-demo/tree/master/cloud-alibaba/config-repo)
-[ali-nacos-config-server 项目GIT的配置目录](https://gitee.com/tqlin/spring-boot-demo/tree/master/cloud-alibaba/config-repo/ali-nacos-config-client)
-[ali-nacos-consumer-feign 项目GIT的配置目录](https://gitee.com/tqlin/spring-boot-demo/tree/master/cloud-alibaba/config-repo/ali-nacos-consumer-feign)
+- [config-repo配置总目录](https://gitee.com/tqlin/spring-boot-demo/tree/master/cloud-alibaba/config-repo)
+- [ali-nacos-config-server 项目GIT的配置目录](https://gitee.com/tqlin/spring-boot-demo/tree/master/cloud-alibaba/config-repo/ali-nacos-config-client)
+- [ali-nacos-consumer-feign 项目GIT的配置目录](https://gitee.com/tqlin/spring-boot-demo/tree/master/cloud-alibaba/config-repo/ali-nacos-consumer-feign)
 
 ## 使用示例
 
@@ -339,4 +339,4 @@ myconfig: "ali-nacos-config-client 项目的 myconfig config"
 ## 资料
 
 - [Spring Cloud Alibaba 示例源码](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba)
-- [原文地址](README2.md)
+- [原文地址](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba/README2.md)
