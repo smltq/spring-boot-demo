@@ -59,6 +59,22 @@
     git remote set-url --add origin 你的gitee项目地址
     
 添加完成好，只要git push就能提交到两个仓库了，比如github和gitee
+## Git 回滚代码
 
+### 日志查看
+
+    git reflog或git log
+    
+### 代码回退
+
+    git reset --hard HEAD        回退到上个版本
+    git reset --hard commit_id    退到/进到 指定commit_id
+    
+默认参数 -soft,所有commit的修改都会退回到git缓冲区
+参数--hard，所有commit的修改直接丢弃
+
+### 推送到远程
+
+    git push origin HEAD --force
 
 
