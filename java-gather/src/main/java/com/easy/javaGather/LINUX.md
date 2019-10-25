@@ -1,4 +1,4 @@
-# Linux 命令
+# Linux 命令(CentOS 系统)
     
 ## 保存命令
       
