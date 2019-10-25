@@ -19,4 +19,10 @@
 - mysql索引了解，常用索引，B树，B+树
 - mysql组合索引详解，注意事项
 
+## 常用命令汇总
+
+- [Linux常用命令](https://github.com/smltq/spring-boot-demo/blob/master/java-gather/src/main/java/com/easy/javaGather/LINUX.md)
+- [Java常用命令](https://github.com/smltq/spring-boot-demo/blob/master/java-gather/src/main/java/com/easy/javaGather/JAVA.md)
+- [Git常用命令](https://github.com/smltq/spring-boot-demo/blob/master/java-gather/src/main/java/com/easy/javaGather/GIT.md)
+
 你在开发过程中遇到哪些有趣的问题呢，欢迎push上来哦。
