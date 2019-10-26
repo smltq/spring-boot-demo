@@ -42,5 +42,6 @@
         <module>cloud-feign</module>
         <module>cloud-hystrix</module>
         <module>cloud-zuul</module>
+        <module>cloud-alibaba</module>
     </modules>
 </project>
