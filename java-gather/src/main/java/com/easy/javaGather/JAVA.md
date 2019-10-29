@@ -26,7 +26,7 @@
     - 查看JAVA_HOME路径 echo $JAVA_HOME
     - 查看PATH路径  echo $PATH
 
-### 后台运行SpringBoot项目
+### 后台运行(关闭Xshell等命令行工具，java服务不会被关闭)
 
 - 1.创建start.sh
 
