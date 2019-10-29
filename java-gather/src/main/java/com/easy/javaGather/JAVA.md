@@ -26,6 +26,48 @@
     - 查看JAVA_HOME路径 echo $JAVA_HOME
     - 查看PATH路径  echo $PATH
 
+### 后台运行SpringBoot项目
+
+- 1.创建start.sh
+
+```cfml
+#!/bin/bash
+nohup java -jar halo-latest.jar
+```
+halo-latest.jar为java包名称
+
+
+- 2.创建stop.sh
+
+```cfml
+#!/bin/bash
+PID=$(ps -ef | grep halo-latest.jar | grep -v grep | awk '{ print $2 }')
+if [ -z "$PID" ]
+then
+    echo Application is already stopped
+else
+    echo kill $PID
+    kill $PID
+fi
+```
+
+halo-latest.jar为java包名称
+
+- 3.运行，进入java包目录
+
+输入以下命令后台运行java程序
+```cfml
+sh start.sh
+```
+
+- 4.根据提示查看控制台
+
+默认为：nohup.out，在java包目录下创建文件，输入以下命令查看java控制台输出
+
+```cfml
+tail -f nohup.out
+```
+
 ## 查看java进程
 
     ps -ef|grep java
