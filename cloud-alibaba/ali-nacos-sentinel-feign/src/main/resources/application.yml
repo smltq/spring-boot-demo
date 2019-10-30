@@ -1,0 +1,20 @@
+server:
+  port: 9102
+
+spring:
+  application:
+    name: ali-nacos-sentinel-feign
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+feign:
+  sentinel:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

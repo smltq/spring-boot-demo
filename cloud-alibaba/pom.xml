@@ -16,8 +16,10 @@
         <module>ali-nacos-provider</module>
         <!--ribbon消费者,配置客户端3-->
         <module>ali-nacos-consumer-ribbon</module>
-        <!--feign消费者,配置客户端4-->
+        <!--feign消费者-->
         <module>ali-nacos-consumer-feign</module>
+        <!--熔断降级消费者-->
+        <module>ali-nacos-sentinel-feign</module>
     </modules>
 
     <packaging>pom</packaging>
