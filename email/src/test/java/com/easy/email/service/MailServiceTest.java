@@ -3,13 +3,10 @@ package com.easy.email.service;
 import com.easy.email.EmailApplicationTests;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 
 public class MailServiceTest extends EmailApplicationTests {
     @Autowired
     private MailService mailService;
-    @Autowired
-    private ApplicationContext context;
 
     /**
      * 测试简单邮件
