@@ -6,7 +6,7 @@ Sentinel 是阿里巴巴开源的分布式系统的流量防卫组件，Sentinel
 
 OpenFeign是一款声明式、模板化的HTTP客户端， Feign可以帮助我们更快捷、优雅地调用HTTP API，需要了解OpenFeign使用基础，可以参考[cloud-feign示例源码](https://github.com/smltq/spring-boot-demo/blob/master/cloud-feign)。
 
-本项目服务注册中心使用nacos，服务提供者使用[Spring Cloud Alibaba（一） 如何使用nacos服务注册和发现](README1.md)创建的ali-nacos-provider服务
+本项目服务注册中心使用nacos，服务提供者使用[Spring Cloud Alibaba（一） 如何使用nacos服务注册和发现](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba/README1.md)创建的ali-nacos-provider服务
 
 ## Sentinel介绍
 

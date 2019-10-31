@@ -4,7 +4,7 @@
 
 之前[Spring Cloud Config基础篇](https://github.com/smltq/spring-boot-demo/tree/master/cloud-config)这篇文章介绍了Spring Cloud Config 配置中心基础的实现，今天继续聊下Spring Cloud Config 并结合nacos做服务注册中心，实现多项目、多配置文件、按项目目录划分等功能的配置服务中心。
 
-阅读本篇文章之前，最好要有nacos基础；关于nacos是什么，如何使用，可以参考我的上一篇文章 [Spring Cloud Alibaba（一） 如何使用nacos服务注册和发现](README1.md)，或者直接链接到官网教程[Nacos 快速开始](https://nacos.io/zh-cn/docs/quick-start.html)
+阅读本篇文章之前，最好要有nacos基础；关于nacos是什么，如何使用，可以参考我的上一篇文章 [Spring Cloud Alibaba（一） 如何使用nacos服务注册和发现](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba/README1.md)，或者直接链接到官网教程[Nacos 快速开始](https://nacos.io/zh-cn/docs/quick-start.html)
 
 ## 本示例主要内容
 
