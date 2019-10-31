@@ -159,4 +159,5 @@ Caused by: javax.mail.AuthenticationFailedException: [EOF]
 
 ## 参考
 
-- Spring Boot 官方文档：https://docs.spring.io/spring-boot/docs/2.1.9.RELEASE/reference/htmlsingle/#boot-features-email
+- [示例代码-github](https://github.com/smltq/spring-boot-demo/blob/master/email)
+- [Spring Boot Email 官方文档](https://docs.spring.io/spring-boot/docs/2.1.9.RELEASE/reference/htmlsingle/#boot-features-email)
