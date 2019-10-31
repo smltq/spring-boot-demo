@@ -212,8 +212,9 @@ public class TestController {
 
 在[Spring Cloud Alibaba（一） 如何使用nacos服务注册和发现](README1.md)基础上，我们新建了ali-nacos-sentinel-feign项目，并调用ali-nacos-provider项目用作该示例的服务提供方，有以下二个项目做测试。
         
-ali-nacos-provider：服务提供者，服务名：ali-nacos-provider，端口：9000
-ali-nacos-sentinel-feign：服务消费者，服务名：ali-nacos-sentinel-feign，端口：9102
+- ali-nacos-provider：服务提供者，服务名：ali-nacos-provider，端口：9000
+
+- ali-nacos-sentinel-feign：服务消费者，服务名：ali-nacos-sentinel-feign，端口：9102
 
 ### 运行示例测试
 
