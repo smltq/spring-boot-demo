@@ -33,6 +33,7 @@
         <module>mybatis-multi-datasource</module>
         <module>template-thymeleaf</module>
         <module>mq-redis</module>
+        <module>email</module>
         <module>java-gather</module>
         <module>leetcode</module>
         <module>cloud-feign</module>
