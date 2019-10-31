@@ -1,12 +1,16 @@
 # spring-boot-demo
 
-本项目示例基于spring boot 最新版本（2.1.9）实现，Spring Boot、Spring Cloud 学习示例，将持续更新……
+ >本项目示例基于spring boot 最新版本（2.1.9）实现，Spring Boot、Spring Cloud 学习示例，将持续更新……
 
 在基于Spring Boot、Spring Cloud 分布微服务开发过程中，根据实际项目环境，需要选择、集成符合项目需求的各种组件和积累各种解决方案。基于这样的背景下，我开源了本示例项目，方便大家快速上手Spring Boot、Spring Cloud 。
 
 每个示例都带有详细的介绍文档、作者在使用过程中踩过的坑、解决方案及参考资料，方便快速上手为你提供学习捷径，少绕弯路，提高开发效率。
 
 有需要写关于spring boot、spring cloud示例的，可以给我提issue
+
+## 项目介绍
+
+spring boot demo 是一个Spring Boot、Spring Cloud的项目示例，根据市场主流的后端技术，共集成了30+个demo，未来将持续更新。该项目包含helloworld(快速入门)、web(ssh项目快速搭建）、aop(切面编程)、data-redis(redis缓存)、quartz(集群任务实现)、shiro（权限管理）、oauth2（四种认证模式）、shign(接口参数防篡改重放）、encoder（用户密码设计）、actuator（服务监控）、cloud-config（配置中心）、cloud-gateway（服务网关）、email（邮件发送）、cloud-alibaba（微服务全家桶）等模块
 
 ## 开发环境
 
@@ -18,34 +22,34 @@
 ## 模块介绍
 
 模块名称|主要内容|详细
----|---|---|
-helloworld|spring mvc,Spring Boot项目创建,单元测试|[详细](https://github.com/smltq/spring-boot-demo/blob/master/helloworld/HELP.md)|
-web|ssh项目,spring mvc,过滤器,拦截器,监视器,thymeleaf,lombok,jquery,bootstrap,mysql|[详细](https://github.com/smltq/spring-boot-demo/blob/master/web/HELP.md)|
-aop|aop,正则,前置通知,后置通知,环绕通知|[详细](https://github.com/smltq/spring-boot-demo/blob/master/aop/HELP.md)|
-data-redis|lettuce,redis,session redis,YAML配置,连接池,对象存储|[详细](https://github.com/smltq/spring-boot-demo/blob/master/data-redis/HELP.md)|
-quartz|Spring Scheduler,Quartz,分布式调度,集群,高可用,可扩展性实现,mysql持久化|[详细](https://github.com/smltq/spring-boot-demo/blob/master/quartz/HELP.md)|
-shiro|授权、认证、加解密、统一异常处理|[详细](https://github.com/smltq/spring-boot-demo/blob/master/shiro/HELP.md)|
-sign|防篡改、防重放、文档自动生成|[详细](https://github.com/smltq/spring-boot-demo/blob/master/sign/HELP.md)|
-security|授权、认证、加解密、mybatis plus使用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security/HELP.md)|
-mybatis-plus-generator|基于mybatisplus代码自动生成|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-plus-generator)|
-mybatis-plus-crud|基于mybatisplus实现数据库增、册、改、查|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-plus-crud)|
-encoder|主流加密算法介绍、用户加密算法推荐|[详细](https://github.com/smltq/spring-boot-demo/blob/master/encoder/HELP.md)|
-actuator|autuator介绍|[详细](https://github.com/smltq/spring-boot-demo/blob/master/actuator/README.md)|
-admin|可视化服务监控、使用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/admin/README.md)|
-security-oauth2-credentials|oath2实现密码模式、客户端模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-credentials/README.md)|
-security-oauth2-auth-code|基于spring boot实现oath2授权模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-auth-code/README.md)|
-mybatis-multi-datasource|mybatis、数据库集群、读写分离、读库负载均衡|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-multi-datasource)|
+---|---|---
+helloworld|spring mvc,Spring Boot项目创建,单元测试|[详细](https://github.com/smltq/spring-boot-demo/blob/master/helloworld/HELP.md)
+web|ssh项目,spring mvc,过滤器,拦截器,监视器,thymeleaf,lombok,jquery,bootstrap,mysql|[详细](https://github.com/smltq/spring-boot-demo/blob/master/web/HELP.md)
+aop|aop,正则,前置通知,后置通知,环绕通知|[详细](https://github.com/smltq/spring-boot-demo/blob/master/aop/HELP.md)
+data-redis|lettuce,redis,session redis,YAML配置,连接池,对象存储|[详细](https://github.com/smltq/spring-boot-demo/blob/master/data-redis/HELP.md)
+quartz|Spring Scheduler,Quartz,分布式调度,集群,高可用,可扩展性实现,mysql持久化|[详细](https://github.com/smltq/spring-boot-demo/blob/master/quartz/HELP.md)
+shiro|授权、认证、加解密、统一异常处理|[详细](https://github.com/smltq/spring-boot-demo/blob/master/shiro/HELP.md)
+sign|防篡改、防重放、文档自动生成|[详细](https://github.com/smltq/spring-boot-demo/blob/master/sign/HELP.md)
+security|授权、认证、加解密、mybatis plus使用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security/HELP.md)
+mybatis-plus-generator|基于mybatisplus代码自动生成|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-plus-generator)
+mybatis-plus-crud|基于mybatisplus实现数据库增、册、改、查|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-plus-crud)
+encoder|主流加密算法介绍、用户加密算法推荐|[详细](https://github.com/smltq/spring-boot-demo/blob/master/encoder/HELP.md)
+actuator|autuator介绍|[详细](https://github.com/smltq/spring-boot-demo/blob/master/actuator/README.md)
+admin|可视化服务监控、使用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/admin/README.md)
+security-oauth2-credentials|oath2实现密码模式、客户端模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-credentials/README.md)
+security-oauth2-auth-code|基于spring boot实现oath2授权模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-auth-code/README.md)
+mybatis-multi-datasource|mybatis、数据库集群、读写分离、读库负载均衡|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-multi-datasource)
 template-thymeleaf|thymeleaf实现应用国际化示例|[详细](https://github.com/smltq/spring-boot-demo/blob/master/template-thymeleaf)
-mq-redis|redis之mq实现，发布订阅模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mq-redis)|
+mq-redis|redis之mq实现，发布订阅模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mq-redis)
 email|email实现邮件发送|[详细](https://github.com/smltq/spring-boot-demo/blob/master/email)
-java-gather|java问题收集目录|[详细](https://github.com/smltq/spring-boot-demo/blob/master/java-gather)|
-cloud-oauth2-auth-code|基于spring cloud实现oath2授权模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-oauth2-auth-code)|
-cloud-gateway|API主流网关、gateway快速上手|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-gateway)|
-cloud-config|配置中心(服务端、客户端)示例|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-config)|
-cloud-feign|Eureka服务注册中心、负载均衡、声明式服务调用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-feign)|
-cloud-hystrix|Hystrix服务容错、异常处理、注册中心示例|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-hystrix)|
-cloud-zuul|zuul服务网关、过滤器、路由转发、服务降级、负载均衡|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-zuul)|
-cloud-alibaba|nacos服务中心、配置中心、限流等使用(系列示例整理中...)|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba)|
+java-gather|java问题收集目录|[详细](https://github.com/smltq/spring-boot-demo/blob/master/java-gather)
+cloud-oauth2-auth-code|基于spring cloud实现oath2授权模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-oauth2-auth-code)
+cloud-gateway|API主流网关、gateway快速上手|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-gateway)
+cloud-config|配置中心(服务端、客户端)示例|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-config)
+cloud-feign|Eureka服务注册中心、负载均衡、声明式服务调用|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-feign)
+cloud-hystrix|Hystrix服务容错、异常处理、注册中心示例|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-hystrix)
+cloud-zuul|zuul服务网关、过滤器、路由转发、服务降级、负载均衡|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-zuul)
+cloud-alibaba|nacos服务中心、配置中心、限流等使用(系列示例整理中...)|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba)
 
 ## Spring Boot 概述
 
@@ -77,4 +81,4 @@ Spring boot可以离开Spring Cloud独立使用开发项目，但是Spring Cloud
 - 开发交流QQ群（230017570）
 - 微信公众号
 
-    ![微信公众号](java-gather/src/main/java/com/easy/javaGather/qrcode.jpg)
+    ![微信公众号](http://49.235.170.100:8090/upload/2019/10/qrcode-92534a5bf579459eaea982a6bcc83e9c.jpg)
