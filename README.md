@@ -37,6 +37,7 @@ security-oauth2-auth-code|基于spring boot实现oath2授权模式|[详细](http
 mybatis-multi-datasource|mybatis、数据库集群、读写分离、读库负载均衡|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-multi-datasource)|
 template-thymeleaf|thymeleaf实现应用国际化示例|[详细](https://github.com/smltq/spring-boot-demo/blob/master/template-thymeleaf)
 mq-redis|redis之mq实现，发布订阅模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/mq-redis)|
+email|email实现邮件发送|[详细](https://github.com/smltq/spring-boot-demo/blob/master/email)
 java-gather|java问题收集目录|[详细](https://github.com/smltq/spring-boot-demo/blob/master/java-gather)|
 cloud-oauth2-auth-code|基于spring cloud实现oath2授权模式|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-oauth2-auth-code)|
 cloud-gateway|API主流网关、gateway快速上手|[详细](https://github.com/smltq/spring-boot-demo/blob/master/cloud-gateway)|
