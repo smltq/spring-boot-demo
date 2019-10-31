@@ -1,5 +1,7 @@
 # Spring Cloud Alibaba（三）Sentinel之熔断降级
 
+[TOC]
+
 本项目演示如何使用 Sentinel 完成 Spring Cloud 应用的熔断降级调用。
 
 Sentinel 是阿里巴巴开源的分布式系统的流量防卫组件，Sentinel 把流量作为切入点，从流量控制，熔断降级，系统负载保护等多个维度保护服务的稳定性。
