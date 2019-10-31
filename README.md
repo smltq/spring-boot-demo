@@ -1,6 +1,6 @@
 # spring-boot-demo
 
-本项目示例基于spring boot 最新版本（2.1.7）实现，Spring Boot、Spring Cloud 学习示例，将持续更新……
+本项目示例基于spring boot 最新版本（2.1.9）实现，Spring Boot、Spring Cloud 学习示例，将持续更新……
 
 在基于Spring Boot、Spring Cloud 分布微服务开发过程中，根据实际项目环境，需要选择、集成符合项目需求的各种组件和积累各种解决方案。基于这样的背景下，我开源了本示例项目，方便大家快速上手Spring Boot、Spring Cloud 。
 
