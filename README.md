@@ -6,7 +6,7 @@
 
 每个示例都带有详细的介绍文档、作者在使用过程中踩过的坑、解决方案及参考资料，方便快速上手为你提供学习捷径，少绕弯路，提高开发效率。
 
-有需要写关于spring boot、spring cloud示例的，可以给我提issue
+有需要写关于spring boot、spring cloud示例，可以给我提issue哦
 
 ## 项目介绍
 
