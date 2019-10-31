@@ -19,7 +19,7 @@ spring boot demo 是一个Spring Boot、Spring Cloud的项目示例，根据市�
 - IntelliJ IDEA ULTIMATE 2019.1
 - MySql 5.7 +
 
-### Spring Boot模块
+### Spring Boot 模块
 
 模块名称|主要内容
 ---|---
