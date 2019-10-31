@@ -1,4 +1,4 @@
-# spring-boot 实现邮件发送
+# Spring Boot Mail 实现邮件发送
 
 > 此 demo 主要演示了 Spring Boot 如何整合邮件功能，包括发送简单文本邮件。
 
