@@ -12,3 +12,4 @@
 
 - [Spring Cloud Alibaba（一） 如何使用nacos服务注册和发现](README1.md)
 - [Spring Cloud Alibaba（二） 配置中心多项目、多配置文件、分目录实现](README2.md)
+- [Spring Cloud Alibaba（三）Sentinel之熔断降级](README3.md)
