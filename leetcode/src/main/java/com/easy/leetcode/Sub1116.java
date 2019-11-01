@@ -132,8 +132,12 @@ class ZeroEvenOdd {
                     lock.wait();
                 }
                 printNumber.accept(0);
-                flag = 0;
                 zeroCount++;
+                if (zeroCount % 2 == 0) {
+                    flag = 2;
+                } else {
+                    flag = 1;
+                }
                 lock.notifyAll();
             }
         }
@@ -143,11 +147,11 @@ class ZeroEvenOdd {
     public void even(IntConsumer printNumber) throws InterruptedException {
         for (int i = 2; i <= n; i += 2) {
             synchronized (lock) {
-                while (flag == 2 || (zeroCount % 2 == 1 && zeroCount > 0)) {
+                while (flag != 2) {
                     lock.wait();
                 }
                 printNumber.accept(i);
-                flag = 2;
+                flag = 0;
                 lock.notifyAll();
             }
         }
@@ -157,11 +161,11 @@ class ZeroEvenOdd {
     public void odd(IntConsumer printNumber) throws InterruptedException {
         for (int i = 1; i <= n; i += 2) {
             synchronized (lock) {
-                while (flag == 1 || zeroCount % 2 == 0) {
+                while (flag != 1) {
                     lock.wait();
                 }
                 printNumber.accept(i);
-                flag = 1;
+                flag = 0;
                 lock.notifyAll();
             }
         }
