@@ -157,7 +157,7 @@ Caused by: javax.mail.AuthenticationFailedException: [EOF]
 
 - 开启好了POP3/SMTP服务之后，会有一个授权码，这个授权码就是application.yml的spring.mail.password
 
-## 参考
+## 资料
 
 - [示例代码-github](https://github.com/smltq/spring-boot-demo/blob/master/email)
 - [Spring Boot Email 官方文档](https://docs.spring.io/spring-boot/docs/2.1.9.RELEASE/reference/htmlsingle/#boot-features-email)
