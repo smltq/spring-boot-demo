@@ -39,11 +39,15 @@ public class Sub1116 {
         int n = 2;
         ZeroEvenOdd zeroEvenOdd = new ZeroEvenOdd(n);
 
-        IntConsumer intConsumer=new IntConsumer();
+        IntConsumer intConsumer = (x) -> System.out.print(x);
 
         Thread zeroThread = new ZeroThread(zeroEvenOdd, intConsumer);
         Thread evenThread = new EvenThread(zeroEvenOdd, intConsumer);
         Thread oddThread = new OddThread(zeroEvenOdd, intConsumer);
+
+        zeroThread.start();
+        evenThread.start();
+        oddThread.start();
     }
 }
 
@@ -124,7 +128,7 @@ class ZeroEvenOdd {
     public void zero(IntConsumer printNumber) throws InterruptedException {
         for (int i = 0; i < n; i++) {
             synchronized (lock) {
-                while (flag == 0) {
+                while (flag != 0) {
                     lock.wait();
                 }
                 printNumber.accept(0);
@@ -139,7 +143,7 @@ class ZeroEvenOdd {
     public void even(IntConsumer printNumber) throws InterruptedException {
         for (int i = 2; i <= n; i += 2) {
             synchronized (lock) {
-                while (flag == 2 || zeroCount % 2 == 1) {
+                while (flag == 2 || (zeroCount % 2 == 1 && zeroCount > 0)) {
                     lock.wait();
                 }
                 printNumber.accept(i);
