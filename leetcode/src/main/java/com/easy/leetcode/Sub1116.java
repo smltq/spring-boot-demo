@@ -34,7 +34,7 @@ class ZeroEvenOdd {
 链接：https://leetcode-cn.com/problems/print-zero-even-odd
 */
 public class Sub1116 {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         //数量
         int n = 2;
         ZeroEvenOdd zeroEvenOdd = new ZeroEvenOdd(n);
