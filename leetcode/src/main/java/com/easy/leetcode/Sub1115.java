@@ -49,17 +49,15 @@ public class Sub1115 {
 
         FooBar fooBar = new FooBar(n);
 
-        Thread threads[] = new Thread[n * 2];
-        for (int i = 0; i < n; ++i) {
-            Thread fooThred = new FooThread(fooBar, foo);
-            Thread barThread = new BarThread(fooBar, bar);
+        Thread threads[] = new Thread[n];
+        Thread fooThread = new FooThread(fooBar, foo);
+        Thread barThread = new BarThread(fooBar, bar);
 
-            fooThred.start();
-            barThread.start();
+        fooThread.start();
+        barThread.start();
 
-            threads[i] = fooThred;
-            threads[i + n] = barThread;
-        }
+        threads[0] = fooThread;
+        threads[1] = barThread;
 
         //等侍所有线程执行完
         for (int i = 0; i < threads.length; i++) {
