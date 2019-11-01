@@ -9,8 +9,5 @@
 ## 多线程
 
 - [1114题按序打印](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1114.md)
-- [1115题按序打印](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1115.md)
+- [1115题按序打印](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1115.java)
 - [1117题按序打印](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1117.md)
-
-
-

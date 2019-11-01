@@ -60,6 +60,7 @@ cloud-alibaba|[nacos服务中心、配置中心、限流等使用(系列示例�
 模块名称|主要内容
 ---|---
 java-gather|[java问题收集目录](https://github.com/smltq/spring-boot-demo/blob/master/java-gather)
+leetcode|[力扣题解目录](https://github.com/smltq/spring-boot-demo/blob/master/leetcode)
 
 ## Spring Boot 概述
 
