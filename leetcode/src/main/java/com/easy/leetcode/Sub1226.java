@@ -41,10 +41,10 @@ output[i] = [a, b, c] (3个整数)
 */
 public class Sub1226 {
     public static void main(String[] args) throws InterruptedException {
-        int n = 4;
+        int n = 5;
         StringBuffer result = new StringBuffer();
         DiningPhilosophers diningPhilosophers = new DiningPhilosophers();
-        Thread threads[] = new Thread[4];
+        Thread threads[] = new Thread[n];
         for (int i = 0; i < n; i++) {
             int finalI = i;
             threads[i] = new Thread(() -> {
