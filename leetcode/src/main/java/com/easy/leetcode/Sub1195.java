@@ -1,5 +1,7 @@
 package com.easy.leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.IntConsumer;
 
 /*
@@ -33,13 +35,13 @@ public class Sub1195 {
     public static void main(String[] args) throws InterruptedException {
         int n = 15;
 
-        StringBuffer result = new StringBuffer();
+        List<String> result = new ArrayList<>();
 
-        Runnable fizz = () -> result.append("fizz");
-        Runnable buzz = () -> result.append("buzz");
-        Runnable fizzbuzz = () -> result.append("fizzbuzz");
+        Runnable fizz = () -> result.add("fizz");
+        Runnable buzz = () -> result.add("buzz");
+        Runnable fizzbuzz = () -> result.add("fizzbuzz");
 
-        IntConsumer intConsumer = (x) -> System.out.print(x + " ");
+        IntConsumer intConsumer = (x) -> result.add(Integer.toString(x));
 
         FizzBuzz fizzBuzz = new FizzBuzz(n);
 
@@ -59,6 +61,7 @@ public class Sub1195 {
                 e.printStackTrace();
             }
         });
+
         threads[2] = new Thread(() -> {
             try {
                 fizzBuzz.buzz(buzz);
@@ -66,6 +69,7 @@ public class Sub1195 {
                 e.printStackTrace();
             }
         });
+
         threads[3] = new Thread(() -> {
             try {
                 fizzBuzz.number(intConsumer);
@@ -84,7 +88,7 @@ public class Sub1195 {
         }
 
         //输出结果串
-        System.out.println(result.toString());
+        System.out.println(String.join(",", result));
     }
 }
 
