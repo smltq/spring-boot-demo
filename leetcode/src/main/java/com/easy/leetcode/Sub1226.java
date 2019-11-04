@@ -108,7 +108,7 @@ class DiningPhilosophers {
             //拿起右边的叉子
             pickRightFork.run();
         }
-        //1,3,5右手先拿(避免和邻居相同的方向拿筷子，造成死循环)
+        //1,3,5右手先拿(避免和邻居相同的方向拿筷子，造成死锁)
         else {
             locks[rightFork].lock();
             //拿起右边的叉子
