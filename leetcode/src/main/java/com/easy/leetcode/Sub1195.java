@@ -107,7 +107,7 @@ class FizzBuzz {
         while (i <= n) {
             synchronized (lock) {
                 if (i > n) break;
-                if ((i % 3 == 0) && (i % 5 != 0)) {
+                if ((i % 3 == 0) && (i % 15 != 0)) {
                     printFizz.run();
                     i++;
                 }
@@ -120,7 +120,7 @@ class FizzBuzz {
         while (i <= n) {
             synchronized (lock) {
                 if (i > n) break;
-                if ((i % 5 == 0) && (i % 3 != 0)) {
+                if ((i % 5 == 0) && (i % 15 != 0)) {
                     printBuzz.run();
                     i++;
                 }
@@ -133,7 +133,7 @@ class FizzBuzz {
         while (i <= n) {
             synchronized (lock) {
                 if (i > n) break;
-                if ((i % 5 == 0) && (i % 3 == 0)) {
+                if (i % 15 == 0) {
                     printFizzBuzz.run();
                     i++;
                 }
