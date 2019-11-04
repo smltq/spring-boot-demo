@@ -39,45 +39,42 @@ public class Sub1195 {
         Runnable buzz = () -> result.append("buzz");
         Runnable fizzbuzz = () -> result.append("fizzbuzz");
 
-        IntConsumer intConsumer = (x) -> System.out.print(x);
+        IntConsumer intConsumer = (x) -> System.out.print(x + " ");
 
         FizzBuzz fizzBuzz = new FizzBuzz(n);
 
-        Thread threads[] = new Thread[n];
-        for (int i = 1; i <= n; i++) {
-            if (i % 3 == 0 && i % 5 == 0) {
-                threads[i] = new Thread(() -> {
-                    try {
-                        fizzBuzz.fizzbuzz(fizzbuzz);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                });
-            } else if (i % 3 == 0) {
-                threads[i] = new Thread(() -> {
-                    try {
-                        fizzBuzz.fizz(fizz);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                });
-            } else if (i % 5 == 0) {
-                threads[i] = new Thread(() -> {
-                    try {
-                        fizzBuzz.buzz(buzz);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                });
-            } else {
-                threads[i] = new Thread(() -> {
-                    try {
-                        fizzBuzz.number(intConsumer);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                });
+        Thread threads[] = new Thread[4];
+        threads[0] = new Thread(() -> {
+            try {
+                fizzBuzz.fizzbuzz(fizzbuzz);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+        });
+
+        threads[1] = new Thread(() -> {
+            try {
+                fizzBuzz.fizz(fizz);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        threads[2] = new Thread(() -> {
+            try {
+                fizzBuzz.buzz(buzz);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        threads[3] = new Thread(() -> {
+            try {
+                fizzBuzz.number(intConsumer);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+
+        for (int i = 0; i < threads.length; i++) {
             threads[i].start();
         }
 
@@ -105,11 +102,10 @@ class FizzBuzz {
     public void fizz(Runnable printFizz) throws InterruptedException {
         while (i <= n) {
             synchronized (lock) {
-                if (i % 3 == 0 && i % 5 != 0) {
+                if (i > n) break;
+                if ((i % 3 == 0) && (i % 5 != 0)) {
                     printFizz.run();
                     i++;
-                } else {
-                    lock.wait();
                 }
                 lock.notifyAll();
             }
@@ -119,11 +115,10 @@ class FizzBuzz {
     public void buzz(Runnable printBuzz) throws InterruptedException {
         while (i <= n) {
             synchronized (lock) {
-                if (i % 5 == 0 && i % 3 != 0) {
+                if (i > n) break;
+                if ((i % 5 == 0) && (i % 3 != 0)) {
                     printBuzz.run();
                     i++;
-                } else {
-                    lock.wait();
                 }
                 lock.notifyAll();
             }
@@ -133,11 +128,10 @@ class FizzBuzz {
     public void fizzbuzz(Runnable printFizzBuzz) throws InterruptedException {
         while (i <= n) {
             synchronized (lock) {
-                if (i % 5 == 0 && i % 3 == 0) {
+                if (i > n) break;
+                if ((i % 5 == 0) && (i % 3 == 0)) {
                     printFizzBuzz.run();
                     i++;
-                } else {
-                    lock.wait();
                 }
                 lock.notifyAll();
             }
@@ -147,17 +141,13 @@ class FizzBuzz {
     public void number(IntConsumer printNumber) throws InterruptedException {
         while (i <= n) {
             synchronized (lock) {
-                if (i % 5 != 0 && i % 3 != 0) {
+                if (i > n) break;
+                if ((i % 5 != 0) && (i % 3 != 0)) {
                     printNumber.accept(i);
                     i++;
-                } else {
-                    lock.wait();
                 }
                 lock.notifyAll();
             }
         }
     }
 }
-
-
-
