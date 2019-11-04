@@ -1,9 +1,5 @@
 package com.easy.leetcode;
 
-import java.util.Random;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
-
 /*
 5 个沉默寡言的哲学家围坐在圆桌前，每人面前一盘意面。叉子放在哲学家之间的桌面上。（5 个哲学家，5 根叉子）
 
@@ -41,103 +37,60 @@ output[i] = [a, b, c] (3个整数)
 链接：https://leetcode-cn.com/problems/the-dining-philosophers
 */
 public class Sub1226 {
-    public static void main(String[] args) {
-        int n = 15;
+    public static void main(String[] args) throws InterruptedException {
+        int n = 4;
+        StringBuffer result = new StringBuffer();
+        DiningPhilosophers diningPhilosophers = new DiningPhilosophers();
+        Thread threads[] = new Thread[4];
+        for (int i = 0; i < n; i++) {
+            int finalI = i;
+            threads[i] = new Thread(() -> {
+                try {
+                    Runnable pickLeftFork = () -> result.append(finalI + "11");
+                    Runnable pickRightFork = () -> result.append(finalI + "21");
+                    Runnable eat = () -> result.append(finalI + "03");
+                    Runnable putLeftFork = () -> result.append(finalI + "12");
+                    Runnable putRightFork = () -> result.append(finalI + "22");
 
+                    diningPhilosophers.wantsToEat(finalI, pickLeftFork, pickRightFork, eat, putLeftFork, putRightFork);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
+            threads[i].start();
+        }
+
+        //等侍所有线程执行完
+        for (int i = 0; i < threads.length; i++) {
+            threads[i].join();
+        }
+
+        System.out.println(result.toString() + "长度为：" + result.length());
+
+        char charArr[] = result.toString().toCharArray();
+        System.out.print("[");
+        for (int i = 0; i < charArr.length; i += 3) {
+            System.out.print("[");
+            System.out.print(charArr[i] + "," + charArr[i + 1] + "," + charArr[i + 2]);
+            System.out.print("],");
+        }
+        System.out.print("]");
     }
 }
 
 class DiningPhilosophers {
 
-    private Semaphore[] semaphoreArr = new Semaphore[]{
-            new Semaphore(1),
-            new Semaphore(1),
-            new Semaphore(1),
-            new Semaphore(1),
-            new Semaphore(1)
-    };
 
     public DiningPhilosophers() {
 
     }
 
-    // call the run() method of any runnable to execute its code
     public void wantsToEat(int philosopher,
                            Runnable pickLeftFork,
                            Runnable pickRightFork,
                            Runnable eat,
                            Runnable putLeftFork,
                            Runnable putRightFork) throws InterruptedException {
-        int leftPos = philosopher;
-        int rightPos = (philosopher + 4) % 5;
-        int radomSeq = 0;
-        Semaphore semaphoreFist, semaphoreSecond;
-        Runnable fistPic, secondPic, fistPut, secondPut;
-        while (true) {
-            // 随机方向开始
-            radomSeq = new Random().nextInt(2);
-            if (0 == radomSeq) {
-                semaphoreFist = semaphoreArr[leftPos];
-                semaphoreSecond = semaphoreArr[rightPos];
-                fistPic = pickLeftFork;
-                secondPic = pickRightFork;
-                fistPut = putLeftFork;
-                secondPut = putRightFork;
-            } else {
-                semaphoreFist = semaphoreArr[rightPos];
-                semaphoreSecond = semaphoreArr[leftPos];
-                fistPic = pickRightFork;
-                secondPic = pickLeftFork;
-                fistPut = putRightFork;
-                secondPut = putLeftFork;
-            }
 
-            if (pickBysequence(semaphoreFist, semaphoreSecond, fistPic, secondPic, eat, fistPut, secondPut))
-                return;
-        }
-    }
-
-    private boolean pickBysequence(Semaphore semaphoreFist,
-                                   Semaphore semaphoreSecond,
-                                   Runnable fistPic,
-                                   Runnable secondPic,
-                                   Runnable eat,
-                                   Runnable fistPut,
-                                   Runnable secondPut) throws InterruptedException {
-
-        boolean permit = false, permitSec = false;
-        try {
-            // 获取第一根
-            permit = semaphoreFist.tryAcquire(5, TimeUnit.MILLISECONDS);
-            if (permit) {
-                // 拿第一根叉子
-                fistPic.run();
-                // 获取第二根叉子
-                permitSec = semaphoreSecond.tryAcquire(5, TimeUnit.MILLISECONDS);
-                if (permitSec) {
-                    // 获取成功
-                    secondPic.run();
-                    eat.run();
-                    fistPut.run();
-                    secondPut.run();
-                    return true;
-                } else {
-                    // 拿不到第二根，放下第一根
-                    fistPut.run();
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        } catch (InterruptedException e) {
-            throw new IllegalStateException(e);
-        } finally {
-            if (permit) {
-                semaphoreFist.release();
-            }
-            if (permitSec) {
-                semaphoreSecond.release();
-            }
-        }
     }
 }
