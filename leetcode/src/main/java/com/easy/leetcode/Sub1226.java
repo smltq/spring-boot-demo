@@ -1,5 +1,8 @@
 package com.easy.leetcode;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /*
 5 个沉默寡言的哲学家围坐在圆桌前，每人面前一盘意面。叉子放在哲学家之间的桌面上。（5 个哲学家，5 根叉子）
 
@@ -79,7 +82,7 @@ public class Sub1226 {
 }
 
 class DiningPhilosophers {
-
+    private Lock[] locks = {new ReentrantLock(), new ReentrantLock(), new ReentrantLock(), new ReentrantLock(), new ReentrantLock()};
 
     public DiningPhilosophers() {
 
@@ -92,5 +95,39 @@ class DiningPhilosophers {
                            Runnable putLeftFork,
                            Runnable putRightFork) throws InterruptedException {
 
+        int leftFork = philosopher;
+        int rightFork = (philosopher + 4) % 5;
+
+        //0,2,4左手先拿
+        if (philosopher % 2 == 0) {
+            locks[leftFork].lock();
+            //拿起左边的叉子
+            pickLeftFork.run();
+
+            locks[rightFork].lock();
+            //拿起右边的叉子
+            pickRightFork.run();
+        }
+        //1,3,5右手先拿(避免和邻居相同的方向拿筷子，造成死循环)
+        else {
+            locks[rightFork].lock();
+            //拿起右边的叉子
+            pickRightFork.run();
+
+            locks[leftFork].lock();
+            //拿起左边的叉子
+            pickLeftFork.run();
+        }
+
+        //吃意大利面
+        eat.run();
+
+        //放下左边的叉子
+        putLeftFork.run();
+        locks[leftFork].unlock();
+
+        //放下右边的叉子
+        putRightFork.run();
+        locks[rightFork].unlock();
     }
 }
