@@ -26,11 +26,17 @@ import java.util.*;
  */
 public class Sub103 {
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(3);
-        root.left = new TreeNode(9);
-        root.right = new TreeNode(20);
-        root.right.left = new TreeNode(15);
-        root.right.right = new TreeNode(7);
+//        TreeNode root = new TreeNode(3);
+//        root.left = new TreeNode(9);
+//        root.right = new TreeNode(20);
+//        root.right.left = new TreeNode(15);
+//        root.right.right = new TreeNode(7);
+
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.right.right = new TreeNode(5);
 
         Solution103_1 solution = new Solution103_1();
         List<List<Integer>> list = solution.zigzagLevelOrder(root);
@@ -49,34 +55,34 @@ class Solution103_1 {
 
     List<List<Integer>> BFS(TreeNode root) {
         Deque<TreeNode> deque = new LinkedList<>();
-        Deque<TreeNode> tDeque = new LinkedList<>();
-        deque.push(root);
+        deque.addLast(root);
         List<List<Integer>> result = new LinkedList<>();
-        boolean reverse = true;
+        boolean reverse = false;
         while (!deque.isEmpty()) {
             int size = deque.size();
             List<Integer> subResult = new LinkedList<>();
             for (int i = 0; i < size; i++) {
-                TreeNode node = null;
+                TreeNode node;
                 if (reverse) {
-                    node = deque.removeFirst();
+                    node = deque.pollFirst();
+                    if (node.right != null) {
+                        deque.addLast(node.right);
+                    }
+                    if (node.left != null) {
+                        deque.addLast(node.left);
+                    }
                 } else {
-                    node = deque.removeLast();
+                    node = deque.pollLast();
+                    if (node.right != null) {
+                        deque.addLast(node.right);
+                    }
+                    if (node.left != null) {
+                        deque.addLast(node.left);
+                    }
                 }
-
-                if (node.left != null) {
-                    tDeque.add(node.left);
-                }
-                if (node.right != null) {
-                    tDeque.add(node.right);
-                }
-
                 subResult.add(node.val);
             }
             result.add(subResult);
-            deque = tDeque;
-            tDeque = new LinkedList<>();
-            //System.out.println(reverse);
             reverse = !reverse;
         }
         return result;
