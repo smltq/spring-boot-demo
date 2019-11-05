@@ -68,6 +68,9 @@ class Solution103_1 {
                 } else {
                     node = deque.pollLast();
                 }
+                if (node == null) {
+                    continue;
+                }
                 if (node.right != null) {
                     deque.addLast(node.right);
                 }
