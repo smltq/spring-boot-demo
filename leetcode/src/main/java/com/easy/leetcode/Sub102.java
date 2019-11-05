@@ -32,7 +32,7 @@ public class Sub102 {
         root.right.left = new TreeNode(15);
         root.right.right = new TreeNode(7);
 
-        Solution102_3 solution = new Solution102_3();
+        Solution102_2 solution = new Solution102_2();
         List<List<Integer>> list = solution.levelOrder(root);
         for (List<Integer> subList : list) {
             System.out.println(subList.toString());
@@ -64,39 +64,6 @@ class Solution102_1 {
                 }
                 if (node.right != null) {
                     queue.offer(node.right);
-                }
-                subResult.add(node.val);
-            }
-            result.add(subResult);
-        }
-        return result;
-    }
-}
-
-/**
- * 广搜+栈
- */
-class Solution102_3 {
-    public List<List<Integer>> levelOrder(TreeNode root) {
-        if (root == null)
-            return new ArrayList<>();
-        return BFS(root);
-    }
-
-    List<List<Integer>> BFS(TreeNode root) {
-        Stack<TreeNode> stack = new Stack();
-        stack.push(root);
-        List<List<Integer>> result = new LinkedList<>();
-        while (!stack.isEmpty()) {
-            int size = stack.size();
-            List<Integer> subResult = new LinkedList<>();
-            for (int i = 0; i < size; i++) {
-                TreeNode node = stack.pop();
-                if (node.right != null) {
-                    stack.push(node.right);
-                }
-                if (node.left != null) {
-                    stack.push(node.left);
                 }
                 subResult.add(node.val);
             }
