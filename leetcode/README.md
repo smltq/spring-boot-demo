@@ -6,6 +6,8 @@
 
 - [108 将一个按照升序排列的有序数组，转换为一棵高度平衡二叉搜索树](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub108.md)
 - [538 把二叉搜索树转换为累加树](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub538.md)
+- [102 二叉树的层次遍历](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub102.java)
+- [103 二叉树的锯齿形层次遍历](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub103.java)
 
 ## 多线程
 
