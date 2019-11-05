@@ -65,20 +65,14 @@ class Solution103_1 {
                 TreeNode node;
                 if (reverse) {
                     node = deque.pollFirst();
-                    if (node.right != null) {
-                        deque.addLast(node.right);
-                    }
-                    if (node.left != null) {
-                        deque.addLast(node.left);
-                    }
                 } else {
                     node = deque.pollLast();
-                    if (node.right != null) {
-                        deque.addLast(node.right);
-                    }
-                    if (node.left != null) {
-                        deque.addLast(node.left);
-                    }
+                }
+                if (node.right != null) {
+                    deque.addLast(node.right);
+                }
+                if (node.left != null) {
+                    deque.addLast(node.left);
                 }
                 subResult.add(node.val);
             }
