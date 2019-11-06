@@ -97,14 +97,14 @@ mysqladmin -u root password "new_password";
 1.首先配置允许访问的用户，采用授权的方式给用户权限
 
 ```cfml
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'IDENTIFIED BY '123456' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'IDENTIFIED BY '123456' WITH GRANT OPTION
 ```
 
 root是登陆数据库的用户，123456是登陆数据库的密码
 
 2.配置好权限之后，刷新生效
 
-flush privileges;
+flush privileges
 
 ## 资料
 
