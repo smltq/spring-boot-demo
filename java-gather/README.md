@@ -32,7 +32,12 @@
 - [Git常用命令](https://github.com/smltq/spring-boot-demo/blob/master/java-gather/src/main/java/com/easy/javaGather/GIT.md)
 
 ## Docker相关
+  
+  侍整理
+  
+## 其它
 
+  内存对齐，内存碎片，Slab机制，伙伴系统
 
 
 你在开发过程中遇到哪些有趣的问题呢，欢迎push上来哦。
