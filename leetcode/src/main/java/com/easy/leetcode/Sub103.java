@@ -51,8 +51,9 @@ public class Sub103 {
 
 class Solution103_1 {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return new ArrayList<>();
+        }
         return BFS(root);
     }
 
@@ -67,7 +68,10 @@ class Solution103_1 {
             for (int i = 0; i < size; i++) {
                 TreeNode node;
                 if (reverse) {
+                    //头出
                     node = deque.pollFirst();
+
+                    //尾进
                     if (node.left != null) {
                         deque.addLast(node.left);
                     }
@@ -75,7 +79,10 @@ class Solution103_1 {
                         deque.addLast(node.right);
                     }
                 } else {
+                    //尾出
                     node = deque.pollLast();
+
+                    //头进
                     if (node.right != null) {
                         deque.addFirst(node.right);
                     }
