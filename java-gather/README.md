@@ -16,7 +16,7 @@
 - [mysql事务详解](https://github.com/smltq/spring-boot-demo/blob/master/java-gather/src/main/java/com/easy/javaGather/MySqlTransaction.md)
 - [Windows上部署MySql](https://github.com/smltq/spring-boot-demo/blob/master/java-gather/src/main/java/com/easy/javaGather/Windows%E4%B8%8A%E9%83%A8%E7%BD%B2MySql.md)
 - [Centos7部署mysql](https://github.com/smltq/spring-boot-demo/blob/master/java-gather/src/main/java/com/easy/javaGather/Centos7%E9%83%A8%E7%BD%B2mysql.md)
-- [排他锁之行锁、间隙锁、后码锁]()
+- [排它锁之行锁、间隙锁、后码锁](https://github.com/smltq/spring-boot-demo/blob/master/java-gather/src/main/java/com/easy/javaGather/MySql%E9%94%81.md)
 - mysql有几个常用模块(整理中...)
 - mysql索引了解，常用索引，B树，B+树
 - mysql组合索引详解，注意事项
