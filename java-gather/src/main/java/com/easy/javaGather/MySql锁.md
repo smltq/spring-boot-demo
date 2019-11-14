@@ -114,10 +114,10 @@ SELECT SLEEP(30);
 -- 注意：以下的语句不是放在一个事务中执行，而是分开多次执行，每次事务中只有一条添加语句
 
 /* 事务2插入一条 name = '小张' 的数据 */
-INSERT INTO `test` (`id`, `name`) VALUES (4, '小张'); # 正常执行
+INSERT INTO `test` (`id`, `name`) VALUES (4, '小张'); -- 正常执行
 
 /* 事务3插入一条 name = '小张' 的数据 */
-INSERT INTO `test` (`id`, `name`) VALUES (8, '小东'); # 正常执行
+INSERT INTO `test` (`id`, `name`) VALUES (8, '小东'); -- 正常执行
 
 /* 提交事务1，释放事务1的锁 */
 COMMIT;
@@ -137,25 +137,25 @@ SELECT SLEEP(30);
 -- 注意：以下的语句不是放在一个事务中执行，而是分开多次执行，每次事务中只有一条添加语句
 
 /* 事务2插入一条 id = 3，name = '小张1' 的数据 */
-INSERT INTO `test` (`id`, `name`) VALUES (3, '小张1'); # 正常执行
+INSERT INTO `test` (`id`, `name`) VALUES (3, '小张1'); -- 正常执行
 
 /* 事务3插入一条 id = 4，name = '小白' 的数据 */
-INSERT INTO `test` (`id`, `name`) VALUES (4, '小白'); # 正常执行
+INSERT INTO `test` (`id`, `name`) VALUES (4, '小白'); -- 正常执行
 
 /* 事务4插入一条 id = 6，name = '小东' 的数据 */
-INSERT INTO `test` (`id`, `name`) VALUES (6, '小东'); # 阻塞
+INSERT INTO `test` (`id`, `name`) VALUES (6, '小东'); -- 阻塞
 
 /* 事务5插入一条 id = 8， name = '大罗' 的数据 */
-INSERT INTO `test` (`id`, `name`) VALUES (8, '大罗'); # 阻塞
+INSERT INTO `test` (`id`, `name`) VALUES (8, '大罗'); -- 阻塞
 
 /* 事务6插入一条 id = 9， name = '大东' 的数据 */
-INSERT INTO `test` (`id`, `name`) VALUES (9, '大东'); # 阻塞
+INSERT INTO `test` (`id`, `name`) VALUES (9, '大东'); -- 阻塞
 
 /* 事务7插入一条 id = 11， name = '李西' 的数据 */
-INSERT INTO `test` (`id`, `name`) VALUES (11, '李西'); # 阻塞
+INSERT INTO `test` (`id`, `name`) VALUES (11, '李西'); -- 阻塞
 
 /* 事务8插入一条 id = 12， name = '张三' 的数据 */
-INSERT INTO `test` (`id`, `name`) VALUES (12, '张三'); # 正常执行
+INSERT INTO `test` (`id`, `name`) VALUES (12, '张三'); -- 正常执行
 
 /* 提交事务1，释放事务1的锁 */
 COMMIT;
@@ -175,16 +175,16 @@ SELECT SLEEP(30);
 -- 注意：以下的语句不是放在一个事务中执行，而是分开多次执行，每次事务中只有一条添加语句
 
 /* 事务2插入一条 id = 3，name = '小张1' 的数据 */
-INSERT INTO `test` (`id`, `name`) VALUES (2, '小张1'); # 阻塞
+INSERT INTO `test` (`id`, `name`) VALUES (2, '小张1'); -- 阻塞
 
 /* 事务3插入一条 id = 4，name = '小白' 的数据 */
-INSERT INTO `test` (`id`, `name`) VALUES (4, '小白'); # 阻塞
+INSERT INTO `test` (`id`, `name`) VALUES (4, '小白'); -- 阻塞
 
 /* 事务4插入一条 id = 6，name = '小东' 的数据 */
-INSERT INTO `test` (`id`, `name`) VALUES (6, '小东'); # 正常执行
+INSERT INTO `test` (`id`, `name`) VALUES (6, '小东'); -- 正常执行
 
 /* 事务5插入一条 id = 8， name = '大罗' 的数据 */
-INSERT INTO `test` (`id`, `name`) VALUES (8, '大罗'); # 正常执行
+INSERT INTO `test` (`id`, `name`) VALUES (8, '大罗'); -- 正常执行
 
 /* 提交事务1，释放事务1的锁 */
 COMMIT;
