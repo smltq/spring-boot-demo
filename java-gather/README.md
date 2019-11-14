@@ -1,5 +1,7 @@
 # JavaGather
 
+- [关于我](https://tqlin.cn/s/about)
+
 ## Java问题汇总
 
 - [Zookeeper之Leader选举过程](https://github.com/smltq/spring-boot-demo/blob/master/java-gather/src/main/java/com/easy/javaGather/Zookeeper-Leader.md)
