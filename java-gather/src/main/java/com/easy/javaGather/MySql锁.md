@@ -1,4 +1,4 @@
-# 排它锁之行锁、间隙锁、后码锁
+# mysql 排它锁之行锁、间隙锁、后码锁
 
 MySQL InnoDB支持三种行锁定
 
@@ -328,9 +328,9 @@ COMMIT;
 
 ### 后码锁(Next-key Locks)
 
-后码锁(，是记录锁与间隙锁的组合，它的封锁范围，既包含索引记录，又包含索引区间。
+后码锁是记录锁与间隙锁的组合，它的封锁范围，既包含索引记录，又包含索引区间。
 
-注：Next-key Locks的主要目的，也是为了避免幻读(Phantom Read)。如果把事务的隔离级别降级为RC，Next-key Locks则也会失效。
+注：Next-key Lock的主要目的，也是为了避免幻读(Phantom Read)。如果把事务的隔离级别降级为RC，Next-key Lock则也会失效。
 
 ## 总结
 
