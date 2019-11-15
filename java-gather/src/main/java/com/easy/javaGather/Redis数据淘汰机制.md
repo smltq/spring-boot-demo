@@ -54,3 +54,4 @@ Redis中的淘汰机制（LRU和TTL）都是非精确算法实现的，主要从
 ## 资料
 
 - [Java问题收集](https://github.com/smltq/spring-boot-demo/tree/master/java-gather)
+- [原文地址](https://github.com/smltq/spring-boot-demo/blob/master/java-gather/src/main/java/com/easy/javaGather/Redis%E6%95%B0%E6%8D%AE%E6%B7%98%E6%B1%B0%E6%9C%BA%E5%88%B6.md)

@@ -25,7 +25,7 @@
 
 ## redis
 
-- redis淘汰策略
+- [redis数据淘汰策略](https://github.com/smltq/spring-boot-demo/blob/master/java-gather/src/main/java/com/easy/javaGather/Redis%E6%95%B0%E6%8D%AE%E6%B7%98%E6%B1%B0%E6%9C%BA%E5%88%B6.md)
 
 ## 常用命令汇总
 
