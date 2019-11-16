@@ -313,7 +313,7 @@ COMMIT;
 
 这是为什么呢？我们来看看下边的图
 
-![gap locks](https://tqlin.cn/upload/2019/11/gap%20locks-07b45f89a22d43afb7652b57733e8750.jpg)
+![gap locks](https://leaf.tqlin.cn/upload/2019/11/gap%20locks-07b45f89a22d43afb7652b57733e8750.jpg)
 
 从图中可以看出，当 number 相同时，会根据主键 id 来排序，所以：
 
