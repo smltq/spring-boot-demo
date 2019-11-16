@@ -32,6 +32,7 @@
 - [Linux常用命令](https://github.com/smltq/spring-boot-demo/blob/master/java-gather/src/main/java/com/easy/javaGather/LINUX.md)
 - [Java常用命令](https://github.com/smltq/spring-boot-demo/blob/master/java-gather/src/main/java/com/easy/javaGather/JAVA.md)
 - [Git常用命令](https://github.com/smltq/spring-boot-demo/blob/master/java-gather/src/main/java/com/easy/javaGather/GIT.md)
+- [Git常用命令](https://github.com/smltq/spring-boot-demo/blob/master/java-gather/src/main/java/com/easy/javaGather/Nginx.md)
 
 ## Docker相关
   
