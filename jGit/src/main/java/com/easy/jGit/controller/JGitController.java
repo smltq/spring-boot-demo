@@ -27,23 +27,31 @@ public class JGitController {
     @RequestMapping("/pull")
     public String pull() {
         String result;
+        log.info("暂停30秒");
+        try {
+            Thread.sleep(30000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         Repository repo = null;
         try {
             repo = new FileRepository(new File(patch));
             Git git = new Git(repo);
-
+            log.info("开始重置");
             //先重置
             git.reset()
                     .setMode(ResetCommand.ResetType.HARD)
                     .setRef(branch).call();
 
+            log.info("开始拉取");
             //再拉取
             git.pull()
                     .setRemote("origin")
                     .setRemoteBranchName("gh-pages")
                     .call();
 
+            log.info("开始清缓存");
             //清缓存
             git.clean().call();
 
