@@ -76,6 +76,14 @@
 ### 推送到远程
 
     git push origin HEAD --force
-    
+
+## Git冲突解决
+
+强制覆盖本地代码，你自己修改的代码即将被远程库的代码所覆盖，所以把本地自己的代码做好备份，然后执行命令
+
+- git reset --hard origin/master
+- git pull
+- 从你备份好的文件当中把你写的代码合进去，修改完成再进行git push
+
 ## 资料
 - [阮一峰常用 Git 命令清单](https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
