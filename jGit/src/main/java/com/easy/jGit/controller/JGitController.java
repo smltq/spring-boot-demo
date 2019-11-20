@@ -33,15 +33,19 @@ public class JGitController {
             repo = new FileRepository(new File(patch));
             Git git = new Git(repo);
 
-            //先重置再拉取
+            //先重置
             git.reset()
                     .setMode(ResetCommand.ResetType.HARD)
                     .setRef(branch).call();
 
+            //再拉取
             git.pull()
                     .setRemote("origin")
                     .setRemoteBranchName("gh-pages")
                     .call();
+
+            //清缓存
+            git.clean().call();
 
             result = "拉取成功!";
         } catch (Exception e) {
@@ -97,11 +101,6 @@ public class JGitController {
         return result;
     }
 
-    /**
-     * 克隆代码
-     *
-     * @return
-     */
     @RequestMapping("/clone")
     public String clone() {
         String result;
