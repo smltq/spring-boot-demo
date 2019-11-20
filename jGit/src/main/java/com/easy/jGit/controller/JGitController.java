@@ -29,7 +29,7 @@ public class JGitController {
         String result;
         log.info("暂停30秒");
         try {
-            Thread.sleep(30000);
+            Thread.sleep(30 * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -38,14 +38,19 @@ public class JGitController {
         try {
             repo = new FileRepository(new File(patch));
             Git git = new Git(repo);
+
+            log.info("开始恢复");
+            //恢复
+            git.revert().call();
+
             log.info("开始重置");
-            //先重置
+            //重置
             git.reset()
                     .setMode(ResetCommand.ResetType.HARD)
                     .setRef(branch).call();
 
             log.info("开始拉取");
-            //再拉取
+            //拉取
             git.pull()
                     .setRemote("origin")
                     .setRemoteBranchName("gh-pages")
@@ -87,7 +92,7 @@ public class JGitController {
         return result;
     }
 
-    //灰复
+    //恢复
     @RequestMapping("/revert")
     public String revert() {
         String result;
@@ -97,7 +102,7 @@ public class JGitController {
             repo = new FileRepository(new File(patch));
             Git git = new Git(repo);
             git.revert().call();
-            result = "重置成功!";
+            result = "恢复成功!";
 
         } catch (Exception e) {
             result = e.getMessage();
