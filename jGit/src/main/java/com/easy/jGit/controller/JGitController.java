@@ -27,21 +27,10 @@ public class JGitController {
     @RequestMapping("/pull")
     public String pull() {
         String result;
-        log.info("暂停30秒");
-        try {
-            Thread.sleep(30 * 1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         Repository repo = null;
         try {
             repo = new FileRepository(new File(patch));
             Git git = new Git(repo);
-
-            log.info("开始恢复");
-            //恢复
-            git.revert().call();
 
             log.info("开始重置");
             //重置
@@ -50,17 +39,14 @@ public class JGitController {
                     .setRef(branch).call();
 
             log.info("开始拉取");
+
             //拉取
             git.pull()
                     .setRemote("origin")
                     .setRemoteBranchName("gh-pages")
                     .call();
-
-            log.info("开始清缓存");
-            //清缓存
-            git.clean().call();
-
             result = "拉取成功!";
+            log.info(result);
         } catch (Exception e) {
             result = e.getMessage();
         } finally {
