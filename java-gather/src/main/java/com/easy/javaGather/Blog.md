@@ -6,3 +6,7 @@
 - ~~主题选择~~
 - ~~java服务调整为后台运行~~
 - 内容丰富
+
+## 参考
+
+- [使用Travis CI自动部署Hexo博客](https://www.itfanr.cc/2017/08/09/using-travis-ci-automatic-deploy-hexo-blogs/)
