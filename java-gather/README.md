@@ -1,6 +1,6 @@
 # JavaGather
 
-- [关于我](https://tqlin.cn/s/about)
+- [关于我](https://tqlin.cn/about)
 
 ## Java问题汇总
 
