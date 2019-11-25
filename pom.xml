@@ -35,7 +35,6 @@
         <module>mq-redis</module>
         <module>email</module>
         <module>jGit</module>
-        <module>java-gather</module>
         <module>leetcode</module>
         <module>cloud-feign</module>
         <module>cloud-oauth2-auth-code</module>
