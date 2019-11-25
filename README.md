@@ -42,6 +42,7 @@ mybatis-multi-datasource|[mybatis、数据库集群、读写分离、读库负�
 template-thymeleaf|[thymeleaf实现应用国际化示例](https://github.com/smltq/spring-boot-demo/blob/master/template-thymeleaf)
 mq-redis|[redis之mq实现，发布订阅模式](https://github.com/smltq/spring-boot-demo/blob/master/mq-redis)
 email|[email实现邮件发送](https://github.com/smltq/spring-boot-demo/blob/master/email)
+jGit|[java调用git命令、jgit使用等](https://github.com/smltq/spring-boot-demo/blob/master/jGit)
 
 ### Spring Cloud 模块
 
