@@ -8,18 +8,28 @@
     <version>1.0.0</version>
 
     <modules>
-        <!--配置服务中心-->
+        <!--配置服务中心(8001)-->
         <module>ali-nacos-config-server</module>
-        <!--配置客户端1-->
+        <!--配置客户端1(8002)-->
         <module>ali-nacos-config-client</module>
-        <!--服务提供者,配置客户端2-->
+        <!--服务提供者,配置客户端2(9000)-->
         <module>ali-nacos-provider</module>
-        <!--ribbon消费者,配置客户端3-->
+        <!--ribbon消费者,配置客户端3(9100)-->
         <module>ali-nacos-consumer-ribbon</module>
-        <!--feign消费者-->
+        <!--feign消费者(9101)-->
         <module>ali-nacos-consumer-feign</module>
-        <!--熔断降级消费者-->
+        <!--熔断降级消费者(9102)-->
         <module>ali-nacos-sentinel-feign</module>
+
+        <!--API 模块，存放 Dubbo 服务接口和模型定义-->
+        <module>ali-nacos-dubbo-api</module>
+
+        <!--Dubbo 服务提供方示例，Web应用(9001)-->
+         <module>ali-nacos-dubbo-provider-web</module>
+
+        <!--Dubbo 服务消费方示例-->
+         <module>ali-nacos-dubbo-consumer</module>
+
     </modules>
 
     <packaging>pom</packaging>
@@ -37,6 +47,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <dubbo.version>2.7.4</dubbo.version>
     </properties>
 
     <dependencies>
@@ -57,6 +68,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
