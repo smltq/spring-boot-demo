@@ -26,16 +26,18 @@
 
         <!-- API -->
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
+            <groupId>com.easy</groupId>
             <artifactId>ali-nacos-dubbo-api</artifactId>
             <version>${project.version}</version>
         </dependency>
 
+        <!--dubbo-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-dubbo</artifactId>
         </dependency>
 
+        <!--nacos-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>

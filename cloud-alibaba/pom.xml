@@ -27,7 +27,7 @@
         <!--Dubbo 服务提供方示例，Web应用(9001)-->
          <module>ali-nacos-dubbo-provider-web</module>
 
-        <!--Dubbo 服务消费方示例-->
+        <!--Dubbo 服务消费方示例（9103）-->
          <module>ali-nacos-dubbo-consumer</module>
 
     </modules>

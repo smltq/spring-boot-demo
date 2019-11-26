@@ -9,15 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.alibaba.cloud</groupId>
+    <groupId>com.easy</groupId>
     <artifactId>ali-nacos-dubbo-api</artifactId>
-
-    <dependencies>
-        <!-- Dubbo -->
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo</artifactId>
-            <version>${dubbo.version}</version>
-        </dependency>
-    </dependencies>
 </project>
