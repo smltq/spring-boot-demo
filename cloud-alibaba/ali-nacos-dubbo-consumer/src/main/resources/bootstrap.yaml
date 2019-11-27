@@ -2,7 +2,7 @@ dubbo:
   registry:
     address: spring-cloud://localhost
   cloud:
-    subscribed-services: ali-nacos-dubbo-provider-web
+    subscribed-services: ali-nacos-dubbo-provider
 
 spring:
   application:

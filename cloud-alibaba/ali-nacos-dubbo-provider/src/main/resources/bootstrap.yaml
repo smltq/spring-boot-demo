@@ -1,0 +1,25 @@
+dubbo:
+  scan:
+    # dubbo 服务扫描基准包
+    base-packages: com.easy.andProvider.service
+
+  #Dubbo 服务暴露的协议配置，其中子属性 name 为协议名称，port 为协议端口（ -1 表示自增端口，从 20880 开始）
+  protocol:
+    name: dubbo
+    port: -1
+
+  #Dubbo 服务注册中心配置，其中子属性 address 的值 “spring-cloud://localhost”，说明挂载到 Spring Cloud 注册中心
+  registry:
+    address: spring-cloud://localhost
+
+spring:
+  application:
+    # Dubbo 应用名称
+    name: ali-nacos-dubbo-provider
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    # Nacos 服务发现与注册配置
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848

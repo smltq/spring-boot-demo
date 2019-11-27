@@ -13,13 +13,4 @@
     <groupId>com.easy</groupId>
     <artifactId>ali-nacos-dubbo-api</artifactId>
     <version>1.0.0</version>
-
-    <dependencies>
-        <!-- Dubbo -->
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo</artifactId>
-            <version>${dubbo.version}</version>
-        </dependency>
-    </dependencies>
 </project>

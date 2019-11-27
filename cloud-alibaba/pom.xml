@@ -24,8 +24,8 @@
         <!--API 模块，存放 Dubbo 服务接口和模型定义-->
         <module>ali-nacos-dubbo-api</module>
 
-        <!--Dubbo 服务提供方示例，Web应用(9001)-->
-         <module>ali-nacos-dubbo-provider-web</module>
+        <!--Dubbo 服务提供方示例(9001)-->
+         <module>ali-nacos-dubbo-provider</module>
 
         <!--Dubbo 服务消费方示例（9103）-->
          <module>ali-nacos-dubbo-consumer</module>

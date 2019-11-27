@@ -10,7 +10,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ali-nacos-dubbo-provider-web</artifactId>
+    <artifactId>ali-nacos-dubbo-provider</artifactId>
 
     <dependencies>
 

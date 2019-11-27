@@ -1,4 +1,4 @@
-package com.easy.andProviderWeb.service;
+package com.easy.andProvider.service;
 
 import com.easy.and.api.service.HelloService;
 import org.apache.dubbo.config.annotation.Service;
