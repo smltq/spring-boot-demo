@@ -218,38 +218,111 @@ pom.xml依赖
 </project>
 ```
 
+yaml配置文件
+```yaml
+dubbo:
+  registry:
+    address: spring-cloud://localhost
+  cloud:
+    subscribed-services: ali-nacos-dubbo-provider
+
+spring:
+  application:
+    name: ali-nacos-dubbo-consumer
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+```
+
+#### 实现 Dubbo 服务消费方
+
+HomeController.java
+```java
+package com.easy.andConsumer;
+
+import com.easy.and.api.service.HelloService;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@Slf4j
+public class HomeController {
+
+    @Reference
+    HelloService helloService;
+
+    @GetMapping("/hello")
+    public String hello(String name) {
+        return helloService.hello("云天");
+    }
+}
+```
+
+AndConsumerApplication.java启动类
+```java
+package com.easy.andConsumer;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
+@EnableDiscoveryClient
+@SpringBootApplication
+public class AndConsumerApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(AndConsumerApplication.class, args);
+    }
+}
+```
+
 ## 使用示例
 
 ### 示例关联项目
 
-在[Spring Cloud Alibaba（一） 如何使用nacos服务注册和发现](README1.md)基础上，我们新建了ali-nacos-sentinel-feign项目，并调用ali-nacos-provider项目用作该示例的服务提供方，有以下二个项目做测试。
-        
-- ali-nacos-provider：服务提供者，服务名：ali-nacos-provider，端口：9000
+本示例我们创建了三个项目实现
 
-- ali-nacos-sentinel-feign：服务消费者，服务名：ali-nacos-sentinel-feign，端口：9102
+- ali-nacos-dubbo-api：定义Dubbo服务接口工程
+        
+- ali-nacos-dubbo-provider：Dubbo服务提供方并向nacos注册服务，服务名：ali-nacos-dubbo-provider，端口：9001
+
+- ali-nacos-dubbo-consumer：Dubbo服务消费方并向nacos注册服务，服务名：ali-nacos-dubbo-consumer，端口：9103
 
 ### 运行示例测试
 
-首先要启动服务注册中心 nacos、ali-nacos-provider服务及ali-nacos-sentinel-feign服务
+首先要启动服务注册中心 nacos、ali-nacos-dubbo-provider服务及ali-nacos-dubbo-consumer服务
 
-- 访问地址： http://localhost:9102/hello-feign/yuntian
-
-返回
-```json
-我是服务提供者，见到你很高兴==>yuntian
-```
-表示我们的服务成功调用到了
-
-- 关闭ali-nacos-provider服务，访问： http://localhost:9102/hello-feign/yuntian
+- 访问服务消费方地址： http://localhost:9103/hello
 
 返回
 ```json
-服务调用失败，降级处理。异常信息：com.netflix.client.ClientException: Load balancer does not have available server for client: ali-nacos-provider
+你好 云天
 ```
-表示执行了我们预定的回调，服务成功降级了。
+
+或者你也可以通过 curl 命令执行 HTTP GET 方法
+
+```cfml
+$curl http://127.0.0.1:9103/hello
+```
+
+HTTP 响应为：
+
+```cfml
+你好 云天
+```
+
+以上结果说明应用 ali-nacos-dubbo-consumer 通过消费 Dubbo 服务，返回服务提供方 ali-nacos-dubbo-provider 运算后的内容。
+
+以上我们完成了 Dubbo 服务提供方和消费方的入门运用，源代码请直接参考模块：
+
+- [ali-nacos-dubbo-provider](https://github.com/smltq/spring-boot-demo/tree/master/cloud-alibaba/ali-nacos-dubbo-provider)
+- [ali-nacos-dubbo-consumer](https://github.com/smltq/spring-boot-demo/tree/master/cloud-alibaba/ali-nacos-dubbo-consumer)
 
 ### 资料
 
-- [Spring Cloud Alibaba Sentinel 示例源码](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba)
-- [原文地址](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba/README3.md)
-- [Sentinel GitHub](https://github.com/alibaba/Sentinel)
+- [Spring Cloud Alibaba 示例源码](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba)
+- [原文地址](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba/README4.md)
