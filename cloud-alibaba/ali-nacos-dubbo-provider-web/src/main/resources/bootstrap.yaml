@@ -1,6 +1,6 @@
 dubbo:
   scan:
-    base-packages: com.easy.and.api.service
+    base-packages: com.easy.andProviderWeb.service
   protocol: #Dubbo 服务暴露的协议配置，其中子属性 name 为协议名称，port 为协议端口（ -1 表示自增端口，从 20880 开始）
     name: dubbo
     port: -1

@@ -1,9 +1,4 @@
 dubbo:
-  scan:
-    #base-packages: com.easy.and.api.service
-  protocol:
-    name: dubbo
-    port: -1
   registry:
     address: spring-cloud://localhost
   cloud:
