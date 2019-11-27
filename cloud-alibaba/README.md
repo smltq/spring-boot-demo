@@ -7,6 +7,7 @@
 - Spring Boot 2.1.9.RELEASE
 - Spring Cloud Greenwich SR3
 - Spring Cloud Alibaba 2.1.0.RELEASE
+- Dubbo 2.7.4
 
 ## 介绍文章
 
