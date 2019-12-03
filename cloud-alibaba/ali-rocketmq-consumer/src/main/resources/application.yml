@@ -9,12 +9,35 @@ spring:
       rocketmq:
         binder:
           name-server: 127.0.0.1:9876
+        binders:
+          input1:
+            consumer:
+              orderly: true
+          input2:
+            consumer:
+              orderly: false
+              tags: tagStr
+          input3:
+            consumer:
+              tags: tagObj
       bindings:
         input1:
           destination: test-topic
           content-type: text/plain
           group: test-group1
-
+        input2:
+          destination: test-topic
+          content-type: text/plain
+          group: test-group2
+          consumer:
+            concurrency: 20
+            maxAttempts: 1
+        input3:
+          destination: test-topic
+          content-type: application/json
+          group: test-group3
+          consumer:
+            concurrency: 20
 management:
   endpoints:
     web:
