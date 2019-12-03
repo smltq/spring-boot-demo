@@ -8,13 +8,18 @@ spring:
     stream:
       rocketmq:
         binder:
-          name-server: 127:0:0:1:9876
+          name-server: 127.0.0.1:9876
+      bindings:
+        input1:
+          destination: test-topic
+          content-type: text/plain
+          group: test-group1
 
 management:
   endpoints:
     web:
       exposure:
-        include: *
+        include: '*'
   endpoint:
     health:
       show-details: always
