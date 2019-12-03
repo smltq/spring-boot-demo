@@ -1,0 +1,36 @@
+server:
+  port: 28081
+
+spring:
+  application:
+    name: ali-rocketmq-producer
+  cloud:
+    stream:
+      default-binder: rocketmq
+      rocketmq:
+        binder:
+          #rocketmq地址
+          name-server: 127.0.0.1:9876
+        bindings:
+          #自定义的名称 对应spring.cloud.stream.bindings.output1
+          output1:
+            producer:
+              group: test-group-user-ouput1
+              sync: true
+      #Binding: 包括 Input Binding 和 Output Binding。
+      #Binding 在消息中间件与应用程序提供的 Provider 和 Consumer 之间提供了一个桥梁，
+      #实现了开发者只需使用应用程序的 Provider 或 Consumer 生产或消费数据即可，屏蔽了开发者与底层消息中间件的接触。
+      bindings:
+        #自定义的名称
+        output1:
+          destination: test-topic-user   # topic(一级分类)
+          content-type: application/json
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: *
+  endpoint:
+    health:
+      show-details: always

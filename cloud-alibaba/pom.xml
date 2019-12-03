@@ -25,11 +25,15 @@
         <module>ali-nacos-dubbo-api</module>
 
         <!--Dubbo 服务提供方示例(9001)-->
-         <module>ali-nacos-dubbo-provider</module>
+        <module>ali-nacos-dubbo-provider</module>
 
         <!--Dubbo 服务消费方示例（9103）-->
-         <module>ali-nacos-dubbo-consumer</module>
+        <module>ali-nacos-dubbo-consumer</module>
 
+        <!-- rocketmq 生产者 (28081) -->
+        <module>ali-rocketmq-producer</module>
+        <!-- rocketmq 消费者 (28082) -->
+        <module>ali-rocketmq-consumer</module>
     </modules>
 
     <packaging>pom</packaging>

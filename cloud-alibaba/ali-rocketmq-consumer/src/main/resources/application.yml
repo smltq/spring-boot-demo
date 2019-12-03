@@ -1,0 +1,20 @@
+server:
+  port: 28082
+
+spring:
+  application:
+    name: ali-rocketmq-consumer
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          name-server: 127:0:0:1:9876
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: *
+  endpoint:
+    health:
+      show-details: always
