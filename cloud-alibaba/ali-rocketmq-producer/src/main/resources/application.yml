@@ -8,16 +8,11 @@ spring:
     stream:
       rocketmq:
         binder:
+          # RocketMQ 服务器地址
           name-server: 127.0.0.1:9876
-        bindings:
-          output1:
-            producer:
-              group: binder-group
-              sync: true
       bindings:
-        output1:
-          destination: test-topic
-          content-type: application/json
+        output1: {destination: test-topic1, content-type: application/json}
+        output2: {destination: test-topic2, content-type: application/json}
 
 management:
   endpoints:

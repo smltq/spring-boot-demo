@@ -12,19 +12,19 @@ public class TestController {
     SenderService senderService;
 
     @RequestMapping(value = "/send", method = RequestMethod.GET)
-    public String send(String msg) throws Exception {
+    public String send(String msg) {
         senderService.send(msg);
         return "字符串消息发送成功!";
     }
 
     @RequestMapping(value = "/sendWithTags", method = RequestMethod.GET)
-    public String sendWithTags(String msg) throws Exception {
+    public String sendWithTags(String msg) {
         senderService.sendWithTags(msg, "tagStr");
         return "带tag字符串消息发送成功!";
     }
 
     @RequestMapping(value = "/sendObject", method = RequestMethod.GET)
-    public String sendObject(int index) throws Exception {
+    public String sendObject(int index) {
         senderService.sendObject(new Foo(index, "foo"), "tagObj");
         return "Object对象消息发送成功!";
     }
