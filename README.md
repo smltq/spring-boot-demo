@@ -56,6 +56,16 @@ cloud-hystrix|[Hystrix服务容错、异常处理、注册中心示例](https://
 cloud-zuul|[zuul服务网关、过滤器、路由转发、服务降级、负载均衡](https://github.com/smltq/spring-boot-demo/blob/master/cloud-zuul)
 cloud-alibaba|[nacos服务中心、配置中心、限流等使用(系列示例整理中...)](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba)
 
+### Spring Cloud Alibaba 模块
+
+模块名称|主要内容
+---|---
+nacos|[Spring Cloud Alibaba（一）如何使用nacos服务注册和发现](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba/README1.md)
+config|[Spring Cloud Alibaba（二）配置中心多项目、多配置文件、分目录实现](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba/README2.md)
+Sentinel|[Spring Cloud Alibaba（三）Sentinel之熔断降级](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba/README3.md)
+Dubbo|[Spring Cloud Alibaba（四）Spring Cloud与Dubbo的融合](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba/README4.md)
+RocketMQ|[Spring Cloud Alibaba（五）RocketMQ 异步通信实现](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba/README5.md)
+
 ### 其它
 
 模块名称|主要内容
