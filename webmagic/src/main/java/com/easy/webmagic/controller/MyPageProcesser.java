@@ -12,7 +12,8 @@ public class MyPageProcesser implements PageProcessor {
 
     @Override
     public void process(Page page) {
-        page.putField("download", page.getHtml().xpath("//*[@id=\"Zoom\"]/span/table/tbody/tr/td/a").toString());
+        page.putField("link", page.getHtml().xpath("//a[@class='ulink']").all().toString());
+        //page.putField("download", page.getHtml().xpath("//*[@id=\"Zoom\"]/span/table/tbody/tr/td/a").toString());
     }
 
     @Override
@@ -21,9 +22,9 @@ public class MyPageProcesser implements PageProcessor {
     }
 
     public static void main(String[] args) {
-//        Spider.create(new MyPageProcesser()).addUrl("https://www.dytt8.net/html/gndy/dyzz/list_23_1.html")
-//                .addPipeline(new ConsolePipeline()).thread(1).run();
-        Spider.create(new MyPageProcesser()).addUrl("https://www.dytt8.net/html/gndy/dyzz/20191204/59453.html")
+        Spider.create(new MyPageProcesser()).addUrl("https://www.dytt8.net/html/gndy/dyzz/list_23_1.html")
                 .addPipeline(new ConsolePipeline()).thread(1).run();
+//        Spider.create(new MyPageProcesser()).addUrl("https://www.dytt8.net/html/gndy/dyzz/20191204/59453.html")
+//                .addPipeline(new ConsolePipeline()).thread(1).run();
     }
 }
