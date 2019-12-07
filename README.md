@@ -90,7 +90,7 @@ Spring boot 是 Spring 的一套快速配置脚手架，可以基于Spring Boot 
 
 Spring boot可以离开Spring Cloud独立使用开发项目，但是Spring Cloud离不开Spring Boot，属于依赖的关系。
 
-    spring -> spring boot > spring cloud 这样的关系。
+>spring -> spring boot > spring cloud 这样的关系。
 
 ## 关于项目
 
