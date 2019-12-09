@@ -225,7 +225,7 @@ public class Main {
 14:06:34.365 [pool-2-thread-1] INFO com.easy.webmagic.controller.MyPipeline - download:	<a href="ftp://ygdy8:ygdy8@yg45.dydytt.net:4233/阳光电影www.ygdy8.com.中国机长.HD.1080p.国语中英双字.mkv">ftp://ygdy8:ygdy8@yg45.dydytt.net:4233/阳光电影www.ygdy8.com.中国机长.HD.1080p.国语中英双字.mkv</a>
 ```
 
-表示成功抓取到数据，然后做你想做的事情了。
+表示成功抓取到数据，抓取到数据后你就可以做你想做的事情了。
 
 ## 爬虫进阶
 
