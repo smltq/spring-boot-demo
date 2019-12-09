@@ -106,7 +106,7 @@ pom.xml配置，这里因为日志文件和spring boot冲突了，所以移除we
 
 ```
 
-### 创建列表及详情页处理类
+### 创建列表及详情页解析类
 
 PageProcessor负责解析页面，抽取有用信息，以及发现新的链接。WebMagic使用Jsoup作为HTML解析工具，并基于其开发了解析XPath的工具Xsoup。
 
@@ -267,5 +267,5 @@ WebMagic支持使用独有的注解风格编写一个爬虫，引入webmagic-ext
 
 ## 资料
 
-- [WebMagic 爬虫入门](https://github.com/smltq/spring-boot-demo/blob/master/webmagic)
+- [WebMagic 爬虫入门示例源码](https://github.com/smltq/spring-boot-demo/blob/master/webmagic)
 - [WebMagic GitHub](https://github.com/code4craft/webmagic/blob/master/README-zh.md)
