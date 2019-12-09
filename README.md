@@ -43,6 +43,7 @@ template-thymeleaf|[thymeleaf实现应用国际化示例](https://github.com/sml
 mq-redis|[redis之mq实现，发布订阅模式](https://github.com/smltq/spring-boot-demo/blob/master/mq-redis)
 email|[email实现邮件发送](https://github.com/smltq/spring-boot-demo/blob/master/email)
 jGit|[java调用git命令、jgit使用等](https://github.com/smltq/spring-boot-demo/blob/master/jGit)
+webmagic|[webmagic实现爬虫入门](https://github.com/smltq/spring-boot-demo/blob/master/webmagic)
 
 ### Spring Cloud 模块
 
