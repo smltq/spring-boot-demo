@@ -301,5 +301,5 @@ text.description=It is a i18n demo
 
 ## 资料
 
-- [Spring Cloud Feign 示例源码](https://github.com/smltq/spring-boot-demo/blob/master/template-thymeleaf)
+- [template-thymeleaf 示例源码](https://github.com/smltq/spring-boot-demo/blob/master/template-thymeleaf)
 - [Spring Boot、Spring Cloud示例学习](https://github.com/smltq/spring-boot-demo)
