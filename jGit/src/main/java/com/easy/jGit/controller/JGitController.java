@@ -24,6 +24,11 @@ public class JGitController {
      */
     final String branch = "origin/gh-pages";
 
+    /**
+     * 拉取
+     *
+     * @return
+     */
     @RequestMapping("/pull")
     public String pull() {
         String result;
@@ -57,6 +62,11 @@ public class JGitController {
         return result;
     }
 
+    /**
+     * 重置
+     *
+     * @return
+     */
     @RequestMapping("/reset")
     public String reset() {
         String result;
@@ -78,7 +88,9 @@ public class JGitController {
         return result;
     }
 
-    //恢复
+    /**
+     * 恢复
+     */
     @RequestMapping("/revert")
     public String revert() {
         String result;
@@ -100,6 +112,11 @@ public class JGitController {
         return result;
     }
 
+    /**
+     * 克隆
+     *
+     * @return
+     */
     @RequestMapping("/clone")
     public String clone() {
         String result;
@@ -116,6 +133,9 @@ public class JGitController {
         return result;
     }
 
+    /**
+     * 状态
+     */
     @RequestMapping("/status")
     public static void status() {
         File RepoGitDir = new File("/blog/.git");
