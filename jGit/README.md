@@ -1,4 +1,4 @@
-# JGit--将 Git 嵌入你的应用
+# JGit----将 Git 嵌入你的应用
 
 如果你想在一个 Java 程序中使用 Git ，有一个功能齐全的 Git 库，那就是 JGit 。 JGit 是一个用 Java 写成的功能相对健全的 Git 的实现，它在 Java 社区中被广泛使用。 JGit 项目由 Eclipse 维护，[它的主页](http://www.eclipse.org/jgit)。
 
