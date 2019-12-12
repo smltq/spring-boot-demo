@@ -1,0 +1,6 @@
+server:
+  port: 10002
+
+spring:
+  application:
+    name: netty-client
