@@ -1,4 +1,4 @@
-package com.easy.nettyServer;
+package com.easy.anConfig;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

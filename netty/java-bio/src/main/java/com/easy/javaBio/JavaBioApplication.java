@@ -1,12 +1,12 @@
-package com.easy.nettyServer;
+package com.easy.javaBio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NettyServerApplication {
+public class JavaBioApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(NettyServerApplication.class, args);
+        SpringApplication.run(JavaBioApplication.class, args);
     }
 }
