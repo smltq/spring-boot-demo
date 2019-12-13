@@ -20,7 +20,7 @@ public class NIOServer {
     private int port;
     private Selector selector;
 
-    private static int BUFF_SIZE = 8192;
+    private static int BUFF_SIZE = 1024;
 
     public NIOServer(InetAddress addr, int port) throws IOException {
         this.addr = addr;

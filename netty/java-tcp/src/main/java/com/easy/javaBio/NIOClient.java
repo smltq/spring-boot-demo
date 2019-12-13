@@ -19,7 +19,7 @@ public class NIOClient {
 
         log.info("连接 BIOServer 服务，端口：10002...");
 
-        ArrayList<String> companyDetails = new ArrayList<String>();
+        ArrayList<String> companyDetails = new ArrayList<>();
 
         // 创建消息列表
         companyDetails.add("腾讯");
@@ -36,7 +36,7 @@ public class NIOClient {
             buffer.clear();
             socketChannel.read(buffer);
             String result = new String(buffer.array()).trim();
-            log.info("接收到了来自服务端的消息：" + result);
+            log.info("收到NIOServer回复的消息：" + result);
 
             // 等待2秒钟再发送下一条消息
             Thread.sleep(2000);
