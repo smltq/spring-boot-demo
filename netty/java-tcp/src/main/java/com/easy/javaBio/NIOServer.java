@@ -106,7 +106,7 @@ public class NIOServer {
         log.info("得到了: " + msg);
 
         // 回复客户端
-        String reMsg = "这是BIOServer给你的回复消息:" + System.currentTimeMillis();
+        String reMsg = msg + " 你好，这是BIOServer给你的回复消息:" + System.currentTimeMillis();
         channel.write(ByteBuffer.wrap(reMsg.getBytes()));
     }
 
