@@ -43,7 +43,7 @@
     </dependencies>
 
     <modules>
-        <module>java-bio</module>
+        <module>java-tcp</module>
         <module>netty-server</module>
         <module>netty-client</module>
     </modules>
