@@ -19,13 +19,12 @@ public class NIOServer {
     private InetAddress addr;
     private int port;
     private Selector selector;
-    private Map<SocketChannel, List<byte[]>> dataMap;
+
     private static int BUFF_SIZE = 8192;
 
     public NIOServer(InetAddress addr, int port) throws IOException {
         this.addr = addr;
         this.port = port;
-        dataMap = new HashMap<>();
         startServer();
     }
 
@@ -65,13 +64,13 @@ public class NIOServer {
                 } else if (key.isWritable()) {
                     this.write(key);
                 } else if (key.isConnectable()) {
-                    this.doConnect(key);
+                    this.connect(key);
                 }
             }
         }
     }
 
-    private void doConnect(SelectionKey key) throws IOException {
+    private void connect(SelectionKey key) throws IOException {
         SocketChannel channel = (SocketChannel) key.channel();
         if (channel.finishConnect()) {
             // 成功
@@ -86,65 +85,39 @@ public class NIOServer {
         ServerSocketChannel serverChannel = (ServerSocketChannel) key.channel();
         SocketChannel channel = serverChannel.accept();
         channel.configureBlocking(false);
-
-        channel.write(ByteBuffer.wrap("欢迎，这是NIO服务\r\n".getBytes()));
+        channel.register(this.selector, SelectionKey.OP_READ);
 
         Socket socket = channel.socket();
         SocketAddress remoteAddr = socket.getRemoteSocketAddress();
         log.info("连接到: " + remoteAddr);
-        dataMap.put(channel, new ArrayList<>()); // 注册通道
-        channel.register(this.selector, SelectionKey.OP_READ);
     }
 
     private void read(SelectionKey key) throws IOException {
         SocketChannel channel = (SocketChannel) key.channel();
 
         ByteBuffer buffer = ByteBuffer.allocate(BUFF_SIZE);
-        int numRead = -1;
-        try {
-            numRead = channel.read(buffer);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        int numRead = channel.read(buffer);
         if (numRead == -1) {
-            this.dataMap.remove(channel);
-            Socket socket = channel.socket();
-            SocketAddress remoteAddr = socket.getRemoteSocketAddress();
-            log.info("关闭客户端连接: " + remoteAddr);
+            log.info("关闭客户端连接: " + channel.socket().getRemoteSocketAddress());
             channel.close();
-            key.cancel();
             return;
         }
-        byte[] data = new byte[numRead];
-        System.arraycopy(buffer.array(), 0, data, 0, numRead);
-        log.info("得到了: " + new String(data));
+        String msg = new String(buffer.array()).trim();
+        log.info("得到了: " + msg);
 
-        doReplyClient(key, data); // 回复客户端
+        // 回复客户端
+        String reMsg = "这是BIOServer给你的回复消息:" + System.currentTimeMillis();
+        channel.write(ByteBuffer.wrap(reMsg.getBytes()));
     }
 
     private void write(SelectionKey key) throws IOException {
-        SocketChannel channel = (SocketChannel) key.channel();
-        List<byte[]> pendingData = this.dataMap.get(channel);
-        Iterator<byte[]> items = pendingData.iterator();
-
-        String reMsg = "这是BIOServer给你的回复消息" + System.currentTimeMillis();
-        while (items.hasNext()) {
-            byte[] item = items.next();
-            items.remove();
-            //channel.write(ByteBuffer.wrap(reMsg.getBytes()));
-            channel.write(ByteBuffer.wrap(item));
+        ByteBuffer byteBuffer = ByteBuffer.allocate(BUFF_SIZE);
+        byteBuffer.flip();
+        SocketChannel clientChannel = (SocketChannel) key.channel();
+        while (byteBuffer.hasRemaining()) {
+            clientChannel.write(byteBuffer);
         }
-        key.interestOps(SelectionKey.OP_READ);
-    }
-
-    //回复客户端
-    private void doReplyClient(SelectionKey key, byte[] data) {
-        SocketChannel channel = (SocketChannel) key.channel();
-        List<byte[]> pendingData = this.dataMap.get(channel);
-//        String reMsg = "这是BIOServer给你的回复消息" + System.currentTimeMillis();
-//        pendingData.add(reMsg.getBytes());
-        pendingData.add(data);
-        key.interestOps(SelectionKey.OP_WRITE);
+        byteBuffer.compact();
     }
 
     public static void main(String[] args) throws IOException {

@@ -29,15 +29,12 @@ public class NIOClient {
         companyDetails.add("google");
 
         for (String companyName : companyDetails) {
-            byte[] message = companyName.getBytes();
-            ByteBuffer buffer = ByteBuffer.wrap(message);
-            socketChannel.write(buffer);
-
+            socketChannel.write(ByteBuffer.wrap(companyName.getBytes()));
             log.info("发送: " + companyName);
-            buffer.clear();
 
-            ByteBuffer redBuffer = ByteBuffer.allocate(BUFF_SIZE);
-            socketChannel.read(redBuffer);
+            ByteBuffer buffer = ByteBuffer.allocate(BUFF_SIZE);
+            buffer.clear();
+            socketChannel.read(buffer);
             String result = new String(buffer.array()).trim();
             log.info("接收到了来自服务端的消息：" + result);
 
