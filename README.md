@@ -36,14 +36,15 @@ mybatis-plus-crud|[基于mybatisplus实现数据库增、册、改、查](https:
 encoder|[主流加密算法介绍、用户加密算法推荐](https://github.com/smltq/spring-boot-demo/blob/master/encoder/HELP.md)
 actuator|[autuator介绍](https://github.com/smltq/spring-boot-demo/blob/master/actuator/README.md)
 admin|[可视化服务监控、使用](https://github.com/smltq/spring-boot-demo/blob/master/admin/README.md)
-security-oauth2-credentials|[oath2实现密码模式、客户端模式](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-credentials/README.md)
-security-oauth2-auth-code|[基于spring boot实现oath2授权模式](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-auth-code/README.md)
+security-oauth2-credentials|[oauth2实现密码模式、客户端模式](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-credentials/README.md)
+security-oauth2-auth-code|[基于spring boot实现oauth2授权模式](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-auth-code/README.md)
 mybatis-multi-datasource|[mybatis、数据库集群、读写分离、读库负载均衡](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-multi-datasource)
 template-thymeleaf|[thymeleaf实现应用国际化示例](https://github.com/smltq/spring-boot-demo/blob/master/template-thymeleaf)
 mq-redis|[redis之mq实现，发布订阅模式](https://github.com/smltq/spring-boot-demo/blob/master/mq-redis)
 email|[email实现邮件发送](https://github.com/smltq/spring-boot-demo/blob/master/email)
 jGit|[java调用git命令、jgit使用等](https://github.com/smltq/spring-boot-demo/blob/master/jGit)
-webmagic|[webmagic实现爬虫入门](https://github.com/smltq/spring-boot-demo/blob/master/webmagic)
+webmagic|[webmagic实现某电影网站爬虫示例](https://github.com/smltq/spring-boot-demo/blob/master/webmagic)
+netty|[基于BIO、NIO等tcp服务器搭建介绍](https://github.com/smltq/spring-boot-demo/blob/master/netty)
 
 ### Spring Cloud 模块
 

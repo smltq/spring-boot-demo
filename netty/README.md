@@ -1,6 +1,6 @@
 # Spring Boot 搭建TCP Server
 
-本示例利用Java原生API实现BIO通信、NIO通信及利用Netty实现NIO通信。
+本示例首先介绍Java原生API实现BIO通信，然后进阶实现NIO通信，最后利用Netty实现NIO通信及Netty主要模块组件介绍。
 
 Netty 是一个异步事件驱动的网络应用程序框架，用于快速开发可维护的高性能协议服务器和客户端。
 
@@ -727,7 +727,64 @@ public class NettyClientInitializer extends ChannelInitializer<SocketChannel> {
 
 表示使用Netty实现了我们的NIO通信了
 
+## Netty 模块组件
+
+### Bootstrap、ServerBootstrap
+
+一个Netty应用通常由一个Bootstrap开始，主要作用是配置整个Netty程序，串联各个组件，Netty中Bootstrap类是客户端程序的启动引导类，ServerBootstrap是服务端启动引导类。
+
+### Future、ChannelFuture
+
+在Netty中所有的IO操作都是异步的，不能立刻得知消息是否被正确处理，但是可以过一会等它执行完成或者直接注册一个监听，具体的实现就是通过Future和ChannelFuture，他们可以注册一个监听，当操作执行成功或失败时监听会自动触发注册的监听事件。
+
+### Channel
+
+Netty网络通信组件，能够用于执行网络I/O操作。Channel为用户提供：
+
+- 当前网络连接的通道的状态（例如是否打开？是否已连接？）
+- 网络连接的配置参数 （例如接收缓冲区大小）
+- 提供异步的网络I/O操作(如建立连接，读写，绑定端口)，异步调用意味着任何I/O调用都将立即返回，并且不保证在调用结束时所请求的I/O操作已完成。调用立即返回一个ChannelFuture实例，通过注册监听器到ChannelFuture上，可以I/O操作成功、失败或取消时回调通知调用方。
+- 支持关联I/O操作与对应的处理程序
+
+不同协议、不同阻塞类型的连接都有不同的 Channel 类型与之对应，下面是一些常用的 Channel 类型
+
+- NioSocketChannel，异步的客户端 TCP Socket 连接
+- NioServerSocketChannel，异步的服务器端 TCP Socket 连接
+- NioDatagramChannel，异步的 UDP 连接
+- NioSctpChannel，异步的客户端 Sctp 连接
+- NioSctpServerChannel，异步的 Sctp 服务器端连接
+
+### Selector
+
+Netty基于Selector对象实现I/O多路复用，通过 Selector, 一个线程可以监听多个连接的Channel事件, 当向一个Selector中注册Channel 后，Selector 内部的机制就可以自动不断地查询(select) 这些注册的Channel是否有已就绪的I/O事件(例如可读, 可写, 网络连接完成等)，这样程序就可以很简单地使用一个线程高效地管理多个 Channel 
+
+### NioEventLoop
+
+NioEventLoop中维护了一个线程和任务队列，支持异步提交执行任务，线程启动时会调用NioEventLoop的run方法，执行I/O任务和非I/O任务：
+
+- I/O任务 即selectionKey中ready的事件，如accept、connect、read、write等，由processSelectedKeys方法触发。
+- 非IO任务 添加到taskQueue中的任务，如register0、bind0等任务，由runAllTasks方法触发。
+
+两种任务的执行时间比由变量ioRatio控制，默认为50，则表示允许非IO任务执行的时间与IO任务的执行时间相等。
+
+### NioEventLoopGroup
+
+NioEventLoopGroup，主要管理eventLoop的生命周期，可以理解为一个线程池，内部维护了一组线程，每个线程(NioEventLoop)负责处理多个Channel上的事件，而一个Channel只对应于一个线程。
+
+### ChannelHandler
+
+ChannelHandler是一个接口，处理I/O事件或拦截I/O操作，并将其转发到其ChannelPipeline(业务处理链)中的下一个处理程序。
+
+### ChannelHandlerContext
+
+保存Channel相关的所有上下文信息，同时关联一个ChannelHandler对象
+
+### ChannelPipline
+
+保存ChannelHandler的List，用于处理或拦截Channel的入站事件和出站操作。 ChannelPipeline实现了一种高级形式的拦截过滤器模式，使用户可以完全控制事件的处理方式，以及Channel中各个的ChannelHandler如何相互交互。
+
 ## 资料
 
 - [netty 示例源码](https://github.com/smltq/spring-boot-demo/blob/master/netty)
 - [netty官网](https://netty.io/)
+- [参考](https://juejin.im/post/5bea1d2e51882523d3163657)
