@@ -8,7 +8,7 @@ Netty 是一个异步事件驱动的网络应用程序框架，用于快速开�
 
 BIO通信（一请求一应答）模型图如下
 
-![](bio.png)
+![](https://tqlin.cn/images/bio.png)
 
 采用 BIO 通信模型 的服务端，通常由一个独立的 Acceptor 线程负责监听客户端的连接。我们一般通过在while(true) 循环中服务端会调用 accept() 方法等待接收客户端的连接的方式监听请求，一旦接收到一个连接请求，就可以在这个通信套接字上进行读写操作，此时不能再接收其他客户端连接请求，只能等待当前连接的客户端的操作执行完成， 如果要让 BIO 通信模型 能够同时处理多个客户端请求，就必须使用多线程（主要原因是socket.accept()、socket.read()、socket.write() 涉及的三个主要函数都是同步阻塞的）
 
@@ -124,7 +124,7 @@ Disconnected from the target VM, address: '127.0.0.1:64355', transport: 'socket'
 
 NIO通信模型图如下
 
-![](nio.png)
+![](https://tqlin.cn/images/nio.png)
 
 NIO是一种同步非阻塞的I/O模型，在Java 1.4 中引入了 NIO 框架，对应 java.nio 包，提供了 Channel , Selector，Buffer等抽象。
 
