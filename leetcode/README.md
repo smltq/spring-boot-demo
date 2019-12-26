@@ -8,7 +8,7 @@
 - [538 把二叉搜索树转换为累加树](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub538.java)
 - [102 二叉树的层次遍历](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub102.java)
 - [103 二叉树的锯齿形层次遍历](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub103.java)
-- 111. 二叉树的最小深度（侍处理）
+- 111 二叉树的最小深度（侍处理）
 
 ## 多线程
 
