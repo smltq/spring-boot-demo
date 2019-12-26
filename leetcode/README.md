@@ -18,4 +18,9 @@
 - [1195 交替打印字符串](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1195.java)
 - [1226 哲学家进餐](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1226.java)
 
+## 其它
+
+- [1221 哲学家进餐](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1221.java)
+- [1295 哲学家进餐](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1295.java)
+
 ## 数据库
