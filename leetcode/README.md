@@ -8,6 +8,7 @@
 - [538 把二叉搜索树转换为累加树](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub538.java)
 - [102 二叉树的层次遍历](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub102.java)
 - [103 二叉树的锯齿形层次遍历](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub103.java)
+- 111. 二叉树的最小深度（侍处理）
 
 ## 多线程
 
@@ -20,7 +21,7 @@
 
 ## 其它
 
-- [1221 哲学家进餐](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1221.java)
-- [1295 哲学家进餐](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1295.java)
+- [1221 分割平衡字符串](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1221.java)
+- [1295 统计位数为偶数的数字](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1295.java)
 
 ## 数据库
