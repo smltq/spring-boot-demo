@@ -37,6 +37,7 @@
         <module>jGit</module>
         <module>webmagic</module>
         <module>netty</module>
+        <module>bean</module>
         <module>leetcode</module>
         <module>cloud-feign</module>
         <module>cloud-oauth2-auth-code</module>
