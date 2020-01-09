@@ -46,7 +46,7 @@
 
 当BeanPostProcessor的前置处理完成后就会进入本阶段。 
 
-InitializingBean接口只有一个函数：
+InitializingBean接口只有一个函数
 
 - afterPropertiesSet()
 
