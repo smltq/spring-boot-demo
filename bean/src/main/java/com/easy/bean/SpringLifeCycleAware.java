@@ -15,6 +15,6 @@ public class SpringLifeCycleAware implements ApplicationContextAware {
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
-        log.info("SpringLifeCycleAware start");
+        log.info("SpringLifeCycleAware 开始");
     }
 }

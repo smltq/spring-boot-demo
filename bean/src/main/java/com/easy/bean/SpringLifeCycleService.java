@@ -11,11 +11,11 @@ public class SpringLifeCycleService implements InitializingBean, DisposableBean 
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        log.info("SpringLifeCycleService start");
+        log.info("SpringLifeCycleService 开始");
     }
 
     @Override
     public void destroy() throws Exception {
-        log.info("SpringLifeCycleService destroy");
+        log.info("SpringLifeCycleService 销毁");
     }
 }
