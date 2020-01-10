@@ -25,40 +25,69 @@ import java.util.*;
  */
 public class Sub49 {
     public static void main(String[] args) {
-        Solution_49 solution = new Solution_49();
+        Solution_49_2 solution = new Solution_49_2();
         String[] strs = new String[]{"eat", "tea", "tan", "ate", "nat", "bat"};
         List<List<String>> result = solution.groupAnagrams(strs);
         for (List<String> str : result) {
             for (String subStr : str) {
-                System.out.print(subStr+",");
+                System.out.print(subStr + ",");
             }
             System.out.println();
         }
     }
 }
 
-class Solution_49 {
+class Solution_49_1 {
     public List<List<String>> groupAnagrams(String[] strs) {
         if (strs.length == 0) return new ArrayList();
-        Map<String, List> ans = new HashMap<>();
+        Map<String, List> resultMap = new HashMap<>();
         int[] count = new int[26];
-        for (String s : strs) {
+        for (String str : strs) {
+            //全部填0
             Arrays.fill(count, 0);
-            for (char c : s.toCharArray()) {
+
+            //填充字典值
+            for (char c : str.toCharArray()) {
                 count[c - 'a']++;
             }
 
-            StringBuilder sb = new StringBuilder();
+            //根据字典生成key
+            StringBuilder mapKey = new StringBuilder();
             for (int i = 0; i < 26; i++) {
-                sb.append('#');
-                sb.append(count[i]);
+                mapKey.append(count[i]);
             }
-            String key = sb.toString();
-            if (!ans.containsKey(key)) {
-                ans.put(key, new ArrayList());
+            String key = mapKey.toString();
+
+            //初始化list
+            if (!resultMap.containsKey(key)) {
+                resultMap.put(key, new ArrayList());
             }
-            ans.get(key).add(s);
+            //添加list值
+            resultMap.get(key).add(str);
         }
-        return new ArrayList(ans.values());
+        return new ArrayList(resultMap.values());
+    }
+}
+
+class Solution_49_2 {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        int[] table = new int[]{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101};
+        HashMap<Long, List<String>> map = new HashMap<>();
+
+        for (String str : strs) {
+            long sum = 1L;
+            for (char c : str.toCharArray()) {
+                sum *= table[c - 'a'];
+            }
+
+            List<String> list = map.get(sum);
+            if (null == list) {
+                list = new ArrayList<>();
+                map.put(sum, list);
+            }
+            list.add(str);
+        }
+
+        return new ArrayList(map.values());
     }
 }
