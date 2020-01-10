@@ -45,6 +45,7 @@ email|[email实现邮件发送](https://github.com/smltq/spring-boot-demo/blob/m
 jGit|[java调用git命令、jgit使用等](https://github.com/smltq/spring-boot-demo/blob/master/jGit)
 webmagic|[webmagic实现某电影网站爬虫示例](https://github.com/smltq/spring-boot-demo/blob/master/webmagic)
 netty|[基于BIO、NIO等tcp服务器搭建介绍](https://github.com/smltq/spring-boot-demo/blob/master/netty)
+bean|[Bean生命周期相关源码示例](https://github.com/smltq/spring-boot-demo/blob/master/bean)
 
 ### Spring Cloud 模块
 
