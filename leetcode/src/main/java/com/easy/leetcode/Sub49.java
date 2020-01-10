@@ -30,9 +30,9 @@ public class Sub49 {
         List<List<String>> result = solution.groupAnagrams(strs);
         for (List<String> str : result) {
             for (String subStr : str) {
-                System.out.print(subStr);
+                System.out.print(subStr+",");
             }
-            System.out.println("");
+            System.out.println();
         }
     }
 }
@@ -40,7 +40,7 @@ public class Sub49 {
 class Solution_49 {
     public List<List<String>> groupAnagrams(String[] strs) {
         if (strs.length == 0) return new ArrayList();
-        Map<String, List> ans = new HashMap<String, List>();
+        Map<String, List> ans = new HashMap<>();
         int[] count = new int[26];
         for (String s : strs) {
             Arrays.fill(count, 0);
@@ -48,7 +48,7 @@ class Solution_49 {
                 count[c - 'a']++;
             }
 
-            StringBuilder sb = new StringBuilder("");
+            StringBuilder sb = new StringBuilder();
             for (int i = 0; i < 26; i++) {
                 sb.append('#');
                 sb.append(count[i]);

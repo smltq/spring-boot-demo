@@ -19,9 +19,10 @@
 - [1195 交替打印字符串](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1195.java)
 - [1226 哲学家进餐](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1226.java)
 
-## 数组
+## 数组和哈希表
 
 - [1 两数之和](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1.java)
+- [49 字母异位词分组](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub49.java)
 
 ## 其它
 
