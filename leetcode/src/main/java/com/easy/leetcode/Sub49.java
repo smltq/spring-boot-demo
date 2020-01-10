@@ -54,7 +54,9 @@ class Solution_49 {
                 sb.append(count[i]);
             }
             String key = sb.toString();
-            if (!ans.containsKey(key)) ans.put(key, new ArrayList());
+            if (!ans.containsKey(key)) {
+                ans.put(key, new ArrayList());
+            }
             ans.get(key).add(s);
         }
         return new ArrayList(ans.values());
