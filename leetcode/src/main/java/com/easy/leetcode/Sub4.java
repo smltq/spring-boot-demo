@@ -61,7 +61,7 @@ class Solution_4 {
                     return maxLeft;
                 } // 奇数的话不需要考虑右半部分
 
-                int minRight = 0;
+                int minRight;
                 if (i == m) {
                     minRight = B[j];
                 } else if (j == n) {
