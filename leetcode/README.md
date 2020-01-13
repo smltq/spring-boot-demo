@@ -24,6 +24,10 @@
 - [1 两数之和](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1.java)
 - [49 字母异位词分组](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub49.java)
 
+## 分治算法
+
+- [4 寻找两个有序数组的中位数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub4.java)
+
 ## 其它
 
 - [1221 分割平衡字符串](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1221.java)
