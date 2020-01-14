@@ -49,7 +49,7 @@ class Solution_4 {
             } else if (i != 0 && j != n && A[i - 1] > B[j]) { // i 需要减小
                 iMax = i - 1;
             } else { // 达到要求，并且将边界条件列出来单独考虑
-                int maxLeft = 0;
+                int maxLeft;
                 if (i == 0) {
                     maxLeft = B[j - 1];
                 } else if (j == 0) {
