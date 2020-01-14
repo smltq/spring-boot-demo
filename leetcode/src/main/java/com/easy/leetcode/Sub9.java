@@ -38,12 +38,13 @@ class Solution_9 {
     public boolean isPalindrome(int x) {
         int result = 0, i = 0, t = x;
         while (x > 0) {
-            result = x % 10 + result * i * 10;
+            result = result * i * 10 + x % 10;
             i++;
             x = x / 10;
+            System.out.println("result：" + result);
         }
-        System.out.println("result：" + result);
-        if (x == result) {
+
+        if (t == result) {
             return true;
         }
         return false;
