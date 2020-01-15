@@ -28,7 +28,7 @@ package com.easy.leetcode;
 public class Sub9 {
     public static void main(String[] args) {
         Solution_9 solution = new Solution_9();
-        int x = 121;
+        int x = -1221;
         boolean result = solution.isPalindrome(x);
         System.out.println("是否回文数：" + result);
     }
@@ -36,17 +36,11 @@ public class Sub9 {
 
 class Solution_9 {
     public boolean isPalindrome(int x) {
-        int result = 0, i = 0, t = x;
+        int result = 0, t = x;
         while (x > 0) {
-            result = result * i * 10 + x % 10;
-            i++;
+            result = result * 10 + x % 10;
             x = x / 10;
-            System.out.println("result：" + result);
         }
-
-        if (t == result) {
-            return true;
-        }
-        return false;
+        return t == result;
     }
 }
