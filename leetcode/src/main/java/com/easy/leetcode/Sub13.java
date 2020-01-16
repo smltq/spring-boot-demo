@@ -58,6 +58,13 @@ public class Sub13 {
     }
 }
 
+/**
+ * 思路
+ * 首先将所有的组合可能性列出并添加到哈希表中
+ * 然后对字符串进行遍历，由于组合只有两种，一种是 1 个字符，一种是 2 个字符，其中 2 个字符优先于 1 个字符
+ * 先判断两个字符的组合在哈希表中是否存在，存在则将值取出加到结果 result 中，并向后移2个字符。不存在则将判断当前 1 个字符是否存在，存在则将值取出加到结果 result 中，并向后移 1 个字符
+ * 遍历结束返回结果 result
+ */
 class Solution_13_1 {
     private Map<String, Integer> map = new HashMap<String, Integer>() {{
         put("I", 1);
@@ -91,6 +98,13 @@ class Solution_13_1 {
     }
 }
 
+/**
+ * 思路
+ * 只要每次比较后一个和前一个的值的大小关系即可：
+ * 前值小于后值，减去前值
+ * 前值大于或等于后值，加上前值
+ * 最后一个值必然是加上的
+ */
 class Solution13_2 {
     private int getNum(char c) {
         int res = 0;
