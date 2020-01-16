@@ -51,14 +51,14 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
  */
 public class Sub13 {
     public static void main(String[] args) {
-        Solution_13 solution = new Solution_13();
+        Solution13_2 solution = new Solution13_2();
         String s = "IV";
         int result = solution.romanToInt(s);
         System.out.println(String.format("罗马数字：%s，表示整数：%s", s, result));
     }
 }
 
-class Solution_13 {
+class Solution_13_1 {
     private Map<String, Integer> map = new HashMap<String, Integer>() {{
         put("I", 1);
         put("V", 5);
@@ -88,5 +88,56 @@ class Solution_13 {
             }
         }
         return result;
+    }
+}
+
+class Solution13_2 {
+    private int getNum(char c) {
+        int res = 0;
+        switch (c) {
+            case 'I':
+                res = 1;
+                break;
+            case 'V':
+                res = 5;
+                break;
+            case 'X':
+                res = 10;
+                break;
+            case 'L':
+                res = 50;
+                break;
+            case 'C':
+                res = 100;
+                break;
+            case 'D':
+                res = 500;
+                break;
+            case 'M':
+                res = 1000;
+                break;
+            default:
+                res = -1;
+        }
+        return res;
+    }
+
+    public int romanToInt(String s) {
+        if (null == s || s.length() == 0) {
+            return 0;
+        }
+
+        int res = 0;
+        int pre = 0;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            int cur = getNum(s.charAt(i));
+            if (cur >= pre) {
+                res += cur;
+            } else {
+                res -= cur;
+            }
+            pre = cur;
+        }
+        return res;
     }
 }
