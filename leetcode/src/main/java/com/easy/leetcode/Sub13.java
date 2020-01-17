@@ -51,7 +51,7 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
  */
 public class Sub13 {
     public static void main(String[] args) {
-        Solution13_2 solution = new Solution13_2();
+        Solution_13_2 solution = new Solution_13_2();
         String s = "IV";
         int result = solution.romanToInt(s);
         System.out.println(String.format("罗马数字：%s，表示整数：%s", s, result));
@@ -105,7 +105,7 @@ class Solution_13_1 {
  * 前值大于或等于后值，加上前值
  * 最后一个值必然是加上的
  */
-class Solution13_2 {
+class Solution_13_2 {
     private int getNum(char c) {
         int res = 0;
         switch (c) {
