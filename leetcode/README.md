@@ -35,7 +35,7 @@
 
 ## 字符串
 
--[14 最长公共前缀](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub14.java)
+- [14 最长公共前缀](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub14.java)
 
 ## 其它
 
