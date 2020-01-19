@@ -33,6 +33,10 @@
 
 - [4 寻找两个有序数组的中位数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub4.java)
 
+## 字符串
+
+-[14 最长公共前缀](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub14.java)
+
 ## 其它
 
 - [1221 分割平衡字符串](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1221.java)
