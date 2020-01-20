@@ -46,7 +46,7 @@ public class Sub26 {
         Solution_26 solution = new Solution_26();
         int[] nums = new int[]{1, 1, 2};
         int length = solution.removeDuplicates(nums);
-        System.out.println("去重后数据新长度为：" + length);
+        System.out.println("去重后数组新长度为：" + length);
         System.out.print("数组数据为：" + Arrays.toString(nums));
     }
 }
