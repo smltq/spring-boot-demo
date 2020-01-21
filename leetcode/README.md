@@ -26,6 +26,7 @@
 - [13 罗马数字转整数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub13.java)
 - [26 删除排序数组中的重复项](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub26.java)
 - [27 移除元素](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub27.java)
+- [35 搜索插入位置](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub35.java)
 
 ## 数学
 
