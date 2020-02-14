@@ -41,6 +41,7 @@
 
 - [14 最长公共前缀](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub14.java)
 - [20 有效的括号](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub20.java)
+- [38 外观数列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub38.java)
 
 ## 链表
 
