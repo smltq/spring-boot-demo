@@ -32,16 +32,16 @@ package com.easy.leetcode;
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/count-and-say
  */
-public class Sub36 {
+public class Sub38 {
     public static void main(String[] args) {
-        Solution_36 solution = new Solution_36();
+        Solution_38 solution = new Solution_38();
         int n = 1;
         String result = solution.countAndSay(n);
         System.out.println("返回结果为：" + result);
     }
 }
 
-class Solution_36 {
+class Solution_38 {
     public String countAndSay(int n) {
         StringBuffer result = new StringBuffer(100);
         for (int i = 0; i < n; i++) {
