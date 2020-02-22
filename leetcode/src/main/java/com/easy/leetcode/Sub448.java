@@ -1,7 +1,6 @@
 package com.easy.leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /*
 448. 找到所有数组中消失的数字
@@ -35,6 +34,16 @@ public class Sub448 {
 class Solution_448 {
     public List<Integer> findDisappearedNumbers(int[] nums) {
         List<Integer> result = new ArrayList<>();
+        Set sets = new HashSet();
+        for (int i = 0; i < nums.length; i++) {
+            sets.add(nums[i]);
+        }
+
+        for (int i = 1; i <= nums.length; i++) {
+            if (!sets.contains(i)) {
+                result.add(i);
+            }
+        }
         return result;
     }
 }
