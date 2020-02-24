@@ -49,6 +49,10 @@
 
 - [21 合并两个有序链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub21.java)
 
+## 动态规划
+
+- [198 打家劫舍](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub198.java)
+
 ## 其它
 
 - [1221 分割平衡字符串](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1221.java)
