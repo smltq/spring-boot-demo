@@ -11,12 +11,4 @@
 
     <groupId>com.easy</groupId>
     <artifactId>leetcode</artifactId>
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.8</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
 </project>

@@ -15,9 +15,9 @@
     <packaging>pom</packaging>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.9.RELEASE</version>
+        <artifactId>spring-boot-demo</artifactId>
+        <groupId>com.easy</groupId>
+        <version>1.0-SNAPSHOT</version>
     </parent>
 
     <dependencies>
