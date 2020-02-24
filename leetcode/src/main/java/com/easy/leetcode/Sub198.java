@@ -26,16 +26,22 @@ package com.easy.leetcode;
 public class Sub198 {
     public static void main(String[] args) {
         Solution_198 solution = new Solution_198();
-        int[] nums = new int[]{1, 2, 3, 1};
+        int[] nums = new int[]{1, 2, 3, 1, 3};
         System.out.println("返回结果：" + solution.rob(nums));
     }
 }
 
+/*
+ * 动态规划
+ */
 class Solution_198 {
     public int rob(int[] nums) {
+        int preSum = 0, curSum = 0;
         for (int num : nums) {
-
+            int t = curSum;
+            curSum = Math.max(preSum + num, curSum);
+            preSum = t;
         }
-        return 0;
+        return curSum;
     }
 }
