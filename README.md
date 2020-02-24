@@ -21,9 +21,9 @@ spring boot demo 是一个Spring Boot、Spring Cloud的项目示例，根据市�
 
 ### 分支介绍
 
-master 分支：基于 Spring Boot 当前最新版本 2.2.x 将会持续更新，每个 Module 的 parent 依赖根目录下的 pom.xml
-v-2.1.9 分支：基于 Spring Boot 版本 2.1.9.RELEASE，每个 Module 独立依赖 spring-boot-starter-parent，该分支停止新加示例，只会维护bug
-dev：开发分支，主要用于开发调度，稳定后会更新到master
+- master 分支：基于 Spring Boot 当前最新版本 2.2.x 将会持续更新，每个 Module 的 parent 依赖根目录下的 pom.xml
+- v-2.1.9 分支：基于 Spring Boot 版本 2.1.9.RELEASE，每个 Module 独立依赖 spring-boot-starter-parent，该分支停止新加示例，只会维护bug
+- dev：开发分支，主要用于开发调度，稳定后会更新到master
 
 ### Spring Boot 模块
 
