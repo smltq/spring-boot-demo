@@ -18,14 +18,15 @@ import java.util.Stack;
  */
 public class Sub206 {
     public static void main(String[] args) {
-        Solution_206 solution = new Solution_206();
-        ListNode root = new ListNode(1);
+        Solution_206_2 solution = new Solution_206_2();
 
+        ListNode root = new ListNode(1);
         root.next = new ListNode(2);
         root.next.next = new ListNode(3);
         root.next.next.next = new ListNode(4);
         root.next.next.next.next = new ListNode(5);
 
+        //root = null;
         ListNode result = solution.reverseList(root);
         while (result != null) {
             System.out.print("-->" + result.val);
@@ -34,7 +35,10 @@ public class Sub206 {
     }
 }
 
-class Solution_206 {
+/**
+ * 方法一，利用栈
+ */
+class Solution_206_1 {
     public ListNode reverseList(ListNode head) {
         Stack<ListNode> stack = new Stack<>();
 
@@ -49,7 +53,23 @@ class Solution_206 {
             temp.next = stack.pop();
             temp = temp.next;
         }
-        temp.next = null;
+        if (temp != null) temp.next = null;
         return root;
+    }
+}
+
+/**
+ * 方法二：迭代
+ */
+class Solution_206_2 {
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null, current = head;
+        while (current != null) {
+            ListNode temp = current.next;
+            current.next = prev;
+            prev = current;
+            current = temp;
+        }
+        return prev;
     }
 }
