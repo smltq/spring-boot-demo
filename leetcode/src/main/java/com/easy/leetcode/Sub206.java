@@ -59,7 +59,7 @@ class Solution_206_1 {
 }
 
 /**
- * 方法二：迭代
+ * 方法二，迭代
  */
 class Solution_206_2 {
     public ListNode reverseList(ListNode head) {
