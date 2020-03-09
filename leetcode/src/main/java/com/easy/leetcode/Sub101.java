@@ -26,6 +26,7 @@ package com.easy.leetcode;
 public class Sub101 {
     public static void main(String[] args) {
         Solution_101 solution = new Solution_101();
+
         TreeNode root = new TreeNode(1);
 
         root.left = new TreeNode(2);
@@ -42,6 +43,16 @@ public class Sub101 {
 
 class Solution_101 {
     public boolean isSymmetric(TreeNode root) {
-        return false;
+        return isMirror(root, root);
+    }
+
+    private boolean isMirror(TreeNode root1, TreeNode root2) {
+        if (root1 == null && root2 == null) {
+            return true;
+        } else if (root1 == null || root2 == null) {
+            return false;
+        } else {
+            return (root1.val == root2.val) && isMirror(root1.left, root2.right) && isMirror(root1.right, root2.left);
+        }
     }
 }
