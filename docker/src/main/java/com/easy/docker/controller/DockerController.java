@@ -1,4 +1,4 @@
-package com.easy.helloworld.controller;
+package com.easy.docker.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
