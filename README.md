@@ -1,6 +1,6 @@
 # spring-boot-demo
 
- >本项目示例基于spring boot 最新版本（2.1.9）实现，Spring Boot、Spring Cloud 学习示例，将持续更新……
+ >本项目示例基于spring boot 最新版本（2.2.5）实现，Spring Boot、Spring Cloud 学习示例，将持续更新……
 
 在基于Spring Boot、Spring Cloud 分布微服务开发过程中，根据实际项目环境，需要选择、集成符合项目需求的各种组件和积累各种解决方案。基于这样的背景下，我开源了本示例项目，方便大家快速上手Spring Boot、Spring Cloud 。
 
@@ -52,6 +52,7 @@ jGit|[java调用git命令、jgit使用等](https://github.com/smltq/spring-boot-
 webmagic|[webmagic实现某电影网站爬虫示例](https://github.com/smltq/spring-boot-demo/blob/master/webmagic)
 netty|[基于BIO、NIO等tcp服务器搭建介绍](https://github.com/smltq/spring-boot-demo/blob/master/netty)
 bean|[Bean生命周期相关源码示例](https://github.com/smltq/spring-boot-demo/blob/master/bean)
+docker|[使用 Docker 部署 Spring Boot 项目](https://github.com/smltq/spring-boot-demo/blob/master/docker)
 
 ### Spring Cloud 模块
 
