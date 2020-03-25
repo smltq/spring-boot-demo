@@ -88,7 +88,7 @@ tar vxf apache-maven-3.6.3-bin.tar.gz
 mv apache-maven-3.6.3 /usr/local/maven3
 ```
 
-修改环境变量， 在/etc/
+修改环境变量， 在/etc/profile
 
 ```cfml
 MAVEN_HOME=/usr/local/maven3
