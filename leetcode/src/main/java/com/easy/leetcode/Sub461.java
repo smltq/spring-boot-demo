@@ -28,7 +28,7 @@ package com.easy.leetcode;
  */
 public class Sub461 {
     public static void main(String[] args) {
-        Solution_461 solution = new Solution_461();
+        Solution_461_2 solution = new Solution_461_2();
         System.out.println("输出结果为：" + solution.hammingDistance(1, 4));
     }
 }
@@ -36,8 +36,40 @@ public class Sub461 {
 /**
  * 内置位计数功能
  */
-class Solution_461 {
+class Solution_461_1 {
     public int hammingDistance(int x, int y) {
         return Integer.bitCount(x ^ y);
+    }
+}
+
+/**
+ * 移位
+ */
+class Solution_461_2 {
+    public int hammingDistance(int x, int y) {
+        int xor = x ^ y;
+        int bitCount = 0;
+        while (xor != 0) {
+            if (xor % 2 == 1) {
+                bitCount++;
+            }
+            xor = xor >> 1;
+        }
+        return bitCount;
+    }
+}
+
+/**
+ * 布赖恩·克尼根算法
+ */
+class Solution_461_3 {
+    public int hammingDistance(int x, int y) {
+        int xor = x ^ y;
+        int bitCount = 0;
+        while (xor != 0) {
+            bitCount++;
+            xor = xor & (xor - 1);
+        }
+        return bitCount;
     }
 }
