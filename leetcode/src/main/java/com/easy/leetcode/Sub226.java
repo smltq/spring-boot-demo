@@ -57,7 +57,7 @@ public class Sub226 {
 }
 
 /**
- * 递归
+ * 递归实现
  */
 class Solution_226 {
     public TreeNode invertTree(TreeNode root) {
