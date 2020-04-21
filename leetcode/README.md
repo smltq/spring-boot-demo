@@ -12,6 +12,8 @@
 - [543 二叉树的直径](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub543.java)
 - [101 对称二叉树](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub101.java)
 - [617 合并二叉树](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub617.java)
+- [226 翻转二叉树](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub226.java)
+- [104 二叉树的最大深度](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub104.java)
 
 ## 多线程
 
