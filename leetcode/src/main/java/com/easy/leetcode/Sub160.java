@@ -63,9 +63,7 @@ public class Sub160 {
         ListNode listB = new ListNode(5);
         listB.next = new ListNode(0);
         listB.next.next = new ListNode(1);
-        listB.next.next.next = new ListNode(8);
-        listB.next.next.next.next = new ListNode(4);
-        listB.next.next.next.next.next = new ListNode(5);
+        listB.next.next.next = listA.next.next;
 
         Solution_160 solution = new Solution_160();
         ListNode node = solution.getIntersectionNode(listA, listB);
