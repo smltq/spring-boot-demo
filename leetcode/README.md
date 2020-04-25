@@ -56,6 +56,7 @@
 - [21 合并两个有序链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub21.java)
 - [206 反转链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub206.java)
 - [141 环形链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub141.java)
+- [160 相交链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub160.java)
 
 ## 动态规划
 

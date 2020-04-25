@@ -6,16 +6,8 @@ package com.easy.leetcode;
 
 编写一个程序，找到两个单链表相交的起始节点。
 
-如下面的两个链表：
-
-
-
-在节点 c1 开始相交。
-
- 
 
 示例 1：
-
 
 
 输入：intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3
@@ -25,15 +17,12 @@ package com.easy.leetcode;
 
 示例 2：
 
-
-
 输入：intersectVal = 2, listA = [0,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1
 输出：Reference of the node with value = 2
 输入解释：相交节点的值为 2 （注意，如果两个列表相交则不能为 0）。从各自的表头开始算起，链表 A 为 [0,9,1,2,4]，链表 B 为 [3,2,4]。在 A 中，相交节点前有 3 个节点；在 B 中，相交节点前有 1 个节点。
  
 
 示例 3：
-
 
 
 输入：intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2
@@ -75,6 +64,10 @@ public class Sub160 {
     }
 }
 
+/**
+ * 1.若相交，链表A： a+c, 链表B : b+c,所以 a+c+b+c = b+c+a+c 。则会在公共处c起点相遇。
+ * 2.若不相交，a +b = b+a 。因此相遇处是NULL
+ */
 class Solution_160 {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         if (headA == null || headB == null) return null;
