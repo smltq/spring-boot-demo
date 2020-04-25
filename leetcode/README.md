@@ -58,6 +58,10 @@
 - [141 环形链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub141.java)
 - [160 相交链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub160.java)
 
+## 栈
+
+- [155 最小栈](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub155.java)
+
 ## 动态规划
 
 - [198 打家劫舍](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub198.java)
