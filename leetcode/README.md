@@ -62,6 +62,7 @@
 
 - [198 打家劫舍](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub198.java)
 - [70 爬楼梯](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub70.java)
+- [121 买卖股票的最佳时机](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub121.java)
 
 ## 其它
 
