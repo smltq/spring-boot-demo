@@ -17,12 +17,15 @@ package com.easy.leetcode;
 public class Sub53 {
     public static void main(String[] args) {
         int[] nums = new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        Solution_53 solution = new Solution_53();
+        Solution_53_2 solution = new Solution_53_2();
         System.out.println("最大和为：" + solution.maxSubArray(nums));
     }
 }
 
-class Solution_53 {
+/**
+ * 动态规划
+ */
+class Solution_53_1 {
     public int maxSubArray(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
         int[] dp = new int[nums.length];
@@ -31,6 +34,21 @@ class Solution_53 {
         for (int i = 1; i < nums.length; i++) {
             dp[i] = Math.max(dp[i - 1], 0) + nums[i];
             ans = Math.max(ans, dp[i]);
+        }
+        return ans;
+    }
+}
+
+/**
+ * 动态规划(改进空间复杂度）
+ */
+class Solution_53_2 {
+    public int maxSubArray(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int ans = nums[0], current = 0;
+        for (int i = 1; i < nums.length; i++) {
+            current = Math.max(current + nums[i], nums[i]);
+            ans = Math.max(ans, current);
         }
         return ans;
     }
