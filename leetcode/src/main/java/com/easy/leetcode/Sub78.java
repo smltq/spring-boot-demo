@@ -35,17 +35,18 @@ public class Sub78 {
 class Solution_78 {
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> output = new ArrayList();
-        int n = nums.length;
+        output.add(new ArrayList<>());
 
-        for (int i = (int) Math.pow(2, n); i < (int) Math.pow(2, n + 1); ++i) {
-            String bitmask = Integer.toBinaryString(i).substring(1);
-
-            List<Integer> curr = new ArrayList();
-
-            for (int j = 0; j < n; ++j) {
-                if (bitmask.charAt(j) == '1') curr.add(nums[j]);
+        for (int num : nums) {
+            List<List<Integer>> newSubsets = new ArrayList();
+            for (List<Integer> curr : output) {
+                newSubsets.add(new ArrayList<Integer>(curr) {{
+                    add(num);
+                }});
             }
-            output.add(curr);
+            for (List<Integer> curr : newSubsets) {
+                output.add(curr);
+            }
         }
         return output;
     }
