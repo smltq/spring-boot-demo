@@ -20,19 +20,36 @@ package com.easy.leetcode;
  */
 public class Sub338 {
     public static void main(String[] args) {
-        Solution_338 solution = new Solution_338();
-        System.out.println("输出：" + solution.countBits(2));
+        Solution_338_2 solution = new Solution_338_2();
+        System.out.println("输出：" + solution.countBits(4));
     }
 }
 
 /**
- * 使用内置位统计函数
+ * 内置位统计函数实现
  */
-class Solution_338 {
+class Solution_338_1 {
     public int[] countBits(int num) {
         int[] ans = new int[num + 1];
         for (int i = 0; i <= num; i++) {
             ans[i] = Integer.bitCount(i);
+        }
+        return ans;
+    }
+}
+
+/**
+ * 动态规划实现
+ * 状态转移函数：P(x)=P(x/2)+(x mod 2)
+ * 例如：
+ * 1.P（2）=P（2/2）+(2%2)=1
+ * 2.P（3）=P（3/2）+(3%2)=2
+ */
+class Solution_338_2 {
+    public int[] countBits(int num) {
+        int[] ans = new int[num + 1];
+        for (int i = 1; i <= num; i++) {
+            ans[i] = ans[i >> 1] + (i & 1);
         }
         return ans;
     }
