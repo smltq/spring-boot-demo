@@ -1,6 +1,7 @@
 package com.easy.leetcode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /*
@@ -36,7 +37,7 @@ class Solution_22 {
     }
 
     public void backtrack(int open, int close, StringBuilder path) {
-        if (open < close) return;
+        if (close < open) return;
 
         if (open < 0 || close < 0) return;
 
