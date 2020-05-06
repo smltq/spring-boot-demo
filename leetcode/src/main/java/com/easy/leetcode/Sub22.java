@@ -1,5 +1,6 @@
 package com.easy.leetcode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -27,7 +28,29 @@ public class Sub22 {
 }
 
 class Solution_22 {
+    List<String> result = new ArrayList<>();
+
     public List<String> generateParenthesis(int n) {
-        return null;
+        backtrack(n, n, new StringBuilder());
+        return result;
+    }
+
+    public void backtrack(int open, int close, StringBuilder path) {
+        if (open < close) return;
+
+        if (open < 0 || close < 0) return;
+
+        if (open == 0 && close == 0) {
+            result.add(path.toString());
+            return;
+        }
+
+        path.append("(");
+        backtrack(open - 1, close, path);
+        path.deleteCharAt(path.length() - 1);
+
+        path.append(")");
+        backtrack(open, close - 1, path);
+        path.deleteCharAt(path.length() - 1);
     }
 }
