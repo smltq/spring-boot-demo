@@ -15,6 +15,7 @@
 - [226 翻转二叉树](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub226.java)
 - [104 二叉树的最大深度](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub104.java)
 - [437 路径总和 III](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub437.java)
+- [94 二叉树的中序遍历](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub94.java)
 
 ## 多线程
 
