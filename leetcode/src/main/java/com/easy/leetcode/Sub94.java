@@ -2,6 +2,7 @@ package com.easy.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /*
 94. 二叉树的中序遍历
@@ -25,12 +26,15 @@ public class Sub94 {
         root.right = new TreeNode(2);
         root.right.left = new TreeNode(3);
 
-        Solution_94 solution = new Solution_94();
+        Solution_94_2 solution = new Solution_94_2();
         System.out.println("输出：" + solution.inorderTraversal(root));
     }
 }
 
-class Solution_94 {
+/**
+ * 递归实现
+ */
+class Solution_94_1 {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> ans = new ArrayList<>();
         inorder(ans, root);
@@ -47,3 +51,25 @@ class Solution_94 {
         inorder(ans, root.right);
     }
 }
+
+/**
+ * 迭代实现
+ */
+class Solution_94_2 {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> ans = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode curr = root;
+        while (curr != null || !stack.isEmpty()) {
+            while (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
+            }
+            curr = stack.pop();
+            ans.add(curr.val);
+            curr = curr.right;
+        }
+        return ans;
+    }
+}
+
