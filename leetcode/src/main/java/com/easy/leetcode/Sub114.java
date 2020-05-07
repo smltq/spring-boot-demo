@@ -1,5 +1,7 @@
 package com.easy.leetcode;
 
+import java.util.Stack;
+
 /*
 114. 二叉树展开为链表
 给定一个二叉树，原地将它展开为链表。
@@ -34,7 +36,7 @@ public class Sub114 {
         root.left.right = new TreeNode(4);
         root.right.right = new TreeNode(6);
 
-        Solution_114 solution = new Solution_114();
+        Solution_114_2 solution = new Solution_114_2();
         solution.flatten(root);
         outTree(root);
     }
@@ -49,7 +51,10 @@ public class Sub114 {
     }
 }
 
-class Solution_114 {
+/**
+ * 递归-后序遍历
+ */
+class Solution_114_1 {
     TreeNode pre = null;
 
     public void flatten(TreeNode root) {
@@ -63,5 +68,36 @@ class Solution_114 {
         root.left = null;
 
         pre = root;
+    }
+}
+
+/**
+ * 迭代
+ */
+class Solution_114_2 {
+    public void flatten(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        TreeNode pre = null;
+
+        while (!stack.isEmpty()) {
+            TreeNode temp = stack.pop();
+            if (pre != null) {
+                pre.right = temp;
+                pre.left = null;
+            }
+
+            if (temp.right != null) {
+                stack.push(temp.right);
+            }
+            if (temp.left != null) {
+                stack.push(temp.left);
+            }
+            pre = temp;
+        }
     }
 }
