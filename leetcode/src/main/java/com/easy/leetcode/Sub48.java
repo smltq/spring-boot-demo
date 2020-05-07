@@ -47,14 +47,6 @@ package com.easy.leetcode;
 
 import java.util.Arrays;
 
-/**
- * 输入:
- * [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
- * 输出
- * [[15,13,14,5],[7,3,4,1],[12,6,8,2],[16,9,10,11]]
- * 预期结果
- * [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
- */
 public class Sub48 {
     public static void main(String[] args) {
         int[][] matrix = new int[][]{{5, 1, 9, 11}, {2, 4, 8, 10}, {13, 3, 6, 7}, {15, 14, 12, 16}};
@@ -81,8 +73,8 @@ class Solution_48 {
      */
     public void rotate(int[][] matrix) {
         int n = matrix.length;
-        for (int row = 0; row < n / 2; row++) {
-            for (int col = row; col < n - row - 1; col++) {
+        for (int row = 0; row < (n + 1) / 2; row++) {
+            for (int col = 0; col < n / 2; col++) {
                 int t = matrix[row][col];
                 matrix[row][col] = matrix[n - col - 1][row];//1
                 matrix[n - col - 1][row] = matrix[n - row - 1][n - col - 1];//2
