@@ -78,6 +78,7 @@
 
 - [46 全排列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub46.java)
 - [22 括号生成](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub22.java)
+- [39 组合总和](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub39.java)
 
 ## 其它
 
