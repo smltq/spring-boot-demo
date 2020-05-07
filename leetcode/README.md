@@ -39,6 +39,7 @@
 - [448 找到所有数组中消失的数字](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub448.java)
 - [581 最短无序连续子数组](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub581.java)
 - [78 子集](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub78.java)
+- [48 旋转图像](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub48.java)
 
 ## 数学
 
