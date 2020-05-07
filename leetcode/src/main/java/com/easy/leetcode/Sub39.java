@@ -1,5 +1,7 @@
 package com.easy.leetcode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -38,9 +40,39 @@ public class Sub39 {
     }
 }
 
+/**
+ * 递归-回溯算法
+ */
 class Solution_39 {
-    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+    List<List<Integer>> ans = new ArrayList<>();
 
-        return null;
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        //使数组升序
+        Arrays.sort(candidates);
+
+        dfs(candidates, 0, target, new ArrayList<>());
+        return ans;
+    }
+
+    public void dfs(int[] candidates, int start, int target, List<Integer> path) {
+        //剪枝
+        if (target < 0) {
+            return;
+        }
+
+        if (target == 0) {
+            ans.add(new ArrayList<>(path));
+            return;
+        }
+
+        for (int i = start; i < candidates.length; i++) {
+            //剪枝
+            if (candidates[i] > target) {
+                break;
+            }
+            path.add(candidates[i]);
+            dfs(candidates, i, target - candidates[i], path);
+            path.remove(path.size() - 1);
+        }
     }
 }
