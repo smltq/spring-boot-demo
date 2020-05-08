@@ -30,7 +30,7 @@ public class Sub208 {
 
         System.out.println(trie.search("app"));     // 返回 false
 
-        System.out.println(trie.startsWith("app"));         // 返回 true
+        System.out.println(trie.startsWith("app"));        // 返回 true
 
         trie.insert("app");
 
