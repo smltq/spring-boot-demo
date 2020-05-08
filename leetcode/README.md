@@ -83,6 +83,11 @@
 - [22 括号生成](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub22.java)
 - [39 组合总和](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub39.java)
 
+## 字典树
+
+- [208 实现 Trie (前缀树)](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub208.java)
+
+
 ## 其它
 
 - [1221 分割平衡字符串](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1221.java)
