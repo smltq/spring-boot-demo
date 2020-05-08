@@ -33,16 +33,21 @@ public class Sub238 {
 
 class Solution_238 {
     public int[] productExceptSelf(int[] nums) {
-        int n = nums.length;
-        int[] ans = new int[n];
-        for (int i = 0; i < n; i++) {
-            int result = 1;
-            for (int j = 0; j < n; j++) {
-                if (i != j) {
-                    result *= nums[j];
-                }
-            }
-            ans[i] = result;
+        int len = nums.length;
+        int[] ans = new int[len];
+        int[] l = new int[len];
+
+        //左侧
+        l[0] = 1;
+        for (int i = 1; i < len; i++) {
+            l[i] = nums[i - 1] * l[i - 1];
+        }
+
+        //右侧
+        int r = 1;
+        for (int j = len - 1; j >= 0; j--) {
+            ans[j] = l[j] * r;
+            r = nums[j] * r;
         }
         return ans;
     }
