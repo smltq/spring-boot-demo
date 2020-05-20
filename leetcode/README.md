@@ -46,6 +46,7 @@
 
 - [9 回文数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub9.java)
 - [136 只出现一次的数字](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub136.java)
+- [96 不同的二叉搜索树](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub96.java)
 
 ## 分治算法
 
