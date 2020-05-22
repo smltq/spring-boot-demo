@@ -27,8 +27,8 @@ public class Sub96 {
 
 /**
  * 卡塔兰数
- * C0=1
- * Cn+1=Cn*2*(2*n+1)/(n+2)
+ * c[0]=1
+ * c[n+1]=c[n]*2*(2*n+1)/(n+2)
  */
 class Solution_96_1 {
     public int numTrees(int n) {
