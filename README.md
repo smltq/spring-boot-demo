@@ -16,7 +16,7 @@ spring boot demo 是一个Spring Boot、Spring Cloud的项目示例，根据市�
 
 - JDK1.8 +
 - Maven 3.5 +
-- IntelliJ IDEA ULTIMATE 2019.1
+- IntelliJ IDEA ULTIMATE 2019.3.5
 - MySql 5.7 +
 
 ### 分支介绍
