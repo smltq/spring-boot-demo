@@ -77,6 +77,7 @@
 - [121 买卖股票的最佳时机](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub121.java)
 - [53 最大子序和](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub53.java)
 - [338 比特位计数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub338.java)
+- [64 最小路径和](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub64.java)
 
 ## 回溯算法
 
