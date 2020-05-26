@@ -39,6 +39,30 @@ public class Sub105 {
 
 class Solution_105 {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        return null;
+        return buildTree(preorder, inorder, 0, preorder.length - 1, 0, inorder.length - 1);
+    }
+
+    public TreeNode buildTree(int[] preorder, int[] inorder, int pre_s, int pre_e, int in_s, int in_e) {
+        if (pre_s > pre_e) {
+            return null;
+        }
+
+        //前序第一个节点为根节点
+        TreeNode root = new TreeNode(preorder[pre_s]);
+
+        //找根节点在中序的位置
+        int in_root_index = 0;
+        for (int i = in_s; i < in_e; i++) {
+            if (inorder[i] == preorder[pre_s]) {
+                in_root_index = i;
+                break;
+            }
+        }
+
+        int left_tree_size = in_root_index - in_s;
+
+        root.left = buildTree(preorder, inorder, pre_s + 1, pre_s + left_tree_size, in_s, in_root_index - 1);
+        root.right = buildTree(preorder, inorder, pre_s + left_tree_size + 1, pre_e, in_root_index + 1, in_e);
+        return root;
     }
 }
