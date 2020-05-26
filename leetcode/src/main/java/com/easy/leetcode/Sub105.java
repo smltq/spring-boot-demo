@@ -37,6 +37,9 @@ public class Sub105 {
     }
 }
 
+/**
+ * 递归实现
+ */
 class Solution_105 {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         return buildTree(preorder, inorder, 0, preorder.length - 1, 0, inorder.length - 1);
@@ -52,17 +55,19 @@ class Solution_105 {
 
         //找根节点在中序的位置
         int in_root_index = 0;
-        for (int i = in_s; i < in_e; i++) {
+        for (int i = in_s; i <= in_e; i++) {
             if (inorder[i] == preorder[pre_s]) {
                 in_root_index = i;
                 break;
             }
         }
 
+        //计算左子树大小
         int left_tree_size = in_root_index - in_s;
 
         root.left = buildTree(preorder, inorder, pre_s + 1, pre_s + left_tree_size, in_s, in_root_index - 1);
         root.right = buildTree(preorder, inorder, pre_s + left_tree_size + 1, pre_e, in_root_index + 1, in_e);
+
         return root;
     }
 }
