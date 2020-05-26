@@ -21,6 +21,7 @@ public class Sub148 {
         head.next = new ListNode(2);
         head.next.next = new ListNode(1);
         head.next.next.next = new ListNode(3);
+        //head.next.next.next.next = new ListNode(5);
 
         head = solution.sortList(head);
         while (head != null) {
@@ -31,15 +32,40 @@ public class Sub148 {
 }
 
 /**
- * Definition for singly-linked list.
- * public class ListNode {
- * int val;
- * ListNode next;
- * ListNode(int x) { val = x; }
- * }
+ * 归并排序
  */
 class Solution_148 {
     public ListNode sortList(ListNode head) {
-        return head;
+        //只有一个元素或空节点时，递归结束
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        //找中间节点，拆分成两个链表
+        ListNode fast = head, slow = head, pre_slow = head;
+        while (fast != null && fast.next != null) {
+            pre_slow = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        pre_slow.next = null;
+
+        ListNode l = sortList(head);
+        ListNode r = sortList(slow);
+
+        //合并有序链表
+        ListNode ans = new ListNode(0), temp = ans;
+        while (l != null && r != null) {
+            if (l.val > r.val) {
+                temp.next = r;
+                r = r.next;
+            } else {
+                temp.next = l;
+                l = l.next;
+            }
+            temp = temp.next;
+        }
+        temp.next = l == null ? r : l;
+        return ans.next;
     }
 }
