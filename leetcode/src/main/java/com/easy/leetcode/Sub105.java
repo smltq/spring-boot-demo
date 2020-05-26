@@ -21,7 +21,7 @@ package com.easy.leetcode;
  */
 public class Sub105 {
     public static void main(String[] args) {
-        Solution_105 solution = new Solution_105();
+        Solution_105_2 solution = new Solution_105_2();
         int[] preorder = {3, 9, 20, 15, 7};
         int[] inorder = {9, 3, 15, 20, 7};
         outTree(solution.buildTree(preorder, inorder));
@@ -40,7 +40,7 @@ public class Sub105 {
 /**
  * 递归实现
  */
-class Solution_105 {
+class Solution_105_1 {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         return buildTree(preorder, inorder, 0, preorder.length - 1, 0, inorder.length - 1);
     }
@@ -69,5 +69,31 @@ class Solution_105 {
         root.right = buildTree(preorder, inorder, pre_s + left_tree_size + 1, pre_e, in_root_index + 1, in_e);
 
         return root;
+    }
+}
+
+/**
+ * 递归优化后
+ */
+class Solution_105_2 {
+    int pre = 0, in = 0;
+
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        return recursive(preorder, inorder, Integer.MAX_VALUE);
+    }
+
+    public TreeNode recursive(int[] preorder, int[] inorder, int stop) {
+        if (pre >= preorder.length) return null;
+
+        if (inorder[in] == stop) {
+            in++;
+            return null;
+        }
+
+        int curVal = preorder[pre++];
+        TreeNode cur = new TreeNode(curVal);
+        cur.left = recursive(preorder, inorder, curVal);
+        cur.right = recursive(preorder, inorder, stop);
+        return cur;
     }
 }
