@@ -90,6 +90,10 @@
 
 - [148 排序链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub148.java)
 
+## 二分法
+
+- [287 寻找重复数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub287.java)
+
 ## 字典树
 
 - [208 实现 Trie (前缀树)](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub208.java)
