@@ -98,6 +98,10 @@
 
 - [208 实现 Trie (前缀树)](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub208.java)
 
+## 贪心算法
+
+- [406 根据身高重建队列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub406.java)
+
 ## 其它
 
 - [1221 分割平衡字符串](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1221.java)

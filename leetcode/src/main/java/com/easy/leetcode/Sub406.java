@@ -1,7 +1,6 @@
 package com.easy.leetcode;
 
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.*;
 
 /*
 
@@ -38,6 +37,11 @@ class Solution_406 {
                 return o1[0] == o2[0] ? o1[1] - o2[1] : o2[0] - o1[0];
             }
         });
-        return people;
+
+        List<int[]> output = new ArrayList<>();
+        for (int[] p : people) {
+            output.add(p[1], p);
+        }
+        return output.toArray(new int[output.size()][2]);
     }
 }
