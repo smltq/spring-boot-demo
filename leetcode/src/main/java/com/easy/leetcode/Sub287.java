@@ -25,8 +25,8 @@ import java.util.Arrays;
  */
 public class Sub287 {
     public static void main(String[] args) {
-        int[] nums = {3, 1, 3, 4, 2};
-        Solution_287 solution = new Solution_287();
+        int[] nums = {2, 5, 9, 6, 9, 3, 8, 9, 7, 1};
+        Solution_287_2 solution = new Solution_287_2();
         System.out.println("重复数为：" + solution.findDuplicate(nums));
     }
 }
@@ -34,7 +34,7 @@ public class Sub287 {
 /**
  * 二分查找
  */
-class Solution_287 {
+class Solution_287_1 {
     public int findDuplicate(int[] nums) {
         Arrays.sort(nums);
         return binarySearch(nums, 0, nums.length);
@@ -54,5 +54,26 @@ class Solution_287 {
                 return binarySearch(nums, s, mid);
             }
         }
+    }
+}
+
+/**
+ * 双指针解法
+ */
+class Solution_287_2 {
+    public int findDuplicate(int[] nums) {
+        int fast = 0, slow = 0;
+        do {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+            //System.out.println("slow=" + slow + ",fast=" + fast);
+        } while (slow != fast);
+
+        slow = 0;
+        while (slow != fast) {
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+        return slow;
     }
 }
