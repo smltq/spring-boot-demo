@@ -66,13 +66,14 @@ class Solution_287_2 {
         do {
             slow = nums[slow];
             fast = nums[nums[fast]];
-            //System.out.println("slow=" + slow + ",fast=" + fast);
+            System.out.println("slow=" + slow + ",fast=" + fast);
         } while (slow != fast);
-
+        System.out.println("==================================");
         slow = 0;
         while (slow != fast) {
             slow = nums[slow];
             fast = nums[fast];
+            System.out.println("slow=" + slow + ",fast=" + fast);
         }
         return slow;
     }
