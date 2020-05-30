@@ -18,6 +18,7 @@
 - [94 二叉树的中序遍历](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub94.java)
 - [114 二叉树展开为链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub114.java)
 - [105 从前序与中序遍历序列构造二叉树](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub105.java)
+- [236 二叉树的最近公共祖先](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub236.java)
 
 ## 多线程
 
