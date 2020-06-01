@@ -1,6 +1,7 @@
 package com.easy.leetcode;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 /*
 215. 数组中的第K个最大元素
@@ -21,7 +22,7 @@ import java.util.Arrays;
 public class Sub215 {
     public static void main(String[] args) {
         int[] nums = {3, 2, 3, 1, 2, 4, 5, 5, 6};
-        Solution_215 solution = new Solution_215();
+        Solution_215_2 solution = new Solution_215_2();
         System.out.println("返回结果为：" + solution.findKthLargest(nums, 4));
     }
 }
@@ -29,9 +30,25 @@ public class Sub215 {
 /**
  * 排序
  */
-class Solution_215 {
+class Solution_215_1 {
     public int findKthLargest(int[] nums, int k) {
         Arrays.sort(nums);
         return nums[nums.length - k];
+    }
+}
+
+/**
+ * 小顶堆
+ */
+class Solution_215_2 {
+    public int findKthLargest(int[] nums, int k) {
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+        for (int i = 0; i < nums.length; i++) {
+            priorityQueue.add(nums[i]);
+            if (priorityQueue.size() > k) {
+                priorityQueue.poll();
+            }
+        }
+        return priorityQueue.peek();
     }
 }
