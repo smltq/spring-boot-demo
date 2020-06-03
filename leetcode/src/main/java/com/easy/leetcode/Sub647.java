@@ -22,7 +22,7 @@ package com.easy.leetcode;
  */
 public class Sub647 {
     public static void main(String[] args) {
-        String s = "aaa";
+        String s = "abc";
         Solution_647_1 solution = new Solution_647_1();
         System.out.println("返回结果为：" + solution.countSubstrings(s));
     }
@@ -32,10 +32,10 @@ public class Sub647 {
 class Solution_647_1 {
     public int countSubstrings(String s) {
         int ans = 0, n = s.length();
-        for (int i = 0; i < n; i++) {
-            int left = i;
+        for (int i = 0; i < 2 * n - 1; i++) {
+            int left = i / 2;
             int right = left + i % 2;
-            System.out.println(String.format("left=%s,right=%s,s[left]=%s,s[left]=%s", left, right, s.charAt(left), s.charAt(right)));
+            //System.out.println(String.format("left=%s,right=%s,s[left]=%s,s[left]=%s", left, right, s.charAt(left), s.charAt(right)));
             while (left >= 0 && right < n && s.charAt(left) == s.charAt(right)) {
                 left--;
                 right++;
