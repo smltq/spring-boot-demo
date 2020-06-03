@@ -22,8 +22,8 @@ package com.easy.leetcode;
  */
 public class Sub647 {
     public static void main(String[] args) {
-        String s = "abc";
-        Solution_647_1 solution = new Solution_647_1();
+        String s = "aaa";
+        Solution_647_2 solution = new Solution_647_2();
         System.out.println("返回结果为：" + solution.countSubstrings(s));
     }
 }
@@ -43,5 +43,37 @@ class Solution_647_1 {
             }
         }
         return ans;
+    }
+}
+
+/**
+ * 动态规划
+ */
+class Solution_647_2 {
+    public int countSubstrings(String s) {
+        if (s == null || s.equals("")) {
+            return 0;
+        }
+        int n = s.length();
+        boolean[][] dp = new boolean[n][n];
+        int result = s.length();
+        for (int i = 0; i < n; i++) dp[i][i] = true;
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = i + 1; j < n; j++) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    if (j - i == 1) {
+                        dp[i][j] = true;
+                    } else {
+                        dp[i][j] = dp[i + 1][j - 1];
+                    }
+                } else {
+                    dp[i][j] = false;
+                }
+                if (dp[i][j]) {
+                    result++;
+                }
+            }
+        }
+        return result;
     }
 }
