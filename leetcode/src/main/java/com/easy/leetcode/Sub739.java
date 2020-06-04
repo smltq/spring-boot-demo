@@ -19,6 +19,7 @@ public class Sub739 {
 class Solution_739_1 {
     public int[] dailyTemperatures(int[] T) {
         int[] ans = new int[T.length];
+
         return ans;
     }
 }
