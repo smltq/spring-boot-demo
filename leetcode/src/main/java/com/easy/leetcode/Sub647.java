@@ -28,7 +28,6 @@ public class Sub647 {
     }
 }
 
-
 class Solution_647_1 {
     public int countSubstrings(String s) {
         int ans = 0, n = s.length();
