@@ -1,6 +1,7 @@
 package com.easy.leetcode;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 /*
 739. 每日温度
@@ -13,7 +14,7 @@ import java.util.Arrays;
 public class Sub739 {
     public static void main(String[] args) {
         int[] T = {73, 74, 75, 71, 69, 72, 76, 73};
-        Solution_739_1 solution = new Solution_739_1();
+        Solution_739_2 solution = new Solution_739_2();
         System.out.println("返回结果为：" + Arrays.toString(solution.dailyTemperatures(T)));
     }
 }
@@ -32,6 +33,26 @@ class Solution_739_1 {
                     break;
                 }
             }
+        }
+        return ans;
+    }
+}
+
+/**
+ * 单调栈解法
+ */
+class Solution_739_2 {
+    public int[] dailyTemperatures(int[] T) {
+        int len = T.length;
+        int[] ans = new int[len];
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < len; i++) {
+            int t = T[i];
+            while (!stack.empty() && t > T[stack.peek()]) {
+                int pIndex = stack.pop();
+                ans[pIndex] = i - pIndex;
+            }
+            stack.push(i);
         }
         return ans;
     }
