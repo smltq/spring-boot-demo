@@ -20,9 +20,6 @@ public class Sub62 {
     }
 }
 
-/**
- * 暴力解法
- */
 class Solution_62_1 {
     public int uniquePaths(int m, int n) {
         return 0;
