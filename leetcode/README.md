@@ -73,6 +73,7 @@
 ## 栈
 
 - [155 最小栈](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub155.java)
+- [739 每日温度](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub739.java)
 
 ## 动态规划
 
