@@ -20,6 +20,9 @@ public class Sub62 {
     }
 }
 
+/**
+ * 动态规划
+ */
 class Solution_62_1 {
     public int uniquePaths(int m, int n) {
         int[][] dp = new int[m][n];
