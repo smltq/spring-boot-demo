@@ -29,7 +29,7 @@
 - [1195 交替打印字符串](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1195.java)
 - [1226 哲学家进餐](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1226.java)
 
-## 数组和哈希表
+## 数组
 
 - [1 两数之和](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1.java)
 - [49 字母异位词分组](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub49.java)
@@ -45,6 +45,9 @@
 - [238 除自身以外数组的乘积](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub238.java)
 - [11 盛最多水的容器](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub11.java)
 - [215 数组中的第K个最大元素](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub215.java)
+- [1295 统计位数为偶数的数字](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1295.java)
+
+## 哈希表
 
 ## 数学
 
@@ -61,6 +64,7 @@
 - [14 最长公共前缀](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub14.java)
 - [20 有效的括号](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub20.java)
 - [38 外观数列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub38.java)
+- [1221 分割平衡字符串](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1221.java)
 
 ## 链表
 
@@ -108,8 +112,10 @@
 
 - [406 根据身高重建队列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub406.java)
 
-## 其它
+## 堆
 
-- [1221 分割平衡字符串](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1221.java)
-- [1295 统计位数为偶数的数字](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1295.java)
+- [347 前 K 个高频元素](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub347.java)
+
+## 位运算
+
 - [461 汉明距离](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub461.java)

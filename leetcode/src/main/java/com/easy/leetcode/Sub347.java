@@ -1,5 +1,8 @@
 package com.easy.leetcode;
 
+import java.lang.reflect.Array;
+import java.util.*;
+
 /*
 347. 前 K 个高频元素
 给定一个非空的整数数组，返回其中出现频率前 k 高的元素。
@@ -28,15 +31,33 @@ public class Sub347 {
         int[] nums = {1, 1, 1, 2, 2, 3};
         int k = 2;
         Solution_347_1 solution = new Solution_347_1();
-        System.out.println("返回结果为：" + solution.topKFrequent(nums, k));
+        System.out.println("返回结果为：" + Arrays.toString(solution.topKFrequent(nums, k)));
     }
 }
 
-/**
- * 动态规划
- */
 class Solution_347_1 {
     public int[] topKFrequent(int[] nums, int k) {
-        return null;
+
+        Map<Integer, Integer> mapCount = new HashMap<>();
+        //统计出现频率
+        for (int n : nums) {
+            mapCount.put(n, mapCount.getOrDefault(n, 0) + 1);
+        }
+
+        //创建大顶堆
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> mapCount.get(a) - mapCount.get(b));
+        for (int key : mapCount.keySet()) {
+            maxHeap.add(key);
+            if (maxHeap.size() > k) {
+                maxHeap.poll();
+            }
+        }
+
+        int[] ans = new int[k];
+        int t = k - 1;
+        while (!maxHeap.isEmpty()) {
+            ans[t--] = maxHeap.poll();
+        }
+        return ans;
     }
 }
