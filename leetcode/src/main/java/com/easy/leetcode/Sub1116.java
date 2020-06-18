@@ -3,6 +3,8 @@ package com.easy.leetcode;
 import java.util.function.IntConsumer;
 
 /*
+1116. 打印零与奇偶数
+
 假设有这么一个类：
 
 class ZeroEvenOdd {

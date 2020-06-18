@@ -1,12 +1,12 @@
-# LeetCode 题解
+# LeetCode 题解目录
 
 ## 二叉树
 
 |序号|标题|难度|标签|
 |---|---|---|---|
-|1|[108 将一个按照升序排列的有序数组，转换为一棵高度平衡二叉搜索树](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub108.java)|简单|树、深度优先搜索
+|1|[108 将有序数组转换为二叉搜索树](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub108.java)|简单|树、深度优先搜索
 |2|[538 把二叉搜索树转换为累加树](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub538.java)|简单|树
-|3|[102 二叉树的层次遍历](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub102.java)|中等|树、广度优先搜索
+|3|[102 二叉树的层序遍历](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub102.java)|中等|树、广度优先搜索、深度优先搜索
 |4|[103 二叉树的锯齿形层次遍历](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub103.java)|中等|栈、树、广度优先搜索
 |5|[111 二叉树的最小深度](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub111.java)|简单|树、深度优先搜索、广度优先搜索
 |6|[543 二叉树的直径](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub543.java)|简单|树
@@ -36,19 +36,18 @@
 |序号|标题|难度|标签|
 |---|---|---|---|
 |1|[1 两数之和](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1.java)|简单|数组、哈希表
-|2|[49 字母异位词分组](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub49.java)|中等|数组、哈希表
-|3|[26 删除排序数组中的重复项](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub26.java)|简单|数组、双指针
-|4|[27 移除元素](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub27.java)|简单|数组、双指针
-|5|[35 搜索插入位置](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub35.java)|简单|数组、二分查找
-|6|[169 多数元素](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub169.java)|简单|位运算、数组、分治算法
-|7|[448 找到所有数组中消失的数字](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub448.java)|简单|数组
-|8|[581 最短无序连续子数组](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub581.java)|简单|数组
-|9|[48 旋转图像](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub48.java)|中等|数组
-|10|[238 除自身以外数组的乘积](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub238.java)|中等|数组
-|11|[11 盛最多水的容器](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub11.java)|中等|数组、双指针
-|12|[1295 统计位数为偶数的数字](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1295.java)|简单|数组
-|13|[4 寻找两个有序数组的中位数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub4.java)|困难|数组、二分查找、分治算法
-|14|[287 寻找重复数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub287.java)|困难|数组、双指针、二分查找
+|2|[26 删除排序数组中的重复项](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub26.java)|简单|数组、双指针
+|3|[27 移除元素](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub27.java)|简单|数组、双指针
+|4|[35 搜索插入位置](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub35.java)|简单|数组、二分查找
+|5|[169 多数元素](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub169.java)|简单|位运算、数组、分治算法
+|6|[448 找到所有数组中消失的数字](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub448.java)|简单|数组
+|7|[581 最短无序连续子数组](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub581.java)|简单|数组
+|8|[48 旋转图像](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub48.java)|中等|数组
+|9|[238 除自身以外数组的乘积](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub238.java)|中等|数组
+|9|[11 盛最多水的容器](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub11.java)|中等|数组、双指针
+|10|[1295 统计位数为偶数的数字](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1295.java)|简单|数组
+|11|[4 寻找两个正序数组的中位数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub4.java)|困难|数组、二分查找、分治算法
+|12|[287 寻找重复数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub287.java)|困难|数组、双指针、二分查找
 
 ## 字符串
 
@@ -58,12 +57,14 @@
 |2|[14 最长公共前缀](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub14.java)|简单|字符串
 |3|[20 有效的括号](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub20.java)|简单|栈、字符串
 |4|[38 外观数列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub38.java)|简单|字符串
+|5|[28 实现 strStr()](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub28.java)|简单|字符串、双指针
+|6|[49 字母异位词分组](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub49.java)|中等|字符串、哈希表
 
 ## 数学
 
 |序号|标题|难度|标签|
 |---|---|---|---|
-|1|[9 回文数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub9.java)|简单|数学、字符串
+|1|[9 回文数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub9.java)|简单|数学
 |2|[136 只出现一次的数字](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub136.java)|简单|位运算、哈希表
 
 ## 链表
