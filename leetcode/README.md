@@ -1,4 +1,4 @@
-# LeetCode 题解目录
+# LeetCode 题解目录(共66题)
 
 ## 二叉树
 
