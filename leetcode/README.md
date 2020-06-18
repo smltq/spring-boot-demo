@@ -114,7 +114,6 @@
 |1|[155 最小栈](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub155.java)|简单|栈、设计
 |2|[208 实现 Trie (前缀树)](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub208.java)|中等|设计、字典数
 
-
 ## 贪心算法
 
 |序号|标题|难度|标签|
