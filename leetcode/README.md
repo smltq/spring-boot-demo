@@ -20,17 +20,6 @@
 |14|[105 从前序与中序遍历序列构造二叉树](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub105.java)|中等|树、深度优先搜索、数组
 |15|[236 二叉树的最近公共祖先](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub236.java)|中等|树
 
-## 并发编程
-
-|序号|标题|难度|标签|
-|---|---|---|---|
-|1|[1114 按序打印](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1114.java)|简单|多线程
-|2|[1115 交替打印FooBar](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1115.java)|中等|多线程
-|3|[1116 打印零与奇偶数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1116.java)|中等|多线程
-|4|[1117 H2O 生成](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1117.java)|中等|多线程
-|5|[1195 交替打印字符串](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1195.java)|中等|多线程
-|6|[1226 哲学家进餐](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1226.java)|中等|多线程
-
 ## 数组
 
 |序号|标题|难度|标签|
@@ -49,42 +38,6 @@
 |12|[4 寻找两个正序数组的中位数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub4.java)|困难|数组、二分查找、分治算法
 |13|[287 寻找重复数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub287.java)|困难|数组、双指针、二分查找
 
-## 字符串
-
-|序号|标题|难度|标签|
-|---|---|---|---|
-|1|[13 罗马数字转整数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub13.java)|简单|数学、字符串
-|2|[14 最长公共前缀](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub14.java)|简单|字符串
-|3|[20 有效的括号](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub20.java)|简单|栈、字符串
-|4|[38 外观数列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub38.java)|简单|字符串
-|5|[28 实现 strStr()](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub28.java)|简单|字符串、双指针
-|6|[49 字母异位词分组](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub49.java)|中等|字符串、哈希表
-
-## 数学
-
-|序号|标题|难度|标签|
-|---|---|---|---|
-|1|[9 回文数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub9.java)|简单|数学
-|2|[136 只出现一次的数字](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub136.java)|简单|位运算、哈希表
-
-## 链表
-
-|序号|标题|难度|标签|
-|---|---|---|---|
-|1|[21 合并两个有序链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub21.java)|简单|链表
-|2|[206 反转链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub206.java)|简单|链表
-|3|[141 环形链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub141.java)|简单|链表、双指针
-|4|[160 相交链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub160.java)|简单|链表
-|5|[234 回文链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub234.java)|简单|链表、双指针
-|6|[148 排序链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub148.java)|中等|链表、排序
-
-## 栈
-
-|序号|标题|难度|标签|
-|---|---|---|---|
-|1|[739 每日温度](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub739.java)|简单|栈、哈希表
-|2|[215 数组中的第K个最大元素](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub215.java)|中等|堆、分治算法
-
 ## 动态规划
 
 |序号|标题|难度|标签|
@@ -99,6 +52,39 @@
 |8|[62 不同路径](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub62.java)|中等|数组、动态规划
 |9|[96 不同的二叉搜索树](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub96.java)|中等|树、动态规划
 
+## 并发编程
+
+|序号|标题|难度|标签|
+|---|---|---|---|
+|1|[1114 按序打印](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1114.java)|简单|多线程
+|2|[1115 交替打印FooBar](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1115.java)|中等|多线程
+|3|[1116 打印零与奇偶数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1116.java)|中等|多线程
+|4|[1117 H2O 生成](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1117.java)|中等|多线程
+|5|[1195 交替打印字符串](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1195.java)|中等|多线程
+|6|[1226 哲学家进餐](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1226.java)|中等|多线程
+
+## 字符串
+
+|序号|标题|难度|标签|
+|---|---|---|---|
+|1|[13 罗马数字转整数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub13.java)|简单|数学、字符串
+|2|[14 最长公共前缀](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub14.java)|简单|字符串
+|3|[20 有效的括号](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub20.java)|简单|栈、字符串
+|4|[38 外观数列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub38.java)|简单|字符串
+|5|[28 实现 strStr()](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub28.java)|简单|字符串、双指针
+|6|[49 字母异位词分组](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub49.java)|中等|字符串、哈希表
+
+## 链表
+
+|序号|标题|难度|标签|
+|---|---|---|---|
+|1|[21 合并两个有序链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub21.java)|简单|链表
+|2|[206 反转链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub206.java)|简单|链表
+|3|[141 环形链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub141.java)|简单|链表、双指针
+|4|[160 相交链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub160.java)|简单|链表
+|5|[234 回文链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub234.java)|简单|链表、双指针
+|6|[148 排序链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub148.java)|中等|链表、排序
+
 ## 回溯算法
 
 |序号|标题|难度|标签|
@@ -108,6 +94,19 @@
 |3|[39 组合总和](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub39.java)|中等|数组、回溯算法
 |4|[78 子集](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub78.java)|中等|位运算、数组、回溯算法
 
+## 数学
+
+|序号|标题|难度|标签|
+|---|---|---|---|
+|1|[9 回文数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub9.java)|简单|数学
+|2|[136 只出现一次的数字](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub136.java)|简单|位运算、哈希表
+
+## 栈
+
+|序号|标题|难度|标签|
+|---|---|---|---|
+|1|[739 每日温度](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub739.java)|简单|栈、哈希表
+|2|[215 数组中的第K个最大元素](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub215.java)|中等|堆、分治算法
 
 ## 设计
 |序号|标题|难度|标签|
