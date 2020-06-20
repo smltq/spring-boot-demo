@@ -110,6 +110,7 @@
 |2|[215 数组中的第K个最大元素](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub215.java)|中等|堆、分治算法
 
 ## 设计
+
 |序号|标题|难度|标签|
 |---|---|---|---|
 |1|[155 最小栈](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub155.java)|简单|栈、设计
