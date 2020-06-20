@@ -67,7 +67,7 @@
 ## 字符串
 
 |序号|标题|难度|标签|
-|---|---|---|---|
+|---|---|---|---| 
 |1|[13 罗马数字转整数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub13.java)|简单|数学、字符串
 |2|[14 最长公共前缀](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub14.java)|简单|字符串
 |3|[20 有效的括号](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub20.java)|简单|栈、字符串
