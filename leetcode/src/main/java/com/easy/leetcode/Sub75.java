@@ -1,5 +1,7 @@
 package com.easy.leetcode;
 
+import java.util.Arrays;
+
 /*
 75. 颜色分类
 给定一个包含红色、白色和蓝色，一共 n 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。
@@ -21,9 +23,10 @@ package com.easy.leetcode;
  */
 public class Sub75 {
     public static void main(String[] args) {
-        int n = 12;
-        Solution_279_1 solution = new Solution_279_1();
-        System.out.println("返回结果为：" + solution.numSquares(n));
+        int[] nums = {2, 0, 2, 1, 1, 0};
+        Solution_75 solution = new Solution_75();
+        solution.sortColors(nums);
+        System.out.println("返回结果为：" + Arrays.toString(nums));
     }
 }
 
