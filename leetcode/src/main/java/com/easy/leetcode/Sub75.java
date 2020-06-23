@@ -23,15 +23,34 @@ import java.util.Arrays;
  */
 public class Sub75 {
     public static void main(String[] args) {
-        int[] nums = {2, 0, 2, 1, 1, 0};
+        int[] nums = {2, 1};
         Solution_75 solution = new Solution_75();
         solution.sortColors(nums);
         System.out.println("返回结果为：" + Arrays.toString(nums));
     }
 }
 
+/**
+ * 三指针解法
+ */
 class Solution_75 {
     public void sortColors(int[] nums) {
-
+        int p1 = 0, p2 = nums.length - 1, cur = 0, t;
+        while (cur <= p2) {
+            if (nums[cur] == 0 && cur != p1) {
+                t = nums[p1];
+                nums[p1] = nums[cur];
+                nums[cur] = t;
+                p1++;
+            } else if (nums[cur] == 2) {
+                t = nums[p2];
+                nums[p2] = nums[cur];
+                nums[cur] = t;
+                p2--;
+            } else {
+                cur++;
+            }
+            //System.out.println(String.format("p1=%d,p2=%d,cur=%d,数组=%s", p1, p2, cur, Arrays.toString(nums)));
+        }
     }
 }
