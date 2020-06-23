@@ -1,6 +1,5 @@
 package com.easy.leetcode;
 
-import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -24,9 +23,8 @@ queries(问题方程式) = [ ["a", "c"], ["b", "a"], ["a", "e"], ["a", "a"], ["x
 public class Sub339 {
     public static void main(String[] args) {
         int[] nums = {2, 1};
-        Solution_75 solution = new Solution_75();
-        solution.sortColors(nums);
-        System.out.println("返回结果为：" + Arrays.toString(nums));
+        Solution_339 solution = new Solution_339();
+        System.out.println("返回结果为：");
     }
 }
 
