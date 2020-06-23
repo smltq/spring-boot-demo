@@ -54,19 +54,23 @@ class Solution_279_2 {
     }
 
     public int numSquares(int n) {
+        //1.检查是否满足公式4^k(8m+1)
         while (n % 4 == 0) {
             n /= 4;
         }
         if (n % 8 == 7) {
             return 4;
         }
+        //2.检查是否完全平方数
         if (isSquare(n)) {
             return 1;
         }
+        //检查是否可以分解为两个完全平方数和
         for (int i = 1; i * i <= n; ++i) {
             if (this.isSquare(n - i * i))
                 return 2;
         }
+        //其它情况表示这个数可以分解为3个平方和
         return 3;
     }
 }
