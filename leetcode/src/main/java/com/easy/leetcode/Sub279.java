@@ -39,3 +39,34 @@ class Solution_279_1 {
         return dp[n];
     }
 }
+
+/**
+ * 数学公式
+ * 四平方和定理，百度百科地址：https://baike.baidu.com/item/%E5%9B%9B%E5%B9%B3%E6%96%B9%E5%92%8C%E5%AE%9A%E7%90%86
+ * 1.首先，我们检查数字 n 的形式是否为 n = 4^k(8m+1)，如果是，则直接返回 4
+ * 2.否则，我们进一步检查这个数本身是否是一个完全平方数，或者这个数是否可以分解为两个完全平方数和
+ * 3.在底部的情况下，这个数可以分解为 3 个平方和，但我们也可以根据四平方定理，通过加零，把它分解为 4 个平方。但是我们被要求找出最小的平方数
+ */
+class Solution_279_2 {
+    protected boolean isSquare(int n) {
+        int sq = (int) Math.sqrt(n);
+        return n == sq * sq;
+    }
+
+    public int numSquares(int n) {
+        while (n % 4 == 0) {
+            n /= 4;
+        }
+        if (n % 8 == 7) {
+            return 4;
+        }
+        if (isSquare(n)) {
+            return 1;
+        }
+        for (int i = 1; i * i <= n; ++i) {
+            if (this.isSquare(n - i * i))
+                return 2;
+        }
+        return 3;
+    }
+}

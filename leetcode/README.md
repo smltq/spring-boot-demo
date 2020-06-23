@@ -52,7 +52,7 @@
 |8|[62 不同路径](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub62.java)|中等|数组、动态规划
 |9|[96 不同的二叉搜索树](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub96.java)|中等|树、动态规划
 |10|[337 打家劫舍 III](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub337.java)|中等|树、深度优先搜索、动态规划
-|11|[279 完全平方数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub279.java)|中等|动态规划
+|11|[279 完全平方数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub279.java)|中等|动态规划、数学
 
 ## 并发编程
 
