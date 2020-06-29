@@ -69,7 +69,7 @@ public class Sub339 {
 }
 
 /**
- * 三指针解法
+ * 并查集
  */
 class Solution_339 {
     //child parent
@@ -77,6 +77,7 @@ class Solution_339 {
     //child mutiply of parent
     Map<String, Double> values = new HashMap<>();
 
+    //添加
     public void add(String x) {
         if (!parents.containsKey(x)) {
             parents.put(x, x);
@@ -84,12 +85,17 @@ class Solution_339 {
         }
     }
 
+    //合并
     public void union(String parent, String child, double value) {
 
         add(parent);
+
         add(child);
+
         String p1 = find(parent);
+
         String p2 = find(child);
+
         if (p1 == p2) {
             return;
         } else {
@@ -106,7 +112,6 @@ class Solution_339 {
     }
 
     public double cal(String x) {
-        // System.out.println("cal x"+x);
         double v = values.get(x);
         while (parents.get(x) != x) {
             x = parents.get(x);
@@ -118,31 +123,34 @@ class Solution_339 {
 
     public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
 
-        //union
+        //合并
         for (int i = 0; i < equations.size(); i++) {
-            //union parent child value
             union(equations.get(i).get(0), equations.get(i).get(1), values[i]);
         }
 
-        //find
+        //查找
         double[] ans = new double[queries.size()];
         for (int i = 0; i < queries.size(); i++) {
             String c1 = queries.get(i).get(0);
             String c2 = queries.get(i).get(1);
+            //不存在,返回-1
             if (!parents.containsKey(c1) || !parents.containsKey(c2)) {
                 ans[i] = -1;
                 continue;
             }
+            //相同,返回1
             if (c1.equals(c2)) {
                 ans[i] = 1;
                 continue;
             }
             String p1 = find(c1);
             String p2 = find(c2);
+            //不同父集,返回-1
             if (!p1.equals(p2)) {
                 ans[i] = -1;
                 continue;
             }
+            //计算值
             ans[i] = cal(c2) / cal(c1);
         }
         return ans;
