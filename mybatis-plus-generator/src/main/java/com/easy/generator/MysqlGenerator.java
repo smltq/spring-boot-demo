@@ -18,9 +18,6 @@ import java.util.Scanner;
  * <p>
  * mysql 代码生成器演示例子
  * </p>
- *
- * @author bbx
- * @since 2018-09-12
  */
 public class MysqlGenerator {
 
@@ -60,11 +57,11 @@ public class MysqlGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://bbx-testdb-out.mysql.rds.aliyuncs.com:3306/bbx_test?useSSL=false&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8");
+        dsc.setUrl("jdbc:mysql://localhost:3306/easy_web?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("bbx_root");
-        dsc.setPassword("LHBbx#2017@15");
+        dsc.setUsername("root");
+        dsc.setPassword("123456");
         mpg.setDataSource(dsc);
 
         // 包配置
@@ -97,7 +94,7 @@ public class MysqlGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setSuperEntityClass("com.bbx.merchantplatform.common.base.BaseEntity");
+        //strategy.setSuperEntityClass("com.bbx.merchantplatform.common.base.BaseEntity");
         strategy.setEntityLombokModel(true);
         strategy.setSuperControllerClass("com.bbx.merchantplatform.common.base.BaseController");
         strategy.setInclude(scanner("表名"));
@@ -105,6 +102,7 @@ public class MysqlGenerator {
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
+
         // 选择 freemarker 引擎需要指定如下加，注意 pom 依赖必须有！
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
