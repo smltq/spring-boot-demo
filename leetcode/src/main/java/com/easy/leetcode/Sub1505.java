@@ -55,6 +55,26 @@ public class Sub1505 {
 
 class Solution_1505 {
     public String minInteger(String num, int k) {
-        return null;
+        char[] arr = num.toCharArray();
+        int len = arr.length;
+        for (int i = 0; i < len; i++) {
+            int minIndex = i;
+            int end = i + k + 1 > len ? len : i + k;
+            for (int j = i + 1; j < end; j++) {
+                if (arr[minIndex] > arr[j]) {
+                    minIndex = j;
+                }
+            }
+            for (int l = minIndex; l > i; l--) {
+                char t = arr[l];
+                arr[l] = arr[l - 1];
+                arr[l - 1] = t;
+                k--;
+                if (k == 0) {
+                    return String.valueOf(arr);
+                }
+            }
+        }
+        return String.valueOf(arr);
     }
 }
