@@ -38,6 +38,7 @@
 |12|[4 寻找两个正序数组的中位数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub4.java)|困难|数组、二分查找、分治算法
 |13|[287 寻找重复数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub287.java)|困难|数组、双指针、二分查找
 |14|[75 颜色分类](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub75.java)|中难|数组、双指针、排序
+|15|[1502 判断能否形成等差数列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1502.java)|简单|数组、排序
 
 ## 动态规划
 
