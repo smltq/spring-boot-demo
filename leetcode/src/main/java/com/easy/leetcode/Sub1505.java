@@ -53,18 +53,25 @@ public class Sub1505 {
     }
 }
 
+/**
+ * 解题思路(贪心算法)
+ * 1、转换成字符数组进行操作
+ * 2、从下标为0处开始遍历，根据剩余可移动次数k，找到该位置后面可移动到该位置的最小值
+ * 3、进行前移
+ */
 class Solution_1505 {
     public String minInteger(String num, int k) {
         char[] arr = num.toCharArray();
         int len = arr.length;
         for (int i = 0; i < len; i++) {
             int minIndex = i;
-            int end = i + k + 1 > len ? len : i + k;
-            for (int j = i + 1; j < end; j++) {
+            int end = (i + k + 1) > len ? len : (i + k + 1);
+            for (int j = i; j < end; j++) {
                 if (arr[minIndex] > arr[j]) {
                     minIndex = j;
                 }
             }
+            //System.out.println(String.format("输出结果：end=%d,minIndex=%d,i=%d", end, minIndex, i));
             for (int l = minIndex; l > i; l--) {
                 char t = arr[l];
                 arr[l] = arr[l - 1];
@@ -73,6 +80,7 @@ class Solution_1505 {
                 if (k == 0) {
                     return String.valueOf(arr);
                 }
+                //System.out.println(String.format("输出结果：%s,k=%d", String.valueOf(arr), k));
             }
         }
         return String.valueOf(arr);
