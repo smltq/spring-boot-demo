@@ -16,7 +16,7 @@ package com.easy.leetcode;
  */
 public class Sub309 {
     public static void main(String[] args) {
-        Solution_309 solution = new Solution_309();
+        Solution_309_2 solution = new Solution_309_2();
         int[] prices = {1, 2, 3, 0, 2};
         System.out.println("返回结果为：" + solution.maxProfit(prices));
     }
@@ -25,7 +25,7 @@ public class Sub309 {
 /**
  * 动态规划解法
  */
-class Solution_309 {
+class Solution_309_1 {
     public int maxProfit(int[] prices) {
         int len = prices.length;
         if (len == 0) {
@@ -42,5 +42,28 @@ class Solution_309 {
             dp[i][2] = Math.max(dp[i - 1][1], dp[i - 1][2]);
         }
         return Math.max(dp[len - 1][1], dp[len - 1][2]);
+    }
+}
+
+class Solution_309_2 {
+    public int maxProfit(int[] prices) {
+        int len = prices.length;
+        if (len == 0) {
+            return 0;
+        }
+        //dp0 手上有股票最大利润
+        //dp1 手上无股票并且处于冷冻期最大利润
+        //dp2 手上无股票并且不处于冷冻期最大利润
+        int dp0, dp1 = 0, dp2 = 0;
+        dp0 = -prices[0];
+        for (int i = 1; i < len; i++) {
+            int newDp0 = Math.max(dp0, dp2 - prices[i]);
+            int newDp1 = dp0 + prices[i];
+            int newDp2 = Math.max(dp1, dp2);
+            dp0 = newDp0;
+            dp1 = newDp1;
+            dp2 = newDp2;
+        }
+        return Math.max(dp1, dp2);
     }
 }
