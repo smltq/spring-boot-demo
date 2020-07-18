@@ -40,6 +40,9 @@ public class Sub394 {
     }
 }
 
+/**
+ * 堆栈解法
+ */
 class Solution_394 {
     public String decodeString(String s) {
         Stack<String> letterStack = new Stack<>();

@@ -1,4 +1,4 @@
-# LeetCode 题解目录(共71题)
+# LeetCode 题解目录(共79题)
 
 ## 二叉树
 
@@ -112,7 +112,7 @@
 |序号|标题|难度|标签|
 |---|---|---|---|
 |1|[739 每日温度](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub739.java)|简单|栈、哈希表
-|2|[215 数组中的第K个最大元素](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub215.java)|中等|堆、分治算法
+|2|[394 字符串解码](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub394.java)|中等|栈
 
 ## 设计
 
@@ -120,6 +120,7 @@
 |---|---|---|---|
 |1|[155 最小栈](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub155.java)|简单|栈、设计
 |2|[208 实现 Trie (前缀树)](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub208.java)|中等|设计、字典数
+|3|[215 数组中的第K个最大元素](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub215.java)|中等|堆、分治算法
 
 ## 贪心算法
 
