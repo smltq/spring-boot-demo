@@ -92,33 +92,33 @@ class Solution_394_2 {
     int pointer = 0;
 
     public String decodeString(String s) {
-        return dfs(s);
+        return dfs(s).toString();
     }
 
-    public String dfs(String s) {
+    public StringBuffer dfs(String s) {
         //递归结束条件（到字符串末或遇到右中括号）
         if (pointer == s.length() || s.charAt(pointer) == ']') {
-            return "";
+            return new StringBuffer();
         }
 
-        String result = "";
+        StringBuffer result = new StringBuffer();
         Character c = s.charAt(pointer);
         //数值
         if (Character.isDigit(c)) {
             int repTime = getDigit(s);
             pointer++;  //左中括号
-            String str = dfs(s);
+            StringBuffer str = dfs(s);
             pointer++;  //右中括号
             while (repTime-- > 0) {
-                result += str;
+                result.append(str);
             }
             //字母
         } else if (Character.isLetter(c)) {
-            result += c;
+            result.append(c);
             pointer++;
         }
         //左中括号'['
-        return result + dfs(s);
+        return result.append(dfs(s));
     }
 
     public Integer getDigit(String s) {
