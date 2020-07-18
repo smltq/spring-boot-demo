@@ -112,7 +112,7 @@
 |序号|标题|难度|标签|
 |---|---|---|---|
 |1|[739 每日温度](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub739.java)|简单|栈、哈希表
-|2|[394 字符串解码](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub394.java)|中等|栈
+|2|[394 字符串解码](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub394.java)|中等|栈、递归
 
 ## 设计
 
