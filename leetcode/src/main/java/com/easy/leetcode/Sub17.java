@@ -29,21 +29,34 @@ public class Sub17 {
 
 class Solution_17 {
     Map<Character, String> map = new HashMap<Character, String>() {{
-        map.put('2', "abc");
-        map.put('3', "def");
-        map.put('4', "ghi");
-        map.put('5', "jkl");
-        map.put('6', "mno");
-        map.put('7', "pqrs");
-        map.put('8', "tuv");
-        map.put('9', "wxyz");
+        put('2', "abc");
+        put('3', "def");
+        put('4', "ghi");
+        put('5', "jkl");
+        put('6', "mno");
+        put('7', "pqrs");
+        put('8', "tuv");
+        put('9', "wxyz");
     }};
+    List<String> ans = new ArrayList<>();
 
     public List<String> letterCombinations(String digits) {
-        List<String> ans = new ArrayList<>();
-        for (int i = 0; i < digits.length(); i++) {
-
+        if (digits == null || digits.length() == 0) {
+            return ans;
         }
-        return null;
+        findStr(digits, 0, "");
+        return ans;
+    }
+
+    private void findStr(String digits, int index, String str) {
+        if (index == digits.length()) {
+            ans.add(str);
+            return;
+        }
+
+        String strS = map.get(digits.charAt(index));
+        for (Character c : strS.toCharArray()) {
+            findStr(digits, index + 1, str + c);
+        }
     }
 }
