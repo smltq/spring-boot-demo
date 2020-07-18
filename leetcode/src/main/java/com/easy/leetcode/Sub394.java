@@ -34,8 +34,8 @@ import java.util.Stack;
  */
 public class Sub394 {
     public static void main(String[] args) {
-        String s = "100[leetcode]";
-        Solution_394 solution = new Solution_394();
+        String s = "3[a2[c]]";
+        Solution_394_2 solution = new Solution_394_2();
         System.out.println("返回结果：" + solution.decodeString(s));
     }
 }
@@ -48,7 +48,7 @@ public class Sub394 {
  * 3.否则就是遇到右中括号：首先字母栈出栈操作，拼接为字符串后，按数字栈次数回入字母栈，直到字符串s遍历完成
  * 4.最后拼接成为结果字符串，因为是栈操作，最后拼成的字符串记得反转
  */
-class Solution_394 {
+class Solution_394_1 {
     public String decodeString(String s) {
         Stack<String> letterStack = new Stack<>();
         Stack<Integer> numStack = new Stack<>();
@@ -82,5 +82,50 @@ class Solution_394 {
             ans.append(letterStack.pop());
         }
         return ans.reverse().toString();
+    }
+}
+
+/**
+ * 递归解法
+ */
+class Solution_394_2 {
+    int pointer = 0;
+
+    public String decodeString(String s) {
+        return dfs(s);
+    }
+
+    public String dfs(String s) {
+        //递归结束条件（到字符串末或遇到右中括号）
+        if (pointer == s.length() || s.charAt(pointer) == ']') {
+            return "";
+        }
+
+        String result = "";
+        Character c = s.charAt(pointer);
+        //数值
+        if (Character.isDigit(c)) {
+            int repTime = getDigit(s);
+            pointer++;
+            String str = dfs(s);
+            pointer++;
+            while (repTime-- > 0) {
+                result += str;
+            }
+            //字母
+        } else if (Character.isLetter(c)) {
+            result += c;
+            pointer++;
+        }
+        //左中括号'['
+        return result + dfs(s);
+    }
+
+    public Integer getDigit(String s) {
+        String strNum = "";
+        do {
+            strNum += s.charAt(pointer++);
+        } while (Character.isDigit(s.charAt(pointer)));
+        return Integer.parseInt(strNum);
     }
 }
