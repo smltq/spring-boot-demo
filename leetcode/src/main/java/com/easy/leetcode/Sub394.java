@@ -34,7 +34,7 @@ import java.util.Stack;
  */
 public class Sub394 {
     public static void main(String[] args) {
-        String s = "3[a]2[bc]";
+        String s = "100[leetcode]";
         Solution_394 solution = new Solution_394();
         System.out.println("返回结果：" + solution.decodeString(s));
     }
@@ -42,10 +42,37 @@ public class Sub394 {
 
 class Solution_394 {
     public String decodeString(String s) {
-        Stack<String> stack = new Stack<>();
-        for (Character c : s.toCharArray()) {
-
+        Stack<String> letterStack = new Stack<>();
+        Stack<Integer> numStack = new Stack<>();
+        StringBuffer ans = new StringBuffer();
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length; ) {
+            if (Character.isDigit(chars[i])) {
+                String strNum = "";
+                do {
+                    strNum += chars[i];
+                } while (Character.isDigit(chars[++i]));
+                numStack.push(Integer.parseInt(strNum));
+            } else if (Character.isLetter(chars[i]) || chars[i] == '[') {
+                letterStack.push(Character.toString(chars[i]));
+                i++;
+            } else if (chars[i] == ']') {
+                String cc = letterStack.pop();
+                StringBuffer t = new StringBuffer();
+                do {
+                    t.append(cc);
+                    cc = letterStack.pop();
+                } while (!cc.equals("[") && !letterStack.isEmpty());
+                int len = numStack.pop();
+                for (int ii = 0; ii < len; ii++) {
+                    letterStack.push(t.toString());
+                }
+                i++;
+            }
         }
-        return null;
+        while (!letterStack.isEmpty()) {
+            ans.append(letterStack.pop());
+        }
+        return ans.reverse().toString();
     }
 }
