@@ -106,9 +106,9 @@ class Solution_394_2 {
         //数值
         if (Character.isDigit(c)) {
             int repTime = getDigit(s);
-            pointer++;
+            pointer++;  //左中括号
             String str = dfs(s);
-            pointer++;
+            pointer++;  //右中括号
             while (repTime-- > 0) {
                 result += str;
             }
