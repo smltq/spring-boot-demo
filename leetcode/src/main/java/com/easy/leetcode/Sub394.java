@@ -43,7 +43,9 @@ public class Sub394 {
 class Solution_394 {
     public String decodeString(String s) {
         Stack<String> stack = new Stack<>();
+        for (Character c : s.toCharArray()) {
 
+        }
         return null;
     }
 }
