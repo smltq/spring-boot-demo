@@ -98,6 +98,7 @@
 |2|[22 括号生成](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub22.java)|中等|字符串、回溯算法
 |3|[39 组合总和](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub39.java)|中等|数组、回溯算法
 |4|[78 子集](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub78.java)|中等|位运算、数组、回溯算法
+|5|[17 电话号码的字母组合](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub17.java)|中等|字符串、回溯算法
 
 ## 数学
 
