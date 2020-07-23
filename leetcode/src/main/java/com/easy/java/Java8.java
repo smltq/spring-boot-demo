@@ -32,6 +32,15 @@ public class Java8 {
         System.out.println("8-2=" + java8.operate(8, 2, subtract));
         System.out.println("2*4=" + java8.operate(2, 4, multiply));
         System.out.println("8/2=" + java8.operate(8, 2, divide));
+
+        // 不用括号
+        MsgService msgService1 = message -> System.out.println("Hello " + message);
+
+        // 用括号
+        MsgService msgService2 = (message) -> System.out.println("Hello " + message);
+
+        msgService1.sendMsg("java8");
+        msgService2.sendMsg("老林");
     }
 
     private int operate(int a, int b, MathOperation mathOperation) {
@@ -39,6 +48,16 @@ public class Java8 {
     }
 }
 
+/**
+ * 操作接口
+ */
 interface MathOperation {
     int operation(int a, int b);
+}
+
+/**
+ * 消息服务
+ */
+interface MsgService {
+    void sendMsg(String message);
 }
