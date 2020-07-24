@@ -1,7 +1,7 @@
 package com.easy.java;
 
 /**
- * java8之Lambda特性示例
+ * java8之Lambda示例
  */
 public class Java8_Lambda {
     public static void main(String[] args) {
