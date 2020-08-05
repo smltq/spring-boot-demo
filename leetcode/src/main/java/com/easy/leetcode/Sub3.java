@@ -1,5 +1,8 @@
 package com.easy.leetcode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /*
 03. 数组中重复的数字
 找出数组中重复的数字。
@@ -28,6 +31,13 @@ public class Sub3 {
 
 class Solution_3 {
     public int findRepeatNumber(int[] nums) {
-        return 0;
+        Set<Integer> sets = new HashSet<>();
+        for (int i : nums) {
+            if (sets.contains(i)) {
+                return i;
+            }
+            sets.add(i);
+        }
+        return -1;
     }
 }
