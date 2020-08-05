@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /*
-03. 数组中重复的数字
+剑指 Offer 03. 数组中重复的数字
 找出数组中重复的数字。
 
 
@@ -21,7 +21,7 @@ import java.util.Set;
 
 2 <= n <= 100000
 */
-public class Sub3 {
+public class JZOffer03 {
     public static void main(String[] args) {
         Solution_3_2 solution = new Solution_3_2();
         int[] nums = new int[]{2, 3, 1, 0, 2, 5, 3};

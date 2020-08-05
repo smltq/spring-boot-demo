@@ -39,7 +39,7 @@
 |13|[287 寻找重复数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub287.java)|困难|数组、双指针、二分查找
 |14|[75 颜色分类](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub75.java)|中难|数组、双指针、排序
 |15|[1502 判断能否形成等差数列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1502.java)|简单|数组、排序
-|16|[03 数组中重复的数字](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub3.java)|简单|数组、哈希
+|16|[剑指 Offer 03 数组中重复的数字](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/JZOffer03.java)|简单|数组、哈希
 
 ## 动态规划
 
