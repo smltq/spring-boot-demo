@@ -26,7 +26,7 @@ import java.util.Map;
 */
 public class Sub3 {
     public static void main(String[] args) {
-        Solution_3 solution = new Solution_3();
+        Solution_3_2 solution = new Solution_3_2();
         String s = "pwwkew";
         int ans = solution.lengthOfLongestSubstring(s);
         System.out.println("结果：" + ans);
@@ -36,7 +36,7 @@ public class Sub3 {
 /**
  * 利用 双指针+哈希 实现
  */
-class Solution_3 {
+class Solution_3_1 {
     public int lengthOfLongestSubstring(String s) {
         char[] chars = s.toCharArray();
         int len = chars.length, ans = 0;
@@ -52,5 +52,19 @@ class Solution_3 {
             ans = Math.max(ans, map.size());
         }
         return ans;
+    }
+}
+
+class Solution_3_2 {
+    public int lengthOfLongestSubstring(String s) {
+        int n = s.length();
+        int[] index = new int[128];
+        int dis = 0;
+        for (int j = 0, i = 0; j < n; j++) {
+            i = Math.max(index[s.charAt(j)], i);
+            dis = Math.max(dis, j - i + 1);
+            index[s.charAt(j)] = j + 1;
+        }
+        return dis;
     }
 }

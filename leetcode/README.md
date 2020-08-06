@@ -79,6 +79,7 @@
 |4|[38 外观数列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub38.java)|简单|字符串
 |5|[28 实现 strStr()](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub28.java)|简单|字符串、双指针
 |6|[49 字母异位词分组](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub49.java)|中等|字符串、哈希表
+|7|[3 无重复字符的最长子串](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub49.java)|中等|字符串、哈希表、双指针
 
 ## 链表
 

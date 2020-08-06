@@ -23,13 +23,13 @@ import java.util.Set;
 */
 public class JZOffer03 {
     public static void main(String[] args) {
-        Solution_3_2 solution = new Solution_3_2();
+        JZOffer03_2 solution = new JZOffer03_2();
         int[] nums = new int[]{2, 3, 1, 0, 2, 5, 3};
         System.out.println("返回结果为：" + solution.findRepeatNumber(nums));
     }
 }
 
-class Solution_3_1 {
+class JZOffer03_1 {
     public int findRepeatNumber(int[] nums) {
         Set<Integer> sets = new HashSet<>();
         for (int i : nums) {
@@ -42,7 +42,7 @@ class Solution_3_1 {
     }
 }
 
-class Solution_3_2 {
+class JZOffer03_2 {
     public int findRepeatNumber(int[] nums) {
         int[] bit = new int[nums.length];
         for (int i : nums) {
