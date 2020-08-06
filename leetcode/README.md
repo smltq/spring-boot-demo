@@ -40,6 +40,7 @@
 |14|[75 颜色分类](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub75.java)|中难|数组、双指针、排序
 |15|[1502 判断能否形成等差数列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1502.java)|简单|数组、排序
 |16|[剑指 Offer 03 数组中重复的数字](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/JZOffer03.java)|简单|数组、哈希
+|17|[217 存在重复元素](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub217.java)|简单|数组、哈希
 
 ## 动态规划
 
