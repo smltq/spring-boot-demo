@@ -11,11 +11,11 @@
     </parent>
 
     <groupId>com.easy</groupId>
-    <artifactId>spring-boot-docker</artifactId>
+    <artifactId>docker</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>spring-boot-docker</name>
+    <name>docker</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
