@@ -1,6 +1,7 @@
 package com.easy.leetcode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -23,28 +24,45 @@ import java.util.List;
 public class Sub15 {
     public static void main(String[] args) {
         Solution_15 solution = new Solution_15();
-        int[] nums = {-1, 0, 1, 2, -1, -4};
+        int[] nums = {-1, 0, 1, 0};
         System.out.println("返回结果为：" + solution.threeSum(nums));
     }
 }
 
 class Solution_15 {
     public List<List<Integer>> threeSum(int[] nums) {
-        int[] num = nums;// Arrays.stream(nums).distinct().toArray();
         List<List<Integer>> ansList = new ArrayList<>();
-        int len = num.length;
+        if (nums.length < 3) {
+            return ansList;
+        }
+        if (nums[0] == nums[nums.length - 1] && nums[0] == 0) {
+            List<Integer> item = new ArrayList<>();
+            item.add(0);
+            item.add(0);
+            item.add(0);
+            ansList.add(item);
+            return ansList;
+        }
+        Arrays.sort(nums);
+        int len = nums.length;
         for (int i = 0; i < len; i++) {
+            if (i > 1 && nums[i] == nums[i - 1]) continue;
+            if (nums[i] > 0) {
+                break;
+            }
             for (int j = i + 1; j < len; j++) {
+                if (nums[j] == nums[j - 1]) continue;
+                if (nums[i] + nums[j] > 0) {
+                    break;
+                }
                 for (int k = j + 1; k < len; k++) {
-                    if (num[i] + num[j] + num[k] == 0) {
+                    if (nums[k] == nums[k - 1]) continue;
+                    if (nums[i] + nums[j] + nums[k] == 0) {
                         List<Integer> item = new ArrayList<>();
-                        item.add(num[i]);
-                        item.add(num[j]);
-                        item.add(num[k]);
-                        Collections.sort(item);
-                        if (!ansList.contains(item)) {
-                            ansList.add(item);
-                        }
+                        item.add(nums[i]);
+                        item.add(nums[j]);
+                        item.add(nums[k]);
+                        ansList.add(item);
                     }
                 }
             }
