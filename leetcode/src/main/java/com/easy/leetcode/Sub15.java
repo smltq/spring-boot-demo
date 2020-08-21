@@ -51,7 +51,7 @@ class Solution_15 {
                 break;
             }
             for (int j = i + 1; j < len; j++) {
-                if (nums[j] == nums[j - 1]) continue;
+                //if (nums[j] == nums[j - 1]) continue;
                 if (nums[i] + nums[j] > 0) {
                     break;
                 }
