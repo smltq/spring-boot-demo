@@ -50,8 +50,8 @@ p = "mis*is*p*."
 public class Sub10 {
     public static void main(String[] args) {
         Solution_10 solution = new Solution_10();
-        String s = "aab";
-        String p = "c*a*b";
+        String s = "aaabcab";
+        String p = "a*b.a*b";
         System.out.println("返回结果为：" + solution.isMatch(s, p));
     }
 }
