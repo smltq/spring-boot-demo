@@ -73,7 +73,6 @@ class Solution_10 {
                         dp[i][j] = dp[i - 1][j - 1];
                     }
                 }
-
             }
         }
         return dp[m][n];
