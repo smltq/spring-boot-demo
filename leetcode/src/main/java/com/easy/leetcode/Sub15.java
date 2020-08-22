@@ -2,7 +2,6 @@ package com.easy.leetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /*
@@ -24,7 +23,7 @@ import java.util.List;
 public class Sub15 {
     public static void main(String[] args) {
         Solution_15 solution = new Solution_15();
-        int[] nums = {-1, 0, 1, 0};
+        int[] nums = {0, -4, -5, 3, 1, 3, 4, 2, -5, 2, 4, 2, -5};
         System.out.println("返回结果为：" + solution.threeSum(nums));
     }
 }
@@ -32,38 +31,33 @@ public class Sub15 {
 class Solution_15 {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> ansList = new ArrayList<>();
-        if (nums.length < 3) {
-            return ansList;
-        }
-        if (nums[0] == nums[nums.length - 1] && nums[0] == 0) {
-            List<Integer> item = new ArrayList<>();
-            item.add(0);
-            item.add(0);
-            item.add(0);
-            ansList.add(item);
-            return ansList;
-        }
+        //排序
         Arrays.sort(nums);
         int len = nums.length;
         for (int i = 0; i < len; i++) {
-            if (i > 1 && nums[i] == nums[i - 1]) continue;
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
             if (nums[i] > 0) {
                 break;
             }
-            for (int j = i + 1; j < len; j++) {
-                //if (nums[j] == nums[j - 1]) continue;
-                if (nums[i] + nums[j] > 0) {
-                    break;
+            //双指针
+            int target = -nums[i], start = i + 1, end = len - 1;
+            while (start < end) {
+                int current = nums[start] + nums[end];
+                if (start > i + 1 && nums[start] == nums[start - 1]) {
+                    start++;
+                    continue;
                 }
-                for (int k = j + 1; k < len; k++) {
-                    if (nums[k] == nums[k - 1]) continue;
-                    if (nums[i] + nums[j] + nums[k] == 0) {
-                        List<Integer> item = new ArrayList<>();
-                        item.add(nums[i]);
-                        item.add(nums[j]);
-                        item.add(nums[k]);
-                        ansList.add(item);
-                    }
+                if (current == target) {
+                    List<Integer> item = new ArrayList<>();
+                    item.add(nums[i]);
+                    item.add(nums[start]);
+                    item.add(nums[end]);
+                    ansList.add(item);
+                    start++;
+                } else if (current > target) {
+                    end--;
+                } else {
+                    start++;
                 }
             }
         }
