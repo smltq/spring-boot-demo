@@ -19,17 +19,42 @@ package com.easy.leetcode;
  */
 public class Sub19 {
     public static void main(String[] args) {
-        Solution_19 solution = new Solution_19();
+        Solution_19_2 solution = new Solution_19_2();
         ListNode root = new ListNode(1);
         root.next = new ListNode(2);
-        root.next.next = new ListNode(3);
-        root.next.next.next = new ListNode(4);
-        root.next.next.next.next = new ListNode(5);
+//        root.next.next = new ListNode(3);
+//        root.next.next.next = new ListNode(4);
+//        root.next.next.next.next = new ListNode(5);
         System.out.println("返回结果为：" + solution.removeNthFromEnd(root, 2));
     }
 }
 
-class Solution_19 {
+//双指针，时间复杂度为O（n）
+class Solution_19_2 {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode p = head;
+        ListNode q = head;
+        for (int i = 0; i <= n; i++) {
+            if (p == null) {
+                if (n == 1) {
+                    return null;
+                } else {
+                    return head.next;
+                }
+            }
+            p = p.next;
+        }
+        while (p != null) {
+            p = p.next;
+            q = q.next;
+        }
+        q.next = q.next.next;
+        return head;
+    }
+}
+
+//普通解法，遍历两次列表，时间复杂度O(2*N)
+class Solution_19_1 {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode root = head;
         int count = 0;
