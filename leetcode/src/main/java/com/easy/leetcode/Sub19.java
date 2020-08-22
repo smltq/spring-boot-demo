@@ -22,9 +22,9 @@ public class Sub19 {
         Solution_19_2 solution = new Solution_19_2();
         ListNode root = new ListNode(1);
         root.next = new ListNode(2);
-//        root.next.next = new ListNode(3);
-//        root.next.next.next = new ListNode(4);
-//        root.next.next.next.next = new ListNode(5);
+        root.next.next = new ListNode(3);
+        root.next.next.next = new ListNode(4);
+        root.next.next.next.next = new ListNode(5);
         System.out.println("返回结果为：" + solution.removeNthFromEnd(root, 2));
     }
 }
