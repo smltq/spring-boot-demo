@@ -38,14 +38,17 @@ class Solution_19 {
             count++;
         }
         head = root;
+        //处理只有一个节点的情况
         if (count == 1 && n == 1) {
             return null;
         }
         count = count - n;
+        //处理删除节点是首节点的情况
         if (count == 0) {
             root = head.next;
             return root;
         }
+        //查找节点并做删除操作
         while (head.next != null) {
             if (count == 1) {
                 head.next = head.next.next;
