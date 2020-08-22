@@ -30,6 +30,8 @@ public class Sub19 {
 }
 
 //双指针，时间复杂度为O（n）
+// 思路：
+// 请思考L=x+n，p先移动n，然后p与q同时移动x至链表尾部，此时q指向的就是要删除的链接元素。
 class Solution_19_2 {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode p = head;
