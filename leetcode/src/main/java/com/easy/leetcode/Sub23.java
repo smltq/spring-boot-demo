@@ -38,7 +38,7 @@ lists[i].length 的总和不超过 10^4
  */
 public class Sub23 {
     public static void main(String[] args) {
-        Solution_23 solution = new Solution_23();
+        Solution_23_1 solution = new Solution_23_1();
         ListNode[] lists = new ListNode[3];
         lists[0] = new ListNode(1);
         lists[0].next = new ListNode(4);
@@ -55,8 +55,39 @@ public class Sub23 {
     }
 }
 
-//逐条合并
-class Solution_23 {
+//分治合并，时间复杂度O（lon k*n)
+class Solution_23_2 {
+    public ListNode mergeKLists(ListNode[] lists) {
+        if (lists == null || lists.length == 0) return null;
+        return merge(lists, 0, lists.length - 1);
+    }
+
+    //链表俩俩合并
+    public ListNode merge(ListNode[] lists, int l, int r) {
+        if (l == r) {
+            return lists[l];
+        }
+        int mid = l + (r - l) / 2;
+        ListNode lNode = merge(lists, l, mid);
+        ListNode rNode = merge(lists, mid + 1, r);
+        return merge(lNode, rNode);
+    }
+
+    //递归合并两个有序链表
+    public ListNode merge(ListNode l, ListNode r) {
+        if (l == null) return r;
+        if (r == null) return l;
+        if (l.val < r.val) {
+            l.next = merge(l.next, r);
+            return l;
+        }
+        r.next = merge(l, r.next);
+        return r;
+    }
+}
+
+//逐条合并,时间复杂度O（k*n)
+class Solution_23_1 {
     public ListNode mergeKLists(ListNode[] lists) {
         int len = lists.length;
         ListNode ans = null;

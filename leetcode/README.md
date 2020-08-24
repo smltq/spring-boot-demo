@@ -95,6 +95,7 @@
 |5|[234 回文链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub234.java)|简单|链表、双指针
 |6|[148 排序链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub148.java)|中等|链表、排序
 |7|[19 删除链表的倒数第N个节点](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub19.java)|中等|链表、双指针
+|23|[23 合并K个升序链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub23.java)|困难|链表、分治算法
 
 
 ## 回溯算法
