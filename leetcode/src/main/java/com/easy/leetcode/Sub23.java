@@ -55,8 +55,34 @@ public class Sub23 {
     }
 }
 
+//逐条合并
 class Solution_23 {
     public ListNode mergeKLists(ListNode[] lists) {
-        return null;
+        int len = lists.length;
+        ListNode ans = null;
+        for (int i = 0; i < len; i++) {
+            ans = merge(ans, lists[i]);
+        }
+        return ans;
+    }
+
+    public ListNode merge(ListNode l, ListNode r) {
+        if (l == null) return r;
+        if (r == null) return l;
+        ListNode ans = new ListNode(0);
+        ListNode head = ans;
+        while (l != null && r != null) {
+            if (l.val < r.val) {
+                ans.next = l;
+                l = l.next;
+            } else {
+                ans.next = r;
+                r = r.next;
+            }
+            ans = ans.next;
+        }
+        if (l == null) ans.next = r;
+        if (r == null) ans.next = l;
+        return head.next;
     }
 }
