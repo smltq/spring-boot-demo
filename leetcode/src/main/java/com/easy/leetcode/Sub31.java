@@ -32,6 +32,7 @@ class Solution_31 {
         while (i > 0 && nums[i] < nums[i - 1]) {
             i--;
         }
+        i++;
 
         if (i > 0) {
             int j = nums.length - 1;
