@@ -28,16 +28,20 @@ public class Sub31 {
 class Solution_31 {
     public void nextPermutation(int[] nums) {
         int i = nums.length - 1;
-        while (i > 0) {
-            if (nums[i] > nums[i - 1]) {
-                int swap = nums[i];
-                nums[i] = nums[i - 1];
-                nums[i - 1] = swap;
-                return;
-            }
+        //从后往前扫描
+        while (i > 0 && nums[i] < nums[i - 1]) {
             i--;
         }
-        reverse(nums, 0);
+
+        if (i > 0) {
+            int j = nums.length - 1;
+            while (j >= 0 && nums[j] <= nums[i]) {
+                j--;
+            }
+            swap(nums, i, j);
+        }
+
+        reverse(nums, i + 1);
     }
 
     //倒序
