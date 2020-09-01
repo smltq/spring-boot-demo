@@ -42,6 +42,7 @@
 |16|[剑指 Offer 03 数组中重复的数字](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/JZOffer03.java)|简单|数组、哈希
 |17|[217 存在重复元素](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub217.java)|简单|数组、哈希
 |18|[15 三数之和](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub15.java)|中等|数组、双指针
+|19|[31 下一个排列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub31.java)|中等|数组
 
 ## 动态规划
 

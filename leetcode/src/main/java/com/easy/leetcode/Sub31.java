@@ -17,7 +17,7 @@ import java.util.Arrays;
  */
 public class Sub31 {
     public static void main(String[] args) {
-        int[] nums = {1, 3, 2};//==>2,1,3
+        int[] nums = {1, 1};
         Solution_31 solution = new Solution_31();
         solution.nextPermutation(nums);
         System.out.println("返回结果为：");
@@ -28,21 +28,21 @@ public class Sub31 {
 class Solution_31 {
     public void nextPermutation(int[] nums) {
         int i = nums.length - 1;
-        //从后往前扫描
-        while (i > 0 && nums[i] < nums[i - 1]) {
+        //从后往前找，找到第一个nums[i]>[i-1]的数，存下索引i
+        while (i > 0 && nums[i] <= nums[i - 1]) {
             i--;
         }
-        i++;
-
+        //如果i大于0，说明需要对调数值
         if (i > 0) {
             int j = nums.length - 1;
-            while (j >= 0 && nums[j] <= nums[i]) {
+            //从后往前面找,找到第一个nums[j]>num[i-1]的数,并交换他们的值
+            while (j >= 0 && nums[j] <= nums[i - 1]) {
                 j--;
             }
-            swap(nums, i, j);
+            swap(nums, i - 1, j);
         }
-
-        reverse(nums, i + 1);
+        //i及之后的数，整个倒序
+        reverse(nums, i);
     }
 
     //倒序
