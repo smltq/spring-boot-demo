@@ -24,12 +24,13 @@ public class ResourceServerConfig {
             httpSecurity
                     .requestMatchers()
                     // 保险起见，防止被主过滤器链路拦截
-                    .antMatchers("/account/**").and()
-                    .authorizeRequests().anyRequest().authenticated()
+                    .antMatchers("/account/**")
                     .and()
                     .authorizeRequests()
                     .antMatchers("/account/info/**").access("#oauth2.hasScope('get_user_info')")
-                    .antMatchers("/account/child/**").access("#oauth2.hasScope('get_childlist')");
+                    .antMatchers("/account/child/**").access("#oauth2.hasScope('get_childlist')")
+                    .and()
+                    .authorizeRequests().anyRequest().authenticated();
         }
     }
 }
