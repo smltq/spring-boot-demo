@@ -4,3 +4,4 @@
 /mybatis-plus-generator/target
 target
 /cloud-alibaba/nacos
+/cloud-oauth2-auth-code/auth-server/*.iml
