@@ -41,6 +41,8 @@
 |15|[1502 判断能否形成等差数列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1502.java)|简单|数组、排序
 |16|[剑指 Offer 03 数组中重复的数字](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/JZOffer03.java)|简单|数组、哈希
 |17|[217 存在重复元素](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub217.java)|简单|数组、哈希
+|18|[15 三数之和](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub15.java)|中等|数组、双指针
+|19|[31 下一个排列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub31.java)|中等|数组
 
 ## 动态规划
 
@@ -58,6 +60,8 @@
 |10|[337 打家劫舍 III](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub337.java)|中等|树、深度优先搜索、动态规划
 |11|[279 完全平方数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub279.java)|中等|动态规划、数学
 |12|[309 最佳买卖股票时机含冷冻期](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub309.java)|中等|动态规划
+|13|[10 正则表达式匹配](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub10.java)|困难|字符串、动态规划
+|14|[940 不同的子序列 II](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub940.java)|困难|字符串、动态规划
 
 ## 并发编程
 
@@ -92,6 +96,9 @@
 |4|[160 相交链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub160.java)|简单|链表
 |5|[234 回文链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub234.java)|简单|链表、双指针
 |6|[148 排序链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub148.java)|中等|链表、排序
+|7|[19 删除链表的倒数第N个节点](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub19.java)|中等|链表、双指针
+|8|[23 合并K个升序链表](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub23.java)|困难|链表、分治算法
+
 
 ## 回溯算法
 
