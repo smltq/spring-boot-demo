@@ -62,6 +62,7 @@
 |12|[309 最佳买卖股票时机含冷冻期](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub309.java)|中等|动态规划
 |13|[10 正则表达式匹配](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub10.java)|困难|字符串、动态规划
 |14|[940 不同的子序列 II](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub940.java)|困难|字符串、动态规划
+|15|[32 最长有效括号](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub32.java)|困难|字符串、动态规划
 
 ## 并发编程
 
