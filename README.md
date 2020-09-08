@@ -72,9 +72,9 @@ cloud-alibaba|[nacos服务中心、配置中心、限流等使用(系列示例�
 ---|---
 nacos|[Spring Cloud Alibaba（一）如何使用nacos服务注册和发现](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba/README1.md)
 config|[Spring Cloud Alibaba（二）配置中心多项目、多配置文件、分目录实现](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba/README2.md)
-Sentinel|[Spring Cloud Alibaba（三）Sentinel之熔断降级](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba/README3.md)
-Dubbo|[Spring Cloud Alibaba（四）Spring Cloud与Dubbo的融合](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba/README4.md)
-RocketMQ|[Spring Cloud Alibaba（五）RocketMQ 异步通信实现](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba/README5.md)
+sentinel|[Spring Cloud Alibaba（三）sentinel之熔断降级](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba/README3.md)
+dubbo|[Spring Cloud Alibaba（四）Spring Cloud与dubbo的融合](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba/README4.md)
+rocketMQ|[Spring Cloud Alibaba（五）rocketMQ 异步通信实现](https://github.com/smltq/spring-boot-demo/blob/master/cloud-alibaba/README5.md)
 
 ### 其它
 
