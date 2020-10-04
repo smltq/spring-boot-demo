@@ -70,7 +70,7 @@
 |---|---|---|---|
 |1|[1114 按序打印](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1114.java)|简单|多线程
 |2|[1115 交替打印FooBar](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1115.java)|中等|多线程
-|3|[1116 打印零与奇偶数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1116.java)|中等|多线程
+|3|[1116 打印零与奇偶数](https://github.com/smltq/spring-boot-dewwwmo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1116.java)|中等|多线程
 |4|[1117 H2O 生成](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1117.java)|中等|多线程
 |5|[1195 交替打印字符串](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1195.java)|中等|多线程
 |6|[1226 哲学家进餐](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1226.java)|中等|多线程

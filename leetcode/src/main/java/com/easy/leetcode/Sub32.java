@@ -17,9 +17,15 @@ package com.easy.leetcode;
  */
 public class Sub32 {
     public static void main(String[] args) {
-        Solution_32 solution = new Solution_32();
+        Solution_32_2 solution = new Solution_32_2();
         String s = ")()())";
         System.out.println("返回结果为：" + solution.longestValidParentheses(s));
+    }
+}
+
+class Solution_32_2 {
+    public int longestValidParentheses(String s) {
+        return 0;
     }
 }
 
@@ -29,7 +35,7 @@ public class Sub32 {
  * 1.前一个为'('的情况==>dp[i]=dp[i - 2] + 2
  * 2.前一个为')'的情况==>dp[i]=dp[i - 1] + dp[i - dp[i - 1] - 2] + 2
  */
-class Solution_32 {
+class Solution_32_1 {
     public int longestValidParentheses(String s) {
         int len = s.length(), ans = 0;
         int[] dp = new int[len];
