@@ -33,7 +33,7 @@ class Solution_32_2 {
  * 动态规划
  * 状态转换方程
  * 1.前一个为'('的情况==>dp[i]=dp[i - 2] + 2
- * 2.前一个为')'的情况==>dp[i]=dp[i - 1] + dp[i - dp[i - 1] - 2] + 2
+ * 2.前一个为')'的情况==>dp[i]=dp[i - 1] + dp[i - dp[i - 1] - 2] + 2www
  */
 class Solution_32_1 {
     public int longestValidParentheses(String s) {
