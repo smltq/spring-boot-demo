@@ -43,6 +43,7 @@
 |17|[217 存在重复元素](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub217.java)|简单|数组、哈希
 |18|[15 三数之和](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub15.java)|中等|数组、双指针
 |19|[31 下一个排列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub31.java)|中等|数组
+|20|[33 搜索旋转排序数组](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub33.java)|中等|数组、二分查找
 
 ## 动态规划
 
