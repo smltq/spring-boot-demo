@@ -1,4 +1,4 @@
-# LeetCode 题解目录(共100题)
+# LeetCode 题解目录(共115题)
 
 ## 二叉树
 
@@ -44,6 +44,7 @@
 |18|[15 三数之和](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub15.java)|中等|数组、双指针
 |19|[31 下一个排列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub31.java)|中等|数组
 |20|[33 搜索旋转排序数组](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub33.java)|中等|数组、二分查找
+|21|[34 在排序数组中查找元素的第一个和最后一个位置](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub34.java)|中等|数组、二分查找
 
 ## 动态规划
 
