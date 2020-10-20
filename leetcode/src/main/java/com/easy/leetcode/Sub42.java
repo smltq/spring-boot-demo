@@ -13,7 +13,7 @@ package com.easy.leetcode;
  */
 public class Sub42 {
     public static void main(String[] args) {
-        Solution_42 solution = new Solution_42();
+        Solution_42_1 solution = new Solution_42_1();
         int[] nums = {};
         System.out.println("返回结果为：" + solution.trap(nums));
     }
@@ -25,7 +25,7 @@ public class Sub42 {
  * 2.右往左扫一遍，存最大值。
  * 3.计算结果，取左右最大值的最小值与当前值相减，就是每个节点能存的雨水值。
  */
-class Solution_42 {
+class Solution_42_1 {
     public int trap(int[] height) {
         int len = height.length, ans = 0;
         int[] max_l = new int[len];
