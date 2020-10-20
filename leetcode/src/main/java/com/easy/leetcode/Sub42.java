@@ -14,28 +14,36 @@ package com.easy.leetcode;
 public class Sub42 {
     public static void main(String[] args) {
         Solution_42 solution = new Solution_42();
-        int[] nums = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+        int[] nums = {};
         System.out.println("返回结果为：" + solution.trap(nums));
     }
 }
 
+/**
+ * 动态编程
+ * 1.左往右扫一遍，存最大值。
+ * 2.右往左扫一遍，存最大值。
+ * 3.计算结果，取左右最大值的最小值与当前值相减，就是每个节点能存的雨水值。
+ */
 class Solution_42 {
     public int trap(int[] height) {
-        int ans = 0, len = height.length, l = 0, r = 0;
-        //定位l
-        while (height[l] == 0 || height[l] <= height[l + 1]) l++;
-        r = l + 1;
-
-        while (r < len - 1) {
-            while (height[r] < height[l]) r++;
-
-            if (height[l] > 0 && height[l] <= height[r]) {
-                int tValue = Math.min(height[l], height[r]);
-
-            } else {
-                l = r;
-            }
+        int len = height.length, ans = 0;
+        int[] max_l = new int[len];
+        int[] max_r = new int[len];
+        if (len == 0 || len == 1 || len == 2) {
+            return ans;
         }
-        return 0;
+        max_l[0] = height[0];
+        max_r[len - 1] = height[len - 1];
+        for (int i = 1; i < len; i++) {
+            max_l[i] = Math.max(height[i], max_l[i - 1]);
+        }
+        for (int i = len - 2; i >= 0; i--) {
+            max_r[i] = Math.max(height[i], max_r[i + 1]);
+        }
+        for (int i = 1; i < len - 1; i++) {
+            ans += Math.min(max_l[i], max_r[i]) - height[i];
+        }
+        return ans;
     }
 }
