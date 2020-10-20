@@ -143,6 +143,7 @@
 |1|[1221 分割平衡字符串](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1221.java)|简单|贪心算法、字符串
 |2|[406 根据身高重建队列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub406.java)|中等|贪心算法
 |3|[1505 最多 K 次交换相邻数位后得到的最小整数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1505.java)|困难|贪心算法
+|4|[55 跳跃游戏](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub55.java)|中等|贪心算法
 
 ## 堆
 

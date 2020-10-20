@@ -22,13 +22,25 @@ package com.easy.leetcode;
 public class Sub55 {
     public static void main(String[] args) {
         Solution_55 solution = new Solution_55();
-        int[] nums = {2, 3, 1, 1, 4};
+        int[] nums = {3, 2, 1, 0, 4};
         System.out.println("返回结果为：" + solution.canJump(nums));
     }
 }
 
+/**
+ * 贪心算法
+ */
 class Solution_55 {
     public boolean canJump(int[] nums) {
+        int len = nums.length, max_distance = 0;
+        for (int i = 0; i < len; i++) {
+            if (i <= max_distance) {
+                max_distance = Math.max(i + nums[i], max_distance);
+                if (max_distance >= len - 1) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 }
