@@ -112,4 +112,4 @@ Spring boot可以离开Spring Cloud独立使用开发项目，但是Spring Cloud
 - 开发交流QQ群（230017570）
 - 微信公众号
 
-    ![微信公众号](qrcode.jpg)
+    ![微信公众号](https://www.tqlin.cn/images/qrcode.jpg)
