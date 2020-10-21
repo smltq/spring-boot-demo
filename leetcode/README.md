@@ -45,6 +45,7 @@
 |19|[31 下一个排列](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub31.java)|中等|数组
 |20|[33 搜索旋转排序数组](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub33.java)|中等|数组、二分查找
 |21|[34 在排序数组中查找元素的第一个和最后一个位置](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub34.java)|中等|数组、二分查找
+|22|[56 合并区间](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub56.java)|中等|数组、排序
 
 ## 动态规划
 
