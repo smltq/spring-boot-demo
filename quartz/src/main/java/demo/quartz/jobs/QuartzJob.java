@@ -1,5 +1,4 @@
 package demo.quartz.jobs;
-
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.JobExecutionContext;
@@ -18,6 +17,6 @@ public class QuartzJob extends QuartzJobBean {
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
         String taskName = context.getJobDetail().getJobDataMap().getString("name");
-        log.info("---> Quartz job {}, {} <----", new Date(), taskName);
+        //log.info("---> Quartz job {}, {} <----", new Date(), taskName);
     }
 }

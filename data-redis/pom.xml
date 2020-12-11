@@ -8,7 +8,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>data-redis</artifactId>
-    <name>Spring Boot Data Redis Demo</name>
+    <name>data-redis</name>
     <description>Spring Boot Data Redis Demo</description>
     <properties>
         <prpool2oject.build.sourceEncoding>UTF-8</prpool2oject.build.sourceEncoding>

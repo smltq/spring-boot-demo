@@ -8,7 +8,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>aop</artifactId>
-    <name>Spring Boot AOP Demo</name>
+    <name>aop</name>
     <description>Spring Boot AOP Demo</description>
     <properties>
         <main.basedir>${basedir}/../..</main.basedir>
