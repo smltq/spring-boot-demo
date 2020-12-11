@@ -2,17 +2,18 @@ package demo.data.mqRedis;
 
 import demo.data.mqRedis.model.User;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@RunWith(SpringRunner.class)
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 @Slf4j
 public class TestRedis1 {
@@ -27,7 +28,7 @@ public class TestRedis1 {
     public void test() throws Exception {
         stringRedisTemplate.opsForValue().set("aaa", "111");
         log.info(String.format("aaa值是：%s", stringRedisTemplate.opsForValue().get("aaa")));
-        Assert.assertEquals("111", stringRedisTemplate.opsForValue().get("aaa"));
+        assertEquals("111", stringRedisTemplate.opsForValue().get("aaa"));
     }
 
     @Test

@@ -454,12 +454,12 @@ package com.easy.mybatis.multidatasource;
 import com.easy.mybatis.multidatasource.entity.User;
 import com.easy.mybatis.multidatasource.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.MethodSorters;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -471,11 +471,11 @@ import static org.assertj.core.api.Assertions.assertThat;
  * 内置 CRUD 演示
  * </p>
  */
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 @Slf4j
 //指定单元测试按字母顺序执行
-@FixMethodOrder(value = MethodSorters.NAME_ASCENDING)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class MultiDataSourceServiceTest {
 
     @Resource
@@ -530,6 +530,7 @@ public class MultiDataSourceServiceTest {
         }
     }
 }
+
 ```
 
 ### 2.查看控制台执行结果

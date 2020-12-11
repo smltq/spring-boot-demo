@@ -126,7 +126,21 @@ public class RedisConfig extends CachingConfigurerSupport {
 ## 使用示例代码
 
 ```java
-@RunWith(SpringRunner.class)
+package demo.data.redis;
+
+import demo.data.redis.model.User;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 @Slf4j
 public class TestRedis1 {
@@ -141,7 +155,7 @@ public class TestRedis1 {
     public void test() throws Exception {
         stringRedisTemplate.opsForValue().set("aaa", "111");
         log.info(String.format("aaa值是：%s", stringRedisTemplate.opsForValue().get("aaa")));
-        Assert.assertEquals("111", stringRedisTemplate.opsForValue().get("aaa"));
+        Assertions.assertEquals("111", stringRedisTemplate.opsForValue().get("aaa"));
     }
 
     @Test

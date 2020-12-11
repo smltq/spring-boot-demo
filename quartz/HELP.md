@@ -58,7 +58,7 @@ public class ScheduledTask {
 在Spring Boot的主类中加入@EnableScheduling注解，启用定时任务的配置
 
 ```java
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 @Slf4j
 @EnableScheduling
