@@ -74,7 +74,7 @@
         <module>mq-redis</module>
         <module>email</module>
         <module>jGit</module>
-        <module>webmagic</module>
+        <module>web-magic</module>
         <module>netty</module>
         <module>bean</module>
         <module>docker</module>
