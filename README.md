@@ -1,6 +1,6 @@
 # spring-boot-demo
 
- >本项目示例基于spring boot 最新版本（2.3.1.RELEASE）实现，Spring Boot、Spring Cloud 学习示例，将持续更新……
+ >本项目示例基于spring boot 最新版本（2.4.0）实现，Spring Boot、Spring Cloud 学习示例，将持续更新……
 
 在基于Spring Boot、Spring Cloud 分布微服务开发过程中，根据实际项目环境，需要选择、集成符合项目需求的各种组件和积累各种解决方案。基于这样的背景下，我开源了本示例项目，方便大家快速上手Spring Boot、Spring Cloud 。
 
@@ -21,15 +21,16 @@ spring boot demo 是一个Spring Boot、Spring Cloud的项目示例，根据市�
 
 ### 分支介绍
 
-- master 分支：基于 Spring Boot 当前最新版本 2.2.x 将会持续更新，每个 Module 的 parent 依赖根目录下的 pom.xml
-- v-2.1.9 分支：基于 Spring Boot 版本 2.1.9.RELEASE，每个 Module 独立依赖 spring-boot-starter-parent，该分支停止新加示例，只会维护bug
+- master 分支：基于 Spring Boot 当前最新版本 2.4.x 将会持续更新，每个 Module 的 parent 依赖根目录下的 pom.xml
+- v-2.3.x 分支：基于 Spring Boot 版本 2.3.x.RELEASE，每个 Module 的 parent 依赖根目录下的 pom.xml，该分支停止新加示例，只会维护bug
+- v-2.1.x 分支：基于 Spring Boot 版本 2.1.9.RELEASE，每个 Module 独立依赖 spring-boot-starter-parent，该分支停止新加示例，只会维护bug
 - dev：开发分支，主要用于开发调试，稳定后会更新到master
 
 ### Spring Boot 模块
 
 模块名称|主要内容
 ---|---
-helloworld|[spring mvc,Spring Boot项目创建,单元测试](https://github.com/smltq/spring-boot-demo/blob/master/helloworld/HELP.md)
+hello-world|[spring mvc,Spring Boot项目创建,单元测试](https://github.com/smltq/spring-boot-demo/blob/master/hello-world/HELP.md)
 web|[ssh项目,spring mvc,过滤器,拦截器,监视器,thymeleaf,lombok,jquery,bootstrap,mysql](https://github.com/smltq/spring-boot-demo/blob/master/web/HELP.md)
 aop|[aop,正则,前置通知,后置通知,环绕通知](https://github.com/smltq/spring-boot-demo/blob/master/aop/HELP.md)
 data-redis|[lettuce,redis,session redis,YAML配置,连接池,对象存储](https://github.com/smltq/spring-boot-demo/blob/master/data-redis/HELP.md)
@@ -40,7 +41,7 @@ security|[授权、认证、加解密、mybatis plus使用](https://github.com/s
 mybatis-plus-generator|[基于mybatisplus代码自动生成](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-plus-generator)
 mybatis-plus-crud|[基于mybatisplus实现数据库增、册、改、查](https://github.com/smltq/spring-boot-demo/blob/master/mybatis-plus-crud)
 encoder|[主流加密算法介绍、用户加密算法推荐](https://github.com/smltq/spring-boot-demo/blob/master/encoder/HELP.md)
-actuator|[autuator介绍](https://github.com/smltq/spring-boot-demo/blob/master/actuator/README.md)
+actuator|[actuator介绍](https://github.com/smltq/spring-boot-demo/blob/master/actuator/README.md)
 admin|[可视化服务监控、使用](https://github.com/smltq/spring-boot-demo/blob/master/admin/README.md)
 security-oauth2-credentials|[oauth2实现密码模式、客户端模式](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-credentials/README.md)
 security-oauth2-auth-code|[基于spring boot实现oauth2授权模式](https://github.com/smltq/spring-boot-demo/blob/master/security-oauth2-auth-code/README.md)
@@ -49,7 +50,7 @@ template-thymeleaf|[thymeleaf实现应用国际化示例](https://github.com/sml
 mq-redis|[redis之mq实现，发布订阅模式](https://github.com/smltq/spring-boot-demo/blob/master/mq-redis)
 email|[email实现邮件发送](https://github.com/smltq/spring-boot-demo/blob/master/email)
 jGit|[java调用git命令、jgit使用等](https://github.com/smltq/spring-boot-demo/blob/master/jGit)
-webmagic|[webmagic实现某电影网站爬虫示例](https://github.com/smltq/spring-boot-demo/blob/master/webmagic)
+web-magic|[web-magic实现某电影网站爬虫示例](https://github.com/smltq/spring-boot-demo/blob/master/web-magic)
 netty|[基于BIO、NIO等tcp服务器搭建介绍](https://github.com/smltq/spring-boot-demo/blob/master/netty)
 bean|[Bean生命周期相关源码示例](https://github.com/smltq/spring-boot-demo/blob/master/bean)
 docker|[使用 Docker 部署 Spring Boot 项目](https://github.com/smltq/spring-boot-demo/blob/master/docker)
