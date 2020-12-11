@@ -7,24 +7,24 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.easy.mybatisplus.crud.entity.User;
 import com.easy.mybatisplus.crud.mapper.UserMapper;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * <p>
  * 内置 CRUD 演示
  * </p>
  */
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class CrudTest {
 
@@ -159,7 +159,7 @@ public class CrudTest {
         User user = mapper.selectOne(wrapper);
         System.out.println("maxId=" + user.getId());
         List<User> users = mapper.selectList(Wrappers.<User>lambdaQuery().orderByDesc(User::getId));
-        Assert.assertEquals(user.getId().longValue(), users.get(0).getId().longValue());
+        assertEquals(user.getId().longValue(), users.get(0).getId().longValue());
     }
 
     @Test
@@ -191,9 +191,9 @@ public class CrudTest {
         List<User> list = mapper.selectList(wrapper);
         list.forEach(System.out::println);
         list.forEach(x -> {
-            Assert.assertNull(x.getId());
-            Assert.assertNotNull(x.getAge());
-            Assert.assertNotNull(x.getCount());
+            assertNull(x.getId());
+            assertNotNull(x.getAge());
+            assertNotNull(x.getCount());
         });
         mapper.insert(
                 new User().setId(10088L)
@@ -201,8 +201,6 @@ public class CrudTest {
                         .setEmail("miemie@baomidou.com")
                         .setAge(3));
         User miemie = mapper.selectById(10088L);
-        Assert.assertNotNull(miemie);
-
+        assertNotNull(miemie);
     }
-
 }

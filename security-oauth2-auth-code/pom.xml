@@ -8,8 +8,8 @@
     <artifactId>security-oauth2-auth-code</artifactId>
     <version>1.0.0</version>
     <modules>
-        <module>server</module>
-        <module>client1</module>
+        <module>soac-server</module>
+        <module>soac-client1</module>
     </modules>
 
     <packaging>pom</packaging>
