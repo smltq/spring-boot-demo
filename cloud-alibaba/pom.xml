@@ -37,7 +37,7 @@
     </modules>
 
     <packaging>pom</packaging>
-    <name>Spring boot cloud alibaba</name>
+    <name>cloud alibaba</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>

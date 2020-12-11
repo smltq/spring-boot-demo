@@ -8,7 +8,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>quartz</artifactId>
-    <name>Spring Boot Quartz Demo</name>
+    <name>quartz</name>
     <description>Spring Boot Quartz Demo</description>
     <properties>
         <prpool2oject.build.sourceEncoding>UTF-8</prpool2oject.build.sourceEncoding>

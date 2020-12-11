@@ -14,7 +14,7 @@
     </modules>
 
     <packaging>pom</packaging>
-    <name>Spring boot cloud hystrix</name>
+    <name>cloud hystrix</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>

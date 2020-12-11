@@ -13,7 +13,7 @@
     </modules>
 
     <packaging>pom</packaging>
-    <name>Spring boot admin</name>
+    <name>admin</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
