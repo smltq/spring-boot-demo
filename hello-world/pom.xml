@@ -8,9 +8,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>com.easy</groupId>
-    <artifactId>helloworld</artifactId>
+    <artifactId>hello-world</artifactId>
     <version>0.0.1</version>
-    <name>helloworld</name>
+    <name>hello-world</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

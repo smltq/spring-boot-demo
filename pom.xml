@@ -17,7 +17,7 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <spring.boot.version>2.3.1.RELEASE</spring.boot.version>
+        <spring.boot.version>2.4.0</spring.boot.version>
         <hutool.version>5.4.1</hutool.version>
     </properties>
 
@@ -54,7 +54,7 @@
     </dependencyManagement>
 
     <modules>
-        <module>helloworld</module>
+        <module>hello-world</module>
         <module>web</module>
         <module>aop</module>
         <module>data-redis</module>
