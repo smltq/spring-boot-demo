@@ -1,5 +1,10 @@
 package com.easy.leetcode;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.SortedMap;
+
 /*
 621. 任务调度器
 给你一个用字符数组 tasks 表示的 CPU 需要执行的任务列表。其中每个字母表示一种不同种类的任务。任务可以以任意顺序执行，并且每个任务都可以在 1 个单位时间内执行完。在任何一个单位时间，CPU 可以完成一个任务，或者处于待命状态。
@@ -49,7 +54,49 @@ public class Sub621 {
 
 class Solution_621 {
     public int leastInterval(char[] tasks, int n) {
-        return 0;
+        Map<Character, Integer> charMap = new HashMap<>();
+        for (char c : tasks) {
+            Integer count = charMap.get(c);
+            if (count == null) {
+                charMap.put(c, 1);
+            } else {
+                charMap.put(c, ++count);
+            }
+        }
+        int time = 0;
+        Character pre = null;
+        while (getMaxCount(charMap) > 0) {
+            Character key = getMaxChar(charMap);
+            if (pre == null) {
+                Integer count = charMap.get(key);
+                charMap.put(key, --count);
+                time++;
+            } else {
+
+            }
+        }
+
+        return time;
+    }
+
+    public Character getMaxChar(Map<Character, Integer> charMap) {
+        char maxChar = 0;
+        int max = 0;
+        for (Character key : charMap.keySet()) {
+            if (charMap.get(key) >= max) {
+                maxChar = key;
+            }
+        }
+        return maxChar;
+    }
+
+    public int getMaxCount(Map<Character, Integer> charMap) {
+        int max = 0;
+        for (Character key : charMap.keySet()) {
+            if (charMap.get(key) >= max) {
+                max = charMap.get(key);
+            }
+        }
+        return max;
     }
 }
-
