@@ -1,9 +1,6 @@
 package com.easy.leetcode;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.SortedMap;
+import java.util.*;
 
 /*
 621. 任务调度器
@@ -54,49 +51,44 @@ public class Sub621 {
 
 class Solution_621 {
     public int leastInterval(char[] tasks, int n) {
-        Map<Character, Integer> charMap = new HashMap<>();
+        Map<Character, Integer> freq = new HashMap<>();
         for (char c : tasks) {
-            Integer count = charMap.get(c);
-            if (count == null) {
-                charMap.put(c, 1);
-            } else {
-                charMap.put(c, ++count);
-            }
+            freq.put(c, freq.getOrDefault(c, 0) + 1);
         }
-        int time = 0;
-        Character pre = null;
-        while (getMaxCount(charMap) > 0) {
-            Character key = getMaxChar(charMap);
-            if (pre == null) {
-                Integer count = charMap.get(key);
-                charMap.put(key, --count);
-                time++;
-            } else {
 
+        // 任务总数
+        int m = freq.size();
+        List<Integer> nextValid = new ArrayList<>();
+        List<Integer> rest = new ArrayList<>();
+        Set<Map.Entry<Character, Integer>> entrySet = freq.entrySet();
+        for (Map.Entry<Character, Integer> entry : entrySet) {
+            int value = entry.getValue();
+            nextValid.add(1);
+            rest.add(value);
+        }
+
+        int time = 0;
+        for (int i = 0; i < tasks.length; ++i) {
+            ++time;
+            int minNextValid = Integer.MAX_VALUE;
+            for (int j = 0; j < m; ++j) {
+                if (rest.get(j) != 0) {
+                    minNextValid = Math.min(minNextValid, nextValid.get(j));
+                }
             }
+            time = Math.max(time, minNextValid);
+            int best = -1;
+            for (int j = 0; j < m; ++j) {
+                if (rest.get(j) != 0 && nextValid.get(j) <= time) {
+                    if (best == -1 || rest.get(j) > rest.get(best)) {
+                        best = j;
+                    }
+                }
+            }
+            nextValid.set(best, time + n + 1);
+            rest.set(best, rest.get(best) - 1);
         }
 
         return time;
-    }
-
-    public Character getMaxChar(Map<Character, Integer> charMap) {
-        char maxChar = 0;
-        int max = 0;
-        for (Character key : charMap.keySet()) {
-            if (charMap.get(key) >= max) {
-                maxChar = key;
-            }
-        }
-        return maxChar;
-    }
-
-    public int getMaxCount(Map<Character, Integer> charMap) {
-        int max = 0;
-        for (Character key : charMap.keySet()) {
-            if (charMap.get(key) >= max) {
-                max = charMap.get(key);
-            }
-        }
-        return max;
     }
 }
