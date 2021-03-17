@@ -78,6 +78,7 @@
         <module>netty</module>
         <module>bean</module>
         <module>docker</module>
+        <module>mqtt</module>
         <module>leetcode</module>
         <module>cloud-feign</module>
         <module>cloud-oauth2-auth-code</module>
