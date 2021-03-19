@@ -23,7 +23,11 @@
     </properties>
 
     <dependencies>
-
+        <!--mqtt相关依赖 start-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-integration</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-stream</artifactId>
@@ -32,6 +36,7 @@
             <groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-mqtt</artifactId>
         </dependency>
+        <!--mqtt相关依赖 end-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

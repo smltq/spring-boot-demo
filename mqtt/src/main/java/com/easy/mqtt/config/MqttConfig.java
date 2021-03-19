@@ -1,10 +1,13 @@
 package com.easy.mqtt.config;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.integration.annotation.IntegrationComponentScan;
 import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.integration.channel.DirectChannel;
 import org.springframework.integration.core.MessageProducer;
@@ -13,33 +16,26 @@ import org.springframework.integration.mqtt.core.MqttPahoClientFactory;
 import org.springframework.integration.mqtt.inbound.MqttPahoMessageDrivenChannelAdapter;
 import org.springframework.integration.mqtt.outbound.MqttPahoMessageHandler;
 import org.springframework.integration.mqtt.support.DefaultPahoMessageConverter;
-import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessageHandler;
-import org.springframework.messaging.MessagingException;
-import org.springframework.util.StringUtils;
 
-/**
- * MQTT配置，生产者
- */
-@Configuration
+import javax.annotation.PostConstruct;
+import java.util.Objects;
+
 @Slf4j
+@Configuration
+@IntegrationComponentScan
+@Getter
+@Setter
 public class MqttConfig {
 
-    private static final byte[] WILL_DATA;
+    public static final String OUTBOUND_CHANNEL = "mqttOutboundChannel";
 
-    static {
-        WILL_DATA = "offline".getBytes();
-    }
+    public static final String INPUT_CHANNEL = "mqttInputChannel";
 
-    /**
-     * 订阅的bean名称
-     */
-    public static final String CHANNEL_NAME_IN = "mqttInboundChannel";
-    /**
-     * 发布的bean名称
-     */
-    public static final String CHANNEL_NAME_OUT = "mqttOutboundChannel";
+    public static final String SUB_TOPICS = "PSimulation,Pressure,PSimulationPump,PSimulationPressure," +
+            "PSimulationValve,PSimulationFlow,FSimulation,FSimulationPump,FSimulationPressure," +
+            "FSimulationValve,FSimulationFlow,leak,blast";
 
     @Value("${mqtt.username}")
     private String username;
@@ -47,128 +43,84 @@ public class MqttConfig {
     @Value("${mqtt.password}")
     private String password;
 
-    @Value("${mqtt.url}")
-    private String url;
+    @Value("${mqtt.serverURIs}")
+    private String hostUrl;
 
-    @Value("${mqtt.producer.clientId}")
-    private String producerClientId;
+    @Value("${mqtt.client.id}")
+    private String clientId;
 
-    @Value("${mqtt.producer.defaultTopic}")
-    private String producerDefaultTopic;
+    @Value("${mqtt.topic}")
+    private String defaultTopic;
 
-    @Value("${mqtt.consumer.clientId}")
-    private String consumerClientId;
-
-    @Value("${mqtt.consumer.defaultTopic}")
-    private String consumerDefaultTopic;
-
-
-    /**
-     * MQTT连接器选项
-     *
-     * @return {@link org.eclipse.paho.client.mqttv3.MqttConnectOptions}
-     */
-    @Bean
-    public MqttConnectOptions getMqttConnectOptions() {
-        MqttConnectOptions options = new MqttConnectOptions();
-        // 设置是否清空session,这里如果设置为false表示服务器会保留客户端的连接记录，
-        // 这里设置为true表示每次连接到服务器都以新的身份连接
-        options.setCleanSession(true);
-        // 设置连接的用户名
-        options.setUserName(username);
-        // 设置连接的密码
-        options.setPassword(password.toCharArray());
-        options.setServerURIs(StringUtils.split(url, ","));
-        // 设置超时时间 单位为秒
-        options.setConnectionTimeout(10);
-        // 设置会话心跳时间 单位为秒 服务器会每隔1.5*20秒的时间向客户端发送心跳判断客户端是否在线，但这个方法并没有重连的机制
-        options.setKeepAliveInterval(20);
-        // 设置“遗嘱”消息的话题，若客户端与服务器之间的连接意外中断，服务器将发布客户端的“遗嘱”消息。
-        options.setWill("willTopic", WILL_DATA, 2, false);
-        return options;
+    @PostConstruct
+    public void init() {
+        log.debug("username:{} password:{} hostUrl:{} clientId :{} ",
+                this.username, this.password, this.hostUrl, this.clientId, this.defaultTopic);
     }
 
-
-    /**
-     * MQTT客户端
-     *
-     * @return {@link org.springframework.integration.mqtt.core.MqttPahoClientFactory}
-     */
     @Bean
-    public MqttPahoClientFactory mqttClientFactory() {
-        DefaultMqttPahoClientFactory factory = new DefaultMqttPahoClientFactory();
-        factory.setConnectionOptions(getMqttConnectOptions());
+    public MqttPahoClientFactory clientFactory() {
+
+        final MqttConnectOptions options = new MqttConnectOptions();
+        options.setServerURIs(new String[]{hostUrl});
+        options.setUserName(username);
+        options.setPassword(password.toCharArray());
+        final DefaultMqttPahoClientFactory factory = new DefaultMqttPahoClientFactory();
+        factory.setConnectionOptions(options);
         return factory;
     }
 
-    /**
-     * MQTT信息通道（生产者）
-     *
-     * @return {@link org.springframework.messaging.MessageChannel}
-     */
-    @Bean(name = CHANNEL_NAME_OUT)
+    @Bean(value = OUTBOUND_CHANNEL)
     public MessageChannel mqttOutboundChannel() {
         return new DirectChannel();
     }
 
-    /**
-     * MQTT消息处理器（生产者）
-     *
-     * @return {@link org.springframework.messaging.MessageHandler}
-     */
     @Bean
-    @ServiceActivator(inputChannel = CHANNEL_NAME_OUT)
+    @ServiceActivator(inputChannel = OUTBOUND_CHANNEL)
     public MessageHandler mqttOutbound() {
-        MqttPahoMessageHandler messageHandler = new MqttPahoMessageHandler(
-                producerClientId,
-                mqttClientFactory());
-        messageHandler.setAsync(true);
-        messageHandler.setDefaultTopic(producerDefaultTopic);
-        return messageHandler;
+
+        final MqttPahoMessageHandler handler = new MqttPahoMessageHandler(clientId, clientFactory());
+        handler.setDefaultQos(1);
+        handler.setDefaultRetained(false);
+        handler.setDefaultTopic(defaultTopic);
+        handler.setAsync(false);
+        handler.setAsyncEvents(false);
+        return handler;
     }
 
     /**
-     * MQTT消息订阅绑定（消费者）
-     *
-     * @return {@link org.springframework.integration.core.MessageProducer}
+     * MQTT消息接收处理
      */
     @Bean
-    public MessageProducer inbound() {
-        // 可以同时消费（订阅）多个Topic
-        MqttPahoMessageDrivenChannelAdapter adapter =
-                new MqttPahoMessageDrivenChannelAdapter(
-                        consumerClientId, mqttClientFactory(),
-                        StringUtils.split(consumerDefaultTopic, ","));
-        adapter.setCompletionTimeout(5000);
-        adapter.setConverter(new DefaultPahoMessageConverter());
-        adapter.setQos(1);
-        // 设置订阅通道
-        adapter.setOutputChannel(mqttInboundChannel());
-        return adapter;
-    }
-
-    /**
-     * MQTT信息通道（消费者）
-     *
-     * @return {@link org.springframework.messaging.MessageChannel}
-     */
-    @Bean(name = CHANNEL_NAME_IN)
-    public MessageChannel mqttInboundChannel() {
+    public MessageChannel mqttInputChannel() {
         return new DirectChannel();
     }
 
-    /**
-     * MQTT消息处理器（消费者）
-     *
-     * @return {@link org.springframework.messaging.MessageHandler}
-     */
+    //配置client,监听的topic
     @Bean
-    @ServiceActivator(inputChannel = CHANNEL_NAME_IN)
+    public MessageProducer inbound() {
+        MqttPahoMessageDrivenChannelAdapter adapter =
+                new MqttPahoMessageDrivenChannelAdapter(
+                        clientId + "_inbound", clientFactory(), SUB_TOPICS.split(","));
+        adapter.setCompletionTimeout(3000);
+        adapter.setConverter(new DefaultPahoMessageConverter());
+        adapter.setQos(1);
+        adapter.setOutputChannel(mqttInputChannel());
+        return adapter;
+    }
+
+    //通过通道获取数据
+    @Bean
+    @ServiceActivator(inputChannel = INPUT_CHANNEL)
     public MessageHandler handler() {
-        return new MessageHandler() {
-            @Override
-            public void handleMessage(Message<?> message) throws MessagingException {
-                log.error("===================={}============", message.getPayload());
+        return message -> {
+            String topic = Objects.requireNonNull(message.getHeaders().get("mqtt_receivedTopic")).toString();
+            log.info("topic: {}", topic);
+            String[] topics = SUB_TOPICS.split(",");
+            for (String t : topics) {
+                if (t.equals(topic)) {
+                    log.info("payload: {}", message.getPayload().toString());
+                }
             }
         };
     }
