@@ -1,3 +1,5 @@
+server:
+  port: 8081
 # Mqtt配置
 mqtt:
   serverURIs: tcp://127.0.0.1:61613

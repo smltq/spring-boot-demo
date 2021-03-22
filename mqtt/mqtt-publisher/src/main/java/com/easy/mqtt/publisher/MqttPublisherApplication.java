@@ -1,11 +1,11 @@
-package com.easy.mqtt;
+package com.easy.mqtt.publisher;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MqttApplication {
+public class MqttPublisherApplication {
     public static void main(String[] args) {
-        SpringApplication.run(MqttApplication.class, args);
+        SpringApplication.run(MqttPublisherApplication.class, args);
     }
 }

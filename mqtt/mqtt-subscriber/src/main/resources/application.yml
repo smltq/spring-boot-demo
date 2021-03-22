@@ -1,0 +1,10 @@
+server:
+  port: 8082
+# Mqtt配置
+mqtt:
+  serverURIs: tcp://127.0.0.1:61613
+  username: admin
+  password: password
+  client:
+    id: ${random.value}
+  topic: topic_default
