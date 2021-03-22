@@ -54,6 +54,7 @@ web-magic|[web-magic实现某电影网站爬虫示例](https://github.com/smltq/
 netty|[基于BIO、NIO等tcp服务器搭建介绍](https://github.com/smltq/spring-boot-demo/blob/master/netty)
 bean|[Bean生命周期相关源码示例](https://github.com/smltq/spring-boot-demo/blob/master/bean)
 docker|[使用 Docker 部署 Spring Boot 项目](https://github.com/smltq/spring-boot-demo/blob/master/docker)
+mqtt|[SpringBoot 集成 MQTT](https://github.com/smltq/spring-boot-demo/blob/master/mqtt)
 
 ### Spring Cloud 模块
 
