@@ -24,11 +24,17 @@ public class Sub1035 {
     public static void main(String[] args) {
         int[] A = {1, 3, 5};
         int[] B = {1, 5, 3};
-        int result = maxUncrossedLines(A, B);
+        Solution_1035_1 solution = new Solution_1035_1();
+        int result = solution.maxUncrossedLines(A, B);
         System.out.println("返回结果为：" + result);
     }
+}
 
-    public static int maxUncrossedLines(int[] A, int[] B) {
+/**
+ * dp 解法
+ */
+class Solution_1035_1 {
+    public int maxUncrossedLines(int[] A, int[] B) {
         int[][] dp = new int[A.length + 1][B.length + 1];
         for (int i = 1; i <= A.length; i++) {
             for (int j = 1; j <= B.length; j++) {
