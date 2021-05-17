@@ -6,3 +6,6 @@ target
 /cloud-alibaba/nacos
 /cloud-oauth2-auth-code/auth-server/*.iml
 /mybatis-plus-generator/*.iml
+/cloud-config/cloud-config-server/*.iml
+/cloud-config/cloud-config-client/*.iml
+/security/*.iml
