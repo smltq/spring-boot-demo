@@ -61,7 +61,7 @@ class Solution_993 {
         TreeNode yPNode = findTreeNode(root, y, 0);
         int yL = l;
 
-        //是不同的父节点并且层级相关，则为堂兄弟节点
+        //是不同的父节点并且层级相同，则为堂兄弟节点
         if (xL == yL && xPNode != null && yPNode != null && !xPNode.equals(yPNode)) {
             return true;
         } else {
