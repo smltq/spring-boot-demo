@@ -1,4 +1,4 @@
-# LeetCode 题解目录(共118题)
+# LeetCode 题解目录(共150题)
 
 ## 二叉树
 
@@ -168,3 +168,9 @@
 |序号|标题|难度|标签|
 |---|---|---|---|
 |1|[339 除法求值](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub339.java)|中等|位运算
+
+## 算法入门(共 1 题)
+|序号|标题|难度|标签|
+|---|---|---|---|
+|1|[704 二分查找](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/introduction/Sub704.java)|简单|数组、二分查找
+|2|[278 第一个错误的版本](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/introduction/Sub278.java)|简单|二分查找
