@@ -22,7 +22,7 @@ import java.util.Arrays;
  */
 public class Sub611 {
     public static void main(String[] args) {
-        Solution_611 solution = new Solution_611();
+        Solution_611_2 solution = new Solution_611_2();
         int[] nums = {2, 2, 3, 4};
         int ans = solution.triangleNumber(nums);
         System.out.println("返回结果：" + ans);
@@ -30,11 +30,12 @@ public class Sub611 {
 }
 
 /**
- * 思路
+ * 思路一
  * 1.先对数组升序排序
  * 2.因为a<b<c，所以a+c>b,b+c>a必成立，只需要判断a+b>c是否成立
+ * 时间复杂度：n^3
  */
-class Solution_611 {
+class Solution_611_1 {
     public int triangleNumber(int[] nums) {
         Arrays.sort(nums);
         int len = nums.length, ans = 0;
@@ -48,6 +49,36 @@ class Solution_611 {
                         break;
                     }
                 }
+            }
+        }
+        return ans;
+    }
+}
+
+/**
+ * 思路二
+ * 改进思路1，c值采用二分查找
+ * 时间复杂度:n^2*log(n)
+ */
+class Solution_611_2 {
+    public int triangleNumber(int[] nums) {
+        Arrays.sort(nums);
+        int len = nums.length, ans = 0;
+        for (int i = 0; i < len - 2; i++) {
+            for (int j = i + 1; j < len - 1; j++) {
+                int a = nums[i], b = nums[j];
+                int l = j + 1, r = len, k = j;
+                while (l < r) {
+                    int mid = (l + r) / 2;
+                    int c = nums[mid];
+                    if (a + b > c) {
+                        l = mid + 1;
+                        k = mid;
+                    } else {
+                        r = mid;
+                    }
+                }
+                ans += k - j;
             }
         }
         return ans;
