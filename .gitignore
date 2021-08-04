@@ -9,3 +9,4 @@ target
 /cloud-config/cloud-config-server/*.iml
 /cloud-config/cloud-config-client/*.iml
 /security/*.iml
+/mybatis-plus-generator/src/main/java/com/easy/generator/MysqlGenerator.java

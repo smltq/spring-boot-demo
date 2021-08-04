@@ -50,6 +50,7 @@
 |22|[56 合并区间](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub56.java)|中等|数组、排序
 |23|[421 数组中两个数的最大异或值](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub421.java)|中等|数组、位运算、字典树
 |24|[1442 形成两个异或相等数组的三元组数目](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1442.java)|中等|数组、数学
+|25|[611 有效三角形的个数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub611.java)|中等|数组、排序
 
 ## 动态规划
 
