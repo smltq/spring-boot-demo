@@ -29,7 +29,7 @@ import java.util.List;
 public class Sub977 {
     public static void main(String[] args) {
         Solution_977 solution = new Solution_977();
-        int[] nums = {-7,-3,2,3,11};
+        int[] nums = {-7, -3, 2, 3, 11};
         int[] ans = solution.sortedSquares(nums);
         System.out.println("结果：" + Arrays.toString(ans));
     }
@@ -39,6 +39,7 @@ class Solution_977 {
     public int[] sortedSquares(int[] nums) {
         List<Integer> ans1 = new ArrayList<>();
         List<Integer> ans2 = new ArrayList<>();
+        int[] ans = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
             int t = nums[i];
             if (t < 0) {
@@ -49,22 +50,28 @@ class Solution_977 {
         }
 
         //对两个递增list进行归并排序
-        while (!ans1.isEmpty()) {
-            int t = ans1.remove(0);
-            int index = 0;
-            boolean add = false;
-            while (index < ans2.size()) {
-                if (ans2.get(index) > t) {
-                    ans2.add(index, t);
-                    add = true;
-                    break;
-                }
-                index++;
-            }
-            if (!add) {
-                ans2.add(t);
+        int index = 0;
+        while (!ans1.isEmpty() && !ans2.isEmpty()) {
+            int t1 = ans1.get(0);
+            int t2 = ans2.get(0);
+            if (t1 > t2) {
+                ans[index++] = t2;
+                ans2.remove(0);
+            } else {
+                ans[index++] = t1;
+                ans1.remove(0);
             }
         }
-        return ans2.stream().mapToInt(i -> i).toArray();
+        if (ans1.isEmpty()) {
+            for (int t : ans2) {
+                ans[index++] = t;
+            }
+        }
+        if (ans2.isEmpty()) {
+            for (int t : ans1) {
+                ans[index++] = t;
+            }
+        }
+        return ans;
     }
 }
