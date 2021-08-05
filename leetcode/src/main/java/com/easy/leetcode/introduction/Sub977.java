@@ -28,14 +28,19 @@ import java.util.List;
  */
 public class Sub977 {
     public static void main(String[] args) {
-        Solution_977 solution = new Solution_977();
+        Solution_977_2 solution = new Solution_977_2();
         int[] nums = {-7, -3, 2, 3, 11};
         int[] ans = solution.sortedSquares(nums);
         System.out.println("结果：" + Arrays.toString(ans));
     }
 }
 
-class Solution_977 {
+/**
+ * 思路一
+ * 1.分解成两个递增列表
+ * 2.对两个递增列表进行合并排序
+ */
+class Solution_977_1 {
     public int[] sortedSquares(int[] nums) {
         List<Integer> ans1 = new ArrayList<>();
         List<Integer> ans2 = new ArrayList<>();
@@ -72,6 +77,46 @@ class Solution_977 {
                 ans[index++] = t;
             }
         }
+        return ans;
+    }
+}
+
+/**
+ * 思路二
+ * 1.找到最大负数索引negative，该索引距离0最近
+ * 2.利用双指针，从negative处开始往左右两边递增，平方后结果按大小顺序放入ans数组中并返回
+ */
+class Solution_977_2 {
+    public int[] sortedSquares(int[] nums) {
+        int n = nums.length;
+        int negative = -1;
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] < 0) {
+                negative = i;
+            } else {
+                break;
+            }
+        }
+
+        int[] ans = new int[n];
+        int index = 0, i = negative, j = negative + 1;
+        while (i >= 0 || j < n) {
+            if (i < 0) {
+                ans[index] = nums[j] * nums[j];
+                ++j;
+            } else if (j == n) {
+                ans[index] = nums[i] * nums[i];
+                --i;
+            } else if (nums[i] * nums[i] < nums[j] * nums[j]) {
+                ans[index] = nums[i] * nums[i];
+                --i;
+            } else {
+                ans[index] = nums[j] * nums[j];
+                ++j;
+            }
+            ++index;
+        }
+
         return ans;
     }
 }
