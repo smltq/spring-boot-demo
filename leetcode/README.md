@@ -72,7 +72,7 @@
 |14|[940 不同的子序列 II](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub940.java)|困难|字符串、动态规划
 |15|[32 最长有效括号](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub32.java)|困难|字符串、动态规划
 |16|[42 接雨水](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub42.java)|困难|数组、动态规划、双指针、栈
-|16|[1035 不相交的线](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1035.java)|中等|数组、动态规划
+|17|[1035 不相交的线](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1035.java)|中等|数组、动态规划
 
 ## 并发编程
 
