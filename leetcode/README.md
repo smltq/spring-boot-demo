@@ -170,7 +170,7 @@
 |---|---|---|---|
 |1|[339 除法求值](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub339.java)|中等|位运算
 
-## 算法入门(共 3 题)
+## 算法入门(共 7 题)
 
 |序号|标题|难度|标签|
 |---|---|---|---|
@@ -178,5 +178,6 @@
 |2|[278 第一个错误的版本](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/introduction/Sub278.java)|简单|二分查找
 |3|[35 搜索插入位置](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/introduction/Sub35.java)|简单|数组、二分查找
 |4|[977 有序数组的平方](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/introduction/Sub977.java)|简单|数组、双指针、排序
-|5|[189 旋转数组](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/introduction/Sub189.java)|中等|数组、双指针、翻转
+|5|[189 旋转数组(超时....)](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/introduction/Sub189.java)|中等|数组、双指针、翻转
 |6|[283 移动零](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/introduction/Sub977.java)|简单|数组、双指针
+|7|[167 两数之和 II - 输入有序数组](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/introduction/Sub167.java)|简单|数组、双指针
