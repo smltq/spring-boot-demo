@@ -76,7 +76,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         endpoints.tokenStore(tokenStore())
                 .authenticationManager(authenticationManager)
                 .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST)
-
                 // Spring Security oAuth 2.0，刷新token报错Internal Server Error
                 .userDetailsService(userDetailsService)
                 .tokenStore(tokenStore())
