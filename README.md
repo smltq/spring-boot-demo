@@ -55,6 +55,7 @@ netty|[基于BIO、NIO等tcp服务器搭建介绍](https://github.com/smltq/spri
 bean|[Bean生命周期相关源码示例](https://github.com/smltq/spring-boot-demo/blob/master/bean)
 docker|[使用 Docker 部署 Spring Boot 项目](https://github.com/smltq/spring-boot-demo/blob/master/docker)
 mqtt|[SpringBoot 集成 MQTT](https://github.com/smltq/spring-boot-demo/blob/master/mqtt)
+license3j|[基于license3j实现软件证书创建、签署等功能示例](https://github.com/smltq/spring-boot-demo/tree/master/license3j)
 
 ### Spring Cloud 模块
 
