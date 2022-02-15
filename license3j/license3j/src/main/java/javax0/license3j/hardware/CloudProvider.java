@@ -67,12 +67,12 @@ public enum CloudProvider {
      * Refer to <a href="https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/gettingmetadata.htm#metadata-keys">Oracle Cloud metadata keys</a>
      * <p/>
      */
-    Oracle {
-        @Override
-        public String getInstanceId() {
-            return instanceIdFor("http://169.254.169.254/opc/v2/instance/id", "Authorization", "Bearer Oracle");
-        }
-    },
+//    Oracle {
+//        @Override
+//        public String getInstanceId() {
+//            return instanceIdFor("http://169.254.169.254/opc/v2/instance/id", "Authorization", "Bearer Oracle");
+//        }
+//    },
 
     /**
      * Obtain an Digital Ocean instance id.
