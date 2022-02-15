@@ -7,7 +7,7 @@
     <version>3.1.6-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>License3j Repl Application</name>
+    <name>License3jRepl</name>
     <properties>
         <!-- 文件拷贝时的编码 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
