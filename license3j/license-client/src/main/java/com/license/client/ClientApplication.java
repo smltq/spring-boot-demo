@@ -71,9 +71,6 @@ public class ClientApplication {
             System.out.printf("是否到期：%s，到期时间为：%s\n", license.isExpired(), expiryDate);
 
             //license.add(Feature.Create.stringFeature("xx", "XX"));
-            HardwareBinder hb = new HardwareBinder();
-            System.out.printf("machine id：%s\n", hb.getMachineIdString());
-
             Boolean success = license.isOK(key);
             System.out.printf("验证结果为：%s\n", success);
             System.out.printf("Sign：%s\n", Base64.getEncoder().encodeToString(license.getSignature()));
