@@ -1,6 +1,5 @@
 package com.license.client;
 
-import javax0.license3j.HardwareBinder;
 import javax0.license3j.License;
 import javax0.license3j.io.IOFormat;
 import javax0.license3j.io.LicenseReader;
@@ -10,11 +9,8 @@ import org.springframework.core.io.ClassPathResource;
 
 import java.io.File;
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
-
-import static sun.management.Agent.error;
 
 @SpringBootApplication
 public class ClientApplication {
@@ -76,8 +72,6 @@ public class ClientApplication {
             System.out.printf("Sign：%s\n", Base64.getEncoder().encodeToString(license.getSignature()));
 //            System.out.printf("ll值为：%s\n", license.get("ll").getString());
 
-        } catch (IOException e) {
-            error("Error reading license file " + e);
         } catch (Exception e) {
             e.printStackTrace();
         }
