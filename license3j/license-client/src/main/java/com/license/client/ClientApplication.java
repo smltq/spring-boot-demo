@@ -7,7 +7,6 @@ import javax0.license3j.io.LicenseReader;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.io.ClassPathResource;
 
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.TimeZone;
