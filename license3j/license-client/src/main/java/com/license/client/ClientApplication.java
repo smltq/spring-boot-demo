@@ -2,14 +2,12 @@ package com.license.client;
 
 import javax0.license3j.HardwareBinder;
 import javax0.license3j.License;
-import javax0.license3j.hardware.Network;
 import javax0.license3j.io.IOFormat;
 import javax0.license3j.io.LicenseReader;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.File;
-import java.net.NetworkInterface;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.TimeZone;
@@ -65,10 +63,11 @@ public class ClientApplication {
             HardwareBinder hb = new HardwareBinder();
             System.out.printf("machine id：%s\n", hb.getMachineIdString());
             System.out.printf("mac地址：%s\n", NetUtil.getMACAddress1());
+
             System.out.printf("------------------------本机信息 end---------------------------------\n");
 
-            File licenseFile = new ClassPathResource("license.bin").getFile();
-            LicenseReader reader = new LicenseReader(licenseFile);
+            ClassPathResource resource = new ClassPathResource("license.bin");
+            LicenseReader reader = new LicenseReader(resource.getInputStream());
             License license = reader.read(IOFormat.BASE64);
 
             //获取过期时间
@@ -81,13 +80,13 @@ public class ClientApplication {
             System.out.printf("签名验证结果：%s\n", license.isOK(key));
             System.out.printf("\n系统变量：\n");
             System.out.printf("licenseId：%s\n", license.getLicenseId().toString());
+            System.out.printf("当前电脑uuid与证书是否一致：%s\n", hb.assertUUID(license.getLicenseId().toString()));
             System.out.printf("expiryDate：%s\n", expiryDate);
             System.out.printf("licenseSignature：%s\n", Base64.getEncoder().encodeToString(license.getSignature()));
             System.out.printf("\n自定义变量：\n");
             System.out.printf("maxUser：%s\n", license.get("maxUser").getInt());
             System.out.printf("\nlicense详情：\n");
             System.out.printf("%s\n", license);
-
             System.out.printf("------------------------license相关信息 end---------------------------------\n");
         } catch (Exception e) {
             e.printStackTrace();
