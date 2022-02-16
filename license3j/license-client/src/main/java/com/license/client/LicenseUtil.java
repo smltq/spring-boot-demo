@@ -132,6 +132,8 @@ public class LicenseUtil {
             System.out.printf("证书签名非法!");
         } else if (license.isExpired()) {
             System.out.printf("证书有效期过期!");
+        } else if (!hardwareBinder.assertUUID(license.getLicenseId().toString())) {
+            System.out.printf("当前电脑的UUID与证书不一致!");
         } else {
             System.out.printf("证书签名非法!");
             result = true;

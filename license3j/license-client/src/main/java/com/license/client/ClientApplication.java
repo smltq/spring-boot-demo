@@ -15,5 +15,4 @@ public class ClientApplication {
             throw new RuntimeException("许可证书不可用！");
         }
     }
-
 }
