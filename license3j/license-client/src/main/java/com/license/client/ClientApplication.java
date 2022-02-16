@@ -2,12 +2,14 @@ package com.license.client;
 
 import javax0.license3j.HardwareBinder;
 import javax0.license3j.License;
+import javax0.license3j.hardware.Network;
 import javax0.license3j.io.IOFormat;
 import javax0.license3j.io.LicenseReader;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.File;
+import java.net.NetworkInterface;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.TimeZone;
@@ -58,8 +60,6 @@ public class ClientApplication {
     };
 
     public static void main(String[] args) {
-
-
         try {
             System.out.printf("------------------------本机信息 start---------------------------------\n");
             HardwareBinder hb = new HardwareBinder();
@@ -87,6 +87,7 @@ public class ClientApplication {
             System.out.printf("maxUser：%s\n", license.get("maxUser").getInt());
             System.out.printf("\nlicense详情：\n");
             System.out.printf("%s\n", license);
+
             System.out.printf("------------------------license相关信息 end---------------------------------\n");
         } catch (Exception e) {
             e.printStackTrace();
