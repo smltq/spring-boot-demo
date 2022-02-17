@@ -114,7 +114,7 @@ public class LicenseUtil {
      * 检查用户数量是否超限
      *
      * @param count 当前系统已有用户数量
-     * @return
+     * @return true:超限制，false:未到达限制
      */
     public boolean isUserLimit(int count) {
         int maxUser = license.get("maxUser").getInt();
@@ -129,13 +129,14 @@ public class LicenseUtil {
     public boolean isOk() {
         boolean result = false;
         if (!license.isOK(key)) {
-            System.out.printf("证书签名非法!");
+            System.out.printf("许可证签名非法!");
         } else if (license.isExpired()) {
-            System.out.printf("证书有效期过期!");
+            System.out.printf("许可证已经过期!");
         } else if (!hardwareBinder.assertUUID(license.getLicenseId().toString())) {
             System.out.printf("当前电脑的UUID与证书不一致!");
         } else {
-            System.out.printf("证书签名非法!");
+
+            System.out.printf("验证通过!");
             result = true;
         }
         return result;
@@ -149,7 +150,6 @@ public class LicenseUtil {
             System.out.printf("------------------------本机信息 start---------------------------------\n");
             System.out.printf("machine id：%s\n", hardwareBinder.getMachineIdString());
             System.out.printf("mac地址：%s\n", NetUtil.getMACAddress1());
-
             System.out.printf("------------------------本机信息 end---------------------------------\n");
         } catch (Exception e) {
             e.printStackTrace();
