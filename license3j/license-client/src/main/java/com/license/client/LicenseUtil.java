@@ -4,6 +4,7 @@ import javax0.license3j.HardwareBinder;
 import javax0.license3j.License;
 import javax0.license3j.io.IOFormat;
 import javax0.license3j.io.LicenseReader;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.IOException;
@@ -11,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.TimeZone;
 
+@Slf4j
 public class LicenseUtil {
     /**
      * 公钥
@@ -93,7 +95,7 @@ public class LicenseUtil {
             //创建硬件信息
             hardwareBinder = new HardwareBinder();
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("初始化证书失败,异常:" + e.getMessage());
         }
     }
 
@@ -111,14 +113,58 @@ public class LicenseUtil {
     ////////////////////////////////////////////公开的方法////////////////////////////////////////////////////
 
     /**
-     * 检查用户数量是否超限
+     * 验证用户数量是否超限
      *
      * @param count 当前系统已有用户数量
      * @return true:超限制，false:未到达限制
      */
     public boolean isUserLimit(int count) {
         int maxUser = license.get("maxUser").getInt();
-        return count >= maxUser;
+        boolean result = count >= maxUser;
+        log.info("验证用户数量是否超限,结果:" + result);
+        return result;
+    }
+
+    /**
+     * 验证机器码与证书编号是否一致
+     *
+     * @return
+     */
+    public boolean isLocalMachine() {
+        boolean result = false;
+        if (hardwareBinder.assertUUID(license.getLicenseId().toString())) {
+            log.info("机器码与证书编号一致!");
+            result = true;
+        } else {
+            log.info("机器码与证书编号不一致!");
+            result = false;
+        }
+        return result;
+    }
+
+    /**
+     * 验证mac码与证书编号是否一致
+     *
+     * @return
+     */
+    public boolean isLocalMac() {
+        boolean result = false;
+        try {
+            String localMac = NetUtil.getMACAddress1();
+            String licenseId = license.getLicenseId().toString();
+            if (licenseId == null) {
+                log.error("证书编号不能为空!");
+                result = false;
+            } else if (licenseId.equals(localMac)) {
+                log.info("mac验证通过!");
+                result = true;
+            } else {
+                log.error("mac码与证书编号不一致!");
+            }
+        } catch (Exception e) {
+            log.error("获取本地mac码出错,异常:" + e.getMessage());
+        }
+        return result;
     }
 
     /**
@@ -129,14 +175,11 @@ public class LicenseUtil {
     public boolean isOk() {
         boolean result = false;
         if (!license.isOK(key)) {
-            System.out.printf("许可证签名非法!");
+            log.error("许可证签名非法!");
         } else if (license.isExpired()) {
-            System.out.printf("许可证已经过期!");
-        } else if (!hardwareBinder.assertUUID(license.getLicenseId().toString())) {
-            System.out.printf("当前电脑的UUID与证书不一致!");
+            log.error("许可证已经过期!");
         } else {
-
-            System.out.printf("验证通过!");
+            log.info("验证通过!");
             result = true;
         }
         return result;
@@ -147,12 +190,12 @@ public class LicenseUtil {
      */
     public void printLocalInfo() {
         try {
-            System.out.printf("------------------------本机信息 start---------------------------------\n");
-            System.out.printf("machine id：%s\n", hardwareBinder.getMachineIdString());
-            System.out.printf("mac地址：%s\n", NetUtil.getMACAddress1());
-            System.out.printf("------------------------本机信息 end---------------------------------\n");
+            log.info("------------------------本机信息 start---------------------------------");
+            log.info("machine id：{}", hardwareBinder.getMachineIdString());
+            log.info("mac地址：{}", NetUtil.getMACAddress1());
+            log.info("------------------------本机信息 end---------------------------------");
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("获取本机硬件信息出错,异常:" + e.getMessage());
         }
     }
 
@@ -160,18 +203,18 @@ public class LicenseUtil {
      * 打印证书信息
      */
     public void printLicenseInfo() {
-        System.out.printf("------------------------license相关信息 start---------------------------------\n");
-        System.out.printf("是否到期：%s\n", license.isExpired());
-        System.out.printf("签名验证结果：%s\n", license.isOK(key));
-        System.out.printf("\n系统变量：\n");
-        System.out.printf("licenseId：%s\n", license.getLicenseId().toString());
-        System.out.printf("当前电脑uuid与证书是否一致：%s\n", hardwareBinder.assertUUID(license.getLicenseId().toString()));
-        System.out.printf("expiryDate：%s\n", this.expiryDate());
-        System.out.printf("licenseSignature：%s\n", Base64.getEncoder().encodeToString(license.getSignature()));
-        System.out.printf("\n自定义变量：\n");
-        System.out.printf("maxUser：%s\n", license.get("maxUser").getInt());
-        System.out.printf("\nlicense详情：\n");
-        System.out.printf("%s\n", license);
-        System.out.printf("------------------------license相关信息 end---------------------------------\n");
+        log.info("------------------------license相关信息 start---------------------------------");
+        log.info("是否到期：{}", license.isExpired());
+        log.info("签名验证结果：{}", license.isOK(key));
+        log.info("系统变量：");
+        log.info("licenseId：{}", license.getLicenseId().toString());
+        log.info("当前电脑uuid与证书是否一致：{}", hardwareBinder.assertUUID(license.getLicenseId().toString()));
+        log.info("expiryDate：{}", this.expiryDate());
+        log.info("licenseSignature：{}", Base64.getEncoder().encodeToString(license.getSignature()));
+        log.info("自定义变量：");
+        log.info("maxUser：{}", license.get("maxUser").getInt());
+        log.info("license详情：");
+        log.info("{}", license);
+        log.info("------------------------license相关信息 end---------------------------------");
     }
 }
