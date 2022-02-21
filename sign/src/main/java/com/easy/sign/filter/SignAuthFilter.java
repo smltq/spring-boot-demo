@@ -42,15 +42,16 @@ public class SignAuthFilter implements Filter {
 
         Set<String> uriSet = new HashSet<>(securityProperties.getIgnoreSignUri());
         String requestUri = httpRequest.getRequestURI();
-        boolean isMatch = false;
+        //isSign：true允许忽悠签名，false需要签名验证，yml进行配置
+        boolean ignoreSign = false;
         for (String uri : uriSet) {
-            isMatch = requestUri.contains(uri);
-            if (isMatch) {
+            ignoreSign = requestUri.contains(uri);
+            if (ignoreSign) {
                 break;
             }
         }
-        log.info("当前请求的URI是==>{},isMatch==>{}", httpRequest.getRequestURI(), isMatch);
-        if (isMatch) {
+        log.info("当前请求的URI是==>{},ignoreSign==>{}", httpRequest.getRequestURI(), ignoreSign);
+        if (ignoreSign) {
             filterChain.doFilter(requestWrapper, response);
             return;
         }

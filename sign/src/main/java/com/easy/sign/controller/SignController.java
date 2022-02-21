@@ -57,4 +57,13 @@ public class SignController {
     public AjaxResult testDelete(@RequestBody List<Integer> idList) {
         return AjaxResult.success("DELETE参数检验成功", idList);
     }
+
+    @ApiOperation("数组参数测试")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "arr", value = "数组列表", required = true, dataType = "TestVo[] ")
+    })
+    @PostMapping("/arrParamsTest")
+    public AjaxResult arrParamsTest(@RequestBody TestVo[] arr) {
+        return AjaxResult.success("arrParams参数检验成功", arr);
+    }
 }

@@ -1,6 +1,8 @@
 package com.easy.sign.utils;
 
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.json.JSONTokener;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,6 +26,7 @@ public class HttpUtil {
      * @param request
      */
     public static SortedMap<String, String> getBodyParams(final HttpServletRequest request) throws IOException {
+        SortedMap<String, String> result = new TreeMap<>();
         BufferedReader reader = new BufferedReader(new InputStreamReader(request.getInputStream()));
         String str;
         StringBuilder wholeStr = new StringBuilder();
@@ -37,7 +40,13 @@ public class HttpUtil {
         }
 
         //转化成json对象
-        return JSONObject.parseObject(wholeStr.toString(), SortedMap.class);
+        Object json = new JSONTokener(wholeStr.toString()).nextValue();
+        if (json instanceof JSONObject) {
+            result = JSONObject.parseObject(wholeStr.toString(), SortedMap.class);
+        } else if (json instanceof JSONArray) {
+            result.put("array", wholeStr.toString());
+        }
+        return result;
     }
 
     /**
