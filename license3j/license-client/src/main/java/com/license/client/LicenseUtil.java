@@ -90,6 +90,8 @@ public class LicenseUtil {
     private static void init() {
         //  加载外部目录证书文件示例
         //  InputStream inputStream = new PathResource("../test/license.bin").getInputStream();
+
+        //加载resources目录证书
         ClassPathResource resource = new ClassPathResource("license.bin");
         try {
             //加载证书
