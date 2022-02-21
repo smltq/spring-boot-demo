@@ -6,8 +6,10 @@ import javax0.license3j.io.IOFormat;
 import javax0.license3j.io.LicenseReader;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.PathResource;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.TimeZone;
@@ -86,6 +88,8 @@ public class LicenseUtil {
      * 初始化方法
      */
     private static void init() {
+        //  加载外部目录证书文件示例
+        //  InputStream inputStream = new PathResource("../test/license.bin").getInputStream();
         ClassPathResource resource = new ClassPathResource("license.bin");
         try {
             //加载证书
