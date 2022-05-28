@@ -52,6 +52,11 @@
 |24|[1442 形成两个异或相等数组的三元组数目](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub1442.java)|中等|数组、数学
 |25|[611 有效三角形的个数](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub611.java)|中等|数组、排序
 
+### 双指针
+|---|---|---|---|
+|1|[88. 合并两个有序数组](https://github.com/smltq/spring-boot-demo/blob/master/leetcode/src/main/java/com/easy/leetcode/Sub88.java)|简单|数组、双指针
+
+
 ## 动态规划
 
 |序号|标题|难度|标签|
