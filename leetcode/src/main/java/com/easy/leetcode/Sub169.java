@@ -22,7 +22,7 @@ package com.easy.leetcode;
  */
 public class Sub169 {
     public static void main(String[] args) {
-        Solution_169 solution = new Solution_169();
+        Solution_169_2 solution = new Solution_169_2();
         int[] nums = new int[]{2, 2, 1, 1, 1, 2, 2};
         System.out.println("众数为：" + solution.majorityElement(nums));
     }
@@ -31,7 +31,7 @@ public class Sub169 {
 /**
  * Boyer- Moore算法
  */
-class Solution_169 {
+class Solution_169_1 {
     public int majorityElement(int[] nums) {
         int count = 0, candidate = 0;
         for (int num : nums) {
@@ -43,3 +43,22 @@ class Solution_169 {
         return candidate;
     }
 }
+
+/**
+ * 博耶-摩尔多数投票算法（英语：Boyer–Moore majority vote algorithm）
+ */
+class Solution_169_2 {
+    public int majorityElement(int[] nums) {
+        int m = 0, i = 0;
+        for (int num : nums) {
+            if (i == 0) {
+                m = num;
+                i = 1;
+            } else if (m == num) {
+                i++;
+            } else i--;
+        }
+        return m;
+    }
+}
+
