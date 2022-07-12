@@ -1,6 +1,7 @@
 package com.easy.leetcode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /*
@@ -23,7 +24,7 @@ import java.util.List;
 public class Sub46 {
     public static void main(String[] args) {
         int[] nums = new int[]{1, 2, 3};
-        Solution_46 solution = new Solution_46();
+        Solution_46_2 solution = new Solution_46_2();
         System.out.println("输出：" + solution.permute(nums));
     }
 }
@@ -31,7 +32,7 @@ public class Sub46 {
 /**
  * 递归-深搜
  */
-class Solution_46 {
+class Solution_46_1 {
     List<List<Integer>> ans = new ArrayList<>();
     List<Integer> path = new ArrayList<>();
 
@@ -57,6 +58,36 @@ class Solution_46 {
                 used[i] = false;
                 path.remove(path.size() - 1);
             }
+        }
+    }
+}
+
+class Solution_46_2 {
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+
+        List<Integer> output = new ArrayList<Integer>();
+        for (int num : nums) {
+            output.add(num);
+        }
+
+        int n = nums.length;
+        backtrack(n, output, res, 0);
+        return res;
+    }
+
+    public void backtrack(int n, List<Integer> output, List<List<Integer>> res, int first) {
+        // 所有数都填完了
+        if (first == n) {
+            res.add(new ArrayList<Integer>(output));
+        }
+        for (int i = first; i < n; i++) {
+            // 动态维护数组
+            Collections.swap(output, first, i);
+            // 继续递归填下一个数
+            backtrack(n, output, res, first + 1);
+            // 撤销操作
+            Collections.swap(output, first, i);
         }
     }
 }
