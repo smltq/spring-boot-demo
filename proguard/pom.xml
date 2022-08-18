@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>spring-boot-demo</artifactId>
+        <groupId>com.easy</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <groupId>com.easy</groupId>
+    <artifactId>proguard</artifactId>
+    <version>0.0.1</version>
+    <name>proguard</name>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <encoding>UTF-8</encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <proguard.version>7.1.1</proguard.version>
+        <proguard.maven.plugin.version>2.4.0</proguard.maven.plugin.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.wvengen</groupId>
+                <artifactId>proguard-maven-plugin</artifactId>
+                <version>${proguard.maven.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>proguard</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <proguardVersion>${proguard.version}</proguardVersion>
+                    <injar>${project.build.finalName}.jar</injar>
+                    <outjar>${project.build.finalName}.jar</outjar>
+                    <obfuscate>true</obfuscate>
+                    <options>
+                        <option>-dontshrink</option>
+                        <option>-dontoptimize</option>
+                        <!-- 此选项将用新的类名替换反射方法调用中的所有字符串。例如，调用Class.forName('className')-->
+                        <option>-adaptclassstrings</option>
+                        <!-- 此选项将保存所有原始注解等。否则，将从文件中删除所有注解。-->
+                        <option>-keepattributes
+                            Exceptions,
+                            InnerClasses,
+                            Signature,
+                            Deprecated,
+                            SourceFile,
+                            LineNumberTable,
+                            *Annotation*,
+                            EnclosingMethod
+                        </option>
+                        <!-- 此选项将保存接口中的所有原始名称（不混淆）-->
+                        <option>-keepnames interface **</option>
+                        <!-- 此选项将将所有原始方法参数-->
+                        <option>-keepparameternames</option>
+                        <!-- 此选项将保存所有原始类文件（不混淆），一般是混淆领域或者服务包中的文件。-->
+                        <option>-keep
+                            class com.waylau.proguard.Application {
+                            public static void main(java.lang.String[]);
+                            }
+                        </option>
+                        <!-- 此选项忽略警告，例如重复的类定义和命名不正确的文件中的类-->
+                        <option>-ignorewarnings</option>
+                        <!-- 此选项将保存服务包中的所有原始类文件（不进行混淆）-->
+                        <!-- <option>-keep class com.waylau.proguard.service { *; }</option>-->
+                        <!-- 此选项将保存所有软件包中的所有原始接口文件（不进行混淆）-->
+                        <option>-keep interface * extends * { *; }</option>
+                        <!-- 此选项将保存所有包中所有类中的所有原始定义的注解-->
+                        <option>-keep class com.fasterxml.jackson.** { *; }</option>
+                        <option>-keep class org.json.JSONObject.** {** put(java.lang.String,java.util.Map);}</option>
+                        <option>-keepclassmembers class * {
+                            @org.springframework.context.annotation.Bean *;
+                            @org.springframework.beans.factory.annotation.Autowired *;
+                            @org.springframework.beans.factory.annotation.Value *;
+                            }
+                        </option>
+                        <option>-dontwarn com.fasterxml.jackson.databind.**</option>
+                        <option>-dontwarn com.fasterxml.jackson.**</option>
+                    </options>
+                    <injarNotExistsSkip>true</injarNotExistsSkip>
+                    <libs>
+                        <!--在此添加需要的类库-->
+                        <!--<lib>${java.home}/lib/rt.jar</lib>-->
+                    </libs>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.guardsquare</groupId>
+                        <artifactId>proguard-base</artifactId>
+                        <version>${proguard.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
