@@ -1,5 +1,8 @@
 package com.easy.pipeline;
 
+/**
+ * 管道
+ */
 class Pipeline<I, O> {
 
     private final Handler<I, O> currentHandler;
