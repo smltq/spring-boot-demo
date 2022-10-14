@@ -8,7 +8,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>com.easy</groupId>
-    <artifactId>webmagic</artifactId>
+    <artifactId>web-magic</artifactId>
     <version>0.0.1</version>
     <name>webmagic</name>
     <description>Demo project for Spring Boot</description>

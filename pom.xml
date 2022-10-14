@@ -88,6 +88,8 @@
         <module>cloud-hystrix</module>
         <module>cloud-zuul</module>
         <module>cloud-alibaba</module>
+        <module>design-patterns</module>
+        <module>proguard</module>
     </modules>
 
     <build>
