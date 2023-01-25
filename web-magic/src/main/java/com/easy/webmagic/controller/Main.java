@@ -5,7 +5,7 @@ import us.codecraft.webmagic.Spider;
 public class Main {
     public static void main(String[] args) {
         //获取影片标题和页面链接
-        Spider.create(new ListPageProcesser()).addUrl("https://www.dytt8.net/html/gndy/dyzz/list_23_1.html")
+        Spider.create(new ListPageProcessor()).addUrl("https://www.dytt8.net/html/gndy/dyzz/list_23_1.html")
                 .addPipeline(new MyPipeline()).thread(1).run();
 
         //获取指定详情页面的影片下载地址

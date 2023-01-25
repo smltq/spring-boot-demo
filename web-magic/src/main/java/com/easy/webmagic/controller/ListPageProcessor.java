@@ -4,7 +4,7 @@ import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.processor.PageProcessor;
 
-public class ListPageProcesser implements PageProcessor {
+public class ListPageProcessor implements PageProcessor {
     private Site site = Site.me().setDomain("127.0.0.1");
 
     @Override
