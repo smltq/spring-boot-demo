@@ -37,11 +37,11 @@ Sentinel 提供简单易用、完善的 SPI 扩展接口。您可以通过实现
 
 ### Sentinel主要特性
 
-![Sentinel 主要特性](http://49.235.170.100:8090/upload/2019/10/Sentinel%20%E4%B8%BB%E8%A6%81%E7%89%B9%E6%80%A7-ed3121ad317c4704b72801d76be4e707.png)
+![Sentinel 主要特性](ali-nacos-sentinel-feign/Sentinel1.png)
 
 ### Sentinel开源生态
 
-![Sentinel 开源生态](http://49.235.170.100:8090/upload/2019/10/Sentinel%20%E5%BC%80%E6%BA%90%E7%94%9F%E6%80%81-b97ff929cf14465a8ae79b2204d2b3df.png)
+![Sentinel 开源生态](ali-nacos-sentinel-feign/Sentinel2.png)
 
 ## 熔断降级
 
